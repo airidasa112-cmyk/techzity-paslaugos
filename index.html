@@ -1,0 +1,1481 @@
+<!DOCTYPE html>
+<html lang="lt">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<meta name="robots" content="noindex,nofollow">
+<title>Renginių erdvės Vilniuje – 16 salių ir terasų nuo 24 iki 1 000 svečių | Tech Zity Events</title>
+<meta name="description" content="Renginių erdvių nuoma Vilniuje: Tech Park, Tech Arts ir Samsung konferencijų centras. 16 salių, terasų ir kiemų nuo 24 iki 1 000 svečių. Įranga, baldai ir valymas įskaičiuoti.">
+<meta property="og:title" content="Renginių erdvės Vilniuje | Tech Zity Events">
+<meta property="og:description" content="16 salių, terasų ir kiemų trijose Vilniaus lokacijose — nuo 24 iki 1 000 svečių.">
+<meta property="og:type" content="website">
+<meta name="theme-color" content="#251216">
+<link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 32 32'%3E%3Crect width='32' height='32' fill='%23251216'/%3E%3Cpath d='M6 8h20v4h-8v12h-4V12H6z' fill='%23FFC36A'/%3E%3C/svg%3E">
+<link rel="preload" href="assets/fonts/Deacon-Bold.woff2" as="font" type="font/woff2" crossorigin>
+<link rel="preload" href="assets/fonts/NHaasGroteskDSPro-55Rg.woff2" as="font" type="font/woff2" crossorigin>
+<style>
+@font-face{font-family:'Deacon';src:url('assets/fonts/Deacon-Bold.woff2') format('woff2');font-weight:600 800;font-display:swap}
+@font-face{font-family:'NHaas';src:url('assets/fonts/NHaasGroteskDSPro-55Rg.woff2') format('woff2');font-weight:400;font-display:swap}
+@font-face{font-family:'NHaas';src:url('assets/fonts/NHaasGroteskDSPro-75Bd.woff2') format('woff2');font-weight:700;font-display:swap}
+
+:root{
+  /* brand — Tech Zity 2026 */
+  --wine:#251216; --ink:#1E1013; --bg:#F5F3F1; --white:#fff; --snow:#FBFAF9;
+  --rust:#A53E00; --rust-deep:#7E2F00; --vermillion:#F04800; --sage:#D0DFDD;
+  --steel:#6B5A5E; --line:rgba(107,90,94,.2);
+  /* lokacijų spalvos (brandbook / 2026 pristatymai) */
+  --park:#FFC36A; --park-ink:#7A4A00;
+  --arts:#0FCB76; --arts-ink:#046B3B;
+  --zity:#F04800; --zity-ink:#A53E00;
+  /* ritmas */
+  --s1:.5rem; --s2:1rem; --s3:1.5rem; --s4:2.25rem; --s5:3.5rem; --s6:5rem;
+  --sec:clamp(3.25rem,6vw,5.5rem);
+  --wrap:1280px;
+  --font-d:'Deacon','NHaas',system-ui,sans-serif;
+  --font-b:'NHaas',system-ui,-apple-system,'Segoe UI',sans-serif;
+  --font-m:ui-monospace,'Cascadia Mono','SF Mono',Consolas,monospace;
+  /* firminis „dobiliukas" — Tech Zity ženklo silueto kaukė */
+  --clover:url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 240 56' preserveAspectRatio='none'%3E%3Cpath d='M18 0H118.4V7.2H121.6V0H222Q229 0 231.4 4.6L239.4 25.4A2 2 0 0 1 240 26.6V26.6H232.8V29.4H240Q240 30.2 239.4 31.4L231.4 51.4Q229 56 222 56H121.6V48.8H118.4V56H18Q11 56 8.6 51.4L.6 31.4Q0 30.2 0 29.4H7.2V26.6H0Q0 25.4 .6 25.4L8.6 4.6Q11 0 18 0Z' fill='%23000'/%3E%3C/svg%3E");
+  color-scheme:only light;
+}
+*,*::before,*::after{margin:0;padding:0;box-sizing:border-box}
+html{scroll-behavior:smooth;background:var(--wine);-webkit-text-size-adjust:100%;scroll-padding-top:120px}
+body{font-family:var(--font-b);background:var(--bg);color:var(--ink);font-size:16px;line-height:1.55;-webkit-font-smoothing:antialiased;overflow-x:hidden}
+h1,h2,h3,h4{font-family:var(--font-d);text-transform:uppercase;letter-spacing:.005em;line-height:1.03;font-weight:700}
+img,video,svg,iframe{max-width:100%;display:block}
+a{color:inherit}
+button{font:inherit;color:inherit;background:none;border:0;cursor:pointer}
+ul{list-style:none}
+input,select,textarea,button{font-family:inherit}
+:where(a,button,input,select,textarea,summary,[tabindex]):focus-visible{outline:3px solid var(--rust);outline-offset:3px;border-radius:2px}
+.wrap{max-width:var(--wrap);margin:0 auto;padding:0 clamp(1.15rem,4vw,2rem)}
+.sr-only{position:absolute;width:1px;height:1px;padding:0;margin:-1px;overflow:hidden;clip:rect(0 0 0 0);white-space:nowrap;border:0}
+.skip{position:absolute;left:-9999px;top:0;z-index:200;background:var(--wine);color:#fff;padding:.8rem 1.2rem}
+.skip:focus{left:0}
+
+/* ══ „DOBILIUKAS" — firminis mygtukas (korekcija 3) ══ */
+.chip{position:relative;display:inline-flex;align-items:center;justify-content:center;gap:.5rem;
+  min-height:48px;padding:.85rem 2.1rem;font-family:var(--font-d);font-size:.86rem;letter-spacing:.045em;
+  text-transform:uppercase;text-decoration:none;text-align:center;color:var(--ink);
+  transition:transform .18s ease,filter .18s ease;isolation:isolate}
+.chip::before{content:"";position:absolute;inset:0;z-index:-1;background:var(--sage);
+  -webkit-mask-image:var(--clover);mask-image:var(--clover);
+  -webkit-mask-size:100% 100%;mask-size:100% 100%;-webkit-mask-repeat:no-repeat;mask-repeat:no-repeat;
+  transition:background-color .18s ease}
+.chip:hover{transform:translateY(-1px)}
+.chip:hover::before{filter:brightness(1.06)}
+.chip:active{transform:translateY(0)}
+.chip--primary{color:var(--ink)}
+.chip--primary::before{background:var(--park)}
+.chip--primary:hover::before{background:var(--vermillion)}
+.chip--dark{color:#fff}
+.chip--dark::before{background:var(--wine)}
+.chip--ghost{color:#fff}
+.chip--ghost::before{background:rgba(255,255,255,.18);backdrop-filter:blur(6px)}
+.chip--sm{min-height:44px;padding:.65rem 1.5rem;font-size:.76rem}
+.chip[aria-disabled="true"]{opacity:.5;pointer-events:none}
+
+/* ══ HEADER (korekcija 1, 11) ══ */
+header{position:sticky;top:0;z-index:90;background:rgba(245,243,241,.93);backdrop-filter:blur(10px);border-bottom:1px solid var(--line)}
+.nav{display:flex;align-items:center;justify-content:space-between;gap:1rem;height:68px}
+.nav-brand{display:flex;align-items:center;min-height:44px}
+.nav-tze{height:26px;width:auto}
+.nav-links{display:flex;gap:1.35rem;align-items:center}
+.nav-links a{text-decoration:none;font-size:.76rem;text-transform:uppercase;letter-spacing:.07em;color:var(--ink);white-space:nowrap}
+.nav-links a:not(.chip):hover{color:var(--rust)}
+.nav-lang{font-family:var(--font-m);border:1px solid var(--line);border-radius:999px;padding:.3rem .65rem}
+.burger{display:none;width:44px;height:44px;place-items:center}
+.mobile-menu{display:none;flex-direction:column;gap:.15rem;padding:0 clamp(1.15rem,4vw,2rem) 1.25rem;border-top:1px solid var(--line)}
+.mobile-menu[data-open]{display:flex}
+.mobile-menu a{text-decoration:none;padding:.85rem .25rem;font-size:.95rem;border-bottom:1px solid var(--line);min-height:44px;display:flex;align-items:center}
+.mobile-menu .chip{margin-top:.9rem;border-bottom:0}
+
+/* ══ HERO (korekcijos 2, 5) ══ */
+.hero{position:relative;background:var(--wine);color:#fff;overflow:hidden;min-height:clamp(520px,74vh,720px);display:flex;align-items:flex-end}
+.hero-media{position:absolute;inset:0}
+.hero-media img,.hero-media video{position:absolute;inset:0;width:100%;height:100%;object-fit:cover}
+.hero-media video{z-index:1}
+#heroPoster{z-index:2;transition:opacity .7s ease}
+/* Video lieka tas pats, todėl skaitomumą užtikrina kadro tamsinimas + dviejų sluoksnių šydas:
+   klipe pasitaiko labai šviesių kadrų (dangus, balta siena), o tekstas turi likti skaitomas visuose. */
+.hero-media video,.hero-media img{filter:brightness(.66) saturate(.94)}
+.hero-scrim{position:absolute;inset:0;z-index:3;
+  background:
+    linear-gradient(90deg,rgba(37,18,22,.82) 0%,rgba(37,18,22,.55) 42%,rgba(37,18,22,.2) 78%,rgba(37,18,22,.12) 100%),
+    linear-gradient(180deg,rgba(37,18,22,.7) 0%,rgba(37,18,22,.42) 26%,rgba(37,18,22,.62) 66%,rgba(37,18,22,.92) 100%)}
+@media(max-width:860px){
+  .hero-scrim{background:linear-gradient(180deg,rgba(37,18,22,.78) 0%,rgba(37,18,22,.62) 22%,rgba(37,18,22,.74) 60%,rgba(37,18,22,.94) 100%)}
+}
+.hero-inner{position:relative;z-index:5;width:100%;max-width:var(--wrap);margin:0 auto;padding:clamp(5rem,11vh,7rem) clamp(1.15rem,4vw,2rem) clamp(2.5rem,5vh,3.5rem)}
+.crumbs{font-family:var(--font-m);font-size:.7rem;letter-spacing:.1em;text-transform:uppercase;color:rgba(255,255,255,.72);margin-bottom:var(--s3)}
+.crumbs a{text-decoration:none}
+.crumbs a:hover{text-decoration:underline}
+.hero h1{font-size:clamp(2.4rem,6.4vw,4.6rem);max-width:16ch;text-shadow:0 2px 24px rgba(0,0,0,.45)}
+.hero-sub{font-size:clamp(1rem,1.9vw,1.2rem);max-width:44ch;margin:var(--s3) 0 var(--s4);color:rgba(255,255,255,.94);text-shadow:0 1px 12px rgba(0,0,0,.5)}
+.hero-ctas{display:flex;gap:.8rem;flex-wrap:wrap}
+.hero-locs{display:flex;gap:.5rem;flex-wrap:wrap;margin-bottom:var(--s3)}
+.loc-tag{display:inline-flex;align-items:center;gap:.45rem;font-family:var(--font-m);font-size:.66rem;letter-spacing:.12em;text-transform:uppercase;
+  border:1px solid rgba(255,255,255,.3);border-radius:999px;padding:.32rem .7rem;color:#fff}
+.loc-dot{width:9px;height:9px;border-radius:50%;flex:0 0 auto}
+.video-toggle{position:absolute;right:1rem;bottom:4.5rem;z-index:6;width:44px;height:44px;display:grid;place-items:center;border-radius:999px;border:1px solid rgba(255,255,255,.4);color:#fff;background:rgba(37,18,22,.5)}
+
+/* ══ KONTAKTŲ MYGTUKAI (korekcija 4) ══ */
+.contact-row{display:flex;gap:.6rem;flex-wrap:wrap;margin-top:var(--s4)}
+.cbtn{display:inline-flex;align-items:center;gap:.55rem;min-height:48px;padding:.6rem 1.15rem;border-radius:999px;
+  border:1px solid rgba(255,255,255,.34);background:rgba(255,255,255,.1);color:#fff;text-decoration:none;font-size:.95rem;
+  font-family:var(--font-m);letter-spacing:.01em;transition:background-color .2s ease,border-color .2s ease}
+.cbtn:hover{background:rgba(255,255,255,.2);border-color:rgba(255,255,255,.6)}
+.cbtn svg{flex:0 0 auto}
+.cbtn-group{display:inline-flex;align-items:stretch;border-radius:999px;overflow:hidden;border:1px solid rgba(255,255,255,.34);background:rgba(255,255,255,.1)}
+.cbtn-group .cbtn{border:0;border-radius:0;background:none}
+.cbtn-copy{display:inline-flex;align-items:center;gap:.4rem;padding:0 1rem;min-height:48px;min-width:48px;justify-content:center;
+  border-left:1px solid rgba(255,255,255,.28);color:#fff;font-family:var(--font-m);font-size:.72rem;letter-spacing:.08em;text-transform:uppercase}
+.cbtn-copy:hover{background:rgba(255,255,255,.16)}
+.cbtn-copy[data-done]{color:var(--park)}
+/* šviesus variantas */
+.contact-row.on-light .cbtn,.contact-row.on-light .cbtn-group{border-color:var(--line);background:var(--white);color:var(--ink)}
+.contact-row.on-light .cbtn-copy{color:var(--ink);border-left-color:var(--line)}
+.contact-row.on-light .cbtn:hover{background:var(--snow)}
+.contact-row.on-light .cbtn-copy[data-done]{color:var(--rust)}
+
+/* ══ FAKTŲ JUOSTA ══ */
+.trust{background:var(--white);border:1px solid var(--line);display:grid;grid-template-columns:repeat(4,1fr);
+  margin-top:calc(var(--s4) * -1);position:relative;z-index:5;box-shadow:0 10px 40px rgba(37,18,22,.09)}
+.trust div{padding:1.35rem 1rem;text-align:center;border-right:1px solid var(--line)}
+.trust div:last-child{border-right:0}
+.trust b{display:block;font-family:var(--font-d);font-size:clamp(1.35rem,2.6vw,1.9rem);line-height:1.1;color:var(--wine)}
+.trust span{font-size:.78rem;color:var(--steel);display:block;margin-top:.25rem}
+
+/* ══ INKARAI ══ */
+.anchors{position:sticky;top:68px;z-index:80;background:var(--bg);border-bottom:1px solid var(--line)}
+.anchors-inner{display:flex;gap:.4rem;overflow-x:auto;padding:.6rem 0;scrollbar-width:none}
+.anchors-inner::-webkit-scrollbar{display:none}
+.anchors a{font-size:.72rem;text-transform:uppercase;letter-spacing:.07em;text-decoration:none;padding:.6rem 1rem;
+  border:1px solid transparent;border-radius:999px;white-space:nowrap;min-height:44px;display:inline-flex;align-items:center;color:var(--steel)}
+.anchors a:hover{border-color:var(--line);color:var(--ink)}
+.anchors a.active{background:var(--wine);color:#fff}
+
+/* ══ SEKCIJŲ RITMAS (korekcija 5) ══ */
+section{padding-block:var(--sec)}
+section.tight{padding-block:calc(var(--sec) * .62)}
+.sec-head{display:grid;gap:var(--s2);margin-bottom:var(--s4);max-width:66ch}
+.sec-head.split{max-width:none;grid-template-columns:minmax(0,1fr) minmax(0,26rem);align-items:end;gap:var(--s4)}
+.eyebrow{font-family:var(--font-m);font-size:.68rem;letter-spacing:.18em;text-transform:uppercase;color:var(--rust)}
+h2{font-size:clamp(1.85rem,3.9vw,3rem)}
+h3{font-size:clamp(1.15rem,2vw,1.4rem)}
+.lead{color:var(--steel);font-size:clamp(.98rem,1.4vw,1.06rem)}
+
+/* ══ FILTRAI (korekcija 8) ══ */
+.filterbar{display:grid;gap:var(--s2);margin-bottom:var(--s4);padding:1.1rem 1.2rem;background:var(--white);border:1px solid var(--line)}
+.filterrow{display:flex;gap:.55rem;flex-wrap:wrap;align-items:center}
+.filterrow > .flabel{font-family:var(--font-m);font-size:.66rem;letter-spacing:.14em;text-transform:uppercase;color:var(--steel);flex:0 0 auto;width:7.5rem}
+.fbtn{border:1.5px solid var(--line);background:transparent;padding:.55rem 1.05rem;border-radius:999px;font-size:.8rem;
+  min-height:40px;text-transform:uppercase;letter-spacing:.05em;transition:all .18s ease;display:inline-flex;align-items:center;gap:.45rem}
+.fbtn:hover{border-color:var(--ink)}
+.fbtn[aria-pressed="true"]{background:var(--wine);color:#fff;border-color:var(--wine)}
+.fbtn[data-loc="park"][aria-pressed="true"]{background:var(--park);color:var(--park-ink);border-color:var(--park)}
+.fbtn[data-loc="arts"][aria-pressed="true"]{background:var(--arts);color:#062E1B;border-color:var(--arts)}
+.fbtn[data-loc="zity"][aria-pressed="true"]{background:var(--zity);color:#2A0F00;border-color:var(--zity)}
+.fcount{font-family:var(--font-m);font-size:.74rem;color:var(--steel);margin-left:auto}
+
+/* ══ ERDVIŲ KORTELĖS (korekcijos 6, 9, 16) ══ */
+.cards{display:grid;grid-template-columns:repeat(3,1fr);gap:1.25rem}
+.card{background:var(--white);border:1px solid var(--line);display:flex;flex-direction:column;overflow:hidden;
+  transition:transform .22s ease,box-shadow .22s ease}
+.card:hover{transform:translateY(-3px);box-shadow:0 14px 34px rgba(37,18,22,.11)}
+.card-media{position:relative;aspect-ratio:16/10;overflow:hidden;background:var(--sage)}
+.card-media img{width:100%;height:100%;object-fit:cover;transition:transform .5s ease}
+.card:hover .card-media img{transform:scale(1.035)}
+.card-count{position:absolute;right:.7rem;bottom:.7rem;font-family:var(--font-m);font-size:.64rem;letter-spacing:.1em;
+  background:rgba(37,18,22,.72);color:#fff;padding:.3rem .6rem;border-radius:999px;backdrop-filter:blur(4px)}
+.card-strip{height:4px;width:100%}
+.card-body{padding:1.15rem 1.25rem 1.35rem;display:flex;flex-direction:column;gap:.7rem;flex:1}
+.card-loc{display:inline-flex;align-items:center;gap:.45rem;font-family:var(--font-m);font-size:.64rem;letter-spacing:.11em;text-transform:uppercase;font-weight:700}
+.card h3{font-size:1.28rem}
+.metas{display:flex;gap:1.2rem;flex-wrap:wrap;font-size:.85rem;color:var(--steel);border-top:1px solid var(--line);padding-top:.7rem}
+.metas b{color:var(--ink);font-family:var(--font-d);font-size:1.05rem;display:block;line-height:1.1}
+.card-note{font-size:.78rem;color:var(--rust-deep);background:#FBF0E6;padding:.5rem .75rem;border-left:3px solid var(--rust)}
+.card-actions{margin-top:auto;display:flex;gap:.5rem;flex-wrap:wrap;padding-top:.3rem}
+.linkish{font-size:.8rem;font-weight:700;text-decoration:none;border-bottom:1.5px solid var(--rust);padding-bottom:1px;color:var(--rust-deep);align-self:flex-start;min-height:44px;display:inline-flex;align-items:center}
+.empty-note{grid-column:1/-1;padding:2.5rem;text-align:center;color:var(--steel);border:1px dashed var(--line)}
+
+/* ══ MODALAS (korekcija 6) ══ */
+.modal{position:fixed;inset:0;z-index:120;display:none;background:rgba(20,9,11,.86);backdrop-filter:blur(3px)}
+.modal[data-open]{display:grid;place-items:center;padding:clamp(.5rem,3vw,2rem)}
+.modal-box{background:var(--bg);width:min(1080px,100%);max-height:92vh;overflow:auto;position:relative;display:grid;grid-template-columns:minmax(0,1.15fr) minmax(0,1fr)}
+.modal-close{position:absolute;top:.6rem;right:.6rem;z-index:6;width:44px;height:44px;display:grid;place-items:center;
+  border-radius:999px;background:rgba(37,18,22,.72);color:#fff}
+.modal-close:hover{background:var(--wine)}
+.mgal{position:relative;background:#14090B;min-width:0;overflow:hidden;height:clamp(15rem,46vh,32rem);position:sticky;top:0;align-self:start}
+.mgal-track{display:flex;overflow-x:auto;scroll-snap-type:x mandatory;height:100%;width:100%;scrollbar-width:none}
+.mgal-track::-webkit-scrollbar{display:none}
+.mgal-slide{flex:0 0 100%;min-width:0;scroll-snap-align:center;position:relative;height:100%}
+.mgal-slide img{width:100%;height:100%;object-fit:cover}
+.mgal-cap{position:absolute;inset:auto 0 0 0;padding:2.5rem .9rem .8rem;font-size:.82rem;color:#fff;
+  background:linear-gradient(transparent,rgba(20,9,11,.85))}
+.mgal-btn{position:absolute;top:50%;transform:translateY(-50%);width:46px;height:46px;display:grid;place-items:center;
+  border-radius:999px;background:rgba(255,255,255,.16);color:#fff;backdrop-filter:blur(4px);z-index:4}
+.mgal-btn:hover{background:rgba(255,255,255,.3)}
+.mgal-prev{left:.6rem}.mgal-next{right:.6rem}
+.mgal-dots{position:absolute;left:0;right:0;bottom:.55rem;display:flex;gap:.3rem;justify-content:center;z-index:4}
+.mgal-dots button{width:7px;height:7px;border-radius:50%;background:rgba(255,255,255,.45)}
+.mgal-dots button[aria-current="true"]{background:#fff;width:20px;border-radius:999px}
+.modal-info{padding:clamp(1.25rem,3vw,2rem);display:flex;flex-direction:column;gap:1rem}
+.modal-info h3{font-size:clamp(1.4rem,2.6vw,1.9rem)}
+.layouts{display:grid;grid-template-columns:repeat(auto-fit,minmax(7.5rem,1fr));gap:.5rem}
+.layout{border:1px solid var(--line);background:var(--white);padding:.65rem .75rem}
+.layout b{display:block;font-family:var(--font-d);font-size:1.25rem;line-height:1.1;color:var(--wine)}
+.layout span{font-size:.72rem;color:var(--steel);text-transform:uppercase;letter-spacing:.05em}
+.equip{display:grid;gap:.4rem}
+.equip li{display:flex;gap:.6rem;font-size:.88rem;color:#3A2B2E;line-height:1.45}
+.equip li::before{content:"";flex:0 0 auto;width:7px;height:7px;margin-top:.5rem;background:var(--rust)}
+.modal h4{font-family:var(--font-m);font-size:.68rem;letter-spacing:.16em;text-transform:uppercase;color:var(--steel);font-weight:400}
+
+/* ══ SCENARIJAI (korekcija 14) ══ */
+.scen-chips{display:flex;gap:.5rem;flex-wrap:wrap;margin-bottom:var(--s3)}
+.scen-grid{display:grid;grid-template-columns:repeat(4,1fr);gap:.9rem}
+.scen{position:relative;overflow:hidden;aspect-ratio:4/3;background:var(--wine);border:0;padding:0;text-align:left;display:block;width:100%}
+.scen img{width:100%;height:100%;object-fit:cover;transition:transform .5s ease,opacity .3s ease}
+.scen:hover img{transform:scale(1.05)}
+.scen figcaption{position:absolute;inset:auto 0 0 0;padding:2.2rem .8rem .7rem;color:#fff;font-family:var(--font-d);
+  font-size:.85rem;text-transform:uppercase;letter-spacing:.04em;background:linear-gradient(transparent,rgba(20,9,11,.88))}
+.scen small{display:block;font-family:var(--font-b);text-transform:none;letter-spacing:0;font-size:.72rem;opacity:.82;margin-top:.15rem;font-weight:400}
+.scen-cta{display:flex;align-items:center;justify-content:space-between;gap:1rem;flex-wrap:wrap;margin-top:.9rem;
+  background:var(--white);border:1px solid var(--line);padding:1rem 1.25rem}
+.scen-cta p{font-size:.95rem;color:var(--steel)}
+.scen-cta b{color:var(--ink)}
+
+/* ══ KAINOS / LEAD MAGNET (korekcija 12) ══ */
+.price-grid{display:grid;grid-template-columns:1fr 1fr;gap:1.25rem;align-items:start}
+.panel{background:var(--white);border:1px solid var(--line);padding:clamp(1.4rem,3vw,2.1rem)}
+.panel--dark{background:var(--wine);color:#fff;border-color:var(--wine)}
+.panel--dark h3{color:#fff}
+.panel h3 + .lead{margin-top:.7rem}
+.panel--dark .lead{color:rgba(255,255,255,.82)}
+.ticks{display:grid;gap:.55rem;margin-top:var(--s2)}
+.ticks li{display:flex;gap:.65rem;font-size:.94rem;line-height:1.5}
+.ticks li svg{flex:0 0 auto;margin-top:.28rem;color:var(--rust)}
+.panel--dark .ticks li svg{color:var(--park)}
+.fineprint{font-size:.8rem;color:var(--steel);margin-top:var(--s2);line-height:1.55}
+.panel--dark .fineprint{color:rgba(255,255,255,.66)}
+.dl-form{display:grid;gap:.7rem;margin-top:var(--s3)}
+.dl-form .row{display:grid;grid-template-columns:1fr 1fr;gap:.7rem}
+.dl-done{display:none;gap:.55rem;margin-top:var(--s3)}
+.dl-done[data-open]{display:grid}
+.dl-link{display:flex;align-items:center;gap:.7rem;min-height:52px;padding:.7rem 1rem;background:rgba(255,255,255,.09);
+  border:1px solid rgba(255,255,255,.24);color:#fff;text-decoration:none;font-size:.9rem}
+.dl-link:hover{background:rgba(255,255,255,.18)}
+.dl-link b{font-family:var(--font-d);font-size:.85rem;letter-spacing:.03em;text-transform:uppercase}
+.dl-link span{margin-left:auto;font-family:var(--font-m);font-size:.68rem;opacity:.7}
+
+/* ══ ŽEMĖLAPIS (korekcija 13) ══ */
+.map-wrap{display:grid;grid-template-columns:1.25fr 1fr;gap:1.25rem;align-items:stretch}
+.map-card{background:var(--wine);border:1px solid var(--wine);position:relative;overflow:hidden}
+.map-svg{width:100%;height:100%;display:block}
+.pin{cursor:pointer}
+.pin circle.halo{opacity:0;transition:opacity .25s ease}
+.pin[aria-pressed="true"] circle.halo,.pin:hover circle.halo{opacity:.28}
+.pin text{font-family:'NHaas',sans-serif;font-size:15px;fill:#fff;letter-spacing:.04em}
+.map-note{position:absolute;left:.9rem;bottom:.7rem;font-family:var(--font-m);font-size:.62rem;letter-spacing:.08em;
+  text-transform:uppercase;color:rgba(255,255,255,.45)}
+.map-panel{background:var(--white);border:1px solid var(--line);padding:clamp(1.3rem,3vw,1.9rem);display:flex;flex-direction:column;gap:.9rem}
+.map-panel .badge{display:inline-flex;align-items:center;gap:.45rem;font-family:var(--font-m);font-size:.64rem;
+  letter-spacing:.12em;text-transform:uppercase;font-weight:700}
+.dist{display:grid;gap:.45rem;margin-top:.2rem}
+.dist li{display:grid;grid-template-columns:5.6rem 1fr;gap:.7rem;font-size:.88rem;align-items:baseline}
+.dist b{font-family:var(--font-d);font-size:1.02rem;color:var(--wine)}
+.park-info{background:var(--snow);border:1px solid var(--line);padding:.75rem .9rem;font-size:.85rem;line-height:1.5;color:#3A2B2E}
+
+/* ══ SOCIAL PROOF (korekcija 10) ══ */
+.rev-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:.9rem}
+.rev{background:var(--white);border:1px solid var(--line);padding:1.15rem 1.25rem;display:flex;flex-direction:column;gap:.55rem;text-decoration:none}
+.rev:hover{border-color:var(--rust)}
+.rev-src{font-family:var(--font-m);font-size:.66rem;letter-spacing:.14em;text-transform:uppercase;color:var(--steel)}
+.rev-name{font-family:var(--font-d);font-size:1rem;text-transform:uppercase}
+.rev-go{margin-top:auto;font-size:.8rem;font-weight:700;color:var(--rust-deep)}
+.clients{display:grid;gap:1.35rem;margin-top:var(--s4)}
+.cgroup h4{font-family:var(--font-m);font-size:.68rem;letter-spacing:.16em;text-transform:uppercase;color:var(--rust);margin-bottom:.6rem;font-weight:400}
+.cnames{display:flex;flex-wrap:wrap;gap:.4rem}
+.cnames span{border:1px solid var(--line);background:var(--white);padding:.42rem .8rem;font-size:.83rem;color:#3A2B2E;white-space:nowrap}
+.bigstat{display:flex;align-items:baseline;gap:.9rem;flex-wrap:wrap;padding:1.2rem 1.4rem;background:var(--wine);color:#fff;margin-bottom:var(--s4)}
+.bigstat b{font-family:var(--font-d);font-size:clamp(2rem,5vw,3.2rem);line-height:1;color:var(--park)}
+.bigstat span{font-size:.98rem;color:rgba(255,255,255,.86);max-width:34ch}
+
+/* ══ VIRTUALUS TURAS (korekcija 15) ══ */
+.tour-tabs{display:flex;gap:.5rem;margin-bottom:var(--s3);flex-wrap:wrap}
+.tour-frame{position:relative;width:100%;aspect-ratio:16/9;background:var(--wine);border:1px solid var(--line);overflow:hidden}
+.tour-frame iframe{width:100%;height:100%;border:0}
+.tour-frame[hidden]{display:none}
+
+/* ══ APŽIŪROS (korekcija 19) ══ */
+.book-grid{display:grid;grid-template-columns:repeat(4,1fr);gap:.9rem}
+.book{background:var(--white);border:1px solid var(--line);padding:1.15rem 1.2rem;display:flex;flex-direction:column;gap:.6rem;text-decoration:none;transition:border-color .2s ease,transform .2s ease}
+.book:hover{border-color:var(--rust);transform:translateY(-2px)}
+.book h3{font-size:1.06rem}
+.book p{font-size:.84rem;color:var(--steel);flex:1}
+.book .rev-go{margin-top:0}
+
+/* ══ DUK ══ */
+.faq{max-width:60rem}
+.faq details{background:var(--white);border:1px solid var(--line);margin-bottom:.5rem}
+.faq summary{cursor:pointer;font-weight:700;font-size:1rem;padding:1.05rem 3rem 1.05rem 1.25rem;list-style:none;position:relative;min-height:44px}
+.faq summary::-webkit-details-marker{display:none}
+.faq summary::after{content:"+";position:absolute;right:1.25rem;top:.85rem;font-size:1.5rem;color:var(--rust);font-weight:400}
+.faq details[open] summary::after{content:"–"}
+.faq .a{padding:0 1.25rem 1.25rem;font-size:.93rem;color:#3A2B2E;line-height:1.65}
+.faq .a a{font-weight:700;color:var(--rust-deep)}
+.faq .a p + p{margin-top:.7rem}
+
+/* ══ UŽKLAUSA ══ */
+.ask{background:var(--wine);color:#fff}
+.ask-grid{display:grid;grid-template-columns:1fr 1.12fr;gap:clamp(1.5rem,4vw,3rem);align-items:start}
+.ask h2{color:#fff}
+.ask-side p{color:rgba(255,255,255,.85);margin-top:var(--s2);font-size:1rem;line-height:1.6}
+.sla{display:flex;gap:.8rem;background:rgba(255,255,255,.09);border:1px solid rgba(255,255,255,.16);padding:.95rem 1.1rem;margin:var(--s3) 0;font-size:.92rem;align-items:flex-start}
+.sla svg{flex:0 0 auto;margin-top:.15rem;color:var(--park)}
+form.inq{background:var(--white);color:var(--ink);padding:clamp(1.3rem,3vw,2rem);display:grid;gap:.85rem;grid-template-columns:1fr 1fr}
+form.inq h3{grid-column:1/-1;font-size:1.2rem}
+.field{display:grid;gap:.35rem}
+.field.full{grid-column:1/-1}
+label{font-family:var(--font-m);font-size:.66rem;font-weight:400;text-transform:uppercase;letter-spacing:.12em;color:var(--steel)}
+input,select,textarea{font-size:.98rem;padding:.75rem .85rem;border:1.5px solid var(--line);background:var(--snow);width:100%;min-height:48px;border-radius:0;color:var(--ink)}
+textarea{min-height:96px;resize:vertical}
+input:focus,select:focus,textarea:focus{outline:2px solid var(--rust);outline-offset:1px;border-color:transparent}
+input:user-invalid,select:user-invalid{border-color:#B3261E}
+.consent{grid-column:1/-1;display:flex;gap:.65rem;font-size:.8rem;color:var(--steel);align-items:flex-start;line-height:1.5}
+.consent input{width:22px;height:22px;min-height:22px;flex:0 0 auto;margin-top:.05rem;accent-color:var(--rust)}
+.consent a{font-weight:700;color:var(--rust-deep)}
+form .chip{grid-column:1/-1;justify-self:start}
+.form-ok{grid-column:1/-1;background:#E9F5EC;border-left:3px solid #1C6B34;color:#155029;padding:.9rem 1rem;font-size:.9rem;display:none}
+.form-ok[data-open]{display:block}
+
+/* ══ FOOTER ══ */
+footer{background:var(--wine);color:rgba(255,255,255,.72);padding-block:var(--s5) var(--s3);font-size:.88rem;border-top:1px solid rgba(255,255,255,.1)}
+.foot{display:grid;grid-template-columns:1.5fr 1fr 1fr 1fr;gap:2rem;padding-bottom:var(--s4)}
+.foot h4{color:#fff;font-family:var(--font-m);font-size:.66rem;text-transform:uppercase;letter-spacing:.16em;margin-bottom:.9rem;font-weight:400}
+.foot ul{display:grid;gap:.5rem}
+.foot a{text-decoration:none}
+.foot a:hover{color:#fff;text-decoration:underline}
+.foot-tze{height:22px;width:auto;filter:invert(1);margin-bottom:1rem}
+.copy{border-top:1px solid rgba(255,255,255,.12);padding-top:1.1rem;display:flex;justify-content:space-between;gap:1rem;flex-wrap:wrap;font-size:.76rem;color:rgba(255,255,255,.45)}
+
+/* ══ MOBILUS CTA ══ */
+.mob-cta{display:none;position:fixed;bottom:0;left:0;right:0;z-index:100;background:var(--white);border-top:1px solid var(--line);padding:.55rem .7rem;gap:.5rem}
+.mob-cta .chip{flex:1}
+
+/* ══ KOREKCIJŲ PANELĖ ══ */
+.fixbtn{position:fixed;right:.9rem;bottom:.9rem;z-index:110;background:var(--wine);color:#fff;border-radius:999px;
+  padding:.75rem 1.15rem;font-size:.78rem;box-shadow:0 6px 24px rgba(0,0,0,.28);min-height:44px}
+.fixpanel{display:none;position:fixed;left:.9rem;bottom:.9rem;z-index:110;background:var(--white);border:1px solid var(--line);
+  padding:1.15rem 1.25rem;max-width:22rem;max-height:64vh;overflow:auto;font-size:.8rem;box-shadow:0 10px 40px rgba(0,0,0,.2)}
+.fixpanel[data-open]{display:block}
+.fixpanel h4{font-family:var(--font-d);font-size:.9rem;margin-bottom:.6rem;text-transform:uppercase}
+.fixpanel ol{margin-left:1.1rem;display:grid;gap:.35rem;color:#3A2B2E}
+
+@media(max-width:1040px){
+  .cards,.scen-grid,.rev-grid{grid-template-columns:repeat(2,1fr)}
+  .book-grid{grid-template-columns:repeat(2,1fr)}
+  .modal-box{grid-template-columns:1fr}
+  .map-wrap{grid-template-columns:1fr}
+  .foot{grid-template-columns:1fr 1fr}
+}
+@media(max-width:860px){
+  .nav-links{display:none}
+  .burger{display:grid}
+  .price-grid,.ask-grid{grid-template-columns:1fr}
+  .sec-head.split{grid-template-columns:1fr}
+  .trust{grid-template-columns:1fr 1fr;margin-top:0}
+  .mob-cta{display:flex}
+  body{padding-bottom:70px}
+  .anchors{top:68px}
+  form.inq{grid-template-columns:1fr}
+  .dl-form .row{grid-template-columns:1fr}
+  .filterrow > .flabel{width:100%}
+  .fixbtn{bottom:74px}
+  .fixpanel{bottom:74px;left:.6rem;right:.6rem;max-width:none}
+  /* patogūs paspaudimo taikiniai mobiliajame */
+  .foot a,.crumbs a,.rev,.linkish{min-height:44px;display:inline-flex;align-items:center}
+  .foot ul{gap:.15rem}
+  .foot-contacts a{min-height:44px}
+  .crumbs{display:flex;gap:.4rem;align-items:center;flex-wrap:wrap}
+  .rev{display:flex}
+}
+@media(max-width:560px){
+  .cards,.scen-grid,.rev-grid,.book-grid,.foot{grid-template-columns:1fr}
+  .hero{min-height:auto}
+  /* hero telpa virš lipnios CTA juostos, kad kontaktų mygtukai liktų matomi (2, 4) */
+  .hero-inner{padding-top:clamp(2.75rem,6vh,3.75rem);padding-bottom:clamp(1.5rem,3vh,2.25rem)}
+  .hero-sub{margin:var(--s2) 0 var(--s3)}
+  .hero-locs{gap:.35rem;margin-bottom:var(--s2)}
+  .hero .contact-row{gap:.45rem;margin-top:var(--s3)}
+  .hero .cbtn{padding:.5rem .95rem;font-size:.9rem}
+  .video-toggle{top:.7rem;right:.7rem;bottom:auto}
+  .metas{gap:.9rem}
+  .trust div{padding:1rem .6rem}
+}
+@media(prefers-reduced-motion:reduce){
+  html{scroll-behavior:auto}
+  *,*::before,*::after{animation-duration:.01ms!important;transition-duration:.01ms!important}
+}
+</style>
+</head>
+<body>
+<a class="skip" href="#main">Pereiti prie turinio</a>
+
+<!-- ═════════ HEADER — ta pati navigacija kaip likusiuose Tech Zity tinklapiuose (1, 11) ═════════ -->
+<header>
+  <div class="wrap nav">
+    <a class="nav-brand" href="https://techzity.com" aria-label="Tech Zity Events — į pradžią">
+      <img class="nav-tze" src="assets/brand/techzity-events.svg" alt="Tech Zity Events" width="4946" height="1725">
+    </a>
+    <nav class="nav-links" aria-label="Pagrindinis meniu">
+      <a href="https://techzity.com/apie-tech-zity/">Apie Tech Zity</a>
+      <a href="https://techzity.com/lokacijos/">Lokacijos</a>
+      <a href="https://techzity.com/paslaugos/">Paslaugos</a>
+      <a href="https://techzity.com/naujienos/">Naujienos</a>
+      <a href="https://techzity.com/kontaktai/">Kontaktai</a>
+      <a class="chip chip--primary chip--sm" href="#uzklausa">Gauti pasiūlymą</a>
+      <a class="nav-lang" href="https://techzity.com/en/" lang="en">EN</a>
+    </nav>
+    <button class="burger" id="burger" aria-label="Atidaryti meniu" aria-expanded="false" aria-controls="mobmenu">
+      <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" aria-hidden="true"><path d="M3 7h18M3 12h18M3 17h18"/></svg>
+    </button>
+  </div>
+  <div class="mobile-menu" id="mobmenu">
+    <a href="#erdves">Erdvės</a>
+    <a href="#scenarijai">Renginių scenarijai</a>
+    <a href="#kainos">Kainos</a>
+    <a href="#lokacijos">Lokacijos</a>
+    <a href="#atsiliepimai">Atsiliepimai</a>
+    <a href="#turas">Virtualus turas</a>
+    <a href="#apziura">Apžiūros</a>
+    <a href="#duk">DUK</a>
+    <a href="https://techzity.com/paslaugos/">Kitos Tech Zity paslaugos ↗</a>
+    <a class="chip chip--primary" href="#uzklausa">Gauti pasiūlymą</a>
+  </div>
+</header>
+
+<main id="main">
+
+<!-- ═════════ HERO (2, 5) ═════════ -->
+<div class="hero">
+  <div class="hero-media">
+    <img id="heroPoster" src="https://techzity.com/wp-content/compressx-nextgen/uploads/2024/09/E_13-1024x576.jpg.avif" alt="Renginys Tech Zity erdvėje Vilniuje" fetchpriority="high" width="1024" height="576">
+    <video id="heroVideo" autoplay muted loop playsinline preload="metadata" aria-hidden="true"
+           poster="https://techzity.com/wp-content/compressx-nextgen/uploads/2024/09/E_13-1024x576.jpg.avif">
+      <source src="https://techzity.com/wp-content/uploads/2024/09/TechZity-Event-Promo-1.mp4" type="video/mp4">
+    </video>
+  </div>
+  <div class="hero-scrim"></div>
+  <button class="video-toggle" id="videoToggle" aria-label="Sustabdyti vaizdo įrašą">
+    <svg width="16" height="16" viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><rect x="6" y="5" width="4" height="14" rx="1"/><rect x="14" y="5" width="4" height="14" rx="1"/></svg>
+  </button>
+  <div class="hero-inner">
+    <nav class="crumbs" aria-label="Naršymo kelias">
+      <a href="https://techzity.com">Pradinis</a> › <a href="https://techzity.com/paslaugos/">Paslaugos</a> › <span>Renginių erdvės</span>
+    </nav>
+    <div class="hero-locs">
+      <span class="loc-tag"><i class="loc-dot" style="background:var(--park)"></i>Tech Park · Antakalnio g. 17</span>
+      <span class="loc-tag"><i class="loc-dot" style="background:var(--arts)"></i>Tech Arts · Vaidilutės g. 79</span>
+      <span class="loc-tag"><i class="loc-dot" style="background:var(--zity)"></i>Tech Zity Vilnius · Panerių g. 43</span>
+    </div>
+    <h1>Renginių erdvės Vilniuje</h1>
+    <p class="hero-sub">16 salių, terasų ir kiemų trijose lokacijose — nuo 24 iki 1 000 svečių. Įranga, baldai ir valymas įskaičiuoti į nuomos kainą.</p>
+    <div class="hero-ctas">
+      <a class="chip chip--primary" href="#uzklausa">Gauti pasiūlymą</a>
+      <a class="chip chip--ghost" href="#erdves">Peržiūrėti erdves</a>
+    </div>
+    <!-- korekcija 4: telefonas patogus ir mobiliajame (skambinti), ir kompiuteryje (kopijuoti) -->
+    <div class="contact-row">
+      <span class="cbtn-group">
+        <a class="cbtn" href="tel:+37067186572">
+          <svg width="17" height="17" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" aria-hidden="true"><path d="M22 16.9v3a2 2 0 0 1-2.2 2 19.8 19.8 0 0 1-8.6-3.1 19.5 19.5 0 0 1-6-6A19.8 19.8 0 0 1 2.1 4.2 2 2 0 0 1 4.1 2h3a2 2 0 0 1 2 1.7c.1 1 .4 1.9.7 2.8a2 2 0 0 1-.5 2.1L8.1 9.9a16 16 0 0 0 6 6l1.3-1.2a2 2 0 0 1 2.1-.5c.9.3 1.8.6 2.8.7a2 2 0 0 1 1.7 2Z"/></svg>
+          +370 671 86 572
+        </a>
+        <button class="cbtn-copy" data-copy="+370 671 86572" aria-label="Kopijuoti telefono numerį">
+          <svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" aria-hidden="true"><rect x="9" y="9" width="12" height="12" rx="2"/><path d="M5 15H4a2 2 0 0 1-2-2V4a2 2 0 0 1 2-2h9a2 2 0 0 1 2 2v1"/></svg>
+          <span>Kopijuoti</span>
+        </button>
+      </span>
+      <span class="cbtn-group">
+        <a class="cbtn" href="mailto:events@techzity.com">
+          <svg width="17" height="17" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" aria-hidden="true"><rect x="2" y="4" width="20" height="16" rx="2"/><path d="m2 7 10 6 10-6"/></svg>
+          events@techzity.com
+        </a>
+        <button class="cbtn-copy" data-copy="events@techzity.com" aria-label="Kopijuoti el. pašto adresą">
+          <svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" aria-hidden="true"><rect x="9" y="9" width="12" height="12" rx="2"/><path d="M5 15H4a2 2 0 0 1-2-2V4a2 2 0 0 1 2-2h9a2 2 0 0 1 2 2v1"/></svg>
+          <span>Kopijuoti</span>
+        </button>
+      </span>
+    </div>
+  </div>
+</div>
+
+<div class="wrap">
+  <div class="trust">
+    <div><b>300+</b><span>renginių klientų per metus</span></div>
+    <div><b>16</b><span>salių, terasų ir kiemų</span></div>
+    <div><b>24–1 000</b><span>svečių viename renginyje</span></div>
+    <div><b>1 d. d.</b><span>pasiūlymas jūsų el. pašte</span></div>
+  </div>
+</div>
+
+<nav class="anchors" aria-label="Puslapio skiltys">
+  <div class="wrap anchors-inner">
+    <a href="#erdves">Erdvės</a>
+    <a href="#scenarijai">Scenarijai</a>
+    <a href="#kainos">Kainos</a>
+    <a href="#lokacijos">Lokacijos</a>
+    <a href="#atsiliepimai">Atsiliepimai</a>
+    <a href="#turas">Virtualus turas</a>
+    <a href="#apziura">Apžiūros</a>
+    <a href="#duk">DUK</a>
+    <a href="#uzklausa">Užklausa</a>
+  </div>
+</nav>
+
+<!-- ═════════ ERDVĖS (6, 7, 8, 9, 16) ═════════ -->
+<section id="erdves">
+  <div class="wrap">
+    <div class="sec-head split">
+      <div>
+        <p class="eyebrow">Trys lokacijos · viena komanda</p>
+        <h2>Išsirinkite erdvę</h2>
+      </div>
+      <p class="lead">Nuo 24 vietų susitikimų kambario iki viso konferencijų centro 1 000 dalyvių. Filtruokite pagal lokaciją ir svečių skaičių — kortelė atveria salės galeriją, išdėstymus ir visą įrangos sąrašą.</p>
+    </div>
+
+    <div class="filterbar">
+      <div class="filterrow" role="group" aria-label="Filtruoti pagal lokaciją">
+        <span class="flabel">Lokacija</span>
+        <button class="fbtn" data-f="loc" data-v="all" aria-pressed="true">Visos</button>
+        <button class="fbtn" data-f="loc" data-v="park" data-loc="park" aria-pressed="false"><i class="loc-dot" style="background:var(--park)"></i>Tech Park</button>
+        <button class="fbtn" data-f="loc" data-v="arts" data-loc="arts" aria-pressed="false"><i class="loc-dot" style="background:var(--arts)"></i>Tech Arts</button>
+        <button class="fbtn" data-f="loc" data-v="zity" data-loc="zity" aria-pressed="false"><i class="loc-dot" style="background:var(--zity)"></i>Tech Zity Vilnius</button>
+        <button class="fbtn" data-f="loc" data-v="lauko" aria-pressed="false">Lauko erdvės</button>
+      </div>
+      <div class="filterrow" role="group" aria-label="Filtruoti pagal svečių skaičių">
+        <span class="flabel">Svečių skaičius</span>
+        <button class="fbtn" data-f="size" data-v="all" aria-pressed="true">Bet koks</button>
+        <button class="fbtn" data-f="size" data-v="s" aria-pressed="false">Iki 100 asm.</button>
+        <button class="fbtn" data-f="size" data-v="m" aria-pressed="false">Iki 250 asm.</button>
+        <button class="fbtn" data-f="size" data-v="l" aria-pressed="false">Virš 250 asm.</button>
+        <span class="fcount" id="fcount" aria-live="polite">16 erdvių</span>
+      </div>
+    </div>
+
+    <div class="cards" id="cards"></div>
+    <p class="fineprint" style="margin-top:1.25rem">Talpos nurodytos pagal teatro išdėstymą, jei nenurodyta kitaip. Skaičiavimai preliminarūs — galutinį planą suderinsime pagal jūsų renginio scenarijų.</p>
+  </div>
+</section>
+
+<!-- ═════════ SCENARIJAI (14) ═════════ -->
+<section id="scenarijai" class="tight">
+  <div class="wrap">
+    <div class="sec-head">
+      <p class="eyebrow">Kas čia vyksta</p>
+      <h2>Renginių scenarijai</h2>
+      <p class="lead">Tikros akimirkos iš mūsų erdvių. Pasirinkite formatą — parodysime tinkamas erdves.</p>
+    </div>
+    <div class="scen-chips" id="scenChips" role="group" aria-label="Renginio formatas"></div>
+    <div class="scen-grid" id="scenGrid"></div>
+    <div class="scen-cta" id="scenCta"></div>
+  </div>
+</section>
+
+<!-- ═════════ KAINOS → LEAD MAGNET (12) ═════════ -->
+<section id="kainos">
+  <div class="wrap">
+    <div class="sec-head">
+      <p class="eyebrow">Kainodara</p>
+      <h2>Kiek kainuoja renginio erdvė?</h2>
+      <p class="lead">Kaina priklauso nuo erdvės, renginio trukmės ir dalyvių skaičiaus. Atsiųskite užklausą — per vieną darbo dieną gausite asmeninį pasiūlymą su tikslia kaina. Pilnus kainoraščius ir erdvių specifikacijas atsiųsime į el. paštą.</p>
+    </div>
+    <div class="price-grid">
+      <div class="panel">
+        <h3>Į nuomos kainą įskaičiuota</h3>
+        <ul class="ticks">
+          <li><svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" aria-hidden="true"><path d="m4 12 5.5 5.5L20 6.5"/></svg><span>Erdvės nuoma nuo atvykimo pasiruošti iki išvykimo po demontažo</span></li>
+          <li><svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" aria-hidden="true"><path d="m4 12 5.5 5.5L20 6.5"/></svg><span>Turima garso ir vaizdo įranga: projektoriai, ekranai, mikrofonai, prezenteriai</span></li>
+          <li><svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" aria-hidden="true"><path d="m4 12 5.5 5.5L20 6.5"/></svg><span>Baldai ir jų išdėstymas pagal jūsų planą prieš atvykstant</span></li>
+          <li><svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" aria-hidden="true"><path d="m4 12 5.5 5.5L20 6.5"/></svg><span>Erdvių valymas prieš renginį</span></li>
+          <li><svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" aria-hidden="true"><path d="m4 12 5.5 5.5L20 6.5"/></svg><span>Kontaktinis žmogus visą nuomos laiką</span></li>
+          <li><svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" aria-hidden="true"><path d="m4 12 5.5 5.5L20 6.5"/></svg><span>Wi-Fi, LAN ir trifazės jungtys</span></li>
+        </ul>
+        <p class="fineprint">Papildomai užsakoma: papildomos valandos ir erdvės, valymas ar apsauga renginio metu, TV ekranų nuoma, išorės maitinimo ir technikos tiekėjai. Minimali rezervacija — 3 renginio valandos.</p>
+      </div>
+
+      <div class="panel panel--dark">
+        <h3>Kainoraštis ir specifikacijos</h3>
+        <p class="lead">Palikite kontaktus — iš karto atsivers pilni Tech Park ir Tech Arts erdvių pristatymai su kainoraščiais, talpomis, įranga ir baldų sąrašais.</p>
+        <form class="dl-form" id="dlForm" novalidate>
+          <div class="row">
+            <div class="field"><label for="d-name">Vardas *</label><input id="d-name" name="name" required autocomplete="name" placeholder="Jūsų vardas"></div>
+            <div class="field"><label for="d-org">Įmonė</label><input id="d-org" name="org" autocomplete="organization" placeholder="Įmonės pavadinimas"></div>
+          </div>
+          <div class="field"><label for="d-mail">El. paštas *</label><input id="d-mail" name="email" type="email" required autocomplete="email" placeholder="vardas@imone.lt"></div>
+          <div class="consent" style="color:rgba(255,255,255,.7)"><input type="checkbox" id="d-gdpr" required><label for="d-gdpr" style="text-transform:none;letter-spacing:0;font-family:var(--font-b);font-size:.8rem;color:rgba(255,255,255,.7)">Sutinku, kad kontaktai būtų naudojami pasiūlymui paruošti pagal <a href="privatumo-politika.html" style="color:var(--park)">privatumo politiką</a>. *</label></div>
+          <button class="chip chip--primary" type="submit">Atsiųsti kainoraštį</button>
+        </form>
+        <div class="dl-done" id="dlDone">
+          <p style="font-size:.9rem;color:var(--park)">Ačiū! Failai atsisiunčiami iš karto — kopiją išsiųsime ir el. paštu.</p>
+          <a class="dl-link" href="assets/docs/tech-park-renginiu-erdves-2026.pdf" download>
+            <svg width="17" height="17" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" aria-hidden="true"><path d="M12 3v12m0 0 4.5-4.5M12 15l-4.5-4.5M4 20h16"/></svg>
+            <b>Tech Park · renginių erdvės 2026</b><span>PDF</span>
+          </a>
+          <a class="dl-link" href="assets/docs/tech-arts-renginiu-erdves-2026.pdf" download>
+            <svg width="17" height="17" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" aria-hidden="true"><path d="M12 3v12m0 0 4.5-4.5M12 15l-4.5-4.5M4 20h16"/></svg>
+            <b>Tech Arts · renginių erdvės 2026</b><span>PDF</span>
+          </a>
+          <a class="dl-link" href="https://techzity.com/wp-content/uploads/2025/02/Tech-Zity-Vilnius-Konferenciju-centras-2025.01-1.pdf" target="_blank" rel="noopener">
+            <svg width="17" height="17" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" aria-hidden="true"><path d="M12 3v12m0 0 4.5-4.5M12 15l-4.5-4.5M4 20h16"/></svg>
+            <b>Tech Zity Vilnius · konferencijų centras</b><span>PDF ↗</span>
+          </a>
+        </div>
+        <p class="fineprint">Demo maketas: forma niekur nesiunčiama, failai atsisiunčiami tiesiogiai.</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ═════════ LOKACIJOS + ŽEMĖLAPIS (13, 16) ═════════ -->
+<section id="lokacijos">
+  <div class="wrap">
+    <div class="sec-head split">
+      <div>
+        <p class="eyebrow">Vilniuje</p>
+        <h2>Trys lokacijos</h2>
+      </div>
+      <p class="lead">Spustelėkite žymeklį žemėlapyje — pamatysite, kaip patogu atvykti, kur parkuotis ir kiek laiko užtrunka kelias nuo miesto kertinių taškų.</p>
+    </div>
+    <div class="map-wrap">
+      <div class="map-card">
+        <svg class="map-svg" viewBox="0 0 1000 700" role="img" aria-label="Vilniaus schema su trimis Tech Zity renginių lokacijomis">
+          <rect width="1000" height="700" fill="#251216"/>
+          <!-- Neris -->
+          <path d="M 760 40 C 700 130 640 170 690 260 C 730 330 620 350 520 360 C 420 370 340 330 250 350 C 170 368 100 400 40 430"
+                fill="none" stroke="#2E4B4A" stroke-width="16" stroke-linecap="round" opacity=".85"/>
+          <path d="M 760 40 C 700 130 640 170 690 260 C 730 330 620 350 520 360 C 420 370 340 330 250 350 C 170 368 100 400 40 430"
+                fill="none" stroke="#3D6462" stroke-width="4" stroke-linecap="round" opacity=".6"/>
+          <!-- pagrindinės gatvės -->
+          <g stroke="#3B2429" stroke-width="3" fill="none" opacity=".9">
+            <path d="M 300 0 L 340 260 L 420 470 L 470 700"/>
+            <path d="M 60 470 L 300 440 L 529 385 L 760 320"/>
+            <path d="M 240 620 L 508 618 L 780 560"/>
+            <path d="M 600 89 L 640 300 L 529 385"/>
+          </g>
+          <text x="34" y="34" fill="#6B5A5E" font-family="ui-monospace,monospace" font-size="15" letter-spacing="3">VILNIUS</text>
+          <!-- orientyrai -->
+          <g fill="#A8969A" font-family="ui-monospace,monospace" font-size="14" letter-spacing="1.5">
+            <circle cx="529" cy="385" r="4" fill="#C4B2B6"/><text x="543" y="390">KATEDRA · SENAMIESTIS</text>
+            <circle cx="470" cy="462" r="4" fill="#C4B2B6"/><text x="484" y="467">GELEŽINKELIO STOTIS</text>
+            <circle cx="508" cy="618" r="4" fill="#C4B2B6"/><text x="522" y="623">ORO UOSTAS</text>
+          </g>
+          <!-- pinai lokacijų spalvomis (korekcija 16) -->
+          <g class="pin" role="button" tabindex="0" data-pin="park" aria-pressed="true" aria-label="Tech Park, Antakalnio g. 17">
+            <circle class="halo" cx="760" cy="320" r="34" fill="#FFC36A"/>
+            <circle cx="760" cy="320" r="11" fill="#FFC36A" stroke="#251216" stroke-width="3"/>
+            <text x="760" y="298" text-anchor="middle" font-weight="700">TECH PARK</text>
+          </g>
+          <g class="pin" role="button" tabindex="0" data-pin="arts" aria-pressed="false" aria-label="Tech Arts, Vaidilutės g. 79">
+            <circle class="halo" cx="600" cy="89" r="34" fill="#0FCB76"/>
+            <circle cx="600" cy="89" r="11" fill="#0FCB76" stroke="#251216" stroke-width="3"/>
+            <text x="600" y="67" text-anchor="middle" font-weight="700">TECH ARTS</text>
+          </g>
+          <g class="pin" role="button" tabindex="0" data-pin="zity" aria-pressed="false" aria-label="Tech Zity Vilnius, Panerių g. 43">
+            <circle class="halo" cx="422" cy="471" r="34" fill="#F04800"/>
+            <circle cx="422" cy="471" r="11" fill="#F04800" stroke="#251216" stroke-width="3"/>
+            <text x="422" y="449" text-anchor="middle" font-weight="700">TECH ZITY VILNIUS</text>
+          </g>
+        </svg>
+        <span class="map-note">Schema — tikslų maršrutą atidarys „Kaip atvykti"</span>
+      </div>
+      <div class="map-panel" id="mapPanel"></div>
+    </div>
+  </div>
+</section>
+
+<!-- ═════════ ATSILIEPIMAI IR KLIENTAI (10) ═════════ -->
+<section id="atsiliepimai">
+  <div class="wrap">
+    <div class="sec-head">
+      <p class="eyebrow">Socialinis įrodymas</p>
+      <h2>Mūsų erdvėmis pasitiki</h2>
+      <p class="lead">Atsiliepimai apie Tech Park ir Tech Arts — Google žemėlapiuose ir renginių erdvių platformose.</p>
+    </div>
+
+    <div class="bigstat">
+      <b>300+</b>
+      <span>patenkintų renginių klientų kasmet — konferencijų, vakarėlių, parodų, vestuvių ir koncertų organizatoriai.</span>
+    </div>
+
+    <div class="rev-grid">
+      <a class="rev" href="https://maps.app.goo.gl/12xnjygQhqYB1YR49" target="_blank" rel="noopener">
+        <span class="rev-src">Google atsiliepimai</span>
+        <span class="rev-name">Tech Park</span>
+        <span class="lead" style="font-size:.86rem">Konferencijų centras Sapiegų parke</span>
+        <span class="rev-go">Skaityti Google žemėlapiuose →</span>
+      </a>
+      <a class="rev" href="https://placer.lt/erdves/tech-park-konferenciju-centras-sapiegu-parkas" target="_blank" rel="noopener">
+        <span class="rev-src">Placer.lt</span>
+        <span class="rev-name">Tech Park</span>
+        <span class="lead" style="font-size:.86rem">Konferencijų centras · Sapiegų parkas</span>
+        <span class="rev-go">Skaityti Placer.lt →</span>
+      </a>
+      <a class="rev" href="https://breezit.lt/tech-park/wedding" target="_blank" rel="noopener">
+        <span class="rev-src">Breezit.lt · vestuvės</span>
+        <span class="rev-name">Tech Park</span>
+        <span class="lead" style="font-size:.86rem">Vestuvių erdvė ir atsiliepimai</span>
+        <span class="rev-go">Skaityti Breezit.lt →</span>
+      </a>
+      <a class="rev" href="https://maps.app.goo.gl/ESwVxZLTpeWQaTvT7" target="_blank" rel="noopener">
+        <span class="rev-src">Google atsiliepimai</span>
+        <span class="rev-name">Tech Arts</span>
+        <span class="lead" style="font-size:.86rem">Renginių erdvės Valakampiuose</span>
+        <span class="rev-go">Skaityti Google žemėlapiuose →</span>
+      </a>
+      <a class="rev" href="https://placer.lt/erdves/tech-arts-valakampiai" target="_blank" rel="noopener">
+        <span class="rev-src">Placer.lt</span>
+        <span class="rev-name">Tech Arts</span>
+        <span class="lead" style="font-size:.86rem">Renginių erdvės · Valakampiai</span>
+        <span class="rev-go">Skaityti Placer.lt →</span>
+      </a>
+      <a class="rev" href="https://breezit.lt/tech-arts-3/wedding" target="_blank" rel="noopener">
+        <span class="rev-src">Breezit.lt · vestuvės</span>
+        <span class="rev-name">Tech Arts</span>
+        <span class="lead" style="font-size:.86rem">Vestuvių erdvė ir atsiliepimai</span>
+        <span class="rev-go">Skaityti Breezit.lt →</span>
+      </a>
+    </div>
+
+    <div class="clients">
+      <div class="cgroup">
+        <h4>Verslo klientai</h4>
+        <div class="cnames" translate="no">
+          <span>Google</span><span>Meta</span><span>LTG</span><span>Vinted</span><span>Wix</span><span>Citus</span><span>Reefo</span><span>Deeper</span><span>Swedbank</span><span>JUDU</span><span>Civita</span><span>Surfshark</span><span>Nord Security</span><span>Verslo Žinios</span><span>Delfi</span><span>Naresta</span><span>Hostinger</span><span>Luminor</span><span>Capitalica</span><span>Gym+</span><span>Ermitažas</span><span>Turing College</span><span>SIRIN</span><span>Ignitis</span><span>EY</span>
+        </div>
+      </div>
+      <div class="cgroup">
+        <h4>Agentūros</h4>
+        <div class="cnames" translate="no">
+          <span>361 Forma</span><span>Pirmoji Kava</span><span>MVP Sprendimai</span><span>Jump Agency</span><span>Correctus</span><span>Propeller</span><span>Rekūrai</span><span>Creativa</span><span>Neimai</span><span>Estravel</span><span>Fabula</span><span>Havas</span><span>One More</span><span>Partizanas</span><span>Time2</span><span>Seven Live</span><span>Agency UP</span><span>Eventum</span>
+        </div>
+      </div>
+      <div class="cgroup">
+        <h4>Organizacijos</h4>
+        <div class="cnames" translate="no">
+          <span>EPP</span><span>APVA</span><span>Architektūros Fondas</span><span>Plug&amp;Play</span><span>Agata</span><span>Go Vilnius</span><span>Inovacijų Agentūra</span><span>Lithuania AI</span><span>SCCL</span><span>Idialogue</span><span>Antakalnio Poliklinika</span><span>Lietuvos Junior Achievement</span><span>VVK</span><span>Šauliai</span>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ═════════ VIRTUALUS TURAS (15) ═════════ -->
+<section id="turas" class="tight">
+  <div class="wrap">
+    <div class="sec-head">
+      <p class="eyebrow">360° apžiūra iš namų</p>
+      <h2>Virtualus turas</h2>
+      <p class="lead">Apeikite erdves prieš atvykdami. Tech Zity Vilnius turo kol kas nėra — šią lokaciją aprodysime gyvai.</p>
+    </div>
+    <div class="tour-tabs" role="group" aria-label="Pasirinkite lokaciją">
+      <button class="chip chip--dark chip--sm" data-tour="arts" aria-pressed="true">Tech Arts</button>
+      <button class="chip chip--sm" data-tour="park" aria-pressed="false">Tech Park</button>
+    </div>
+    <div class="tour-frame" id="tour-arts">
+      <iframe title="Tech Arts virtualus turas" src="https://my.matterport.com/show/?m=ixkvsuUseBi" allowfullscreen loading="lazy" allow="fullscreen; xr-spatial-tracking"></iframe>
+    </div>
+    <div class="tour-frame" id="tour-park" hidden>
+      <iframe title="Tech Park virtualus turas" data-src="https://my.matterport.com/show/?m=NQnNMk5xFjV" allowfullscreen loading="lazy" allow="fullscreen; xr-spatial-tracking"></iframe>
+    </div>
+  </div>
+</section>
+
+<!-- ═════════ APŽIŪROS KALENDORIAI (19) ═════════ -->
+<section id="apziura" class="tight">
+  <div class="wrap">
+    <div class="sec-head">
+      <p class="eyebrow">Susitikime</p>
+      <h2>Rezervuokite apžiūrą</h2>
+      <p class="lead">Pasirinkite lokaciją ir laiką kalendoriuje — arba susitarkime dėl konsultacijos, jei dar renkatės.</p>
+    </div>
+    <div class="book-grid">
+      <a class="book" href="https://calendar.google.com/calendar/u/0/appointments/AcZssZ3y53WxNTlzHgo25MFX8l8tpeJUBhXjnxC-zes=" target="_blank" rel="noopener">
+        <span class="card-loc" style="color:var(--park-ink)"><i class="loc-dot" style="background:var(--park)"></i>Tech Park</span>
+        <h3>Apžiūra Antakalnyje</h3>
+        <p>Konferencijų centras, Didžioji ir Mažoji salės, terasos su kiemais.</p>
+        <span class="rev-go">Rinktis laiką →</span>
+      </a>
+      <a class="book" href="https://calendar.google.com/calendar/u/0/appointments/AcZssZ3y53WxNTlzHgo25MFX8l8tpeJUBhXjnxC-zes=" target="_blank" rel="noopener">
+        <span class="card-loc" style="color:var(--arts-ink)"><i class="loc-dot" style="background:var(--arts)"></i>Tech Arts</span>
+        <h3>Apžiūra Valakampiuose</h3>
+        <p>Didžioji ir Mažoji galerijos, susitikimų kambarys, skaitykla, terasa.</p>
+        <span class="rev-go">Rinktis laiką →</span>
+      </a>
+      <a class="book" href="https://calendar.google.com/calendar/u/0/appointments/AcZssZ3y53WxNTlzHgo25MFX8l8tpeJUBhXjnxC-zes=" target="_blank" rel="noopener">
+        <span class="card-loc" style="color:var(--zity-ink)"><i class="loc-dot" style="background:var(--zity)"></i>Tech Zity Vilnius</span>
+        <h3>Apžiūra Naujamiestyje</h3>
+        <p>Samsung konferencijų centras: A, B, C salės, oranžerija ir kiemas.</p>
+        <span class="rev-go">Rinktis laiką →</span>
+      </a>
+      <a class="book" href="https://calendar.google.com/calendar/u/0/appointments/AcZssZ3y53WxNTlzHgo25MFX8l8tpeJUBhXjnxC-zes=" target="_blank" rel="noopener" style="border-color:var(--rust)">
+        <span class="card-loc" style="color:var(--rust-deep)"><i class="loc-dot" style="background:var(--rust)"></i>Konsultacija</span>
+        <h3>Renginių erdvių konsultacija</h3>
+        <p>Dar renkatės? Aptarsime scenarijų, biudžetą ir parinksime tinkamiausią erdvę.</p>
+        <span class="rev-go">Rinktis laiką →</span>
+      </a>
+    </div>
+  </div>
+</section>
+
+<!-- ═════════ DUK ═════════ -->
+<section id="duk" class="tight">
+  <div class="wrap">
+    <div class="sec-head">
+      <p class="eyebrow">Prieš rezervuojant</p>
+      <h2>Dažniausiai užduodami klausimai</h2>
+    </div>
+    <div class="faq">
+      <details open>
+        <summary>Kuri erdvė tinka mano renginiui?</summary>
+        <div class="a"><p>Turime 16 paruoštų erdvių trijose Vilniaus lokacijose — nuo 24 vietų susitikimų kambario iki viso konferencijų centro 1 000 dalyvių. Pasirinkite svečių skaičių filtre ir <a href="#erdves">palyginkite erdves ↑</a>, arba tiesiog aprašykite renginį užklausoje — parinksime už jus.</p></div>
+      </details>
+      <details>
+        <summary>Kaip skaičiuojama nuomos kaina?</summary>
+        <div class="a"><p>Nuoma skaičiuojama nuo atvykimo pasiruošti iki išvykimo po demontažo. Minimali rezervacija — 3 renginio valandos. Į kainą įeina erdvės nuoma, turima įranga, baldai ir jų išdėstymas, valymas prieš renginį bei kontaktinis žmogus nuomos metu.</p><p>Pilnus kainoraščius su pusdienio, dienos ir paros įkainiais atsiųsime <a href="#kainos">kainų skiltyje ↑</a>.</p></div>
+      </details>
+      <details>
+        <summary>Ar galiu atsivesti savo maitinimo ar technikos tiekėją?</summary>
+        <div class="a"><p><b>Taip.</b> Išorės maitinimo tiekėjai leidžiami už papildomą 250 € + PVM mokestį, tas pats galioja ir išorės technikos tiekėjams.</p><p>Turime patikrintus partnerius: <b>Gastrolės</b> (maitinimas), <b>Baltas Dažnis</b> (įgarsinimas, LED ekranai, apšvietimas, scenos, filmavimas), <b>Konferenta</b> (sinchroninis vertimas, transliavimas), <b>Renginio partneris</b> (baldų ir lauko paviljonų nuoma).</p></div>
+      </details>
+      <details>
+        <summary>Ar yra parkavimo vietų?</summary>
+        <div class="a"><p><b>Tech Park:</b> iš anksto sutarus suteikiame iki 5 vietų vidinėje aikštelėje, priklausomai nuo renginio dydžio. Dalyviams — vieša miesto aikštelė kelios minutės pėsčiomis, žalioje zonoje. Artimiausia stotelė — L. Sapiegos.</p><p><b>Tech Arts:</b> beveik 100 nemokamų vietų viešoje aikštelėje priešais pastatą. Nemokamas parkavimas šaltuoju sezonu (10-01–05-31), mokamas šiltuoju (06-01–09-30, geltonoji zona). Iki 3 vietų vidinėje aikštelėje su šlagbaumu. Stotelė „Antrasis paplūdimys", 15 autobusas.</p><p><b>Tech Zity Vilnius:</b> parkavimas miestelio teritorijoje, 2 min iki pietinio aplinkkelio.</p></div>
+      </details>
+      <details>
+        <summary>Kaip patvirtinama rezervacija?</summary>
+        <div class="a"><p>Rezervacija patvirtinama pasirašius sutartį ir sumokėjus 50 % avansą. Likusi suma apmokama likus 5 dienoms iki renginio. Po sutarties pasirašymo avansas negrąžinamas.</p></div>
+      </details>
+      <details>
+        <summary>Ar galima erdves apžiūrėti gyvai?</summary>
+        <div class="a"><p>Taip — rekomenduojame. Laiką pasirinkite <a href="#apziura">apžiūrų kalendoriuje ↑</a> arba parašykite <a href="mailto:events@techzity.com">events@techzity.com</a>. Iš anksto galite apeiti erdves ir <a href="#turas">virtualiame ture ↑</a>.</p></div>
+      </details>
+      <details>
+        <summary>Kokius renginio paketus siūlote?</summary>
+        <div class="a"><p>Nuo tuščios erdvės iki viso renginio nuo A iki Z. <b>S</b> — erdvė, integruota įranga, baldų paruošimas ir aptarnaujantis personalas. <b>M</b> — papildomai maitinimo užsakymas. <b>L</b> — papildomos įrangos ir baldų užsakymas. <b>XL</b> — visas renginys nuo A iki Z.</p></div>
+      </details>
+    </div>
+  </div>
+</section>
+
+<!-- ═════════ UŽKLAUSA (17) ═════════ -->
+<section class="ask" id="uzklausa">
+  <div class="wrap ask-grid">
+    <div class="ask-side">
+      <p class="eyebrow" style="color:var(--park)">Užklausa</p>
+      <h2>Gaukite pasiūlymą</h2>
+      <p>Aprašykite savo renginį — parinksime tinkamiausią erdvę ir paruošime asmeninį pasiūlymą su tikslia kaina.</p>
+      <div class="sla">
+        <svg width="19" height="19" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" aria-hidden="true"><circle cx="12" cy="12" r="9"/><path d="M12 7v5.5l3.5 2"/></svg>
+        <span><b>Pasiūlymas per 1 darbo dieną.</b><br>Po užklausos susisieksime dėl apžiūros laiko.</span>
+      </div>
+      <div class="contact-row" style="margin-top:0">
+        <span class="cbtn-group">
+          <a class="cbtn" href="tel:+37067186572">
+            <svg width="17" height="17" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" aria-hidden="true"><path d="M22 16.9v3a2 2 0 0 1-2.2 2 19.8 19.8 0 0 1-8.6-3.1 19.5 19.5 0 0 1-6-6A19.8 19.8 0 0 1 2.1 4.2 2 2 0 0 1 4.1 2h3a2 2 0 0 1 2 1.7c.1 1 .4 1.9.7 2.8a2 2 0 0 1-.5 2.1L8.1 9.9a16 16 0 0 0 6 6l1.3-1.2a2 2 0 0 1 2.1-.5c.9.3 1.8.6 2.8.7a2 2 0 0 1 1.7 2Z"/></svg>
+            +370 671 86 572
+          </a>
+          <button class="cbtn-copy" data-copy="+370 671 86572" aria-label="Kopijuoti telefono numerį">
+            <svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" aria-hidden="true"><rect x="9" y="9" width="12" height="12" rx="2"/><path d="M5 15H4a2 2 0 0 1-2-2V4a2 2 0 0 1 2-2h9a2 2 0 0 1 2 2v1"/></svg>
+            <span>Kopijuoti</span>
+          </button>
+        </span>
+        <span class="cbtn-group">
+          <a class="cbtn" href="mailto:events@techzity.com">
+            <svg width="17" height="17" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" aria-hidden="true"><rect x="2" y="4" width="20" height="16" rx="2"/><path d="m2 7 10 6 10-6"/></svg>
+            events@techzity.com
+          </a>
+          <button class="cbtn-copy" data-copy="events@techzity.com" aria-label="Kopijuoti el. pašto adresą">
+            <svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" aria-hidden="true"><rect x="9" y="9" width="12" height="12" rx="2"/><path d="M5 15H4a2 2 0 0 1-2-2V4a2 2 0 0 1 2-2h9a2 2 0 0 1 2 2v1"/></svg>
+            <span>Kopijuoti</span>
+          </button>
+        </span>
+      </div>
+      <p style="font-size:.85rem;color:rgba(255,255,255,.6);margin-top:1.25rem">Renginių komanda · TechZity Events, UAB</p>
+    </div>
+
+    <form class="inq" id="inq" novalidate>
+      <h3>Renginio užklausa</h3>
+      <div class="field"><label for="f-name">Vardas *</label><input id="f-name" required autocomplete="name" placeholder="Jūsų vardas"></div>
+      <div class="field"><label for="f-org">Įmonė</label><input id="f-org" autocomplete="organization" placeholder="Įmonės pavadinimas"></div>
+      <div class="field"><label for="f-mail">El. paštas *</label><input id="f-mail" type="email" required autocomplete="email" placeholder="vardas@imone.lt"></div>
+      <div class="field"><label for="f-tel">Telefonas</label><input id="f-tel" type="tel" autocomplete="tel" placeholder="+370"></div>
+      <div class="field"><label for="f-date">Renginio data</label><input id="f-date" type="date"></div>
+      <div class="field"><label for="f-n">Dalyvių skaičius *</label><input id="f-n" type="number" min="1" required placeholder="pvz., 120"></div>
+      <div class="field full"><label for="f-space">Dominanti erdvė</label>
+        <select id="f-space">
+          <option value="">Noriu jūsų konsultacijos / patarimo</option>
+        </select>
+      </div>
+      <div class="field full"><label for="f-msg">Žinutė</label><textarea id="f-msg" rows="3" placeholder="Renginio tipas, trukmė, papildomi poreikiai (maitinimas, transliacija, dekoracijos…)"></textarea></div>
+      <div class="consent"><input type="checkbox" id="f-gdpr" required><label for="f-gdpr" style="text-transform:none;letter-spacing:0;font-family:var(--font-b);font-size:.8rem">Sutinku, kad mano duomenys būtų naudojami užklausai apdoroti pagal <a href="privatumo-politika.html">privatumo politiką</a>. *</label></div>
+      <button class="chip chip--primary" type="submit">Siųsti užklausą</button>
+      <div class="form-ok" id="formOk">Ačiū! Užklausa gauta — pasiūlymą atsiųsime per 1 darbo dieną. <em>(Demo maketas — užklausa niekur nesiunčiama.)</em></div>
+    </form>
+  </div>
+</section>
+</main>
+
+<!-- ═════════ FOOTER (18) ═════════ -->
+<footer>
+  <div class="wrap">
+    <div class="foot">
+      <div>
+        <img class="foot-tze" src="assets/brand/techzity-events.svg" alt="Tech Zity Events" width="4946" height="1725">
+        <div style="display:grid;gap:.45rem">
+          <span>Renginių užklausos:</span>
+          <a href="tel:+37067186572" style="color:#fff;font-weight:700">+370 671 86 572</a>
+          <a href="mailto:events@techzity.com" style="color:#fff;font-weight:700">events@techzity.com</a>
+          <span style="margin-top:.5rem">Bendra informacija:</span>
+          <a href="mailto:info@techzity.com">info@techzity.com</a>
+        </div>
+      </div>
+      <div>
+        <h4>Lokacijos</h4>
+        <ul>
+          <li><a href="#lokacijos">Tech Park · Antakalnio g. 17</a></li>
+          <li><a href="#lokacijos">Tech Arts · Vaidilutės g. 79</a></li>
+          <li><a href="#lokacijos">Tech Zity Vilnius · Panerių g. 43</a></li>
+          <li><a href="https://techzity.com/lokacijos/">Tech Loft</a></li>
+          <li><a href="https://techzity.com/lokacijos/">Tech Spa</a></li>
+        </ul>
+      </div>
+      <div>
+        <h4>Paslaugos</h4>
+        <ul>
+          <li><a href="https://techzity.com/paslaugos/renginiu-erdves/">Renginių erdvės</a></li>
+          <li><a href="https://techzity.com/paslaugos/samsung-hall/">Samsung konferencijų centras</a></li>
+          <li><a href="https://techzity.com/paslaugos/biuru-nuoma/">Biurų nuoma</a></li>
+          <li><a href="https://techzity.com/paslaugos/co-working/">Co-working erdvės</a></li>
+          <li><a href="https://techzity.com/paslaugos/darbostogos/">Darbostogos</a></li>
+        </ul>
+      </div>
+      <div>
+        <h4>Sužinok</h4>
+        <ul>
+          <li><a href="https://techzity.com/apie-tech-zity/">Apie Tech Zity</a></li>
+          <li><a href="https://techzity.com/naujienos/">Naujienos</a></li>
+          <li><a href="https://techzity.com/kontaktai/">Kontaktai</a></li>
+          <li><a href="privatumo-politika.html">Privatumo politika</a></li>
+        </ul>
+      </div>
+    </div>
+    <div class="copy">
+      <span>© 2026 TechZity Events, UAB · Antakalnio g. 17, Vilnius · įm. k. 304066506</span>
+      <span>Demo maketas · paruošta pagal 2026-07 kliento korekcijas</span>
+    </div>
+  </div>
+</footer>
+
+<div class="mob-cta">
+  <a class="chip chip--sm" href="tel:+37067186572">Skambinti</a>
+  <a class="chip chip--primary chip--sm" href="#uzklausa">Gauti pasiūlymą</a>
+</div>
+
+<!-- ═════════ ERDVĖS MODALAS ═════════ -->
+<div class="modal" id="modal" role="dialog" aria-modal="true" aria-labelledby="modalTitle" hidden>
+  <div class="modal-box">
+    <button class="modal-close" id="modalClose" aria-label="Uždaryti">
+      <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true"><path d="M6 6l12 12M18 6L6 18"/></svg>
+    </button>
+    <div class="mgal" id="mgal"></div>
+    <div class="modal-info" id="modalInfo"></div>
+  </div>
+</div>
+
+<button class="fixbtn" id="fixBtn" aria-expanded="false" aria-controls="fixPanel">Kas pataisyta</button>
+<aside class="fixpanel" id="fixPanel">
+  <h4>Kliento korekcijos 1–19</h4>
+  <ol>
+    <li>Navigacija — ta pati kaip likusiuose Tech Zity tinklapiuose</li>
+    <li>Mobile: sutvarkyti tarpai, hero tekstas skaitomas visuose video kadruose (tas pats klipas)</li>
+    <li>Firminiai fontai (Deacon + Neue Haas) ir „dobiliuko" mygtukai</li>
+    <li>Telefonas: skambinti mobiliajame + kopijuoti kompiuteryje</li>
+    <li>Sutvarkytas viršus ir vienodi sekcijų tarpai</li>
+    <li>Kiekviena salė atsidaro pop-upe su galerijos skroleriu ir įranga</li>
+    <li>Pridėtos Samsung KC (Tech Zity Vilnius) salės pagal bendrą lentelę</li>
+    <li>Filtras pagal svečių skaičių: iki 100 / iki 250 / virš 250</li>
+    <li>Įranga perkelta į pop-upą — burbuliukai nebeslankioja</li>
+    <li>Atsiliepimai iš Google, Placer ir Breezit + 300+ klientų ir jų sąrašai</li>
+    <li>Tikras Tech Zity Events logotipas juostoje ir poraštėje</li>
+    <li>Kainos nerodomos — kainoraštis atsisiunčiamas palikus kontaktus</li>
+    <li>Interaktyvus žemėlapis: 3 lokacijos, parkavimas, atstumai</li>
+    <li>Renginių scenarijai su tikromis nuotraukomis ir filtru</li>
+    <li>Virtualūs turai (Tech Arts | Tech Park) puslapio apačioje</li>
+    <li>Lokacijų spalvų koordinavimas tekste, kortelėse ir žemėlapyje</li>
+    <li>„Nežinau, patarkite" → „Noriu jūsų konsultacijos / patarimo"</li>
+    <li>Privatumo politika pritaikyta TechZity Events, UAB</li>
+    <li>4 apžiūrų kalendoriaus nuorodos (3 lokacijos + konsultacija)</li>
+  </ol>
+</aside>
+
+<script>
+/* ═══════════════ DUOMENYS ═══════════════
+   Šaltiniai: „2026 Tech PARK Renginių erdvės LT", „Tech ARTS Renginių erdvės | LT | 2026",
+   „Samsung Konferencijų centras LT 2026" (bendra salių lentelė). */
+const LOC = {
+  park: {name:'Tech Park', addr:'Antakalnio g. 17', color:'var(--park)', ink:'var(--park-ink)'},
+  arts: {name:'Tech Arts', addr:'Vaidilutės g. 79', color:'var(--arts)', ink:'var(--arts-ink)'},
+  zity: {name:'Tech Zity Vilnius', addr:'Panerių g. 43', color:'var(--zity)', ink:'var(--zity-ink)'}
+};
+
+const TP_EQUIP = [
+  'Integruota garso sistema',
+  '2 projektoriai su ekranais',
+  '3 bevieliai „hand-held" ir 2 „headset" mikrofonai',
+  '2 skaidrių prezenteriai, 3 mikrofonų laikikliai',
+  'Wi-Fi, LAN, trifazės jungtys',
+  '255 kėdės, 20 rašomųjų stalų, 5 baro ir 9 kavos staliukai, 2 tribūnos, 3 baltos lentos',
+  'Papildomai: 2 stumdomi TV — 75 € / vnt. + PVM'
+];
+const TA_EQUIP = [
+  'Integruota garso sistema',
+  'Projektorius',
+  'Rankinis mikrofonas, skaidrių prezenteris',
+  'Trifazis ir elektros įvadai, lauko vandens tiekimas',
+  '150 kėdžių, 12 stalų, 2 baro staliukai ir 6 baro kėdės, tribūna, balta lenta',
+  'Papildomai: stumdomas TV — 75 € + PVM'
+];
+const INCLUDED = 'Į kainą įskaičiuota: erdvės nuoma, turima įranga, baldai ir jų išdėstymas, valymas prieš renginį ir kontaktinis žmogus nuomos metu.';
+
+const SPACES = [
+  /* ── TECH PARK ── */
+  {id:'tp-kc', loc:'park', name:'Konferencijų centras', area:'300 m²', theatre:300, outdoor:false,
+   lead:'Didžioji ir Mažoji salės kartu — universaliausia Tech Park erdvė konferencijoms su maitinimu ir kūrybine laisve.',
+   layouts:[['Teatro',300],['Teatro (šonu)',225],['Klasės (po 2)',200],['Dirbtuvių (po 4)',175],['Vakarienės (po 6–8)',180],['Stovimas',325]],
+   equip:TP_EQUIP,
+   photos:[['tp-kc-1','Teatro stiliumi | iki 300'],['tp-kc-2','Klasės stiliumi (grupės po 2) | iki 200'],['tp-kc-3','Dirbtuvių stiliumi (grupės po 4) | iki 175'],['tp-kc-4','Grupės po 6–8 | Vakarienės | iki 180'],['tp-kc-5','Teatro stiliumi (šonu) | iki 225'],['tp-kc-6','Stovimas renginys | Kūrybinė laisvė | iki 325']]},
+
+  {id:'tp-didz', loc:'park', name:'Didžioji salė', area:'210 m²', theatre:190, outdoor:false,
+   lead:'Šviesi salė su didžiuliais langais į Sapiegų parką — konferencijoms, pristatymams ir vakarienėms.',
+   layouts:[['Teatro',190],['Teatro (šonu)',175],['Klasės (po 2)',120],['Dirbtuvių (po 4)',120],['Apvalūs stalai',140],['Stovimas',225]],
+   equip:TP_EQUIP,
+   photos:[['tp-didz-1','Teatro stiliumi | iki 190'],['tp-didz-2','Klasės stiliumi (grupės po 2) | iki 120'],['tp-didz-3','Dirbtuvių stiliumi (grupės po 4) | iki 120'],['tp-didz-4','Grupės po 6–8 | Apvalūs stalai | iki 140'],['tp-didz-5','Teatro stiliumi (šonu) | iki 175'],['tp-didz-6','Stovimas renginys | Kūrybinė laisvė | iki 225']]},
+
+  {id:'tp-maz', loc:'park', name:'Mažoji salė', area:'90 m²', theatre:70, outdoor:false,
+   lead:'Kompaktiška salė mokymams, posėdžiams ir pristatymams mažesnėms grupėms.',
+   layouts:[['Teatro',70],['Klasės (po 2)',40],['Dirbtuvių (po 4)',30],['U-forma',25],['Posėdžių',20],['Stovimas',70]],
+   equip:TP_EQUIP,
+   photos:[['tp-maz-1','Teatro stiliumi | iki 70'],['tp-maz-2','Klasės stiliumi (grupės po 2) | iki 40'],['tp-maz-3','Dirbtuvių stiliumi (grupės po 4) | iki 30'],['tp-maz-4','U-forma | iki 25'],['tp-maz-5','Posėdžių | iki 20'],['tp-maz-6','Stovimas renginys | iki 70']]},
+
+  {id:'tp-terasa', loc:'park', name:'Didžioji terasa + kiemas', area:'400 m² terasa + 1 200 m² kiemas', theatre:750, outdoor:true,
+   lead:'XIX a. pastatų apsuptas kiemas su medine terasa — vasaros šventėms, koncertams ir išleistuvėms iki 750 dalyvių.',
+   layouts:[['Lauko renginys',750]],
+   equip:['Garso ir vaizdo įranga pagal užsakymą','Lauko elektros įvadai ir vandens tiekimas','Lauko paletiniai baldai','Maisto furgonėlių, BBQ ir paviljonų sprendimai per partnerius','Uždengimas tentu pagal užsakymą'],
+   photos:[['tp-terasa-1','Medinė terasa palei pastatą'],['tp-terasa-2','Vidinis kiemas Sapiegų parke'],['tp-terasa-3','Terasa ir kiemas iš arti'],['tp-terasa-4','Išleistuvės kieme'],['tp-terasa-5','Koncertas su scena kieme'],['tp-terasa-6','Renginys po tentu']]},
+
+  {id:'tp-mterasa', loc:'park', name:'Mažoji terasa + kiemas', area:'100 m² terasa + 800 m² kiemas', theatre:500, outdoor:true,
+   lead:'Ramesnis kiemas su terasa šalia salių — kavos pertraukoms, priėmimams ir vasaros vakarėliams.',
+   note:'Įeina į vidaus erdvių nuomą ir nuomojama tik kartu su vidaus erdvėmis.',
+   layouts:[['Lauko renginys',500]],
+   equip:['Garso ir vaizdo įranga pagal užsakymą','Lauko elektros įvadai ir vandens tiekimas','Lauko paletiniai baldai','Maisto furgonėlių ir BBQ sprendimai per partnerius'],
+   photos:[['tp-mterasa-1','Terasa palei stiklinį korpusą'],['tp-mterasa-2','Terasa ir kiemas'],['tp-mterasa-3','Vaizdas į kiemą nuo terasos'],['tp-mterasa-4','Vasaros šventė su paviljonais'],['tp-mterasa-5','Priėmimas prie įėjimo'],['tp-mterasa-6','Svečiai kieme']]},
+
+  /* ── TECH ARTS ── */
+  {id:'ta-galerija', loc:'arts', name:'Didžioji galerija', area:'274 m²', theatre:250, outdoor:false,
+   lead:'Universali galerija prie pat Neries su tiesioginiu patekimu į terasą. Holas ir skaitykla įeina į kainą.',
+   layouts:[['Teatras',250],['Klasė / grupėmis',180],['Banketas',180],['Stovimas',250]],
+   equip:TA_EQUIP,
+   photos:[['ta-galerija-1','Teatro stiliumi | iki 250'],['ta-galerija-2','Tiesioginis patekimas į terasą, daug šviesos'],['ta-galerija-3','Stovimas renginys | Kūrybinė laisvė | iki 250'],['ta-galerija-4','Podiumas'],['ta-galerija-5','Banketo stilius / darbas grupėse | iki 200'],['ta-galerija-6','Erdvus holas maitinimui']]},
+
+  {id:'ta-mgalerija', loc:'arts', name:'Mažoji galerija', area:'157 m²', theatre:100, outdoor:false,
+   lead:'Didžioji galerija, padalinta stumdoma sienele. Rinkitės lango pusę (daugiau šviesos, patekimas į terasą) arba sienos pusę (integruotas projektorius).',
+   layouts:[['Teatras',100],['Klasė / grupėmis',80],['Banketas',80],['Stovimas',120]],
+   equip:TA_EQUIP,
+   photos:[['ta-mgalerija-1','Sienos pusė: teatru | iki 100'],['ta-mgalerija-2','Galerija padalijama stumdoma sienele'],['ta-mgalerija-3','Lango pusė: U-forma | iki 60'],['ta-mgalerija-4','Sienos pusė: su projektoriumi | iki 100'],['ta-mgalerija-5','Atskiriama salė skirtingoms renginio funkcijoms'],['ta-mgalerija-6','Lango pusė: galimas mobilus TV prezentacijoms']]},
+
+  {id:'ta-kambarys', loc:'arts', name:'Susitikimų kambarys', area:'32 m²', theatre:30, outdoor:false,
+   lead:'Šviesus kambarys posėdžiams, komandiniam darbui ir „workation" dienoms — integruotas projektorius.',
+   layouts:[['Teatras',30],['Klasė / grupėmis',24],['Posėdis (aplink stalą)',24],['Posėdis (U-forma)',22]],
+   equip:TA_EQUIP,
+   photos:[['ta-kambarys-1','Darbas grupėse: du stalai po 12 asm. | iki 24'],['ta-kambarys-2','Daug natūralios šviesos | Posėdis | iki 24'],['ta-kambarys-3','Integruotas projektorius | Teatro išdėstymas'],['ta-kambarys-4','„Workation" — komandinis darbas kitur'],['ta-kambarys-5','Posėdis: U-forma | iki 22'],['ta-kambarys-6','Teatras | iki 30']]},
+
+  {id:'ta-skaitykla', loc:'arts', name:'Skaitykla', area:'51 m²', theatre:60, outdoor:false,
+   lead:'Jauki svetainė su vaizdu į gamtą ir tiesioginiu patekimu į terasą — pertraukėlėms, maitinimui ar kameriniam renginiui.',
+   note:'Skaitykla nėra privati erdvė, tačiau žmonių srautas joje minimalus.',
+   layouts:[['Teatras',60],['Klasė / grupėmis',50],['Posėdis (aplink stalą)',30],['Stovimas',60]],
+   equip:TA_EQUIP,
+   photos:[['ta-skaitykla-1','Svetainė — jauki vieta pertraukėlėms'],['ta-skaitykla-2','Daug natūralios šviesos ir gamtos, jaukūs baldai'],['ta-skaitykla-3','Terasa už lango | tiesioginis patekimas į terasą'],['ta-skaitykla-4','Patogus srautas iš Galerijos pro holą iki Skaityklos'],['ta-skaitykla-5','Teatras, sieninis TV | iki 50'],['ta-skaitykla-6','Stovimas / sėdimas renginys']]},
+
+  {id:'ta-terasa', loc:'arts', name:'Terasa + kiemas', area:'500 m²', theatre:350, outdoor:true,
+   lead:'Terasa su tiesioginiu patekimu iš renginių salių, didžiulis kiemas prie upės kranto, teniso, padelio ir paplūdimio tinklinio aikštelės.',
+   layouts:[['Lauko renginys (su galerija)',350]],
+   equip:['Garso ir vaizdo įranga pagal užsakymą','Trifazis ir elektros įvadai, lauko vandens tiekimas','Teniso, padelio ir paplūdimio tinklinio aikštelės','Maisto furgonėlių ir BBQ sprendimai per partnerius','Renginiai apdrausti nuo permainingų orų — paviljonai per partnerius'],
+   photos:[['ta-terasa-1','Terasa su tiesioginiu patekimu iš renginių salių'],['ta-terasa-2','Renginiai apdrausti nuo permainingų orų'],['ta-terasa-3','Stovimas renginys kieme su maitinimu'],['ta-terasa-4','Gamtos apsuptyje prie upės kranto paplūdimio'],['ta-terasa-5','Teniso, padelio ir paplūdimio tinklinio aikštelės'],['ta-terasa-6','Didžiulis kiemas įvairiems lauko renginiams']]},
+
+  /* ── TECH ZITY VILNIUS · SAMSUNG KONFERENCIJŲ CENTRAS ── */
+  {id:'skc-a', loc:'zity', name:'Didžioji salė A', area:'470 m²', theatre:500, outdoor:false, dir:'skc',
+   lead:'Didžiausia salė po 1947 m. medinių santvarų skliautu — 7 m aukščio, be kolonų. Samsung 2,5 mm LED siena, scena ir koncertams suderinta akustika.',
+   layouts:[['Teatro',500],['Vakarienės',270],['Klasės',230],['Kabareto',210],['Prie stalelių',355],['Be baldų',570]],
+   equip:['SAMSUNG 2,5 mm LED ekranas 6 720 × 3 780 mm, valdymas AVoIP sistema','Iki 6 × 65" dubliavimo ekranų','8 kolonėlių garso sistema','5 × Shure MXW2/BETA58 ir 2 × TH53/O-MTQG mikrofonai','12 × „wash" prožektorių, DMX valdiklis','Valdomas RGB stogo skliauto apšvietimas','Scena 3 × 10 m (Hexa danga, 60–80 cm aukštis)'],
+   photos:[['hall-a-1','Didžioji salė A — medinių santvarų skliautas ir scena'],['hall-a-2','Vaizdas nuo scenos į salę'],['lobby-2a-2','Įėjimas į A salę iš antro aukšto holo']]},
+
+  {id:'skc-bc', loc:'zity', name:'Vidutinė salė B+C', area:'250 m²', theatre:220, outdoor:false, dir:'skc',
+   lead:'Sujungtos B ir C salės su LED siena ir scena — konferencijoms iki 220 dalyvių arba vakarienei iki 140 svečių.',
+   layouts:[['Teatro',220],['Vakarienės',140],['Klasės',110],['Kabareto',95],['Prie stalelių',190],['Be baldų',300]],
+   equip:['SAMSUNG 2,5 mm LED ekranas 5 760 × 3 240 mm, valdymas AVoIP sistema','Iki 4 × 65" dubliavimo ekranų','6 kolonėlių garso sistema','4 × MXW2/BETA58 ir 2 × TH53/O-MTQG mikrofonai','4 × „wash" prožektoriai, DMX valdiklis','Valdomas RGB skliauto apšvietimas','Scena 3 × 10 m (Hexa danga, 60–80 cm aukštis)'],
+   photos:[['hall-bc-1','Vidutinė salė B+C — sujungtos salės su scena'],['hall-bc-2','Vaizdas link durų']]},
+
+  {id:'skc-c', loc:'zity', name:'Mažoji salė C', area:'140 m²', theatre:130, outdoor:false, dir:'skc',
+   lead:'Juodos sienos scenografija posėdžiams, pristatymams ir kamerinėms diskusijoms.',
+   layouts:[['Teatro',130],['Vakarienės',80],['Klasės',75],['Kabareto',65],['Prie stalelių',105],['Be baldų',170]],
+   equip:['Valdomas RGB stogo skliauto apšvietimas','Įranga komplektuojama pagal renginį — mobilūs LED ekranai, garso sistema'],
+   photos:[['hall-c-1','Mažoji salė C — juodos sienos scenografija']]},
+
+  {id:'skc-b', loc:'zity', name:'Mažoji salė B', area:'110 m²', theatre:90, outdoor:false, dir:'skc',
+   lead:'Kompaktiška salė seminarams, mokymams ir pristatymams — 130" mobilus Samsung LED ekranas ir AVoIP valdymas.',
+   layouts:[['Teatro',90],['Vakarienės',65],['Klasės',60],['Kabareto',45],['Prie stalelių',85],['Be baldų',130]],
+   equip:['130" SAMSUNG mobilus LED ekranas, valdymas AVoIP sistema','Iki 2 × 65" dubliavimo ekranų','2 kolonėlių garso sistema','2 × Shure MXW2/BETA58 mikrofonai','Valdomas RGB stogo skliauto apšvietimas'],
+   photos:[['hall-b-1','Mažoji salė B — mobilus Samsung LED ekranas']]},
+
+  {id:'skc-d', loc:'zity', name:'Oranžerija + Kiemas', area:'390 + 300 m²', theatre:400, outdoor:true, dir:'skc',
+   lead:'Skaidraus tento paviljonas ir žalias kiemas — lauko renginiams iki 550 svečių.',
+   layouts:[['Teatro',400],['Vakarienės',220],['Klasės',260],['Kabareto',170],['Prie stalelių',300],['Be baldų',550]],
+   equip:['Skaidraus tento paviljonas (apie 10 m pločio)','Lauko elektros įvadai ir kabinimo taškai','Mobilios garso kolonėlės laukui','Paviljono nuoma ne vasaros sezonu — 400 € / renginio dienai'],
+   photos:[['orangery-1','Oranžerija — skaidraus tento paviljonas su svečiais'],['orangery-decor','Dekoravimo pavyzdys su apvaliais stalais'],['orangery-2','Paviljono vidus']]},
+
+  {id:'skc-abcd', loc:'zity', name:'Visas centras (buy-out)', area:'2 650 m²', theatre:1000, outdoor:false, dir:'skc',
+   lead:'Privatus viso pastato naudojimas: visos salės, holai, restoranas „Gastrolės" ir kiemas — iki 1 000 dalyvių viename renginyje.',
+   note:'Holas 1A ir Holas 2A (stovimi priėmimai iki 360 ir 270 svečių) bei restoranas „Gastrolės" (vakarienės iki 190) nuomojami tik kartu su salėmis.',
+   layouts:[['Teatro',1000],['Vakarienės',775],['Klasės',725],['Kabareto',585],['Prie stalelių',1000],['Be baldų',1000]],
+   equip:['Visa A, BC ir B salių integruota Samsung įranga','Bendrosios erdvės, restoranas ir kiemas','Integruoti reklaminiai ekranai rėmėjų aktyvacijoms','Užkulisių kambariai ir grimerinė'],
+   photos:[['entrance-1','Pagrindinis įėjimas į konferencijų centrą'],['lobby-2a-1','Antro aukšto holas — registratūra'],['lobby-1a-1','Pirmo aukšto holas — laiptai ir lounge zona'],['courtyard-1','Restoranų kiemas Tech Zity miestelyje']]}
+];
+
+const SCEN = [
+  {k:'konferencija', label:'Konferencijos', photos:[['scen-tp-1','Konferencija · Tech Park'],['scen-ta-1','Konferencija · Tech Arts'],['scen-tp-3','Seminaras · Tech Park'],['scen-ta-6','Mokymai · Tech Arts']], size:'m'},
+  {k:'hakatonas', label:'Hakatonai ir mokymai', photos:[['scen-tp-3','Hakatonas · Tech Park'],['scen-ta-6','Mokymai · Tech Arts'],['scen-tp-2','Off-site · Tech Park'],['scen-ta-7','Dirbtuvės · Tech Arts']], size:'m'},
+  {k:'vakarelis', label:'Įmonių vakarėliai', photos:[['scen-tp-4','Įmonės vakarėlis · Tech Park'],['scen-ta-5','Priėmimas · Tech Arts'],['scen-tp-6','Vakaro šventė · Tech Park'],['scen-ta-3','Vakarienė · Tech Arts']], size:'l'},
+  {k:'koncertas', label:'Koncertai', photos:[['scen-tp-4','Koncertas · Tech Park'],['tp-terasa-5','Koncertas kieme · Tech Park'],['scen-tp-6','Scena ir apšvietimas'],['scen-ta-5','Gyvas pasirodymas · Tech Arts']], size:'l'},
+  {k:'lauko', label:'Lauko renginiai', photos:[['scen-tp-9','Vasaros renginys kieme · Tech Park'],['tp-terasa-4','Šventė kieme · Tech Park'],['ta-terasa-4','Kiemas prie Neries · Tech Arts'],['scen-ta-2','Renginys gamtoje · Tech Arts']], size:'l'},
+  {k:'isleistuves', label:'Išleistuvės', photos:[['scen-tp-5','Išleistuvės kieme · Tech Park'],['tp-terasa-4','Kepurių metimas · Tech Park'],['scen-ta-3','Vakarienė · Tech Arts'],['scen-tp-6','Šventinis vakaras']], size:'l'},
+  {k:'vestuves', label:'Vestuvės', photos:[['scen-ta-4','Vestuvės · Tech Arts'],['scen-ta-3','Vestuvių vakarienė · Tech Arts'],['ta-terasa-3','Ceremonija kieme · Tech Arts'],['scen-tp-6','Šventė salėje · Tech Park']], size:'m'},
+  {k:'paroda', label:'Parodos ir pristatymai', photos:[['scen-tp-2','Paroda · Tech Park'],['scen-tp-7','Produkto pristatymas · Tech Park'],['scen-ta-7','Meno instaliacija · Tech Arts'],['scen-tp-8','Unikalus renginys · Tech Park']], size:'m'}
+];
+
+const MAPDATA = {
+  park:{
+    name:'Tech Park', addr:'Antakalnio g. 17, 10312 Vilnius', color:'var(--park)', ink:'var(--park-ink)',
+    desc:'Startuolių miestelis Sapiegų parke — XIX a. pastatų konversija, menanti Sapiegų rūmų didybę. Konferencijų centras, dvi salės ir didžiosios terasos su kiemais.',
+    dist:[['3 min','automobiliu iki Senamiesčio'],['20 min','pėsčiomis iki Katedros'],['Stotelė','L. Sapiegos — artimiausia viešojo transporto stotelė']],
+    park:'Iš anksto sutarus suteikiame iki 5 parkavimo vietų vidinėje aikštelėje. Dalyviams — vieša miesto aikštelė kelios minutės pėsčiomis, žalioje zonoje.',
+    maps:'https://www.google.com/maps/dir/?api=1&destination=Antakalnio+g.+17,+Vilnius'
+  },
+  arts:{
+    name:'Tech Arts', addr:'Vaidilutės g. 79, 10100 Vilnius', color:'var(--arts)', ink:'var(--arts-ink)',
+    desc:'Valakampiuose prie pat Neries, gražiausiame Vilniaus rajone — nostalgiškas vaikystės paplūdimio kampelis, išvystytas į kūrybos ir sveikatingumo epicentrą.',
+    dist:[['15 min','automobiliu nuo Senamiesčio'],['~100','nemokamų parkavimo vietų šalia pastato'],['Stotelė','„Antrasis paplūdimys" — 15 autobusas']],
+    park:'Didelė vieša aikštelė priešais pastatą: nemokama šaltuoju sezonu (10-01–05-31), mokama šiltuoju (06-01–09-30, geltonoji zona). Iki 3 vietų vidinėje aikštelėje su šlagbaumu. Bolt Drive / CityBee / Spark zona.',
+    maps:'https://www.google.com/maps/dir/?api=1&destination=Vaidilut%C4%97s+g.+79,+Vilnius'
+  },
+  zity:{
+    name:'Tech Zity Vilnius', addr:'Panerių g. 43, 03202 Vilnius', color:'var(--zity)', ink:'var(--zity-ink)',
+    desc:'Mūsų flagmanas Naujamiestyje — 55 000 m² technologijų miestelis su Samsung konferencijų centru buvusiame 1947 m. „Lelijos" siuvyklos pastate. 8 restoranai, 4 žali kiemai.',
+    dist:[['15 min','pėsčiomis iki senamiesčio ir stoties'],['10 min','automobiliu iki oro uosto'],['2 min','iki pietinio aplinkkelio']],
+    park:'Parkavimas miestelio teritorijoje. Patogus privažiavimas iš pietinio aplinkkelio — logistika renginio technikai ir dekoracijoms.',
+    maps:'https://www.google.com/maps/dir/?api=1&destination=Paneri%C5%B3+g.+43,+Vilnius'
+  }
+};
+
+/* ═══════════════ ERDVIŲ TINKLELIS + FILTRAI ═══════════════ */
+const band = (n) => n <= 100 ? 's' : (n <= 250 ? 'm' : 'l');
+const imgSrc = (sp, file) => `assets/img/${sp.dir === 'skc' ? 'skc' : 'spaces'}/${file}.jpg`;
+const cardsEl = document.getElementById('cards');
+const state = {loc:'all', size:'all'};
+
+function matches(sp){
+  const okLoc = state.loc === 'all' || (state.loc === 'lauko' ? sp.outdoor : sp.loc === state.loc);
+  const okSize = state.size === 'all' || band(sp.theatre) === state.size;
+  return okLoc && okSize;
+}
+
+function renderCards(){
+  const list = SPACES.filter(matches);
+  cardsEl.innerHTML = list.length ? list.map(sp => {
+    const L = LOC[sp.loc];
+    return `<article class="card">
+      <div class="card-media">
+        <img loading="lazy" src="${imgSrc(sp, sp.photos[0][0])}" alt="${sp.name} — ${L.name}, ${L.addr}" width="1200" height="750">
+        <span class="card-count">${sp.photos.length} nuotr.</span>
+      </div>
+      <div class="card-strip" style="background:${L.color}"></div>
+      <div class="card-body">
+        <span class="card-loc" style="color:${L.ink}"><i class="loc-dot" style="background:${L.color}"></i>${L.name} · ${L.addr}</span>
+        <h3>${sp.name}</h3>
+        <div class="metas">
+          <span>Plotas<b>${sp.area}</b></span>
+          <span>${sp.outdoor ? 'Lauko renginys' : 'Teatro stiliumi'}<b>iki ${sp.theatre.toLocaleString('lt-LT')}</b></span>
+        </div>
+        ${sp.note ? `<p class="card-note">${sp.note}</p>` : ''}
+        <div class="card-actions">
+          <button class="chip chip--sm" data-open="${sp.id}">Žiūrėti erdvę</button>
+          <a class="chip chip--primary chip--sm" href="#uzklausa" data-space="${sp.name}">Gauti pasiūlymą</a>
+        </div>
+      </div>
+    </article>`;
+  }).join('') : `<p class="empty-note">Pagal šiuos filtrus erdvių nėra. <button class="linkish" id="resetF" style="border:0;border-bottom:1.5px solid var(--rust)">Rodyti visas erdves</button></p>`;
+
+  document.getElementById('fcount').textContent = list.length === 1 ? '1 erdvė' : (list.length >= 11 && list.length <= 19 ? list.length + ' erdvių' : (list.length % 10 === 0 || list.length === 0 ? list.length + ' erdvių' : list.length + ' erdvės'));
+  const rf = document.getElementById('resetF');
+  if (rf) rf.addEventListener('click', () => { state.loc = 'all'; state.size = 'all'; syncFilters(); renderCards(); });
+}
+
+function syncFilters(){
+  document.querySelectorAll('.fbtn').forEach(b => b.setAttribute('aria-pressed', String(state[b.dataset.f] === b.dataset.v)));
+}
+document.querySelectorAll('.fbtn').forEach(b => b.addEventListener('click', () => {
+  state[b.dataset.f] = b.dataset.v; syncFilters(); renderCards();
+}));
+renderCards();
+
+/* ═══════════════ MODALAS SU GALERIJOS SKROLERIU ═══════════════ */
+const modal = document.getElementById('modal');
+const mgal = document.getElementById('mgal');
+const minfo = document.getElementById('modalInfo');
+let lastFocus = null, slideIdx = 0, slideCount = 0;
+
+function openSpace(id){
+  const sp = SPACES.find(s => s.id === id); if (!sp) return;
+  const L = LOC[sp.loc];
+  slideIdx = 0; slideCount = sp.photos.length;
+  mgal.innerHTML = `
+    <div class="mgal-track" id="mgalTrack">
+      ${sp.photos.map(([f, cap], i) => `<div class="mgal-slide"><img ${i ? 'loading="lazy"' : ''} src="${imgSrc(sp, f)}" alt="${cap} — ${sp.name}, ${L.name}" width="1200" height="820"><p class="mgal-cap">${cap}</p></div>`).join('')}
+    </div>
+    ${slideCount > 1 ? `
+      <button class="mgal-btn mgal-prev" aria-label="Ankstesnė nuotrauka"><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="m15 5-7 7 7 7"/></svg></button>
+      <button class="mgal-btn mgal-next" aria-label="Kita nuotrauka"><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="m9 5 7 7-7 7"/></svg></button>
+      <div class="mgal-dots">${sp.photos.map((_, i) => `<button aria-label="Nuotrauka ${i + 1}" aria-current="${i === 0}"></button>`).join('')}</div>` : ''}`;
+
+  minfo.innerHTML = `
+    <span class="card-loc" style="color:${L.ink}"><i class="loc-dot" style="background:${L.color}"></i>${L.name} · ${L.addr}</span>
+    <h3 id="modalTitle">${sp.name}</h3>
+    <p class="lead">${sp.lead}</p>
+    <div>
+      <h4>Plotas ir talpos</h4>
+      <div class="layouts" style="margin-top:.5rem">
+        <div class="layout"><b>${sp.area}</b><span>Plotas</span></div>
+        ${sp.layouts.map(([n, v]) => `<div class="layout"><b>${v.toLocaleString('lt-LT')}</b><span>${n}</span></div>`).join('')}
+      </div>
+    </div>
+    <div>
+      <h4>Įranga ir sąlygos</h4>
+      <ul class="equip" style="margin-top:.5rem">${sp.equip.map(e => `<li><span>${e}</span></li>`).join('')}</ul>
+    </div>
+    ${sp.note ? `<p class="card-note">${sp.note}</p>` : ''}
+    <p class="fineprint">${INCLUDED}</p>
+    <div class="card-actions" style="margin-top:.4rem">
+      <a class="chip chip--primary chip--sm" href="#uzklausa" data-space="${sp.name}" data-close-modal>Gauti šios erdvės pasiūlymą</a>
+      <a class="chip chip--sm" href="#apziura" data-close-modal>Rezervuoti apžiūrą</a>
+    </div>`;
+
+  lastFocus = document.activeElement;
+  modal.hidden = false; modal.setAttribute('data-open', '');
+  document.body.style.overflow = 'hidden';
+  document.getElementById('modalClose').focus();
+
+  const track = document.getElementById('mgalTrack');
+  const dots = mgal.querySelectorAll('.mgal-dots button');
+  const go = (i) => {
+    slideIdx = (i + slideCount) % slideCount;
+    track.scrollTo({left: track.clientWidth * slideIdx, behavior: 'smooth'});
+    dots.forEach((d, k) => d.setAttribute('aria-current', String(k === slideIdx)));
+  };
+  mgal.querySelector('.mgal-prev')?.addEventListener('click', () => go(slideIdx - 1));
+  mgal.querySelector('.mgal-next')?.addEventListener('click', () => go(slideIdx + 1));
+  dots.forEach((d, i) => d.addEventListener('click', () => go(i)));
+  track.addEventListener('scroll', () => {
+    const i = Math.round(track.scrollLeft / track.clientWidth);
+    if (i !== slideIdx) { slideIdx = i; dots.forEach((d, k) => d.setAttribute('aria-current', String(k === i))); }
+  }, {passive: true});
+}
+
+function closeModal(){
+  modal.removeAttribute('data-open'); modal.hidden = true;
+  document.body.style.overflow = '';
+  lastFocus?.focus();
+}
+document.getElementById('modalClose').addEventListener('click', closeModal);
+modal.addEventListener('click', (e) => { if (e.target === modal) closeModal(); });
+document.addEventListener('keydown', (e) => {
+  if (!modal.hasAttribute('data-open')) return;
+  if (e.key === 'Escape') closeModal();
+  if (e.key === 'Tab') {
+    const f = modal.querySelectorAll('a[href],button:not([disabled])');
+    if (!f.length) return;
+    const first = f[0], last = f[f.length - 1];
+    if (e.shiftKey && document.activeElement === first) { e.preventDefault(); last.focus(); }
+    else if (!e.shiftKey && document.activeElement === last) { e.preventDefault(); first.focus(); }
+  }
+});
+document.addEventListener('click', (e) => {
+  const o = e.target.closest('[data-open]');
+  if (o && o.dataset.open) { openSpace(o.dataset.open); return; }
+  if (e.target.closest('[data-close-modal]')) closeModal();
+});
+
+/* ═══════════════ SCENARIJAI ═══════════════ */
+const chipsEl = document.getElementById('scenChips');
+const gridEl = document.getElementById('scenGrid');
+let scenActive = SCEN[0].k;
+
+chipsEl.innerHTML = SCEN.map(s => `<button class="fbtn" data-scen="${s.k}" aria-pressed="${s.k === scenActive}">${s.label}</button>`).join('');
+
+const ctaEl = document.getElementById('scenCta');
+function renderScen(){
+  const s = SCEN.find(x => x.k === scenActive);
+  const dir = (f) => f.startsWith('scen-') ? 'scen' : 'spaces';
+  gridEl.innerHTML = s.photos.map(([f, cap]) => `
+    <figure class="scen"><img loading="lazy" src="assets/img/${dir(f)}/${f}.jpg" alt="${cap}" width="1100" height="825">
+      <figcaption>${s.label}<small>${cap}</small></figcaption></figure>`).join('');
+  ctaEl.innerHTML = `<p>Ieškote erdvės tokiam renginiui — <b>${s.label.toLowerCase()}</b>?</p>
+    <button class="chip chip--primary chip--sm" data-scen-go="${s.size}">Rodyti tinkamas erdves</button>`;
+  chipsEl.querySelectorAll('[data-scen]').forEach(b => b.setAttribute('aria-pressed', String(b.dataset.scen === scenActive)));
+}
+chipsEl.addEventListener('click', (e) => {
+  const b = e.target.closest('[data-scen]'); if (!b) return;
+  scenActive = b.dataset.scen; renderScen();
+});
+ctaEl.addEventListener('click', (e) => {
+  const b = e.target.closest('[data-scen-go]'); if (!b) return;
+  state.size = b.dataset.scenGo; state.loc = 'all'; syncFilters(); renderCards();
+  document.getElementById('erdves').scrollIntoView({behavior: 'smooth'});
+});
+renderScen();
+
+/* ═══════════════ ŽEMĖLAPIS ═══════════════ */
+const mapPanel = document.getElementById('mapPanel');
+function showLoc(key){
+  const d = MAPDATA[key];
+  mapPanel.innerHTML = `
+    <span class="badge" style="color:${d.ink}"><i class="loc-dot" style="background:${d.color}"></i>${d.name}</span>
+    <h3>${d.addr}</h3>
+    <p class="lead" style="font-size:.92rem">${d.desc}</p>
+    <div>
+      <h4 style="font-family:var(--font-m);font-size:.66rem;letter-spacing:.14em;text-transform:uppercase;color:var(--steel);font-weight:400">Kaip patogu atvykti</h4>
+      <ul class="dist">${d.dist.map(([v, t]) => `<li><b>${v}</b><span>${t}</span></li>`).join('')}</ul>
+    </div>
+    <div class="park-info"><b>Parkavimas.</b> ${d.park}</div>
+    <a class="chip chip--sm" href="${d.maps}" target="_blank" rel="noopener" style="align-self:flex-start">Kaip atvykti ↗</a>`;
+  document.querySelectorAll('.pin').forEach(p => p.setAttribute('aria-pressed', String(p.dataset.pin === key)));
+}
+document.querySelectorAll('.pin').forEach(p => {
+  p.addEventListener('click', () => showLoc(p.dataset.pin));
+  p.addEventListener('keydown', (e) => { if (e.key === 'Enter' || e.key === ' ') { e.preventDefault(); showLoc(p.dataset.pin); } });
+});
+showLoc('park');
+
+/* ═══════════════ FORMOS ═══════════════ */
+const sel = document.getElementById('f-space');
+SPACES.forEach(sp => {
+  const o = document.createElement('option');
+  o.textContent = `${LOC[sp.loc].name} – ${sp.name}`;
+  sel.appendChild(o);
+});
+document.addEventListener('click', (e) => {
+  const a = e.target.closest('[data-space]'); if (!a) return;
+  const want = a.dataset.space;
+  [...sel.options].forEach(o => { if (o.textContent.endsWith('– ' + want)) sel.value = o.value || o.textContent; });
+});
+document.getElementById('inq').addEventListener('submit', (e) => {
+  e.preventDefault();
+  if (!e.target.checkValidity()) { e.target.reportValidity(); return; }
+  document.getElementById('formOk').setAttribute('data-open', '');
+});
+document.getElementById('dlForm').addEventListener('submit', (e) => {
+  e.preventDefault();
+  if (!e.target.checkValidity()) { e.target.reportValidity(); return; }
+  e.target.style.display = 'none';
+  document.getElementById('dlDone').setAttribute('data-open', '');
+});
+
+/* ═══════════════ KOPIJUOTI KONTAKTĄ (4) ═══════════════ */
+document.querySelectorAll('.cbtn-copy').forEach(b => b.addEventListener('click', async () => {
+  const v = b.dataset.copy;
+  try { await navigator.clipboard.writeText(v); }
+  catch { const t = document.createElement('textarea'); t.value = v; document.body.appendChild(t); t.select(); document.execCommand('copy'); t.remove(); }
+  const s = b.querySelector('span'); const old = s.textContent;
+  s.textContent = 'Nukopijuota'; b.setAttribute('data-done', '');
+  setTimeout(() => { s.textContent = old; b.removeAttribute('data-done'); }, 1800);
+}));
+
+/* ═══════════════ VIRTUALUS TURAS (15) ═══════════════ */
+document.querySelectorAll('[data-tour]').forEach(b => b.addEventListener('click', () => {
+  const k = b.dataset.tour;
+  document.querySelectorAll('[data-tour]').forEach(x => {
+    const on = x.dataset.tour === k;
+    x.setAttribute('aria-pressed', String(on));
+    x.classList.toggle('chip--dark', on);
+  });
+  ['arts', 'park'].forEach(t => {
+    const f = document.getElementById('tour-' + t);
+    f.hidden = t !== k;
+    const ifr = f.querySelector('iframe');
+    if (t === k && ifr.dataset.src && !ifr.src) { ifr.src = ifr.dataset.src; }
+  });
+}));
+
+/* ═══════════════ MOBILUS MENIU ═══════════════ */
+const burger = document.getElementById('burger'), mm = document.getElementById('mobmenu');
+burger.addEventListener('click', () => {
+  const open = mm.hasAttribute('data-open');
+  mm.toggleAttribute('data-open', !open);
+  burger.setAttribute('aria-expanded', String(!open));
+  burger.setAttribute('aria-label', open ? 'Atidaryti meniu' : 'Uždaryti meniu');
+});
+mm.addEventListener('click', (e) => { if (e.target.tagName === 'A') { mm.removeAttribute('data-open'); burger.setAttribute('aria-expanded', 'false'); } });
+document.addEventListener('keydown', (e) => { if (e.key === 'Escape' && mm.hasAttribute('data-open')) { mm.removeAttribute('data-open'); burger.setAttribute('aria-expanded', 'false'); burger.focus(); } });
+
+/* ═══════════════ HERO VIDEO — tas pats klipas visuose įrenginiuose ═══════════════
+   Poster kadras rodomas iš karto, video švelniai užsideda ant jo, kai gali groti (2). */
+const vid = document.getElementById('heroVideo'), vt = document.getElementById('videoToggle');
+const heroPoster = document.getElementById('heroPoster');
+const ICON_PAUSE = '<svg width="16" height="16" viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><rect x="6" y="5" width="4" height="14" rx="1"/><rect x="14" y="5" width="4" height="14" rx="1"/></svg>';
+const ICON_PLAY = '<svg width="16" height="16" viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M8 5l11 7-11 7z"/></svg>';
+
+vid.addEventListener('playing', () => { heroPoster.style.opacity = '0'; }, {once: true});
+vid.addEventListener('loadeddata', () => { if (vid.readyState >= 2) heroPoster.style.opacity = '0'; }, {once: true});
+
+if (window.matchMedia('(prefers-reduced-motion:reduce)').matches) {
+  vid.pause();
+  vt.setAttribute('aria-label', 'Paleisti vaizdo įrašą');
+  vt.innerHTML = ICON_PLAY;
+} else {
+  vid.play().catch(() => {});
+}
+
+vt.addEventListener('click', () => {
+  if (vid.paused) { vid.play().catch(() => {}); vt.setAttribute('aria-label', 'Sustabdyti vaizdo įrašą'); vt.innerHTML = ICON_PAUSE; }
+  else { vid.pause(); vt.setAttribute('aria-label', 'Paleisti vaizdo įrašą'); vt.innerHTML = ICON_PLAY; }
+});
+
+/* ═══════════════ AKTYVUS INKARAS ═══════════════ */
+const secs = [...document.querySelectorAll('section[id]')];
+const links = [...document.querySelectorAll('.anchors a')];
+addEventListener('scroll', () => {
+  let cur = '';
+  secs.forEach(s => { if (scrollY >= s.offsetTop - 200) cur = s.id; });
+  links.forEach(a => a.classList.toggle('active', a.getAttribute('href') === '#' + cur));
+}, {passive: true});
+
+/* ═══════════════ KOREKCIJŲ PANELĖ ═══════════════ */
+const fb = document.getElementById('fixBtn'), fp = document.getElementById('fixPanel');
+fb.addEventListener('click', () => {
+  const open = fp.hasAttribute('data-open');
+  fp.toggleAttribute('data-open', !open);
+  fb.setAttribute('aria-expanded', String(!open));
+});
+</script>
+</body>
+</html>
