@@ -1153,15 +1153,16 @@ const SPACES = [
    photos:[['entrance-1','Pagrindinis įėjimas į konferencijų centrą'],['lobby-2a-1','Antro aukšto holas — registratūra'],['lobby-1a-1','Pirmo aukšto holas — laiptai ir lounge zona'],['courtyard-1','Restoranų kiemas Tech Zity miestelyje']]}
 ];
 
+/* photos: [failas, matoma antraštė (be pasikartojančio scenarijaus pavadinimo), pilnas alt tekstas] */
 const SCEN = [
-  {k:'konferencija', label:'Konferencijos', photos:[['scen-tp-1','Konferencija · Tech Park'],['scen-ta-1','Konferencija · Tech Arts'],['scen-tp-3','Seminaras · Tech Park'],['scen-ta-6','Mokymai · Tech Arts']], size:'m'},
-  {k:'hakatonas', label:'Hakatonai ir mokymai', photos:[['scen-tp-3','Hakatonas · Tech Park'],['scen-ta-6','Mokymai · Tech Arts'],['scen-tp-2','Off-site · Tech Park'],['scen-ta-7','Dirbtuvės · Tech Arts']], size:'m'},
-  {k:'vakarelis', label:'Įmonių vakarėliai', photos:[['scen-tp-4','Įmonės vakarėlis · Tech Park'],['scen-ta-5','Priėmimas · Tech Arts'],['scen-tp-6','Vakaro šventė · Tech Park'],['scen-ta-3','Vakarienė · Tech Arts']], size:'l'},
-  {k:'koncertas', label:'Koncertai', photos:[['scen-tp-4','Koncertas · Tech Park'],['tp-terasa-5','Koncertas kieme · Tech Park'],['scen-tp-6','Scena ir apšvietimas'],['scen-ta-5','Gyvas pasirodymas · Tech Arts']], size:'l'},
-  {k:'lauko', label:'Lauko renginiai', photos:[['scen-tp-9','Vasaros renginys kieme · Tech Park'],['tp-terasa-4','Šventė kieme · Tech Park'],['ta-terasa-4','Kiemas prie Neries · Tech Arts'],['scen-ta-2','Renginys gamtoje · Tech Arts']], size:'l'},
-  {k:'isleistuves', label:'Išleistuvės', photos:[['scen-tp-5','Išleistuvės kieme · Tech Park'],['tp-terasa-4','Kepurių metimas · Tech Park'],['scen-ta-3','Vakarienė · Tech Arts'],['scen-tp-6','Šventinis vakaras']], size:'l'},
-  {k:'vestuves', label:'Vestuvės', photos:[['scen-ta-4','Vestuvės · Tech Arts'],['scen-ta-3','Vestuvių vakarienė · Tech Arts'],['ta-terasa-3','Ceremonija kieme · Tech Arts'],['scen-tp-6','Šventė salėje · Tech Park']], size:'m'},
-  {k:'paroda', label:'Parodos ir pristatymai', photos:[['scen-tp-2','Paroda · Tech Park'],['scen-tp-7','Produkto pristatymas · Tech Park'],['scen-ta-7','Meno instaliacija · Tech Arts'],['scen-tp-8','Unikalus renginys · Tech Park']], size:'m'}
+  {k:'konferencija', label:'Konferencijos', photos:[['scen-tp-1','Tech Park','Konferencija · Tech Park'],['scen-ta-1','Tech Arts','Konferencija · Tech Arts'],['scen-tp-3','Seminaras · Tech Park'],['scen-ta-6','Mokymai · Tech Arts']], size:'m'},
+  {k:'hakatonas', label:'Hakatonai ir mokymai', photos:[['scen-tp-3','Tech Park','Hakatonas · Tech Park'],['scen-ta-6','Tech Arts','Mokymai · Tech Arts'],['scen-tp-2','Off-site · Tech Park'],['scen-ta-7','Dirbtuvės · Tech Arts']], size:'m'},
+  {k:'vakarelis', label:'Įmonių vakarėliai', photos:[['scen-tp-4','Tech Park','Įmonės vakarėlis · Tech Park'],['scen-ta-5','Priėmimas · Tech Arts'],['scen-tp-6','Vakaro šventė · Tech Park'],['scen-ta-3','Vakarienė · Tech Arts']], size:'l'},
+  {k:'koncertas', label:'Koncertai', photos:[['scen-tp-4','Tech Park','Koncertas · Tech Park'],['tp-terasa-5','Kieme · Tech Park','Koncertas kieme · Tech Park'],['scen-tp-6','Scena ir apšvietimas'],['scen-ta-5','Gyvas pasirodymas · Tech Arts']], size:'l'},
+  {k:'lauko', label:'Lauko renginiai', photos:[['scen-tp-9','Vasara kieme · Tech Park','Vasaros renginys kieme · Tech Park'],['tp-terasa-4','Šventė kieme · Tech Park'],['ta-terasa-4','Kiemas prie Neries · Tech Arts'],['scen-ta-2','Gamtoje · Tech Arts','Renginys gamtoje · Tech Arts']], size:'l'},
+  {k:'isleistuves', label:'Išleistuvės', photos:[['scen-tp-5','Kieme · Tech Park','Išleistuvės kieme · Tech Park'],['tp-terasa-4','Kepurių metimas · Tech Park'],['scen-ta-3','Vakarienė · Tech Arts'],['scen-tp-6','Šventinis vakaras']], size:'l'},
+  {k:'vestuves', label:'Vestuvės', photos:[['scen-ta-4','Tech Arts','Vestuvės · Tech Arts'],['scen-ta-3','Vakarienė · Tech Arts','Vestuvių vakarienė · Tech Arts'],['ta-terasa-3','Ceremonija kieme · Tech Arts'],['scen-tp-6','Šventė salėje · Tech Park']], size:'m'},
+  {k:'paroda', label:'Parodos ir pristatymai', photos:[['scen-tp-2','Tech Park','Paroda · Tech Park'],['scen-tp-7','Produkto pristatymas · Tech Park'],['scen-ta-7','Meno instaliacija · Tech Arts'],['scen-tp-8','Unikalus renginys · Tech Park']], size:'m'}
 ];
 
 const MAPDATA = {
