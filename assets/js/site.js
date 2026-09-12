@@ -24,7 +24,7 @@ function cardHTML(sp, {teaser = false} = {}){
   const L = LOC[sp.loc];
   return `<article class="card">
       <div class="card-media">
-        <img loading="lazy" src="${imgSrc(sp, sp.photos[0][0])}" alt="${sp.name} — ${L.name}, ${L.addr}" width="1200" height="750">
+        <img loading="lazy" src="${imgSrc(sp, (teaser && sp.hero) || sp.photos[0][0])}" alt="${sp.name} — ${L.name}, ${L.addr}" width="1200" height="750">
         <span class="card-count">${sp.photos.length} nuotr.</span>
       </div>
       <div class="card-strip" style="background:${L.color}"></div>
@@ -122,15 +122,21 @@ if (clientsEl){
 
 const locTeaser = $('#locTeaser');
 if (locTeaser){
-  locTeaser.innerHTML = Object.entries(MAPDATA).map(([k, d]) => `<a class="hub-item" href="lokacijos.html?loc=${k}">
-        <span class="card-loc" style="color:${d.ink}"><i class="loc-dot" style="background:${d.color}"></i>${d.name}</span>
-        <h3>${d.addr.split(',')[0]}</h3>
-        <p>${d.desc}</p>
-        <div class="hub-facts">${d.dist.slice(0, 2).map(([v, t]) => `<span>${t}<b>${v}</b></span>`).join('')}</div>
-        <span class="rev-go">Atvykimas ir parkavimas →</span>
-      </a>`).join('');
-
-  if (locTeaser.classList.contains('hub--stagger')) stagger(locTeaser, '--hub-step');
+  /* Kortelė kaip techzity.com: nuotrauka su žyma, užvedus — geltona informacijos panelė. */
+  locTeaser.innerHTML = Object.entries(MAPDATA).map(([k, d]) => `<a class="loc-card" href="lokacijos.html?loc=${k}">
+      <img class="loc-card-img" src="assets/img/loc/${d.img}.jpg" alt="${d.name} iš viršaus" loading="lazy" width="1024" height="768">
+      <span class="loc-card-tag">${d.name}</span>
+      <span class="loc-card-panel">
+        <span class="loc-card-head">
+          <b class="loc-card-name">${d.name}</b>
+          <b class="loc-card-addr">${d.addr}</b>
+          <span class="loc-card-desc">${d.desc}</span>
+          <b class="loc-card-sub">Paslaugos</b>
+          <span class="loc-card-services">${d.services.map(x => `<span>${x}</span>`).join('')}</span>
+        </span>
+        <span class="loc-card-more">Skaityti daugiau</span>
+      </span>
+    </a>`).join('');
 }
 
 /* ═══════════════ MODALAS SU GALERIJOS SKROLERIU (erdves.html) ═══════════════ */
@@ -330,6 +336,15 @@ $$('[data-tour]').forEach(b => b.addEventListener('click', () => {
     if (t === k && ifr.dataset.src && !ifr.src) { ifr.src = ifr.dataset.src; }
   });
 }));
+
+/* ═══════════════ HEADER — permatomas ant hero, baltas nuskrolinus ═══════════════
+   Riba 100 px paimta iš techzity.com elgsenos. */
+const hdr = $('header');
+if (hdr){
+  const syncHeader = () => hdr.toggleAttribute('data-scrolled', window.scrollY > 100);
+  syncHeader();
+  window.addEventListener('scroll', syncHeader, {passive: true});
+}
 
 /* ═══════════════ MOBILUS MENIU ═══════════════ */
 const burger = $('#burger'), mm = $('#mobmenu');

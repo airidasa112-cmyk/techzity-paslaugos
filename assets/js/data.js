@@ -32,7 +32,7 @@ const SPACES = [
    lead:'Didžioji ir Mažoji salės kartu — universaliausia Tech Park erdvė konferencijoms su maitinimu ir kūrybine laisve.',
    layouts:[['Teatro',300],['Teatro (šonu)',225],['Klasės (po 2)',200],['Dirbtuvių (po 4)',175],['Vakarienės (po 6–8)',180],['Stovimas',325]],
    equip:TP_EQUIP,
-   photos:[['tp-kc-1','Teatro stiliumi | iki 300'],['tp-kc-2','Klasės stiliumi (grupės po 2) | iki 200'],['tp-kc-3','Dirbtuvių stiliumi (grupės po 4) | iki 175'],['tp-kc-4','Grupės po 6–8 | Vakarienės | iki 180'],['tp-kc-5','Teatro stiliumi (šonu) | iki 225'],['tp-kc-6','Stovimas renginys | Kūrybinė laisvė | iki 325']]},
+   hero:'tz-kc', photos:[['tp-kc-1','Teatro stiliumi | iki 300'],['tp-kc-2','Klasės stiliumi (grupės po 2) | iki 200'],['tp-kc-3','Dirbtuvių stiliumi (grupės po 4) | iki 175'],['tp-kc-4','Grupės po 6–8 | Vakarienės | iki 180'],['tp-kc-5','Teatro stiliumi (šonu) | iki 225'],['tp-kc-6','Stovimas renginys | Kūrybinė laisvė | iki 325']]},
 
   {id:'tp-didz', loc:'park', name:'Didžioji salė', area:'210 m²', theatre:190, outdoor:false,
    lead:'Šviesi salė su didžiuliais langais į Sapiegų parką — konferencijoms, pristatymams ir vakarienėms.',
@@ -64,7 +64,7 @@ const SPACES = [
    lead:'Universali galerija prie pat Neries su tiesioginiu patekimu į terasą. Holas ir skaitykla įeina į kainą.',
    layouts:[['Teatras',250],['Klasė / grupėmis',180],['Banketas',180],['Stovimas',250]],
    equip:TA_EQUIP,
-   photos:[['ta-galerija-1','Teatro stiliumi | iki 250'],['ta-galerija-2','Tiesioginis patekimas į terasą, daug šviesos'],['ta-galerija-3','Stovimas renginys | Kūrybinė laisvė | iki 250'],['ta-galerija-4','Podiumas'],['ta-galerija-5','Banketo stilius / darbas grupėse | iki 200'],['ta-galerija-6','Erdvus holas maitinimui']]},
+   hero:'tz-galerija', photos:[['ta-galerija-1','Teatro stiliumi | iki 250'],['ta-galerija-2','Tiesioginis patekimas į terasą, daug šviesos'],['ta-galerija-3','Stovimas renginys | Kūrybinė laisvė | iki 250'],['ta-galerija-4','Podiumas'],['ta-galerija-5','Banketo stilius / darbas grupėse | iki 200'],['ta-galerija-6','Erdvus holas maitinimui']]},
 
   {id:'ta-mgalerija', loc:'arts', name:'Mažoji galerija', area:'157 m²', theatre:100, outdoor:false,
    lead:'Didžioji galerija, padalinta stumdoma sienele. Rinkitės lango pusę (daugiau šviesos, patekimas į terasą) arba sienos pusę (integruotas projektorius).',
@@ -145,6 +145,7 @@ const SCEN = [
 const MAPDATA = {
   park:{
     name:'Tech Park', addr:'Antakalnio g. 17, 10312 Vilnius', color:'var(--park)', ink:'var(--park-ink)',
+    img:'park', services:['Biurų nuoma','Co-working erdvės','Renginių erdvės','Restoranai'],
     desc:'Startuolių miestelis Sapiegų parke — XIX a. pastatų konversija, menanti Sapiegų rūmų didybę. Konferencijų centras, dvi salės ir didžiosios terasos su kiemais.',
     dist:[['3 min','automobiliu iki Senamiesčio'],['20 min','pėsčiomis iki Katedros'],['Stotelė','L. Sapiegos — artimiausia viešojo transporto stotelė']],
     park:'Iš anksto sutarus suteikiame iki 5 parkavimo vietų vidinėje aikštelėje. Dalyviams — vieša miesto aikštelė kelios minutės pėsčiomis, žalioje zonoje.',
@@ -153,6 +154,7 @@ const MAPDATA = {
   },
   arts:{
     name:'Tech Arts', addr:'Vaidilutės g. 79, 10100 Vilnius', color:'var(--arts)', ink:'var(--arts-ink)',
+    img:'arts', services:['Biurų nuoma','Co-working erdvės','Renginių erdvės','Restoranai'],
     desc:'Valakampiuose prie pat Neries, gražiausiame Vilniaus rajone — nostalgiškas vaikystės paplūdimio kampelis, išvystytas į kūrybos ir sveikatingumo epicentrą.',
     dist:[['15 min','automobiliu nuo Senamiesčio'],['~100','nemokamų parkavimo vietų šalia pastato'],['Stotelė','„Antrasis paplūdimys" — 15 autobusas']],
     park:'Didelė vieša aikštelė priešais pastatą: nemokama šaltuoju sezonu (10-01–05-31), mokama šiltuoju (06-01–09-30, geltonoji zona). Iki 3 vietų vidinėje aikštelėje su šlagbaumu. Bolt Drive / CityBee / Spark zona.',
@@ -161,6 +163,7 @@ const MAPDATA = {
   },
   zity:{
     name:'Tech Zity Vilnius', addr:'Panerių g. 43, 03202 Vilnius', color:'var(--zity)', ink:'var(--zity-ink)',
+    img:'zity', services:['Biurų nuoma','SAMSUNG konferencijų centras','Renginių erdvės','Restoranai'],
     desc:'Mūsų flagmanas Naujamiestyje — 55 000 m² technologijų miestelis su Samsung konferencijų centru buvusiame 1947 m. „Lelijos" siuvyklos pastate. 8 restoranai, 4 žali kiemai.',
     dist:[['15 min','pėsčiomis iki senamiesčio ir stoties'],['10 min','automobiliu iki oro uosto'],['2 min','iki pietinio aplinkkelio']],
     park:'Parkavimas miestelio teritorijoje. Patogus privažiavimas iš pietinio aplinkkelio — logistika renginio technikai ir dekoracijoms.',

@@ -7,6 +7,7 @@
   --wine:#000000; --ink:#000000; --bg:#F5F5F5; --white:#fff; --snow:#FAFAFA;
   --rust:#A53E00; --rust-deep:#7E2F00; --vermillion:#F54A00; --sage:#D0DFDD;
   --steel:#6B5A5E; --line:rgba(0,0,0,.18);
+  --clam-shell:#D8BDB5; /* CLAM SHELL — mygtukų spalva techzity.com */
   /* lokacijų spalvos (brandbook / 2026 pristatymai) */
   --park:#FFCF60; --park-ink:#7A4A00;
   --arts:#43D276; --arts-ink:#046B3B;
@@ -35,35 +36,86 @@ input,select,textarea,button{font-family:inherit}
 .skip{position:absolute;left:-9999px;top:0;z-index:200;background:var(--wine);color:#fff;padding:.8rem 1.2rem}
 .skip:focus{left:0}
 
-/* ══ MYGTUKAI — sulyginta su techzity.com (rounded-full) ══ */
-.chip{position:relative;display:inline-flex;align-items:center;justify-content:center;gap:.5rem;
-  min-height:48px;padding:.85rem 2.1rem;font-family:var(--font-d);font-size:.86rem;letter-spacing:.045em;
+/* ══ MYGTUKAI — firminis „dobiliukas" ══
+   Kontūras perkeltas iš techzity.com mygtuko SVG (viewBox 0 0 210 54). Reikšmės pikseliais,
+   ne procentais, todėl įpjovos lieka vienodo gylio nepriklausomai nuo mygtuko pločio —
+   būtent dėl to ankstesnė mask-image versija išsitempdavo. --k keičia mastelį. */
+.chip{
+  --k:1;
+  position:relative;display:inline-flex;align-items:center;justify-content:center;gap:.5rem;
+  min-height:calc(54px * var(--k));padding:0 calc(34px * var(--k));
+  font-family:var(--font-d);font-size:calc(.86rem * var(--k));letter-spacing:.045em;
   text-transform:uppercase;text-decoration:none;text-align:center;color:var(--ink);
-  background:var(--sage);border-radius:999px;transition:background-color .18s ease}
+  background:var(--clam-shell);transition:background-color .18s ease;
+  clip-path:polygon(
+    calc(9.5px * var(--k)) 0,
+    calc(50% - 3.7px * var(--k)) 0,
+    calc(50% - .7px * var(--k)) calc(2.96px * var(--k)),
+    calc(50% - .7px * var(--k)) calc(5.94px * var(--k)),
+    50% calc(6.65px * var(--k)),
+    calc(50% + .7px * var(--k)) calc(5.94px * var(--k)),
+    calc(50% + .7px * var(--k)) calc(2.96px * var(--k)),
+    calc(50% + 3.7px * var(--k)) 0,
+    calc(100% - 10.2px * var(--k)) 0,
+    calc(100% - 8.1px * var(--k)) calc(1.53px * var(--k)),
+    calc(100% - .77px * var(--k)) calc(23.33px * var(--k)),
+    calc(100% - 2.9px * var(--k)) calc(26.3px * var(--k)),
+    calc(100% - 8.94px * var(--k)) calc(26.3px * var(--k)),
+    calc(100% - 9.65px * var(--k)) calc(27px * var(--k)),
+    calc(100% - 8.94px * var(--k)) calc(27.7px * var(--k)),
+    calc(100% - 2.9px * var(--k)) calc(27.7px * var(--k)),
+    calc(100% - .77px * var(--k)) calc(30.67px * var(--k)),
+    calc(100% - 8.1px * var(--k)) calc(52.47px * var(--k)),
+    calc(100% - 10.2px * var(--k)) calc(54px * var(--k)),
+    calc(50% + 3.7px * var(--k)) calc(54px * var(--k)),
+    calc(50% + .7px * var(--k)) calc(51.04px * var(--k)),
+    calc(50% + .7px * var(--k)) calc(48.07px * var(--k)),
+    50% calc(47.35px * var(--k)),
+    calc(50% - .7px * var(--k)) calc(48.07px * var(--k)),
+    calc(50% - .7px * var(--k)) calc(51.04px * var(--k)),
+    calc(50% - 3.7px * var(--k)) calc(54px * var(--k)),
+    calc(9.5px * var(--k)) calc(54px * var(--k)),
+    calc(7.41px * var(--k)) calc(52.47px * var(--k)),
+    calc(.12px * var(--k)) calc(30.67px * var(--k)),
+    calc(2.25px * var(--k)) calc(27.7px * var(--k)),
+    calc(11.1px * var(--k)) calc(27.7px * var(--k)),
+    calc(11.81px * var(--k)) calc(27px * var(--k)),
+    calc(11.1px * var(--k)) calc(26.3px * var(--k)),
+    calc(2.25px * var(--k)) calc(26.3px * var(--k)),
+    calc(.12px * var(--k)) calc(23.33px * var(--k)),
+    calc(7.41px * var(--k)) calc(1.53px * var(--k))
+  )}
 .chip:hover{text-decoration:underline}
-.chip--primary{color:var(--ink);background:var(--park)}
-.chip--dark{color:#fff;background:var(--wine)}
-.chip--ghost{color:#fff;background:rgba(255,255,255,.18);backdrop-filter:blur(6px)}
-.chip--sm{min-height:44px;padding:.65rem 1.5rem;font-size:.76rem}
+.chip--primary,.chip--dark,.chip--ghost{color:var(--ink);background:var(--clam-shell)}
+.chip--sm{--k:.815}
 .chip[aria-disabled="true"]{opacity:.5;pointer-events:none}
 
-/* ══ HEADER (korekcija 1, 11) ══ */
-header{position:sticky;top:0;z-index:90;background:var(--white)}
+/* ══ HEADER — elgsena perimta iš techzity.com: permatomas ant hero,
+   ties scrollY > 100 tampa baltas su juodu tekstu ir juodu logotipu ══ */
+header{position:fixed;top:0;left:0;right:0;z-index:90;background:transparent;
+  transition:background-color .3s ease,box-shadow .3s ease}
+header[data-scrolled]{background:var(--white)}
 .nav{display:flex;align-items:center;justify-content:space-between;gap:1rem;height:68px}
 .nav-brand{display:flex;align-items:center;min-height:44px}
-.nav-tze{height:26px;width:auto}
+.nav-logo{height:22px;width:auto}
+.nav-logo--dark{display:none}
+header[data-scrolled] .nav-logo--light{display:none}
+header[data-scrolled] .nav-logo--dark{display:block}
 .nav-links{display:flex;gap:1.35rem;align-items:center}
-.nav-links a{text-decoration:none;font-size:.76rem;text-transform:uppercase;letter-spacing:.07em;color:var(--ink);white-space:nowrap}
-.nav-links a:not(.chip):hover{color:var(--rust)}
-.nav-lang{font-family:var(--font-m);border:1px solid var(--line);border-radius:999px;padding:.3rem .65rem}
-.burger{display:none;width:44px;height:44px;place-items:center}
-.mobile-menu{display:none;flex-direction:column;gap:.15rem;padding:0 clamp(1.15rem,4vw,2rem) 1.25rem;border-top:1px solid var(--line)}
+.nav-links a{text-decoration:none;font-size:.76rem;text-transform:uppercase;letter-spacing:.07em;color:#fff;white-space:nowrap}
+.nav-links a:not(.chip):hover{text-decoration:underline}
+header[data-scrolled] .nav-links a{color:var(--ink)}
+.nav-lang{font-family:var(--font-m);border:1px solid rgba(255,255,255,.5);border-radius:999px;padding:.3rem .65rem}
+header[data-scrolled] .nav-lang{border-color:var(--line)}
+.burger{display:none;width:44px;height:44px;place-items:center;color:#fff}
+header[data-scrolled] .burger{color:var(--ink)}
+.mobile-menu{display:none;flex-direction:column;gap:.15rem;padding:0 clamp(1.15rem,4vw,2rem) 1.25rem;background:var(--white)}
 .mobile-menu[data-open]{display:flex}
-.mobile-menu a{text-decoration:none;padding:.85rem .25rem;font-size:.95rem;border-bottom:1px solid var(--line);min-height:44px;display:flex;align-items:center}
+.mobile-menu a{text-decoration:none;padding:.85rem .25rem;font-size:.95rem;border-bottom:1px solid var(--line);min-height:44px;display:flex;align-items:center;color:var(--ink)}
 .mobile-menu .chip{margin-top:.9rem;border-bottom:0}
 
 /* ══ HERO (korekcijos 2, 5) ══ */
-.hero{position:relative;background:var(--wine);color:#fff;overflow:hidden;min-height:clamp(520px,74vh,720px);display:flex;align-items:flex-end}
+.hero{position:relative;background:var(--wine);color:#fff;overflow:hidden;border-bottom-left-radius:3.125rem;border-bottom-right-radius:3.125rem;min-height:clamp(520px,74vh,720px);display:flex;align-items:flex-end}
 .hero-media{position:absolute;inset:0}
 .hero-media img,.hero-media video{position:absolute;inset:0;width:100%;height:100%;object-fit:cover}
 .hero-media video{z-index:1}
@@ -71,13 +123,7 @@ header{position:sticky;top:0;z-index:90;background:var(--white)}
 /* Video lieka tas pats, todėl skaitomumą užtikrina kadro tamsinimas + dviejų sluoksnių šydas:
    klipe pasitaiko labai šviesių kadrų (dangus, balta siena), o tekstas turi likti skaitomas visuose. */
 .hero-media video,.hero-media img{filter:brightness(.66) saturate(.94)}
-.hero-scrim{position:absolute;inset:0;z-index:3;
-  background:
-    linear-gradient(90deg,rgba(0,0,0,.82) 0%,rgba(0,0,0,.55) 42%,rgba(0,0,0,.2) 78%,rgba(0,0,0,.12) 100%),
-    linear-gradient(180deg,rgba(0,0,0,.7) 0%,rgba(0,0,0,.42) 26%,rgba(0,0,0,.62) 66%,rgba(0,0,0,.92) 100%)}
-@media(max-width:860px){
-  .hero-scrim{background:linear-gradient(180deg,rgba(0,0,0,.78) 0%,rgba(0,0,0,.62) 22%,rgba(0,0,0,.74) 60%,rgba(0,0,0,.94) 100%)}
-}
+.hero-scrim{position:absolute;inset:0;z-index:3;background:rgba(0,0,0,.5)}
 .hero-inner{position:relative;z-index:5;width:100%;max-width:var(--wrap);margin:0 auto;padding:clamp(5rem,11vh,7rem) clamp(1.15rem,4vw,2rem) clamp(2.5rem,5vh,3.5rem)}
 .crumbs{font-family:var(--font-m);font-size:.7rem;letter-spacing:.1em;text-transform:uppercase;color:rgba(255,255,255,.72);margin-bottom:var(--s3)}
 .crumbs a{text-decoration:none}
@@ -117,15 +163,6 @@ header{position:sticky;top:0;z-index:90;background:var(--white)}
 .trust div:last-child{border-right:0}
 .trust b{display:block;font-family:var(--font-d);font-size:clamp(1.35rem,2.6vw,1.9rem);line-height:1.1;color:var(--wine)}
 .trust span{font-size:.78rem;color:var(--steel);display:block;margin-top:.25rem}
-
-/* ══ INKARAI ══ */
-.anchors{position:sticky;top:68px;z-index:80;background:var(--bg);border-bottom:1px solid var(--line)}
-.anchors-inner{display:flex;gap:.4rem;overflow-x:auto;padding:.6rem 0;scrollbar-width:none}
-.anchors-inner::-webkit-scrollbar{display:none}
-.anchors a{font-size:.72rem;text-transform:uppercase;letter-spacing:.07em;text-decoration:none;padding:.6rem 1rem;
-  border:1px solid transparent;border-radius:999px;white-space:nowrap;min-height:44px;display:inline-flex;align-items:center;color:var(--steel)}
-.anchors a:hover{border-color:var(--line);color:var(--ink)}
-.anchors a.active{background:var(--wine);color:#fff}
 
 /* ══ SEKCIJŲ RITMAS (korekcija 5) ══ */
 section{padding-block:var(--sec)}
@@ -316,14 +353,16 @@ form .chip{grid-column:1/-1;justify-self:start}
 .form-ok{grid-column:1/-1;background:#E9F5EC;border-left:3px solid #1C6B34;color:#155029;padding:.9rem 1rem;font-size:.9rem;display:none}
 .form-ok[data-open]{display:block}
 
-/* ══ FOOTER ══ */
-footer{background:var(--wine);color:rgba(255,255,255,.72);padding-block:var(--s5) var(--s3);font-size:.88rem;border-top:1px solid rgba(255,255,255,.1)}
+/* ══ FOOTER — sandara perimta iš techzity.com: nuorodos didžiosiomis,
+   apačioje per visą plotį didelis logotipas, po juo autorystės eilutė ══ */
+footer{background:var(--wine);color:rgba(255,255,255,.72);padding-block:var(--s5) var(--s3);font-size:.88rem}
 .foot{display:grid;grid-template-columns:1.5fr 1fr 1fr 1fr;gap:2rem;padding-bottom:var(--s4)}
 .foot h4{color:#fff;font-family:var(--font-m);font-size:.66rem;text-transform:uppercase;letter-spacing:.16em;margin-bottom:.9rem;font-weight:400}
 .foot ul{display:grid;gap:.5rem}
 .foot a{text-decoration:none}
+.foot ul a{text-transform:uppercase;letter-spacing:.04em;font-size:.8rem}
 .foot a:hover{color:#fff;text-decoration:underline}
-.foot-tze{height:22px;width:auto;filter:invert(1);margin-bottom:1rem}
+.foot-logo{width:100%;max-width:46rem;height:auto;margin:var(--s3) 0 var(--s2)}
 .copy{border-top:1px solid rgba(255,255,255,.12);padding-top:1.1rem;display:flex;justify-content:space-between;gap:1rem;flex-wrap:wrap;font-size:.76rem;color:rgba(255,255,255,.45)}
 
 /* ══ MOBILUS CTA ══ */
@@ -331,7 +370,9 @@ footer{background:var(--wine);color:rgba(255,255,255,.72);padding-block:var(--s5
 .mob-cta .chip{flex:1}
 
 /* ══ SUBPUSLAPIŲ ANTRAŠTĖ (kai sekcija turi savo puslapį) ══ */
-.phero{background:var(--wine);color:#fff;padding-block:clamp(2.25rem,5.5vw,3.75rem)}
+.phero{background:var(--wine);color:#fff;
+  /* header guli ant antraštės, todėl viršuje paliekame jo aukštį */
+  padding-block:calc(68px + clamp(2.25rem,5.5vw,3.75rem)) clamp(2.25rem,5.5vw,3.75rem)}
 .phero .crumbs{margin-bottom:var(--s2)}
 .phero h1{font-family:var(--font-d);text-transform:uppercase;line-height:1.04;font-size:clamp(1.9rem,4.6vw,3.2rem);max-width:20ch}
 .phero .eyebrow{color:var(--park);margin-bottom:.55rem}
@@ -340,18 +381,6 @@ footer{background:var(--wine);color:rgba(255,255,255,.72);padding-block:var(--s5
 .phero .chip-row{display:flex;gap:.6rem;flex-wrap:wrap;margin-top:var(--s3)}
 /* po tamsios antraštės sekanti sekcija — mažesnis viršutinis tarpas */
 .phero + section{padding-block-start:calc(var(--sec) * .7)}
-
-/* ══ PAGRINDINIO PUSLAPIO SKILČIŲ SANTRAUKOS ══ */
-.hub{display:grid;grid-template-columns:repeat(3,1fr);gap:1.15rem}
-.hub-item{background:var(--white);border:1px solid var(--line);padding:1.35rem 1.4rem 1.45rem;display:flex;flex-direction:column;gap:.55rem;
-  text-decoration:none;transition:transform .2s ease,box-shadow .2s ease,border-color .2s ease}
-.hub-item:hover{border-color:var(--rust);transform:translateY(-3px);box-shadow:0 14px 34px rgba(0,0,0,.1)}
-.hub-num{font-family:var(--font-m);font-size:.66rem;letter-spacing:.16em;text-transform:uppercase;color:var(--rust)}
-.hub-item h3{font-size:1.2rem}
-.hub-item p{font-size:.9rem;color:var(--steel);line-height:1.55;flex:1}
-.hub-facts{display:flex;gap:.9rem;flex-wrap:wrap;font-size:.78rem;color:var(--steel);border-top:1px solid var(--line);padding-top:.6rem}
-.hub-facts b{display:block;font-family:var(--font-d);font-size:1rem;color:var(--wine);line-height:1.15}
-.hub-item .rev-go{margin-top:auto;padding-top:.2rem}
 
 /* ══ KLIENTŲ JUOSTA — slenka iš kairės į dešinę ══ */
 .marquee{position:relative;overflow:hidden;padding:.2rem 0;
@@ -364,66 +393,6 @@ footer{background:var(--wine);color:rgba(255,255,255,.72);padding-block:var(--s5
   padding:.55rem .95rem;font-size:.88rem;color:#333333;white-space:nowrap;display:inline-flex;align-items:center;min-height:44px}
 .marquee .cname img{max-height:22px;width:auto}
 @keyframes marquee-ltr{from{transform:translateX(-50%)}to{transform:translateX(0)}}
-
-/* ══ CTA JUOSTA PUSLAPIŲ APAČIOJE ══ */
-.cta-band{background:var(--wine);color:#fff}
-.cta-band .wrap{display:flex;align-items:center;justify-content:space-between;gap:var(--s3);flex-wrap:wrap}
-.cta-band h2{color:#fff;font-size:clamp(1.5rem,3vw,2.2rem);max-width:22ch}
-.cta-band p{color:rgba(255,255,255,.8);margin-top:.6rem;max-width:46ch;font-size:.95rem}
-.cta-band .chip-row{display:flex;gap:.6rem;flex-wrap:wrap}
-
-@media(max-width:1040px){
-  .cards,.scen-grid,.rev-grid{grid-template-columns:repeat(2,1fr)}
-  .book-grid{grid-template-columns:repeat(2,1fr)}
-  .modal-box{grid-template-columns:1fr}
-  .loc-block{grid-template-columns:1fr}
-  .foot{grid-template-columns:1fr 1fr}
-}
-@media(max-width:860px){
-  .nav-links{display:none}
-  .burger{display:grid}
-  .price-grid,.ask-grid{grid-template-columns:1fr}
-  .sec-head.split{grid-template-columns:1fr}
-  .trust{grid-template-columns:1fr 1fr;margin-top:0}
-  .mob-cta{display:flex}
-  body{padding-bottom:70px}
-  .anchors{top:68px}
-  form.inq{grid-template-columns:1fr}
-  .filterrow > .flabel{width:100%}
-  /* patogūs paspaudimo taikiniai mobiliajame */
-  .foot a,.crumbs a,.rev,.linkish{min-height:44px;display:inline-flex;align-items:center}
-  .foot ul{gap:.15rem}
-  .foot-contacts a{min-height:44px}
-  .crumbs{display:flex;gap:.4rem;align-items:center;flex-wrap:wrap}
-  .rev{display:flex}
-}
-@media(max-width:560px){
-  .cards,.scen-grid,.rev-grid,.book-grid,.foot{grid-template-columns:1fr}
-  .hero{min-height:auto}
-  /* hero telpa virš lipnios CTA juostos, kad kontaktų mygtukai liktų matomi (2, 4) */
-  .hero-inner{padding-top:clamp(2.75rem,6vh,3.75rem);padding-bottom:clamp(1.5rem,3vh,2.25rem)}
-  .hero-sub{margin:var(--s2) 0 var(--s3)}
-  .hero-locs{gap:.35rem;margin-bottom:var(--s2)}
-  .hero .contact-row{gap:.45rem;margin-top:var(--s3)}
-  .hero .cbtn{padding:.5rem .95rem;font-size:.9rem}
-  .video-toggle{top:.7rem;right:.7rem;bottom:auto}
-  .metas{gap:.9rem}
-  .trust div{padding:1rem .6rem}
-  .map-card,.map-frame{min-height:260px}
-}
-
-/* Pradinio puslapio santraukų tinkleliai laikosi trijų stulpelių tol, kol kortelė lieka
-   bent ~265 px pločio (~900 px lange). Bendra `.cards` taisyklė ties 1040 px perjungia į du
-   stulpelius, todėl santraukai ją grąžiname atgal. Žemiau 900 px — du stulpeliai, iki 560 — vienas. */
-@media(max-width:1040px){
-  .cards--stagger{grid-template-columns:repeat(3,1fr)}
-}
-@media(max-width:900px){
-  .hub,.cards--stagger{grid-template-columns:repeat(2,1fr)}
-}
-@media(max-width:560px){
-  .hub,.cards--stagger{grid-template-columns:1fr}
-}
 
 /* ══ KASKADA — pradinio puslapio erdvių kortelės ══
    Kol visos trys telpa į vieną eilutę (≥901 px), jos rikiuojamos lygiai ir tempiamos iki
@@ -441,23 +410,36 @@ footer{background:var(--wine);color:rgba(255,255,255,.72);padding-block:var(--s5
   .cards--stagger .card:nth-child(2n){margin-top:0}
 }
 
-/* ══ KASKADA — lokacijų kortelės ══
-   Ta pati taisyklė kaip erdvių kortelėms: viena eilutė — lygiai, du stulpeliai — kaskada per
-   pusę kortelės (--hub-step paduoda site.js; čia atsarginis dydis, jei JS neveiktų).
-   Eiliškumas svarbus: taisyklės eina po `.hub` tinklelio breakpoint'ų. */
-.hub--stagger{--hub-step:8rem}
+/* ══ LOKACIJŲ KORTELĖS — sandara iš techzity.com: nuotrauka su žyma,
+   užvedus pele atsiveria geltona informacijos panelė ══ */
+.loc-cards{display:grid;grid-template-columns:repeat(3,1fr);gap:1.15rem}
+.loc-card{position:relative;display:block;aspect-ratio:1;border-radius:20px;overflow:hidden;text-decoration:none;color:var(--ink)}
+.loc-card-img{position:absolute;inset:0;width:100%;height:100%;object-fit:cover}
+.loc-card-tag{position:absolute;left:1rem;top:1rem;z-index:2;background:var(--park);color:var(--ink);
+  padding:.5rem 1rem;border-radius:999px;text-transform:uppercase;font-size:.8rem;line-height:1.2;
+  transition:opacity .3s ease}
+.loc-card-panel{position:absolute;inset:0;z-index:3;background:var(--park);padding:clamp(1.1rem,2.2vw,1.5rem);
+  display:flex;flex-direction:column;justify-content:space-between;gap:.8rem;
+  opacity:0;transition:opacity .3s ease;overflow-y:auto;
+  box-shadow:inset 0 0 0 2px var(--park)}
+.loc-card:hover .loc-card-panel,.loc-card:focus-visible .loc-card-panel{opacity:1}
+.loc-card:hover .loc-card-tag{opacity:0}
+.loc-card-head{display:flex;flex-direction:column;gap:.35rem}
+.loc-card-name{font-family:var(--font-d);font-size:clamp(1.1rem,2.2vw,1.45rem);text-transform:uppercase;line-height:1.1}
+.loc-card-addr{font-family:var(--font-d);font-size:.78rem;text-transform:uppercase;letter-spacing:.04em;margin-bottom:.35rem}
+.loc-card-desc{font-size:.84rem;line-height:1.45;color:rgba(0,0,0,.7);margin-bottom:.5rem}
+.loc-card-sub{font-size:.82rem;font-weight:700}
+.loc-card-services{display:flex;flex-direction:column}
+.loc-card-services span{font-size:.82rem;color:rgba(0,0,0,.7);border-bottom:1px solid rgba(0,0,0,.5);padding:.12rem 0}
+.loc-card-more{align-self:flex-start;background:var(--white);color:var(--ink);border-radius:999px;
+  padding:.5rem 1rem;font-size:.8rem;font-weight:600;text-transform:uppercase}
 @media(max-width:900px){
-  .hub--stagger{align-items:start}
-  .hub--stagger .hub-item:nth-child(2n){margin-top:var(--hub-step)}
-  /* Pastumta antra kortelė paaukština visą eilutę, todėl trečioji atsidurtų per toli —
-     patraukiame ją atgal per tą patį žingsnį, kad kairysis stulpelis liktų vientisas.
-     Taikoma trims lokacijų kortelėms; atsiradus ketvirtai, taisyklę reikės perrašyti. */
-  .hub--stagger .hub-item:nth-child(3){margin-top:calc(var(--hub-step) * -1)}
-}
-@media(max-width:560px){
-  .hub--stagger{align-items:stretch}
-  .hub--stagger .hub-item:nth-child(3),
-  .hub--stagger .hub-item:nth-child(2n){margin-top:0}
+  .loc-cards{grid-template-columns:1fr}
+  /* pelės mobiliajame nėra — kortelė išskleidžiama: nuotrauka viršuje, panelė po ja */
+  .loc-card{aspect-ratio:auto;display:grid;grid-template-rows:auto auto}
+  .loc-card-img{position:relative;inset:auto;aspect-ratio:16/9}
+  .loc-card-tag{position:absolute}
+  .loc-card-panel{position:relative;inset:auto;opacity:1;overflow:visible}
 }
 
 /* Klientų juostos atsisakymas turi būti PO jos bazinių taisyklių (vienodas specifiškumas —
