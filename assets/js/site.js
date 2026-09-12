@@ -123,7 +123,7 @@ if (clientsEl){
 const locTeaser = $('#locTeaser');
 if (locTeaser){
   /* Kortelė kaip techzity.com: nuotrauka su žyma, užvedus — geltona informacijos panelė. */
-  locTeaser.innerHTML = Object.entries(MAPDATA).map(([k, d]) => `<a class="loc-card" href="lokacijos.html?loc=${k}">
+  locTeaser.innerHTML = Object.entries(MAPDATA).map(([k, d]) => `<article class="loc-card">
       <img class="loc-card-img" src="assets/img/loc/${d.img}.jpg" alt="${d.name} iš viršaus" loading="lazy" width="1024" height="768">
       <span class="loc-card-tag">${d.name}</span>
       <span class="loc-card-panel">
@@ -134,9 +134,9 @@ if (locTeaser){
           <b class="loc-card-sub">Paslaugos</b>
           <span class="loc-card-services">${d.services.map(x => `<span>${x}</span>`).join('')}</span>
         </span>
-        <span class="loc-card-more">Skaityti daugiau</span>
+        <a class="loc-card-more" href="${d.url}" target="_blank" rel="noopener">Skaityti daugiau</a>
       </span>
-    </a>`).join('');
+    </article>`).join('');
 }
 
 /* ═══════════════ MODALAS SU GALERIJOS SKROLERIU (erdves.html) ═══════════════ */

@@ -24,7 +24,10 @@
 *,*::before,*::after{margin:0;padding:0;box-sizing:border-box}
 html{scroll-behavior:smooth;background:var(--wine);-webkit-text-size-adjust:100%;scroll-padding-top:120px}
 body{font-family:var(--font-b);background:var(--bg);color:var(--ink);font-size:16px;line-height:1.55;-webkit-font-smoothing:antialiased;overflow-x:hidden}
-h1,h2,h3,h4{font-family:var(--font-d);text-transform:uppercase;letter-spacing:.005em;line-height:1.03;font-weight:700}
+/* line-height 1.15, ne 1.03: Deacon sriftu lietuviskos didziosios su diakritikais
+   kyla 42px prie 48px dydzio (be ju - 35px), todel per zema eilute leidzia jiems
+   uzlipti ant virs esancio teksto */
+h1,h2,h3,h4{font-family:var(--font-d);text-transform:uppercase;letter-spacing:.005em;line-height:1.15;font-weight:700}
 img,video,svg,iframe{max-width:100%;display:block}
 a{color:inherit}
 button{font:inherit;color:inherit;background:none;border:0;cursor:pointer}
@@ -169,7 +172,8 @@ section{padding-block:var(--sec)}
 section.tight{padding-block:calc(var(--sec) * .62)}
 .sec-head{display:grid;gap:var(--s2);margin-bottom:var(--s4);max-width:66ch}
 .sec-head.split{max-width:none;grid-template-columns:minmax(0,1fr) minmax(0,26rem);align-items:end;gap:var(--s4)}
-.eyebrow{font-family:var(--font-m);font-size:.68rem;letter-spacing:.18em;text-transform:uppercase;color:var(--rust)}
+.eyebrow{font-family:var(--font-m);font-size:.68rem;letter-spacing:.18em;text-transform:uppercase;color:var(--rust);
+  display:block;margin-bottom:.5rem}
 h2{font-size:clamp(1.85rem,3.9vw,3rem)}
 h3{font-size:clamp(1.15rem,2vw,1.4rem)}
 .lead{color:var(--steel);font-size:clamp(.98rem,1.4vw,1.06rem)}
@@ -374,7 +378,7 @@ footer{background:var(--wine);color:rgba(255,255,255,.72);padding-block:var(--s5
   /* header guli ant antraštės, todėl viršuje paliekame jo aukštį */
   padding-block:calc(68px + clamp(2.25rem,5.5vw,3.75rem)) clamp(2.25rem,5.5vw,3.75rem)}
 .phero .crumbs{margin-bottom:var(--s2)}
-.phero h1{font-family:var(--font-d);text-transform:uppercase;line-height:1.04;font-size:clamp(1.9rem,4.6vw,3.2rem);max-width:20ch}
+.phero h1{font-family:var(--font-d);text-transform:uppercase;line-height:1.15;font-size:clamp(1.9rem,4.6vw,3.2rem);max-width:20ch}
 .phero .eyebrow{color:var(--park);margin-bottom:.55rem}
 .phero .lead{color:rgba(255,255,255,.84);max-width:62ch;margin-top:var(--s2)}
 .phero .hero-locs{margin:var(--s3) 0 0}
@@ -422,8 +426,9 @@ footer{background:var(--wine);color:rgba(255,255,255,.72);padding-block:var(--s5
   display:flex;flex-direction:column;justify-content:space-between;gap:.8rem;
   opacity:0;transition:opacity .3s ease;overflow-y:auto;
   box-shadow:inset 0 0 0 2px var(--park)}
-.loc-card:hover .loc-card-panel,.loc-card:focus-visible .loc-card-panel{opacity:1}
-.loc-card:hover .loc-card-tag{opacity:0}
+.loc-card:hover .loc-card-panel,.loc-card:focus-within .loc-card-panel{opacity:1}
+/* kortele nebe nuoroda: panele atsiveria ir tada, kai klaviatura fokusuojamas mygtukas jos viduje */
+.loc-card:hover .loc-card-tag,.loc-card:focus-within .loc-card-tag{opacity:0}
 .loc-card-head{display:flex;flex-direction:column;gap:.35rem}
 .loc-card-name{font-family:var(--font-d);font-size:clamp(1.1rem,2.2vw,1.45rem);text-transform:uppercase;line-height:1.1}
 .loc-card-addr{font-family:var(--font-d);font-size:.78rem;text-transform:uppercase;letter-spacing:.04em;margin-bottom:.35rem}
@@ -431,8 +436,11 @@ footer{background:var(--wine);color:rgba(255,255,255,.72);padding-block:var(--s5
 .loc-card-sub{font-size:.82rem;font-weight:700}
 .loc-card-services{display:flex;flex-direction:column}
 .loc-card-services span{font-size:.82rem;color:rgba(0,0,0,.7);border-bottom:1px solid rgba(0,0,0,.5);padding:.12rem 0}
-.loc-card-more{align-self:flex-start;background:var(--white);color:var(--ink);border-radius:999px;
+
+
+.loc-card-more{align-self:flex-start;background:var(--white);color:var(--ink);border-radius:999px;text-decoration:none;
   padding:.5rem 1rem;font-size:.8rem;font-weight:600;text-transform:uppercase}
+.loc-card-more:hover{text-decoration:underline}
 @media(max-width:900px){
   .loc-cards{grid-template-columns:1fr}
   /* pelės mobiliajame nėra — kortelė išskleidžiama: nuotrauka viršuje, panelė po ja */

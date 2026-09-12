@@ -145,7 +145,7 @@ const SCEN = [
 const MAPDATA = {
   park:{
     name:'Tech Park', addr:'Antakalnio g. 17, 10312 Vilnius', color:'var(--park)', ink:'var(--park-ink)',
-    img:'park', services:['Biurų nuoma','Co-working erdvės','Renginių erdvės','Restoranai'],
+    url:'https://techzity.com/lokacijos/tech-park/', img:'park', services:['Biurų nuoma','Co-working erdvės','Renginių erdvės','Restoranai'],
     desc:'Startuolių miestelis Sapiegų parke — XIX a. pastatų konversija, menanti Sapiegų rūmų didybę. Konferencijų centras, dvi salės ir didžiosios terasos su kiemais.',
     dist:[['3 min','automobiliu iki Senamiesčio'],['20 min','pėsčiomis iki Katedros'],['Stotelė','L. Sapiegos — artimiausia viešojo transporto stotelė']],
     park:'Iš anksto sutarus suteikiame iki 5 parkavimo vietų vidinėje aikštelėje. Dalyviams — vieša miesto aikštelė kelios minutės pėsčiomis, žalioje zonoje.',
@@ -154,7 +154,7 @@ const MAPDATA = {
   },
   arts:{
     name:'Tech Arts', addr:'Vaidilutės g. 79, 10100 Vilnius', color:'var(--arts)', ink:'var(--arts-ink)',
-    img:'arts', services:['Biurų nuoma','Co-working erdvės','Renginių erdvės','Restoranai'],
+    url:'https://techzity.com/lokacijos/tech-arts/', img:'arts', services:['Biurų nuoma','Co-working erdvės','Renginių erdvės','Restoranai'],
     desc:'Valakampiuose prie pat Neries, gražiausiame Vilniaus rajone — nostalgiškas vaikystės paplūdimio kampelis, išvystytas į kūrybos ir sveikatingumo epicentrą.',
     dist:[['15 min','automobiliu nuo Senamiesčio'],['~100','nemokamų parkavimo vietų šalia pastato'],['Stotelė','„Antrasis paplūdimys" — 15 autobusas']],
     park:'Didelė vieša aikštelė priešais pastatą: nemokama šaltuoju sezonu (10-01–05-31), mokama šiltuoju (06-01–09-30, geltonoji zona). Iki 3 vietų vidinėje aikštelėje su šlagbaumu. Bolt Drive / CityBee / Spark zona.',
@@ -163,7 +163,7 @@ const MAPDATA = {
   },
   zity:{
     name:'Tech Zity Vilnius', addr:'Panerių g. 43, 03202 Vilnius', color:'var(--zity)', ink:'var(--zity-ink)',
-    img:'zity', services:['Biurų nuoma','SAMSUNG konferencijų centras','Renginių erdvės','Restoranai'],
+    url:'https://techzity.com/lokacijos/tech-zity-vilnius/', img:'zity', services:['Biurų nuoma','SAMSUNG konferencijų centras','Renginių erdvės','Restoranai'],
     desc:'Mūsų flagmanas Naujamiestyje — 55 000 m² technologijų miestelis su Samsung konferencijų centru buvusiame 1947 m. „Lelijos" siuvyklos pastate. 8 restoranai, 4 žali kiemai.',
     dist:[['15 min','pėsčiomis iki senamiesčio ir stoties'],['10 min','automobiliu iki oro uosto'],['2 min','iki pietinio aplinkkelio']],
     park:'Parkavimas miestelio teritorijoje. Patogus privažiavimas iš pietinio aplinkkelio — logistika renginio technikai ir dekoracijoms.',
