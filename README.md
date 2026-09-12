@@ -115,5 +115,15 @@ Turinys kraunamas iš JS masyvų, todėl naują salę pridėti = įrašyti dar v
 su nuoroda, iš kurio šaltinio paimtas kiekvienas skaičius. **Perskaityk prieš keisdamas turinį** —
 talpos, įranga ir kainos ateina iš kliento 2026 m. pristatymų, nieko neišgalvota.
 
+## SVARBU: cache versijos
+
+`vercel.json` uždeda `/assets/*` failams `Cache-Control: immutable, max-age=31536000` — naršyklė
+tokio failo neperklaus metus, net su Ctrl+Shift+R. Todėl CSS ir JS nuorodos HTML'e turi versijos
+parametrą: `site.css?v=2`, `data.js?v=2`, `site.js?v=2`.
+
+**Pakeitus `assets/css/site.css` arba `assets/js/*.js` — pakelk `v` numerį visuose HTML failuose**,
+kitaip anksčiau svetainėje buvę lankytojai matys seną CSS/JS su nauju HTML: puslapis atrodys
+sulūžęs, o konsolėje klaidų nebus. Nuotraukoms ir šriftams to nereikia — jie nesikeičia.
+
 Puslapiai kol kas turi `noindex, nofollow` (demo). Prieš viešinant — išimti `<meta name="robots">`
 iš visų HTML failų `<head>` ir `X-Robots-Tag` iš `vercel.json`.
