@@ -286,7 +286,12 @@ if (locList){
 
   /* nuoroda su ?loc=arts atveria tą lokaciją */
   const pLoc = PARAMS.get('loc');
-  if (pLoc && MAPDATA[pLoc]) $('#loc-' + pLoc)?.scrollIntoView({behavior: 'smooth', block: 'start'});
+  if (pLoc && MAPDATA[pLoc]){
+    $('#loc-' + pLoc)?.scrollIntoView({behavior: 'smooth', block: 'start'});
+    /* programinis skrolinimas ne visada sukelia scroll ivyki, todel header busena
+       atnaujinam patys - kitaip jis liktu permatomas ant sviesaus turinio */
+    setTimeout(() => window.dispatchEvent(new Event('scroll')), 700);
+  }
 }
 
 /* ═══════════════ UŽKLAUSOS FORMA (uzklausa.html) ═══════════════ */
