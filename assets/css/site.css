@@ -4,13 +4,13 @@
 
 :root{
   /* brand — Tech Zity 2026 */
-  --wine:#251216; --ink:#1E1013; --bg:#F5F3F1; --white:#fff; --snow:#FBFAF9;
-  --rust:#A53E00; --rust-deep:#7E2F00; --vermillion:#F04800; --sage:#D0DFDD;
-  --steel:#6B5A5E; --line:rgba(107,90,94,.2);
+  --wine:#000000; --ink:#000000; --bg:#F5F5F5; --white:#fff; --snow:#FAFAFA;
+  --rust:#A53E00; --rust-deep:#7E2F00; --vermillion:#F54A00; --sage:#D0DFDD;
+  --steel:#6B5A5E; --line:rgba(0,0,0,.18);
   /* lokacijų spalvos (brandbook / 2026 pristatymai) */
-  --park:#FFC36A; --park-ink:#7A4A00;
-  --arts:#0FCB76; --arts-ink:#046B3B;
-  --zity:#F04800; --zity-ink:#A53E00;
+  --park:#FFCF60; --park-ink:#7A4A00;
+  --arts:#43D276; --arts-ink:#046B3B;
+  --zity:#F54A00; --zity-ink:#A53E00;
   /* ritmas */
   --s1:.5rem; --s2:1rem; --s3:1.5rem; --s4:2.25rem; --s5:3.5rem; --s6:5rem;
   --sec:clamp(3.25rem,6vw,5.5rem);
@@ -18,8 +18,6 @@
   --font-d:'Deacon','NHaas',system-ui,sans-serif;
   --font-b:'NHaas',system-ui,-apple-system,'Segoe UI',sans-serif;
   --font-m:ui-monospace,'Cascadia Mono','SF Mono',Consolas,monospace;
-  /* firminis „dobiliukas" — Tech Zity ženklo silueto kaukė */
-  --clover:url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 240 56' preserveAspectRatio='none'%3E%3Cpath d='M18 0H118.4V7.2H121.6V0H222Q229 0 231.4 4.6L239.4 25.4A2 2 0 0 1 240 26.6V26.6H232.8V29.4H240Q240 30.2 239.4 31.4L231.4 51.4Q229 56 222 56H121.6V48.8H118.4V56H18Q11 56 8.6 51.4L.6 31.4Q0 30.2 0 29.4H7.2V26.6H0Q0 25.4 .6 25.4L8.6 4.6Q11 0 18 0Z' fill='%23000'/%3E%3C/svg%3E");
   color-scheme:only light;
 }
 *,*::before,*::after{margin:0;padding:0;box-sizing:border-box}
@@ -37,30 +35,20 @@ input,select,textarea,button{font-family:inherit}
 .skip{position:absolute;left:-9999px;top:0;z-index:200;background:var(--wine);color:#fff;padding:.8rem 1.2rem}
 .skip:focus{left:0}
 
-/* ══ „DOBILIUKAS" — firminis mygtukas (korekcija 3) ══ */
+/* ══ MYGTUKAI — sulyginta su techzity.com (rounded-full) ══ */
 .chip{position:relative;display:inline-flex;align-items:center;justify-content:center;gap:.5rem;
   min-height:48px;padding:.85rem 2.1rem;font-family:var(--font-d);font-size:.86rem;letter-spacing:.045em;
   text-transform:uppercase;text-decoration:none;text-align:center;color:var(--ink);
-  transition:transform .18s ease,filter .18s ease;isolation:isolate}
-.chip::before{content:"";position:absolute;inset:0;z-index:-1;background:var(--sage);
-  -webkit-mask-image:var(--clover);mask-image:var(--clover);
-  -webkit-mask-size:100% 100%;mask-size:100% 100%;-webkit-mask-repeat:no-repeat;mask-repeat:no-repeat;
-  transition:background-color .18s ease}
-.chip:hover{transform:translateY(-1px)}
-.chip:hover::before{filter:brightness(1.06)}
-.chip:active{transform:translateY(0)}
-.chip--primary{color:var(--ink)}
-.chip--primary::before{background:var(--park)}
-.chip--primary:hover::before{background:var(--vermillion)}
-.chip--dark{color:#fff}
-.chip--dark::before{background:var(--wine)}
-.chip--ghost{color:#fff}
-.chip--ghost::before{background:rgba(255,255,255,.18);backdrop-filter:blur(6px)}
+  background:var(--sage);border-radius:999px;transition:background-color .18s ease}
+.chip:hover{text-decoration:underline}
+.chip--primary{color:var(--ink);background:var(--park)}
+.chip--dark{color:#fff;background:var(--wine)}
+.chip--ghost{color:#fff;background:rgba(255,255,255,.18);backdrop-filter:blur(6px)}
 .chip--sm{min-height:44px;padding:.65rem 1.5rem;font-size:.76rem}
 .chip[aria-disabled="true"]{opacity:.5;pointer-events:none}
 
 /* ══ HEADER (korekcija 1, 11) ══ */
-header{position:sticky;top:0;z-index:90;background:rgba(245,243,241,.93);backdrop-filter:blur(10px);border-bottom:1px solid var(--line)}
+header{position:sticky;top:0;z-index:90;background:var(--white)}
 .nav{display:flex;align-items:center;justify-content:space-between;gap:1rem;height:68px}
 .nav-brand{display:flex;align-items:center;min-height:44px}
 .nav-tze{height:26px;width:auto}
@@ -85,10 +73,10 @@ header{position:sticky;top:0;z-index:90;background:rgba(245,243,241,.93);backdro
 .hero-media video,.hero-media img{filter:brightness(.66) saturate(.94)}
 .hero-scrim{position:absolute;inset:0;z-index:3;
   background:
-    linear-gradient(90deg,rgba(37,18,22,.82) 0%,rgba(37,18,22,.55) 42%,rgba(37,18,22,.2) 78%,rgba(37,18,22,.12) 100%),
-    linear-gradient(180deg,rgba(37,18,22,.7) 0%,rgba(37,18,22,.42) 26%,rgba(37,18,22,.62) 66%,rgba(37,18,22,.92) 100%)}
+    linear-gradient(90deg,rgba(0,0,0,.82) 0%,rgba(0,0,0,.55) 42%,rgba(0,0,0,.2) 78%,rgba(0,0,0,.12) 100%),
+    linear-gradient(180deg,rgba(0,0,0,.7) 0%,rgba(0,0,0,.42) 26%,rgba(0,0,0,.62) 66%,rgba(0,0,0,.92) 100%)}
 @media(max-width:860px){
-  .hero-scrim{background:linear-gradient(180deg,rgba(37,18,22,.78) 0%,rgba(37,18,22,.62) 22%,rgba(37,18,22,.74) 60%,rgba(37,18,22,.94) 100%)}
+  .hero-scrim{background:linear-gradient(180deg,rgba(0,0,0,.78) 0%,rgba(0,0,0,.62) 22%,rgba(0,0,0,.74) 60%,rgba(0,0,0,.94) 100%)}
 }
 .hero-inner{position:relative;z-index:5;width:100%;max-width:var(--wrap);margin:0 auto;padding:clamp(5rem,11vh,7rem) clamp(1.15rem,4vw,2rem) clamp(2.5rem,5vh,3.5rem)}
 .crumbs{font-family:var(--font-m);font-size:.7rem;letter-spacing:.1em;text-transform:uppercase;color:rgba(255,255,255,.72);margin-bottom:var(--s3)}
@@ -101,7 +89,7 @@ header{position:sticky;top:0;z-index:90;background:rgba(245,243,241,.93);backdro
 .loc-tag{display:inline-flex;align-items:center;gap:.45rem;font-family:var(--font-m);font-size:.66rem;letter-spacing:.12em;text-transform:uppercase;
   border:1px solid rgba(255,255,255,.3);border-radius:999px;padding:.32rem .7rem;color:#fff}
 .loc-dot{width:9px;height:9px;border-radius:50%;flex:0 0 auto}
-.video-toggle{position:absolute;right:1rem;bottom:4.5rem;z-index:6;width:44px;height:44px;display:grid;place-items:center;border-radius:999px;border:1px solid rgba(255,255,255,.4);color:#fff;background:rgba(37,18,22,.5)}
+.video-toggle{position:absolute;right:1rem;bottom:4.5rem;z-index:6;width:44px;height:44px;display:grid;place-items:center;border-radius:999px;border:1px solid rgba(255,255,255,.4);color:#fff;background:rgba(0,0,0,.5)}
 
 /* ══ KONTAKTŲ MYGTUKAI (korekcija 4) ══ */
 .contact-row{display:flex;gap:.6rem;flex-wrap:wrap;margin-top:var(--s4)}
@@ -124,7 +112,7 @@ header{position:sticky;top:0;z-index:90;background:rgba(245,243,241,.93);backdro
 
 /* ══ FAKTŲ JUOSTA ══ */
 .trust{background:var(--white);border:1px solid var(--line);display:grid;grid-template-columns:repeat(4,1fr);
-  margin-top:calc(var(--s4) * -1);position:relative;z-index:5;box-shadow:0 10px 40px rgba(37,18,22,.09)}
+  margin-top:calc(var(--s4) * -1);position:relative;z-index:5;box-shadow:0 10px 40px rgba(0,0,0,.09)}
 .trust div{padding:1.35rem 1rem;text-align:center;border-right:1px solid var(--line)}
 .trust div:last-child{border-right:0}
 .trust b{display:block;font-family:var(--font-d);font-size:clamp(1.35rem,2.6vw,1.9rem);line-height:1.1;color:var(--wine)}
@@ -166,12 +154,12 @@ h3{font-size:clamp(1.15rem,2vw,1.4rem)}
 .cards{display:grid;grid-template-columns:repeat(3,1fr);gap:1.25rem}
 .card{background:var(--white);border:1px solid var(--line);display:flex;flex-direction:column;overflow:hidden;
   transition:transform .22s ease,box-shadow .22s ease}
-.card:hover{transform:translateY(-3px);box-shadow:0 14px 34px rgba(37,18,22,.11)}
+.card:hover{transform:translateY(-3px);box-shadow:0 14px 34px rgba(0,0,0,.11)}
 .card-media{position:relative;aspect-ratio:16/10;overflow:hidden;background:var(--sage)}
 .card-media img{width:100%;height:100%;object-fit:cover;transition:transform .5s ease}
 .card:hover .card-media img{transform:scale(1.035)}
 .card-count{position:absolute;right:.7rem;bottom:.7rem;font-family:var(--font-m);font-size:.64rem;letter-spacing:.1em;
-  background:rgba(37,18,22,.72);color:#fff;padding:.3rem .6rem;border-radius:999px;backdrop-filter:blur(4px)}
+  background:rgba(0,0,0,.72);color:#fff;padding:.3rem .6rem;border-radius:999px;backdrop-filter:blur(4px)}
 .card-strip{height:4px;width:100%}
 .card-body{padding:1.15rem 1.25rem 1.35rem;display:flex;flex-direction:column;gap:.7rem;flex:1}
 .card-loc{display:inline-flex;align-items:center;gap:.45rem;font-family:var(--font-m);font-size:.64rem;letter-spacing:.11em;text-transform:uppercase;font-weight:700}
@@ -188,7 +176,7 @@ h3{font-size:clamp(1.15rem,2vw,1.4rem)}
 .modal[data-open]{display:grid;place-items:center;padding:clamp(.5rem,3vw,2rem)}
 .modal-box{background:var(--bg);width:min(1080px,100%);max-height:92vh;overflow:auto;position:relative;display:grid;grid-template-columns:minmax(0,1.15fr) minmax(0,1fr)}
 .modal-close{position:absolute;top:.6rem;right:.6rem;z-index:6;width:44px;height:44px;display:grid;place-items:center;
-  border-radius:999px;background:rgba(37,18,22,.72);color:#fff}
+  border-radius:999px;background:rgba(0,0,0,.72);color:#fff}
 .modal-close:hover{background:var(--wine)}
 .mgal{position:relative;background:#14090B;min-width:0;overflow:hidden;height:clamp(15rem,46vh,32rem);position:sticky;top:0;align-self:start}
 .mgal-track{display:flex;overflow-x:auto;scroll-snap-type:x mandatory;height:100%;width:100%;scrollbar-width:none}
@@ -211,7 +199,7 @@ h3{font-size:clamp(1.15rem,2vw,1.4rem)}
 .layout b{display:block;font-family:var(--font-d);font-size:1.25rem;line-height:1.1;color:var(--wine)}
 .layout span{font-size:.72rem;color:var(--steel);text-transform:uppercase;letter-spacing:.05em}
 .equip{display:grid;gap:.4rem}
-.equip li{display:flex;gap:.6rem;font-size:.88rem;color:#3A2B2E;line-height:1.45}
+.equip li{display:flex;gap:.6rem;font-size:.88rem;color:#333333;line-height:1.45}
 .equip li::before{content:"";flex:0 0 auto;width:7px;height:7px;margin-top:.5rem;background:var(--rust)}
 .modal h4{font-family:var(--font-m);font-size:.68rem;letter-spacing:.16em;text-transform:uppercase;color:var(--steel);font-weight:400}
 
@@ -243,33 +231,27 @@ h3{font-size:clamp(1.15rem,2vw,1.4rem)}
 .panel--dark .ticks li svg{color:var(--park)}
 .fineprint{font-size:.8rem;color:var(--steel);margin-top:var(--s2);line-height:1.55}
 .panel--dark .fineprint{color:rgba(255,255,255,.66)}
-.dl-form{display:grid;gap:.7rem;margin-top:var(--s3)}
-.dl-form .row{display:grid;grid-template-columns:1fr 1fr;gap:.7rem}
-.dl-done{display:none;gap:.55rem;margin-top:var(--s3)}
-.dl-done[data-open]{display:grid}
-.dl-link{display:flex;align-items:center;gap:.7rem;min-height:52px;padding:.7rem 1rem;background:rgba(255,255,255,.09);
-  border:1px solid rgba(255,255,255,.24);color:#fff;text-decoration:none;font-size:.9rem}
-.dl-link:hover{background:rgba(255,255,255,.18)}
+.dl-row{display:grid;gap:.6rem;margin-top:var(--s4);max-width:660px}
+.dl-title{font-family:var(--font-m);font-size:.7rem;letter-spacing:.14em;text-transform:uppercase;color:var(--steel);margin-bottom:.15rem}
+.dl-link{display:flex;align-items:center;gap:.7rem;min-height:52px;padding:.8rem 1.1rem;background:var(--sage);
+  border-radius:12px;color:var(--ink);text-decoration:none;font-size:.9rem}
+.dl-link:hover{text-decoration:underline}
 .dl-link b{font-family:var(--font-d);font-size:.85rem;letter-spacing:.03em;text-transform:uppercase}
-.dl-link span{margin-left:auto;font-family:var(--font-m);font-size:.68rem;opacity:.7}
+.dl-link span{margin-left:auto;font-family:var(--font-m);font-size:.68rem;color:var(--steel)}
 
-/* ══ ŽEMĖLAPIS (korekcija 13) ══ */
-.map-wrap{display:grid;grid-template-columns:1.25fr 1fr;gap:1.25rem;align-items:stretch}
-.map-card{background:var(--wine);border:1px solid var(--wine);position:relative;overflow:hidden}
-.map-svg{width:100%;height:100%;display:block}
-.pin{cursor:pointer}
-.pin circle.halo{opacity:0;transition:opacity .25s ease}
-.pin[aria-pressed="true"] circle.halo,.pin:hover circle.halo{opacity:.28}
-.pin text{font-family:'NHaas',sans-serif;font-size:15px;fill:#fff;letter-spacing:.04em}
-.map-note{position:absolute;left:.9rem;bottom:.7rem;font-family:var(--font-m);font-size:.62rem;letter-spacing:.08em;
-  text-transform:uppercase;color:rgba(255,255,255,.45)}
+/* ══ LOKACIJOS IR ŽEMĖLAPIAI (korekcija 13) ══ */
+.loc-block{display:grid;grid-template-columns:1.25fr 1fr;gap:1.25rem;align-items:stretch}
+.loc-block + .loc-block{margin-top:var(--s5)}
+.map-card{border:1px solid var(--line);border-radius:12px;overflow:hidden;background:var(--snow);min-height:340px}
+.map-frame{width:100%;height:100%;min-height:340px;border:0;display:block}
 .map-panel{background:var(--white);border:1px solid var(--line);padding:clamp(1.3rem,3vw,1.9rem);display:flex;flex-direction:column;gap:.9rem}
 .map-panel .badge{display:inline-flex;align-items:center;gap:.45rem;font-family:var(--font-m);font-size:.64rem;
   letter-spacing:.12em;text-transform:uppercase;font-weight:700}
+.panel-label{font-family:var(--font-m);font-size:.66rem;letter-spacing:.14em;text-transform:uppercase;color:var(--steel);font-weight:400}
 .dist{display:grid;gap:.45rem;margin-top:.2rem}
 .dist li{display:grid;grid-template-columns:5.6rem 1fr;gap:.7rem;font-size:.88rem;align-items:baseline}
 .dist b{font-family:var(--font-d);font-size:1.02rem;color:var(--wine)}
-.park-info{background:var(--snow);border:1px solid var(--line);padding:.75rem .9rem;font-size:.85rem;line-height:1.5;color:#3A2B2E}
+.park-info{background:var(--snow);border:1px solid var(--line);padding:.75rem .9rem;font-size:.85rem;line-height:1.5;color:#333333}
 
 /* ══ SOCIAL PROOF (korekcija 10) ══ */
 .rev-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:.9rem}
@@ -281,7 +263,7 @@ h3{font-size:clamp(1.15rem,2vw,1.4rem)}
 .clients{display:grid;gap:1.35rem;margin-top:var(--s4)}
 .cgroup h4{font-family:var(--font-m);font-size:.68rem;letter-spacing:.16em;text-transform:uppercase;color:var(--rust);margin-bottom:.6rem;font-weight:400}
 .cnames{display:flex;flex-wrap:wrap;gap:.4rem}
-.cnames span{border:1px solid var(--line);background:var(--white);padding:.42rem .8rem;font-size:.83rem;color:#3A2B2E;white-space:nowrap}
+.cnames span{border:1px solid var(--line);background:var(--white);padding:.42rem .8rem;font-size:.83rem;color:#333333;white-space:nowrap}
 .bigstat{display:flex;align-items:baseline;gap:.9rem;flex-wrap:wrap;padding:1.2rem 1.4rem;background:var(--wine);color:#fff;margin-bottom:var(--s4)}
 .bigstat b{font-family:var(--font-d);font-size:clamp(2rem,5vw,3.2rem);line-height:1;color:var(--park)}
 .bigstat span{font-size:.98rem;color:rgba(255,255,255,.86);max-width:34ch}
@@ -307,7 +289,7 @@ h3{font-size:clamp(1.15rem,2vw,1.4rem)}
 .faq summary::-webkit-details-marker{display:none}
 .faq summary::after{content:"+";position:absolute;right:1.25rem;top:.85rem;font-size:1.5rem;color:var(--rust);font-weight:400}
 .faq details[open] summary::after{content:"–"}
-.faq .a{padding:0 1.25rem 1.25rem;font-size:.93rem;color:#3A2B2E;line-height:1.65}
+.faq .a{padding:0 1.25rem 1.25rem;font-size:.93rem;color:#333333;line-height:1.65}
 .faq .a a{font-weight:700;color:var(--rust-deep)}
 .faq .a p + p{margin-top:.7rem}
 
@@ -348,20 +330,53 @@ footer{background:var(--wine);color:rgba(255,255,255,.72);padding-block:var(--s5
 .mob-cta{display:none;position:fixed;bottom:0;left:0;right:0;z-index:100;background:var(--white);border-top:1px solid var(--line);padding:.55rem .7rem;gap:.5rem}
 .mob-cta .chip{flex:1}
 
-/* ══ KOREKCIJŲ PANELĖ ══ */
-.fixbtn{position:fixed;right:.9rem;bottom:.9rem;z-index:110;background:var(--wine);color:#fff;border-radius:999px;
-  padding:.75rem 1.15rem;font-size:.78rem;box-shadow:0 6px 24px rgba(0,0,0,.28);min-height:44px}
-.fixpanel{display:none;position:fixed;left:.9rem;bottom:.9rem;z-index:110;background:var(--white);border:1px solid var(--line);
-  padding:1.15rem 1.25rem;max-width:22rem;max-height:64vh;overflow:auto;font-size:.8rem;box-shadow:0 10px 40px rgba(0,0,0,.2)}
-.fixpanel[data-open]{display:block}
-.fixpanel h4{font-family:var(--font-d);font-size:.9rem;margin-bottom:.6rem;text-transform:uppercase}
-.fixpanel ol{margin-left:1.1rem;display:grid;gap:.35rem;color:#3A2B2E}
+/* ══ SUBPUSLAPIŲ ANTRAŠTĖ (kai sekcija turi savo puslapį) ══ */
+.phero{background:var(--wine);color:#fff;padding-block:clamp(2.25rem,5.5vw,3.75rem)}
+.phero .crumbs{margin-bottom:var(--s2)}
+.phero h1{font-family:var(--font-d);text-transform:uppercase;line-height:1.04;font-size:clamp(1.9rem,4.6vw,3.2rem);max-width:20ch}
+.phero .eyebrow{color:var(--park);margin-bottom:.55rem}
+.phero .lead{color:rgba(255,255,255,.84);max-width:62ch;margin-top:var(--s2)}
+.phero .hero-locs{margin:var(--s3) 0 0}
+.phero .chip-row{display:flex;gap:.6rem;flex-wrap:wrap;margin-top:var(--s3)}
+/* po tamsios antraštės sekanti sekcija — mažesnis viršutinis tarpas */
+.phero + section{padding-block-start:calc(var(--sec) * .7)}
+
+/* ══ PAGRINDINIO PUSLAPIO SKILČIŲ SANTRAUKOS ══ */
+.hub{display:grid;grid-template-columns:repeat(3,1fr);gap:1.15rem}
+.hub-item{background:var(--white);border:1px solid var(--line);padding:1.35rem 1.4rem 1.45rem;display:flex;flex-direction:column;gap:.55rem;
+  text-decoration:none;transition:transform .2s ease,box-shadow .2s ease,border-color .2s ease}
+.hub-item:hover{border-color:var(--rust);transform:translateY(-3px);box-shadow:0 14px 34px rgba(0,0,0,.1)}
+.hub-num{font-family:var(--font-m);font-size:.66rem;letter-spacing:.16em;text-transform:uppercase;color:var(--rust)}
+.hub-item h3{font-size:1.2rem}
+.hub-item p{font-size:.9rem;color:var(--steel);line-height:1.55;flex:1}
+.hub-facts{display:flex;gap:.9rem;flex-wrap:wrap;font-size:.78rem;color:var(--steel);border-top:1px solid var(--line);padding-top:.6rem}
+.hub-facts b{display:block;font-family:var(--font-d);font-size:1rem;color:var(--wine);line-height:1.15}
+.hub-item .rev-go{margin-top:auto;padding-top:.2rem}
+
+/* ══ KLIENTŲ JUOSTA — slenka iš kairės į dešinę ══ */
+.marquee{position:relative;overflow:hidden;padding:.2rem 0;
+  -webkit-mask-image:linear-gradient(90deg,transparent,#000 5%,#000 95%,transparent);
+  mask-image:linear-gradient(90deg,transparent,#000 5%,#000 95%,transparent)}
+.marquee-track{display:flex;width:max-content;animation:marquee-ltr 52s linear infinite}
+.marquee:hover .marquee-track,.marquee:focus-within .marquee-track{animation-play-state:paused}
+/* tarpas per margin (ne gap), kad abi sąrašo kopijos būtų identiško pločio ir ciklas nešokinėtų */
+.marquee .cname{flex:0 0 auto;margin-right:.55rem;border:1px solid var(--line);background:var(--white);
+  padding:.55rem .95rem;font-size:.88rem;color:#333333;white-space:nowrap;display:inline-flex;align-items:center;min-height:44px}
+.marquee .cname img{max-height:22px;width:auto}
+@keyframes marquee-ltr{from{transform:translateX(-50%)}to{transform:translateX(0)}}
+
+/* ══ CTA JUOSTA PUSLAPIŲ APAČIOJE ══ */
+.cta-band{background:var(--wine);color:#fff}
+.cta-band .wrap{display:flex;align-items:center;justify-content:space-between;gap:var(--s3);flex-wrap:wrap}
+.cta-band h2{color:#fff;font-size:clamp(1.5rem,3vw,2.2rem);max-width:22ch}
+.cta-band p{color:rgba(255,255,255,.8);margin-top:.6rem;max-width:46ch;font-size:.95rem}
+.cta-band .chip-row{display:flex;gap:.6rem;flex-wrap:wrap}
 
 @media(max-width:1040px){
   .cards,.scen-grid,.rev-grid{grid-template-columns:repeat(2,1fr)}
   .book-grid{grid-template-columns:repeat(2,1fr)}
   .modal-box{grid-template-columns:1fr}
-  .map-wrap{grid-template-columns:1fr}
+  .loc-block{grid-template-columns:1fr}
   .foot{grid-template-columns:1fr 1fr}
 }
 @media(max-width:860px){
@@ -374,10 +389,7 @@ footer{background:var(--wine);color:rgba(255,255,255,.72);padding-block:var(--s5
   body{padding-bottom:70px}
   .anchors{top:68px}
   form.inq{grid-template-columns:1fr}
-  .dl-form .row{grid-template-columns:1fr}
   .filterrow > .flabel{width:100%}
-  .fixbtn{bottom:74px}
-  .fixpanel{bottom:74px;left:.6rem;right:.6rem;max-width:none}
   /* patogūs paspaudimo taikiniai mobiliajame */
   .foot a,.crumbs a,.rev,.linkish{min-height:44px;display:inline-flex;align-items:center}
   .foot ul{gap:.15rem}
@@ -397,53 +409,8 @@ footer{background:var(--wine);color:rgba(255,255,255,.72);padding-block:var(--s5
   .video-toggle{top:.7rem;right:.7rem;bottom:auto}
   .metas{gap:.9rem}
   .trust div{padding:1rem .6rem}
+  .map-card,.map-frame{min-height:260px}
 }
-@media(prefers-reduced-motion:reduce){
-  html{scroll-behavior:auto}
-  *,*::before,*::after{animation-duration:.01ms!important;transition-duration:.01ms!important}
-}
-
-/* ══ SUBPUSLAPIŲ ANTRAŠTĖ (kai sekcija turi savo puslapį) ══ */
-.phero{background:var(--wine);color:#fff;padding-block:clamp(2.25rem,5.5vw,3.75rem)}
-.phero .crumbs{margin-bottom:var(--s2)}
-.phero h1{font-family:var(--font-d);text-transform:uppercase;line-height:1.04;font-size:clamp(1.9rem,4.6vw,3.2rem);max-width:20ch}
-.phero .eyebrow{color:var(--park);margin-bottom:.55rem}
-.phero .lead{color:rgba(255,255,255,.84);max-width:62ch;margin-top:var(--s2)}
-.phero .hero-locs{margin:var(--s3) 0 0}
-.phero .chip-row{display:flex;gap:.6rem;flex-wrap:wrap;margin-top:var(--s3)}
-/* po tamsios antraštės sekanti sekcija — mažesnis viršutinis tarpas */
-.phero + section{padding-block-start:calc(var(--sec) * .7)}
-
-/* ══ PAGRINDINIO PUSLAPIO SKILČIŲ SANTRAUKOS ══ */
-.hub{display:grid;grid-template-columns:repeat(3,1fr);gap:1.15rem}
-.hub-item{background:var(--white);border:1px solid var(--line);padding:1.35rem 1.4rem 1.45rem;display:flex;flex-direction:column;gap:.55rem;
-  text-decoration:none;transition:transform .2s ease,box-shadow .2s ease,border-color .2s ease}
-.hub-item:hover{border-color:var(--rust);transform:translateY(-3px);box-shadow:0 14px 34px rgba(37,18,22,.1)}
-.hub-num{font-family:var(--font-m);font-size:.66rem;letter-spacing:.16em;text-transform:uppercase;color:var(--rust)}
-.hub-item h3{font-size:1.2rem}
-.hub-item p{font-size:.9rem;color:var(--steel);line-height:1.55;flex:1}
-.hub-facts{display:flex;gap:.9rem;flex-wrap:wrap;font-size:.78rem;color:var(--steel);border-top:1px solid var(--line);padding-top:.6rem}
-.hub-facts b{display:block;font-family:var(--font-d);font-size:1rem;color:var(--wine);line-height:1.15}
-.hub-item .rev-go{margin-top:auto;padding-top:.2rem}
-
-/* ══ KLIENTŲ JUOSTA — slenka iš kairės į dešinę ══ */
-.marquee{position:relative;overflow:hidden;padding:.2rem 0;
-  -webkit-mask-image:linear-gradient(90deg,transparent,#000 5%,#000 95%,transparent);
-  mask-image:linear-gradient(90deg,transparent,#000 5%,#000 95%,transparent)}
-.marquee-track{display:flex;width:max-content;animation:marquee-ltr 52s linear infinite}
-.marquee:hover .marquee-track,.marquee:focus-within .marquee-track{animation-play-state:paused}
-/* tarpas per margin (ne gap), kad abi sąrašo kopijos būtų identiško pločio ir ciklas nešokinėtų */
-.marquee .cname{flex:0 0 auto;margin-right:.55rem;border:1px solid var(--line);background:var(--white);
-  padding:.55rem .95rem;font-size:.88rem;color:#3A2B2E;white-space:nowrap;display:inline-flex;align-items:center;min-height:44px}
-.marquee .cname img{max-height:22px;width:auto}
-@keyframes marquee-ltr{from{transform:translateX(-50%)}to{transform:translateX(0)}}
-
-/* ══ CTA JUOSTA PUSLAPIŲ APAČIOJE ══ */
-.cta-band{background:var(--wine);color:#fff}
-.cta-band .wrap{display:flex;align-items:center;justify-content:space-between;gap:var(--s3);flex-wrap:wrap}
-.cta-band h2{color:#fff;font-size:clamp(1.5rem,3vw,2.2rem);max-width:22ch}
-.cta-band p{color:rgba(255,255,255,.8);margin-top:.6rem;max-width:46ch;font-size:.95rem}
-.cta-band .chip-row{display:flex;gap:.6rem;flex-wrap:wrap}
 
 /* Pradinio puslapio santraukų tinkleliai laikosi trijų stulpelių tol, kol kortelė lieka
    bent ~265 px pločio (~900 px lange). Bendra `.cards` taisyklė ties 1040 px perjungia į du

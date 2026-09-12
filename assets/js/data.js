@@ -96,7 +96,7 @@ const SPACES = [
    lead:'Didžiausia salė po 1947 m. medinių santvarų skliautu — 7 m aukščio, be kolonų. Samsung 2,5 mm LED siena, scena ir koncertams suderinta akustika.',
    layouts:[['Teatro',500],['Vakarienės',270],['Klasės',230],['Kabareto',210],['Prie stalelių',355],['Be baldų',570]],
    equip:['SAMSUNG 2,5 mm LED ekranas 6 720 × 3 780 mm, valdymas AVoIP sistema','Iki 6 × 65" dubliavimo ekranų','8 kolonėlių garso sistema','5 × Shure MXW2/BETA58 ir 2 × TH53/O-MTQG mikrofonai','12 × „wash" prožektorių, DMX valdiklis','Valdomas RGB stogo skliauto apšvietimas','Scena 3 × 10 m (Hexa danga, 60–80 cm aukštis)'],
-   photos:[['hall-a-1','Didžioji salė A — medinių santvarų skliautas ir scena'],['hall-a-2','Vaizdas nuo scenos į salę'],['lobby-2a-2','Įėjimas į A salę iš antro aukšto holo']]},
+   photos:[['hall-a-1','Didžioji salė A — medinių santvarų skliautas ir scena'],['hall-a-2','Vaizdas nuo scenos į salę']]},
 
   {id:'skc-bc', loc:'zity', name:'Vidutinė salė B+C', area:'250 m²', theatre:220, outdoor:false, dir:'skc',
    lead:'Sujungtos B ir C salės su LED siena ir scena — konferencijoms iki 220 dalyvių arba vakarienei iki 140 svečių.',
@@ -148,21 +148,24 @@ const MAPDATA = {
     desc:'Startuolių miestelis Sapiegų parke — XIX a. pastatų konversija, menanti Sapiegų rūmų didybę. Konferencijų centras, dvi salės ir didžiosios terasos su kiemais.',
     dist:[['3 min','automobiliu iki Senamiesčio'],['20 min','pėsčiomis iki Katedros'],['Stotelė','L. Sapiegos — artimiausia viešojo transporto stotelė']],
     park:'Iš anksto sutarus suteikiame iki 5 parkavimo vietų vidinėje aikštelėje. Dalyviams — vieša miesto aikštelė kelios minutės pėsčiomis, žalioje zonoje.',
-    maps:'https://www.google.com/maps/dir/?api=1&destination=Antakalnio+g.+17,+Vilnius'
+    maps:'https://www.google.com/maps/dir/?api=1&destination=Antakalnio+g.+17,+Vilnius',
+    embed:'https://maps.google.com/maps?q=Antakalnio+g.+17,+Vilnius&hl=lt&z=15&output=embed'
   },
   arts:{
     name:'Tech Arts', addr:'Vaidilutės g. 79, 10100 Vilnius', color:'var(--arts)', ink:'var(--arts-ink)',
     desc:'Valakampiuose prie pat Neries, gražiausiame Vilniaus rajone — nostalgiškas vaikystės paplūdimio kampelis, išvystytas į kūrybos ir sveikatingumo epicentrą.',
     dist:[['15 min','automobiliu nuo Senamiesčio'],['~100','nemokamų parkavimo vietų šalia pastato'],['Stotelė','„Antrasis paplūdimys" — 15 autobusas']],
     park:'Didelė vieša aikštelė priešais pastatą: nemokama šaltuoju sezonu (10-01–05-31), mokama šiltuoju (06-01–09-30, geltonoji zona). Iki 3 vietų vidinėje aikštelėje su šlagbaumu. Bolt Drive / CityBee / Spark zona.',
-    maps:'https://www.google.com/maps/dir/?api=1&destination=Vaidilut%C4%97s+g.+79,+Vilnius'
+    maps:'https://www.google.com/maps/dir/?api=1&destination=Vaidilut%C4%97s+g.+79,+Vilnius',
+    embed:'https://maps.google.com/maps?q=Vaidilut%C4%97s+g.+79,+Vilnius&hl=lt&z=15&output=embed'
   },
   zity:{
     name:'Tech Zity Vilnius', addr:'Panerių g. 43, 03202 Vilnius', color:'var(--zity)', ink:'var(--zity-ink)',
     desc:'Mūsų flagmanas Naujamiestyje — 55 000 m² technologijų miestelis su Samsung konferencijų centru buvusiame 1947 m. „Lelijos" siuvyklos pastate. 8 restoranai, 4 žali kiemai.',
     dist:[['15 min','pėsčiomis iki senamiesčio ir stoties'],['10 min','automobiliu iki oro uosto'],['2 min','iki pietinio aplinkkelio']],
     park:'Parkavimas miestelio teritorijoje. Patogus privažiavimas iš pietinio aplinkkelio — logistika renginio technikai ir dekoracijoms.',
-    maps:'https://www.google.com/maps/dir/?api=1&destination=Paneri%C5%B3+g.+43,+Vilnius'
+    maps:'https://www.google.com/maps/dir/?api=1&destination=Paneri%C5%B3+g.+43,+Vilnius',
+    embed:'https://maps.google.com/maps?q=Paneri%C5%B3+g.+43,+Vilnius&hl=lt&z=15&output=embed'
   }
 };
 

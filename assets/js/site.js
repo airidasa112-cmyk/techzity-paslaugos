@@ -252,32 +252,35 @@ if (chipsEl){
   renderScen();
 }
 
-/* ═══════════════ ŽEMĖLAPIS (lokacijos.html) ═══════════════ */
-const mapPanel = $('#mapPanel');
-if (mapPanel){
-  const showLoc = (key) => {
-    const d = MAPDATA[key];
-    mapPanel.innerHTML = `
-      <span class="badge" style="color:${d.ink}"><i class="loc-dot" style="background:${d.color}"></i>${d.name}</span>
-      <h3>${d.addr}</h3>
-      <p class="lead" style="font-size:.92rem">${d.desc}</p>
-      <div>
-        <h4 style="font-family:var(--font-m);font-size:.66rem;letter-spacing:.14em;text-transform:uppercase;color:var(--steel);font-weight:400">Kaip patogu atvykti</h4>
-        <ul class="dist">${d.dist.map(([v, t]) => `<li><b>${v}</b><span>${t}</span></li>`).join('')}</ul>
+/* ═══════════════ LOKACIJOS IR ŽEMĖLAPIAI (lokacijos.html) ═══════════════
+   Kiekvienai lokacijai — atskiras Google žemėlapis su žymekliu ir ta pati aprašymo lentelė. */
+const locList = $('#locList');
+if (locList){
+  locList.innerHTML = Object.entries(MAPDATA).map(([key, d]) => `
+    <article class="loc-block" id="loc-${key}">
+      <div class="map-card">
+        <iframe class="map-frame" src="${d.embed}" title="${d.name} — ${d.addr} žemėlapyje"
+                loading="lazy" referrerpolicy="no-referrer-when-downgrade" allowfullscreen></iframe>
       </div>
-      <div class="park-info"><b>Parkavimas.</b> ${d.park}</div>
-      <div class="card-actions" style="margin-top:.2rem">
-        <a class="chip chip--sm" href="${d.maps}" target="_blank" rel="noopener">Kaip atvykti ↗</a>
-        <a class="chip chip--primary chip--sm" href="erdves.html?loc=${key}">Erdvės šioje lokacijoje</a>
-      </div>`;
-    $$('.pin').forEach(p => p.setAttribute('aria-pressed', String(p.dataset.pin === key)));
-  };
-  $$('.pin').forEach(p => {
-    p.addEventListener('click', () => showLoc(p.dataset.pin));
-    p.addEventListener('keydown', (e) => { if (e.key === 'Enter' || e.key === ' ') { e.preventDefault(); showLoc(p.dataset.pin); } });
-  });
+      <div class="map-panel">
+        <span class="badge" style="color:${d.ink}"><i class="loc-dot" style="background:${d.color}"></i>${d.name}</span>
+        <h3>${d.addr}</h3>
+        <p class="lead" style="font-size:.92rem">${d.desc}</p>
+        <div>
+          <h4 class="panel-label">Atvykimas</h4>
+          <ul class="dist">${d.dist.map(([v, t]) => `<li><b>${v}</b><span>${t}</span></li>`).join('')}</ul>
+        </div>
+        <div class="park-info"><b>Parkavimas.</b> ${d.park}</div>
+        <div class="card-actions" style="margin-top:.2rem">
+          <a class="chip chip--sm" href="${d.maps}" target="_blank" rel="noopener">Kaip atvykti ↗</a>
+          <a class="chip chip--primary chip--sm" href="erdves.html?loc=${key}">Erdvės šioje lokacijoje</a>
+        </div>
+      </div>
+    </article>`).join('');
+
+  /* nuoroda su ?loc=arts atveria tą lokaciją */
   const pLoc = PARAMS.get('loc');
-  showLoc(MAPDATA[pLoc] ? pLoc : 'park');
+  if (pLoc && MAPDATA[pLoc]) $('#loc-' + pLoc)?.scrollIntoView({behavior: 'smooth', block: 'start'});
 }
 
 /* ═══════════════ UŽKLAUSOS FORMA (uzklausa.html) ═══════════════ */
@@ -299,17 +302,6 @@ if (inq){
     e.preventDefault();
     if (!inq.checkValidity()) { inq.reportValidity(); return; }
     $('#formOk').setAttribute('data-open', '');
-  });
-}
-
-/* ═══════════════ KAINORAŠČIO FORMA (kainos.html) ═══════════════ */
-const dlForm = $('#dlForm');
-if (dlForm){
-  dlForm.addEventListener('submit', (e) => {
-    e.preventDefault();
-    if (!dlForm.checkValidity()) { dlForm.reportValidity(); return; }
-    dlForm.style.display = 'none';
-    $('#dlDone').setAttribute('data-open', '');
   });
 }
 
@@ -373,15 +365,5 @@ if (vid && vt && heroPoster){
   vt.addEventListener('click', () => {
     if (vid.paused) { vid.play().catch(() => {}); vt.setAttribute('aria-label', 'Sustabdyti vaizdo įrašą'); vt.innerHTML = ICON_PAUSE; }
     else { vid.pause(); vt.setAttribute('aria-label', 'Paleisti vaizdo įrašą'); vt.innerHTML = ICON_PLAY; }
-  });
-}
-
-/* ═══════════════ KOREKCIJŲ PANELĖ ═══════════════ */
-const fb = $('#fixBtn'), fp = $('#fixPanel');
-if (fb && fp){
-  fb.addEventListener('click', () => {
-    const open = fp.hasAttribute('data-open');
-    fp.toggleAttribute('data-open', !open);
-    fb.setAttribute('aria-expanded', String(!open));
   });
 }
