@@ -10,7 +10,6 @@
   --clam-shell:#D8BDB5; /* CLAM SHELL — mygtukų spalva techzity.com */
   /* lokacijų spalvos (brandbook / 2026 pristatymai) */
   --park:#FFCF60; --park-ink:#7A4A00;
-  --arts:#43D276; --arts-ink:#046B3B;
   --zity:#F54A00; --zity-ink:#A53E00;
   /* ritmas */
   --s1:.5rem; --s2:1rem; --s3:1.5rem; --s4:2.25rem; --s5:3.5rem; --s6:5rem;
@@ -187,7 +186,6 @@ h3{font-size:clamp(1.15rem,2vw,1.4rem)}
 .fbtn:hover{border-color:var(--ink)}
 .fbtn[aria-pressed="true"]{background:var(--wine);color:#fff;border-color:var(--wine)}
 .fbtn[data-loc="park"][aria-pressed="true"]{background:var(--park);color:var(--park-ink);border-color:var(--park)}
-.fbtn[data-loc="arts"][aria-pressed="true"]{background:var(--arts);color:#062E1B;border-color:var(--arts)}
 .fbtn[data-loc="zity"][aria-pressed="true"]{background:var(--zity);color:#2A0F00;border-color:var(--zity)}
 .fcount{font-family:var(--font-m);font-size:.74rem;color:var(--steel);margin-left:auto}
 
@@ -293,6 +291,13 @@ h3{font-size:clamp(1.15rem,2vw,1.4rem)}
 .dist li{display:grid;grid-template-columns:5.6rem 1fr;gap:.7rem;font-size:.88rem;align-items:baseline}
 .dist b{font-family:var(--font-d);font-size:1.02rem;color:var(--wine)}
 .park-info{background:var(--snow);border:1px solid var(--line);padding:.75rem .9rem;font-size:.85rem;line-height:1.5;color:#333333}
+/* Tech Arts atsisveikinimo prierašas (lokacijos.html#loc-arts) — be nuotraukos ir lokacijos spalvos,
+   kad neatrodytų kaip dar viena veikianti lokacija */
+.farewell{max-width:46rem;background:var(--white);border:1px solid var(--line);border-left:4px solid var(--steel);
+  padding:clamp(1.3rem,3vw,1.9rem);display:grid;gap:.8rem}
+.farewell h2{font-size:clamp(1.35rem,2.6vw,1.9rem)}
+.farewell-addr{font-family:var(--font-m);font-size:.68rem;letter-spacing:.14em;text-transform:uppercase;color:var(--steel)}
+.farewell p:not(.eyebrow):not(.farewell-addr){line-height:1.6;max-width:62ch}
 
 /* ══ SOCIAL PROOF (korekcija 10) ══ */
 .rev-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:.9rem}
@@ -316,7 +321,7 @@ h3{font-size:clamp(1.15rem,2vw,1.4rem)}
 .tour-frame[hidden]{display:none}
 
 /* ══ APŽIŪROS (korekcija 19) ══ */
-.book-grid{display:grid;grid-template-columns:repeat(4,1fr);gap:.9rem}
+.book-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:.9rem}
 .book{background:var(--white);border:1px solid var(--line);padding:1.15rem 1.2rem;display:flex;flex-direction:column;gap:.6rem;text-decoration:none;transition:border-color .2s ease,transform .2s ease}
 .book:hover{border-color:var(--rust);transform:translateY(-2px)}
 .book h3{font-size:1.06rem}
@@ -400,6 +405,8 @@ footer{background:var(--wine);color:rgba(255,255,255,.72);padding-block:var(--s5
 @media(max-width:1040px){
   .cards,.scen-grid,.rev-grid{grid-template-columns:repeat(2,1fr)}
   .book-grid{grid-template-columns:repeat(2,1fr)}
+  /* po trys kortelės: dviejuose stulpeliuose paskutinė užima visą eilutę, kad neliktų skylės */
+  .rev-grid > :last-child:nth-child(odd),.book-grid > :last-child:nth-child(odd){grid-column:1 / -1}
   .modal-box{grid-template-columns:1fr}
   .loc-block{grid-template-columns:1fr}
   .foot{grid-template-columns:1fr 1fr}
@@ -454,8 +461,9 @@ footer{background:var(--wine);color:rgba(255,255,255,.72);padding-block:var(--s5
 
 /* ══ LOKACIJŲ KORTELĖS — sandara iš techzity.com: nuotrauka su žyma,
    užvedus pele atsiveria geltona informacijos panelė ══ */
-.loc-cards{display:grid;grid-template-columns:repeat(3,1fr);gap:1.15rem}
-.loc-card{position:relative;display:block;aspect-ratio:1;border-radius:20px;overflow:hidden;text-decoration:none;color:var(--ink)}
+.loc-cards{display:grid;grid-template-columns:repeat(2,1fr);gap:1.15rem}
+/* dvi lokacijos — kortelės platesnės, todėl 4:3 (kaip ir pačios aerofoto nuotraukos), o ne kvadratas */
+.loc-card{position:relative;display:block;aspect-ratio:4/3;border-radius:20px;overflow:hidden;text-decoration:none;color:var(--ink)}
 .loc-card-img{position:absolute;inset:0;width:100%;height:100%;object-fit:cover}
 .loc-card-tag{position:absolute;left:1rem;top:1rem;z-index:2;background:var(--park);color:var(--ink);
   padding:.5rem 1rem;border-radius:999px;text-transform:uppercase;font-size:.8rem;line-height:1.2;

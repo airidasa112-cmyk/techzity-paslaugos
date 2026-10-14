@@ -37,25 +37,27 @@ santraukų korteles į visas skiltis).
 
 | Puslapis | Kas jame |
 |---|---|
-| `index.html` | Hero su video, faktų juosta ir kiekvienos skilties santrauka: 3 erdvės (po vieną iš lokacijos), 4 scenarijai, 3 lokacijos, kainodara + apžiūros, atsiliepimai, 3 DUK klausimai — visa kita atsiveria dedikuotame puslapyje |
-| `erdves.html` | Filtrai, 16 erdvių kortelių, salės pop-upas |
+| `index.html` | Hero su video, faktų juosta ir kiekvienos skilties santrauka: 3 erdvės (iš abiejų lokacijų), 4 scenarijai, 2 lokacijos (+ eilutė apie Tech Arts), kainodara + apžiūros, atsiliepimai, 3 DUK klausimai — visa kita atsiveria dedikuotame puslapyje |
+| `erdves.html` | Filtrai, 11 erdvių kortelių, salės pop-upas |
 | `scenarijai.html` | Renginių formatai ir nuotraukų tinklelis |
 | `kainos.html` | Kas įskaičiuota + kainoraščio forma (lead magnet) |
-| `lokacijos.html` | Interaktyvus žemėlapis, atstumai, parkavimas |
+| `lokacijos.html` | Interaktyvus žemėlapis, atstumai, parkavimas + Tech Arts atsisveikinimo prierašas (`#loc-arts`) |
 | `atsiliepimai.html` | Atsiliepimų nuorodos ir klientų sąrašai |
-| `turas.html` | Virtualūs 360° turai |
-| `apziura.html` | 4 apžiūrų kalendoriaus nuorodos |
+| `turas.html` | Virtualus 360° turas (Tech Park) |
+| `apziura.html` | 3 apžiūrų kalendoriaus nuorodos (2 lokacijos + konsultacija) |
 | `duk.html` | DUK |
 | `uzklausa.html` | Renginio užklausos forma |
 | `privatumo-politika.html` | Privatumo politika |
 
-Puslapiai susikalba per URL parametrus: `erdves.html?loc=arts&size=l` (iš anksto uždeda filtrus),
+Puslapiai susikalba per URL parametrus: `erdves.html?loc=zity&size=l` (iš anksto uždeda filtrus),
 `erdves.html?atidaryti=tp-kc` (iš karto atveria salės pop-upą), `lokacijos.html?loc=zity`
 (atidaro lokaciją žemėlapyje), `uzklausa.html?erdve=Didžioji salė` (parenka erdvę formos sąraše).
+Senos `?loc=arts` nuorodos nelūžta: erdvių puslapis rodo visas erdves, o `lokacijos.html?loc=arts`
+nuslenka į Tech Arts prierašą.
 
 Pradinio puslapio santraukos generuojamos iš tų pačių duomenų — kurios rodomos, nurodo `data-`
 atributai HTML'e: `#cardsTeaser[data-ids]` (erdvių `id`), `#scenTeaser[data-keys]` (scenarijų `k`).
-`#locTeaser` visada rodo visas tris `MAPDATA` lokacijas.
+`#locTeaser` visada rodo visas `MAPDATA` lokacijas (dabar dvi).
 
 Antraštė, skilčių navigacija ir poraštė kiekviename faile surašytos tiesiogiai (build'o nėra), tad
 keičiant meniu reikia pataisyti visus HTML failus — greičiausia `sed`'u arba redaktoriaus
@@ -72,7 +74,7 @@ keičiant meniu reikia pataisyti visus HTML failus — greičiausia `sed`'u arba
 | Lokacijos žemėlapiui (atstumai, parkavimas) | `assets/js/data.js` → `const MAPDATA = {...}` |
 | Lokacijų spalvos ir tipografija | `assets/css/site.css` → `:root { ... }` |
 | Privatumo politika | `privatumo-politika.html` |
-| Salių nuotraukos | `assets/img/spaces/` (Tech Park + Tech Arts), `assets/img/skc/` (Samsung KC) |
+| Salių nuotraukos | `assets/img/spaces/` (Tech Park), `assets/img/skc/` (Samsung KC) |
 | Scenarijų nuotraukos | `assets/img/scen/` |
 | Atsisiunčiami kainoraščiai | `assets/docs/*.pdf` |
 | Logotipas, šriftai | `assets/brand/`, `assets/fonts/` |
@@ -86,8 +88,8 @@ Turinys kraunamas iš JS masyvų, todėl naują salę pridėti = įrašyti dar v
 - Šriftai: **Deacon** (antraštės) + **Neue Haas Grotesk Display** (tekstas), self-hosted `assets/fonts/`.
 - Mygtukai — firminio **„dobiliuko"** formos (`--clover` CSS kaukė, dedama ant `::before`,
   kad `:focus-visible` žiedas liktų matomas). Nekeisti į paprastus stačiakampius.
-- Lokacijų spalvos (iš 2026 m. pristatymų): Tech Park `#FFC36A` · Tech Arts `#0FCB76` ·
-  Tech Zity Vilnius `#F04800`. Bazė: wine `#251216`, rust `#A53E00`, sage `#D0DFDD`.
+- Lokacijų spalvos (iš 2026 m. pristatymų): Tech Park `#FFC36A` · Tech Zity Vilnius `#F04800`.
+  Bazė: wine `#251216`, rust `#A53E00`, sage `#D0DFDD`.
 - **Hero video privalo likti tas pats kliento klipas ir groti visuose įrenginiuose** (kliento
   sprendimas). Jei keisi hero, patikrink, ar baltas tekstas išlieka skaitomas šviesiuose kadruose —
   dabar tai užtikrina `filter: brightness(.66)` ant video + dviejų sluoksnių `.hero-scrim`.
@@ -96,8 +98,10 @@ Turinys kraunamas iš JS masyvų, todėl naują salę pridėti = įrašyti dar v
 
 ## Kas dar nepadaryta
 
-- **Apžiūrų kalendorius**: visos 4 kortelės veda į tą patį Google appointments booker.
-  Kai bus atskiros nuorodos 3 lokacijoms — pakeisti `href` faile `apziura.html`.
+- **Apžiūrų kalendorius**: visos 3 kortelės veda į tą patį Google appointments booker.
+  Kai bus atskiros nuorodos abiem lokacijoms — pakeisti `href` faile `apziura.html`.
+- **„300+ klientų renginių per metus"** skaičiuota dar su Tech Arts — laukiama kliento patikslinimo
+  (`index.html` faktų juosta ir `.bigstat`, `atsiliepimai.html` `.bigstat`).
 - **Google įvertinimas ir citatos**: kortelės veda į profilius, bet konkretaus balo nėra
   (senos „4,8 / 5" ir dvi citatos buvo pavyzdinės — pašalintos).
 - **Klientų logotipai**: kol nėra failų, rodomi vardų ženkleliai. Pradiniame puslapyje jie sudėti į
@@ -106,12 +110,23 @@ Turinys kraunamas iš JS masyvų, todėl naują salę pridėti = įrašyti dar v
   Atsiliepimų puslapyje sąmoningai palikti pilni statiniai sąrašai (`.cnames`) — ten svarbu perskaityti.
 - **Formos**: demo režimu niekur nesiunčia. Produkcijai reikės backend'o (pvz. Resend) —
   `#inq` ir `#dlForm` submit handleriai `assets/js/site.js`.
-- **Terasų talpos** (Tech Park 750 / 500, Tech Arts 350) paimtos iš senesnio demo — pristatymuose
+- **Terasų talpos** (Tech Park 750 / 500) paimtos iš senesnio demo — pristatymuose
   jų nėra, verta patvirtinti su klientu.
+
+## Tech Arts (2026-10-06)
+
+Kliento pranešimu Tech Arts parduota — renginių ten nebėra nuo 2026 m. spalio 6 d. Iš svetainės
+išimtos visos 5 salės, žemėlapis, filtras, turas, apžiūros kortelė, atsiliepimų nuorodos, PDF ir
+nuotraukos (`ta-*`, `scen-ta-*`, `loc/arts.jpg`, `tz-galerija.jpg`). Scenarijuose Tech Arts kadrai
+pakeisti tik tikromis Tech Park nuotraukomis (SKC `scn-*` ir oranžerijos failai — renderiai /
+dekoravimo pavyzdžiai). Paliktas tik istorinis prierašas `lokacijos.html#loc-arts` ir viena eilutė
+pradiniame puslapyje — tai kliento noras (profesionali komunikacija), jų netrinti.
+Skaičiai po pakeitimo: 11 erdvių, 2 lokacijos, 20–1 000 svečių (mažiausia — Tech Park Mažoji salė
+posėdžiui, 20).
 
 ## Kontekstas
 
-`KOREKCIJOS-1-19.md` — kliento pastabų sąrašas (2026-07) ir kas pagal kiekvieną punktą padaryta,
+`KOREKCIJOS-1-19.md` — kliento pastabų sąrašas (2026-07, dar su Tech Arts) ir kas pagal kiekvieną punktą padaryta,
 su nuoroda, iš kurio šaltinio paimtas kiekvienas skaičius. **Perskaityk prieš keisdamas turinį** —
 talpos, įranga ir kainos ateina iš kliento 2026 m. pristatymų, nieko neišgalvota.
 

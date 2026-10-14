@@ -61,9 +61,10 @@ function syncFilters(){
 }
 
 if (cardsEl){
-  /* filtrai gali ateiti iš kito puslapio: erdves.html?size=l&loc=arts */
+  /* filtrai gali ateiti iš kito puslapio: erdves.html?size=l&loc=zity
+     (senos ?loc=arts nuorodos tiesiog rodo visas erdves) */
   const pLoc = PARAMS.get('loc'), pSize = PARAMS.get('size');
-  if (pLoc && ['park','arts','zity','lauko'].includes(pLoc)) state.loc = pLoc;
+  if (pLoc && ['park','zity','lauko'].includes(pLoc)) state.loc = pLoc;
   if (pSize && ['s','m','l'].includes(pSize)) state.size = pSize;
   $$('.fbtn[data-f]').forEach(b => b.addEventListener('click', () => {
     state[b.dataset.f] = b.dataset.v; syncFilters(); renderCards();
@@ -284,10 +285,12 @@ if (locList){
       </div>
     </article>`).join('');
 
-  /* nuoroda su ?loc=arts atveria tą lokaciją */
+  /* nuoroda su ?loc=zity atveria tą lokaciją; senos ?loc=arts nuorodos veda
+     į Tech Arts atsisveikinimo prierašą (#loc-arts — statinis blokas lokacijos.html) */
   const pLoc = PARAMS.get('loc');
-  if (pLoc && MAPDATA[pLoc]){
-    $('#loc-' + pLoc)?.scrollIntoView({behavior: 'smooth', block: 'start'});
+  const locTarget = pLoc && document.getElementById('loc-' + pLoc);
+  if (locTarget){
+    locTarget.scrollIntoView({behavior: 'smooth', block: 'start'});
     /* programinis skrolinimas ne visada sukelia scroll ivyki, todel header busena
        atnaujinam patys - kitaip jis liktu permatomas ant sviesaus turinio */
     setTimeout(() => window.dispatchEvent(new Event('scroll')), 700);
@@ -334,8 +337,8 @@ $$('[data-tour]').forEach(b => b.addEventListener('click', () => {
     x.setAttribute('aria-pressed', String(on));
     x.classList.toggle('chip--dark', on);
   });
-  ['arts', 'park'].forEach(t => {
-    const f = $('#tour-' + t);
+  $$('.tour-frame').forEach(f => {
+    const t = f.id.replace('tour-', '');
     f.hidden = t !== k;
     const ifr = f.querySelector('iframe');
     if (t === k && ifr.dataset.src && !ifr.src) { ifr.src = ifr.dataset.src; }

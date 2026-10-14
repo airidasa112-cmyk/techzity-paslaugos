@@ -1,9 +1,10 @@
 /* ═══════════════ DUOMENYS ═══════════════
-   Šaltiniai: „2026 Tech PARK Renginių erdvės LT", „Tech ARTS Renginių erdvės | LT | 2026",
-   „Samsung Konferencijų centras LT 2026" (bendra salių lentelė). */
+   Šaltiniai: „2026 Tech PARK Renginių erdvės LT",
+   „Samsung Konferencijų centras LT 2026" (bendra salių lentelė).
+   Tech Arts renginius priėmė iki 2026-10-06 — jos salės, nuotraukos ir žemėlapis išimti;
+   liko tik atsisveikinimo prierašas lokacijos.html (#loc-arts). */
 const LOC = {
   park: {name:'Tech Park', addr:'Antakalnio g. 17', color:'var(--park)', ink:'var(--park-ink)'},
-  arts: {name:'Tech Arts', addr:'Vaidilutės g. 79', color:'var(--arts)', ink:'var(--arts-ink)'},
   zity: {name:'Tech Zity Vilnius', addr:'Panerių g. 43', color:'var(--zity)', ink:'var(--zity-ink)'}
 };
 
@@ -15,14 +16,6 @@ const TP_EQUIP = [
   'Wi-Fi, LAN, trifazės jungtys',
   '255 kėdės, 20 rašomųjų stalų, 5 baro ir 9 kavos staliukai, 2 tribūnos, 3 baltos lentos',
   'Papildomai: 2 stumdomi TV — 75 € / vnt. + PVM'
-];
-const TA_EQUIP = [
-  'Integruota garso sistema',
-  'Projektorius',
-  'Rankinis mikrofonas, skaidrių prezenteris',
-  'Trifazis ir elektros įvadai, lauko vandens tiekimas',
-  '150 kėdžių, 12 stalų, 2 baro staliukai ir 6 baro kėdės, tribūna, balta lenta',
-  'Papildomai: stumdomas TV — 75 € + PVM'
 ];
 const INCLUDED = 'Į kainą įskaičiuota: erdvės nuoma, turima įranga, baldai ir jų išdėstymas, valymas prieš renginį ir kontaktinis žmogus nuomos metu.';
 
@@ -58,38 +51,6 @@ const SPACES = [
    layouts:[['Lauko renginys',500]],
    equip:['Garso ir vaizdo įranga pagal užsakymą','Lauko elektros įvadai ir vandens tiekimas','Lauko paletiniai baldai','Maisto furgonėlių ir BBQ sprendimai per partnerius'],
    photos:[['tp-mterasa-1','Terasa palei stiklinį korpusą'],['tp-mterasa-2','Terasa ir kiemas'],['tp-mterasa-3','Vaizdas į kiemą nuo terasos'],['tp-mterasa-4','Vasaros šventė su paviljonais'],['tp-mterasa-5','Priėmimas prie įėjimo'],['tp-mterasa-6','Svečiai kieme']]},
-
-  /* ── TECH ARTS ── */
-  {id:'ta-galerija', loc:'arts', name:'Didžioji galerija', area:'274 m²', theatre:250, outdoor:false,
-   lead:'Universali galerija prie pat Neries su tiesioginiu patekimu į terasą. Holas ir skaitykla įeina į kainą.',
-   layouts:[['Teatras',250],['Klasė / grupėmis',180],['Banketas',180],['Stovimas',250]],
-   equip:TA_EQUIP,
-   hero:'tz-galerija', photos:[['ta-galerija-1','Teatro stiliumi | iki 250'],['ta-galerija-2','Tiesioginis patekimas į terasą, daug šviesos'],['ta-galerija-3','Stovimas renginys | Kūrybinė laisvė | iki 250'],['ta-galerija-4','Podiumas'],['ta-galerija-5','Banketo stilius / darbas grupėse | iki 200'],['ta-galerija-6','Erdvus holas maitinimui']]},
-
-  {id:'ta-mgalerija', loc:'arts', name:'Mažoji galerija', area:'157 m²', theatre:100, outdoor:false,
-   lead:'Didžioji galerija, padalinta stumdoma sienele. Rinkitės lango pusę (daugiau šviesos, patekimas į terasą) arba sienos pusę (integruotas projektorius).',
-   layouts:[['Teatras',100],['Klasė / grupėmis',80],['Banketas',80],['Stovimas',120]],
-   equip:TA_EQUIP,
-   photos:[['ta-mgalerija-1','Sienos pusė: teatru | iki 100'],['ta-mgalerija-2','Galerija padalijama stumdoma sienele'],['ta-mgalerija-3','Lango pusė: U-forma | iki 60'],['ta-mgalerija-4','Sienos pusė: su projektoriumi | iki 100'],['ta-mgalerija-5','Atskiriama salė skirtingoms renginio funkcijoms'],['ta-mgalerija-6','Lango pusė: galimas mobilus TV prezentacijoms']]},
-
-  {id:'ta-kambarys', loc:'arts', name:'Susitikimų kambarys', area:'32 m²', theatre:30, outdoor:false,
-   lead:'Šviesus kambarys posėdžiams, komandiniam darbui ir „workation" dienoms — integruotas projektorius.',
-   layouts:[['Teatras',30],['Klasė / grupėmis',24],['Posėdis (aplink stalą)',24],['Posėdis (U-forma)',22]],
-   equip:TA_EQUIP,
-   photos:[['ta-kambarys-1','Darbas grupėse: du stalai po 12 asm. | iki 24'],['ta-kambarys-2','Daug natūralios šviesos | Posėdis | iki 24'],['ta-kambarys-3','Integruotas projektorius | Teatro išdėstymas'],['ta-kambarys-4','„Workation" — komandinis darbas kitur'],['ta-kambarys-5','Posėdis: U-forma | iki 22'],['ta-kambarys-6','Teatras | iki 30']]},
-
-  {id:'ta-skaitykla', loc:'arts', name:'Skaitykla', area:'51 m²', theatre:60, outdoor:false,
-   lead:'Jauki svetainė su vaizdu į gamtą ir tiesioginiu patekimu į terasą — pertraukėlėms, maitinimui ar kameriniam renginiui.',
-   note:'Skaitykla nėra privati erdvė, tačiau žmonių srautas joje minimalus.',
-   layouts:[['Teatras',60],['Klasė / grupėmis',50],['Posėdis (aplink stalą)',30],['Stovimas',60]],
-   equip:TA_EQUIP,
-   photos:[['ta-skaitykla-1','Svetainė — jauki vieta pertraukėlėms'],['ta-skaitykla-2','Daug natūralios šviesos ir gamtos, jaukūs baldai'],['ta-skaitykla-3','Terasa už lango | tiesioginis patekimas į terasą'],['ta-skaitykla-4','Patogus srautas iš Galerijos pro holą iki Skaityklos'],['ta-skaitykla-5','Teatras, sieninis TV | iki 50'],['ta-skaitykla-6','Stovimas / sėdimas renginys']]},
-
-  {id:'ta-terasa', loc:'arts', name:'Terasa + kiemas', area:'500 m²', theatre:350, outdoor:true,
-   lead:'Terasa su tiesioginiu patekimu iš renginių salių, didžiulis kiemas prie upės kranto, teniso, padelio ir paplūdimio tinklinio aikštelės.',
-   layouts:[['Lauko renginys (su galerija)',350]],
-   equip:['Garso ir vaizdo įranga pagal užsakymą','Trifazis ir elektros įvadai, lauko vandens tiekimas','Teniso, padelio ir paplūdimio tinklinio aikštelės','Maisto furgonėlių ir BBQ sprendimai per partnerius','Renginiai apdrausti nuo permainingų orų — paviljonai per partnerius'],
-   photos:[['ta-terasa-1','Terasa su tiesioginiu patekimu iš renginių salių'],['ta-terasa-2','Renginiai apdrausti nuo permainingų orų'],['ta-terasa-3','Stovimas renginys kieme su maitinimu'],['ta-terasa-4','Gamtos apsuptyje prie upės kranto paplūdimio'],['ta-terasa-5','Teniso, padelio ir paplūdimio tinklinio aikštelės'],['ta-terasa-6','Didžiulis kiemas įvairiems lauko renginiams']]},
 
   /* ── TECH ZITY VILNIUS · SAMSUNG KONFERENCIJŲ CENTRAS ── */
   {id:'skc-a', loc:'zity', name:'Didžioji salė A', area:'470 m²', theatre:500, outdoor:false, dir:'skc',
@@ -130,16 +91,19 @@ const SPACES = [
    photos:[['entrance-1','Pagrindinis įėjimas į konferencijų centrą'],['lobby-2a-1','Antro aukšto holas — registratūra'],['lobby-1a-1','Pirmo aukšto holas — laiptai ir lounge zona'],['courtyard-1','Restoranų kiemas Tech Zity miestelyje']]}
 ];
 
-/* photos: [failas, matoma antraštė (be pasikartojančio scenarijaus pavadinimo), pilnas alt tekstas] */
+/* photos: [failas, matoma antraštė (be pasikartojančio scenarijaus pavadinimo), pilnas alt tekstas]
+   Tech Arts kadrai pakeisti tik tikromis Tech Park nuotraukomis: SKC scn-* ir oranžerijos
+   failai yra renderiai / dekoravimo pavyzdžiai, o čia žadamos „tikros akimirkos". Kur kadras
+   nėra to scenarijaus renginys (tuščia salė), alt aprašo tai, kas matyti, o ne scenarijų. */
 const SCEN = [
-  {k:'konferencija', label:'Konferencijos', photos:[['scen-tp-1','Tech Park','Konferencija · Tech Park'],['scen-ta-1','Tech Arts','Konferencija · Tech Arts'],['scen-tp-3','Seminaras · Tech Park'],['scen-ta-6','Mokymai · Tech Arts']], size:'m'},
-  {k:'hakatonas', label:'Hakatonai ir mokymai', photos:[['scen-tp-3','Tech Park','Hakatonas · Tech Park'],['scen-ta-6','Tech Arts','Mokymai · Tech Arts'],['scen-tp-2','Off-site · Tech Park'],['scen-ta-7','Dirbtuvės · Tech Arts']], size:'m'},
-  {k:'vakarelis', label:'Įmonių vakarėliai', photos:[['scen-tp-4','Tech Park','Įmonės vakarėlis · Tech Park'],['scen-ta-5','Priėmimas · Tech Arts'],['scen-tp-6','Vakaro šventė · Tech Park'],['scen-ta-3','Vakarienė · Tech Arts']], size:'l'},
-  {k:'koncertas', label:'Koncertai', photos:[['scen-tp-4','Tech Park','Koncertas · Tech Park'],['tp-terasa-5','Kieme · Tech Park','Koncertas kieme · Tech Park'],['scen-tp-6','Scena ir apšvietimas'],['scen-ta-5','Gyvas pasirodymas · Tech Arts']], size:'l'},
-  {k:'lauko', label:'Lauko renginiai', photos:[['scen-tp-9','Vasara kieme · Tech Park','Vasaros renginys kieme · Tech Park'],['tp-terasa-4','Šventė kieme · Tech Park'],['ta-terasa-4','Kiemas prie Neries · Tech Arts'],['scen-ta-2','Gamtoje · Tech Arts','Renginys gamtoje · Tech Arts']], size:'l'},
-  {k:'isleistuves', label:'Išleistuvės', photos:[['scen-tp-5','Kieme · Tech Park','Išleistuvės kieme · Tech Park'],['tp-terasa-4','Kepurių metimas · Tech Park'],['scen-ta-3','Vakarienė · Tech Arts'],['scen-tp-6','Šventinis vakaras']], size:'l'},
-  {k:'vestuves', label:'Vestuvės', photos:[['scen-ta-4','Tech Arts','Vestuvės · Tech Arts'],['scen-ta-3','Vakarienė · Tech Arts','Vestuvių vakarienė · Tech Arts'],['ta-terasa-3','Ceremonija kieme · Tech Arts'],['scen-tp-6','Šventė salėje · Tech Park']], size:'m'},
-  {k:'paroda', label:'Parodos ir pristatymai', photos:[['scen-tp-2','Tech Park','Paroda · Tech Park'],['scen-tp-7','Produkto pristatymas · Tech Park'],['scen-ta-7','Meno instaliacija · Tech Arts'],['scen-tp-8','Unikalus renginys · Tech Park']], size:'m'}
+  {k:'konferencija', label:'Konferencijos', photos:[['scen-tp-1','Tech Park','Konferencija · Tech Park'],['tp-kc-1','Konferencijų centras · Tech Park','Konferencijų centras teatro stiliumi iki 300 dalyvių · Tech Park'],['scen-tp-3','Seminaras · Tech Park'],['scen-tp-2','Networking · Tech Park','Dalyviai bendrauja koridoriuje prie stendų · Tech Park']], size:'m'},
+  {k:'hakatonas', label:'Hakatonai ir mokymai', photos:[['scen-tp-3','Tech Park','Hakatonas · Tech Park'],['tp-kc-3','Darbas grupėse · Tech Park','Konferencijų centras dirbtuvių stiliumi, grupės po 4 · Tech Park'],['scen-tp-2','Off-site · Tech Park'],['tp-maz-2','Mokymams · Tech Park','Mažoji salė klasės stiliumi · Tech Park']], size:'m'},
+  {k:'vakarelis', label:'Įmonių vakarėliai', photos:[['scen-tp-4','Tech Park','Įmonės vakarėlis · Tech Park'],['tp-mterasa-5','Priėmimas · Tech Park','Priėmimas prie įėjimo · Tech Park'],['scen-tp-6','Vakaro šventė · Tech Park'],['tp-mterasa-4','Vasaros šventė · Tech Park','Vasaros šventė su paviljonais kieme · Tech Park']], size:'l'},
+  {k:'koncertas', label:'Koncertai', photos:[['scen-tp-4','Tech Park','Koncertas · Tech Park'],['tp-terasa-5','Kieme · Tech Park','Koncertas kieme · Tech Park'],['scen-tp-6','Scena ir apšvietimas'],['tp-terasa-6','Po tentu · Tech Park','Publika po tentu kieme · Tech Park']], size:'l'},
+  {k:'lauko', label:'Lauko renginiai', photos:[['scen-tp-9','Vasara kieme · Tech Park','Vasaros renginys kieme · Tech Park'],['tp-terasa-4','Šventė kieme · Tech Park'],['tp-terasa-6','Po tentu · Tech Park','Renginys po tentu kieme · Tech Park'],['tp-mterasa-6','Svečiai kieme · Tech Park','Svečiai Mažosios terasos kieme · Tech Park']], size:'l'},
+  {k:'isleistuves', label:'Išleistuvės', photos:[['scen-tp-5','Kieme · Tech Park','Išleistuvės kieme · Tech Park'],['tp-terasa-4','Kepurių metimas · Tech Park'],['tp-kc-4','Vakarienei · Tech Park','Konferencijų centras vakarienei, grupės po 6–8 · Tech Park'],['scen-tp-6','Šventinis vakaras']], size:'l'},
+  {k:'vestuves', label:'Vestuvės', photos:[['scen-tp-6','Tech Park','Šventinė vakarienė prie apvalių stalų · Tech Park'],['tp-didz-4','Apvalūs stalai · Tech Park','Didžioji salė su apvaliais stalais iki 140 svečių · Tech Park'],['tp-terasa-1','Medinė terasa · Tech Park','Medinė terasa ir kiemas · Tech Park'],['tp-kc-4','Vakarienė iki 180 svečių · Tech Park','Konferencijų centras vakarienei, grupės po 6–8 · Tech Park']], size:'m'},
+  {k:'paroda', label:'Parodos ir pristatymai', photos:[['scen-tp-2','Tech Park','Paroda · Tech Park'],['scen-tp-7','Produkto pristatymas · Tech Park'],['tp-kc-6','Laisva erdvė · Tech Park','Konferencijų centras be baldų, iki 325 stovinčių svečių · Tech Park'],['scen-tp-8','Unikalus renginys · Tech Park']], size:'m'}
 ];
 
 const MAPDATA = {
@@ -151,15 +115,6 @@ const MAPDATA = {
     park:'Iš anksto sutarus suteikiame iki 5 parkavimo vietų vidinėje aikštelėje. Dalyviams — vieša miesto aikštelė kelios minutės pėsčiomis, žalioje zonoje.',
     maps:'https://www.google.com/maps/dir/?api=1&destination=Antakalnio+g.+17,+Vilnius',
     embed:'https://maps.google.com/maps?q=Antakalnio+g.+17,+Vilnius&hl=lt&z=15&output=embed'
-  },
-  arts:{
-    name:'Tech Arts', addr:'Vaidilutės g. 79, 10100 Vilnius', color:'var(--arts)', ink:'var(--arts-ink)',
-    url:'https://techzity.com/lokacijos/tech-arts/', img:'arts', services:['Biurų nuoma','Co-working erdvės','Renginių erdvės','Restoranai'],
-    desc:'Valakampiuose prie pat Neries, gražiausiame Vilniaus rajone — nostalgiškas vaikystės paplūdimio kampelis, išvystytas į kūrybos ir sveikatingumo epicentrą.',
-    dist:[['15 min','automobiliu nuo Senamiesčio'],['~100','nemokamų parkavimo vietų šalia pastato'],['Stotelė','„Antrasis paplūdimys" — 15 autobusas']],
-    park:'Didelė vieša aikštelė priešais pastatą: nemokama šaltuoju sezonu (10-01–05-31), mokama šiltuoju (06-01–09-30, geltonoji zona). Iki 3 vietų vidinėje aikštelėje su šlagbaumu. Bolt Drive / CityBee / Spark zona.',
-    maps:'https://www.google.com/maps/dir/?api=1&destination=Vaidilut%C4%97s+g.+79,+Vilnius',
-    embed:'https://maps.google.com/maps?q=Vaidilut%C4%97s+g.+79,+Vilnius&hl=lt&z=15&output=embed'
   },
   zity:{
     name:'Tech Zity Vilnius', addr:'Panerių g. 43, 03202 Vilnius', color:'var(--zity)', ink:'var(--zity-ink)',
