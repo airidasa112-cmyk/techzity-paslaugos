@@ -7,7 +7,26 @@ const PARAMS = new URLSearchParams(location.search);
 
 /* ═══════════════ ERDVIŲ TINKLELIS + FILTRAI (erdves.html) ═══════════════ */
 const band = (n) => n <= 100 ? 's' : (n <= 250 ? 'm' : 'l');
-const imgSrc = (sp, file) => `assets/img/${sp.dir === 'skc' ? 'skc' : 'spaces'}/${file}.jpg`;
+const imgPath = (sp, file) => `${sp.dir === 'skc' ? 'skc' : 'spaces'}/${file}`;
+/* Atsakingos nuotraukos. IMGW (data.js): 'katalogas/failas' → turimi pločiai, pvz. [800, 1600, 2400].
+   Pagrindinis failas.jpg — didžiausias ≤ 1600 px, kiti — failas-800.jpg / failas-2400.jpg.
+   Naršyklė pagal `sizes` ir ekrano tankį pasirenka variantą (kliento pastaba: originalai ≥ 2× rodomo pločio). */
+/* ?v=IMG_V — /assets/* atiduodami su `immutable` (metams), todėl pakeitus nuotrauką tuo pačiu vardu
+   versiją reikia pakelti (data.js IMG_V), kitaip anksčiau buvę lankytojai matytų seną failą */
+const pic = (path, sizes) => {
+  const base = `assets/img/${path}`, ws = IMGW[path] || [], v = `?v=${IMG_V}`;
+  const main = Math.max(0, ...ws.filter(w => w <= 1600));
+  const set = ws.map(w => `${base}${w === main ? '' : '-' + w}.jpg${v} ${w}w`).join(', ');
+  return `src="${base}.jpg${v}"` + (ws.length > 1 ? ` srcset="${set}" sizes="${sizes}"` : '');
+};
+const SIZES = {
+  card: '(max-width:560px) 90vw, (max-width:760px) 84vw, (max-width:1040px) 46vw, 400px',
+  teaser: '(max-width:760px) 84vw, (max-width:1040px) 46vw, 300px',
+  loc: '(max-width:760px) 84vw, (max-width:900px) 100vw, 620px',
+  modal: '(max-width:1080px) 100vw, 1080px',
+  scen: '(max-width:860px) 100vw, 620px',
+  thumb: '150px'
+};
 const askHref = (name) => `uzklausa.html?erdve=${encodeURIComponent(name)}`;
 /* lietuviškos daugiskaitos formos: 1 erdvė, 2–9 erdvės, 10–20 erdvių, 21 erdvė… */
 const lt = (n, one, few, many) => {
@@ -30,7 +49,7 @@ function cardHTML(sp, {teaser = false} = {}){
   const L = LOC[sp.loc];
   return `<article class="card">
       <div class="card-media">
-        <img loading="lazy" src="${imgSrc(sp, (teaser && sp.hero) || sp.photos[0][0])}" alt="${sp.name} — ${L.name}, ${L.addr}" width="1200" height="750">
+        <img loading="lazy" ${pic(imgPath(sp, (teaser && sp.hero) || sp.photos[0][0]), SIZES.card)} alt="${sp.name} — ${L.name}, ${L.addr}" width="1200" height="750">
         <span class="card-count">${sp.photos.length} nuotr.</span>
       </div>
       <div class="card-strip" style="background:${L.color}"></div>
@@ -115,7 +134,7 @@ if (scenTeaser){
     .map(s => {
       const [f, cap, full] = s.photos[0];
       return `<a class="scen" href="scenarijai.html">
-      <img loading="lazy" src="assets/img/${dir(f)}/${f}.jpg" alt="${full || `${s.label} · ${cap}`}" width="1100" height="825">
+      <img loading="lazy" ${pic(`${dir(f)}/${f}`, SIZES.teaser)} alt="${full || `${s.label} · ${cap}`}" width="1100" height="825">
       <figcaption>${s.label}<small>${cap}</small></figcaption></a>`;
     }).join('');
 }
@@ -146,7 +165,7 @@ const locTeaser = $('#locTeaser');
 if (locTeaser){
   /* Kortelė kaip techzity.com: nuotrauka su žyma, užvedus — geltona informacijos panelė. */
   locTeaser.innerHTML = Object.entries(MAPDATA).map(([k, d]) => `<article class="loc-card">
-      <img class="loc-card-img" src="assets/img/loc/${d.img}.jpg" alt="${d.name} iš viršaus" loading="lazy" width="1024" height="768">
+      <img class="loc-card-img" ${pic(`loc/${d.img}`, SIZES.loc)} alt="${d.name} iš viršaus" loading="lazy" width="1024" height="768">
       <!-- žyma tik vizualinė: tas pats pavadinimas yra panelėje, todėl jos tekstas piešiamas per CSS
            (attr), kad puslapio tekste ir skaitytuvuose neliktų „Tech Park Tech Park" -->
       <span class="loc-card-tag" data-label="${d.name}" aria-hidden="true"></span>
@@ -176,7 +195,7 @@ if (modal){
     slideIdx = 0; slideCount = sp.photos.length;
     mgal.innerHTML = `
       <div class="mgal-track" id="mgalTrack">
-        ${sp.photos.map(([f, cap], i) => `<div class="mgal-slide"><img ${i ? 'loading="lazy"' : ''} src="${imgSrc(sp, f)}" alt="${cap} — ${sp.name}, ${L.name}" width="1200" height="820"><p class="mgal-cap">${cap}</p></div>`).join('')}
+        ${sp.photos.map(([f, cap], i) => `<div class="mgal-slide"><img ${i ? 'loading="lazy"' : ''} ${pic(imgPath(sp, f), SIZES.modal)} alt="${cap} — ${sp.name}, ${L.name}" width="1200" height="820"><p class="mgal-cap">${cap}</p></div>`).join('')}
       </div>
       ${slideCount > 1 ? `
         <button class="mgal-btn mgal-prev" aria-label="Ankstesnė nuotrauka"><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="m15 5-7 7 7 7"/></svg></button>
@@ -267,17 +286,16 @@ if (modal){
 const scenList = $('#scenList');
 if (scenList){
   const dir = (f) => f.startsWith('scen-') ? 'scen' : 'spaces';
-  const src = (f) => `assets/img/${dir(f)}/${f}.jpg`;
   const altOf = (s, [, cap, full]) => full || `${s.label} · ${cap}`;
   scenList.innerHTML = SCEN.map((s, n) => {
     const [first] = s.photos;
     return `<article class="scen-card" id="scen-${s.k}">
       <figure class="scen-main">
-        <img src="${src(first[0])}" alt="${altOf(s, first)}" width="1200" height="800"${n > 1 ? ' loading="lazy"' : ''}>
+        <img ${pic(`${dir(first[0])}/${first[0]}`, SIZES.scen)} alt="${altOf(s, first)}" width="1200" height="800"${n > 1 ? ' loading="lazy"' : ''}>
         <figcaption>${first[1]}</figcaption>
       </figure>
       <div class="scen-thumbs" role="group" aria-label="${s.label} — nuotraukos">
-        ${s.photos.map((p, i) => `<button class="scen-thumb" data-i="${i}" aria-pressed="${i === 0}" aria-label="Nuotrauka ${i + 1} iš ${s.photos.length}: ${p[1]}"><img src="${src(p[0])}" alt="" width="300" height="225" loading="lazy"></button>`).join('')}
+        ${s.photos.map((p, i) => `<button class="scen-thumb" data-i="${i}" aria-pressed="${i === 0}" aria-label="Nuotrauka ${i + 1} iš ${s.photos.length}: ${p[1]}"><img ${pic(`${dir(p[0])}/${p[0]}`, SIZES.thumb)} alt="" width="300" height="225" loading="lazy"></button>`).join('')}
       </div>
       <div class="scen-body">
         <h2>${s.label}</h2>
@@ -290,7 +308,11 @@ if (scenList){
     const card = b.closest('.scen-card');
     const s = SCEN.find(x => 'scen-' + x.k === card.id), p = s.photos[+b.dataset.i];
     const img = card.querySelector('.scen-main img');
-    img.src = src(p[0]); img.alt = altOf(s, p);
+    /* srcset ir src keičiami kartu — kitaip naršyklė liktų prie senos nuotraukos varianto */
+    const tmp = document.createElement('div'); tmp.innerHTML = `<img ${pic(`${dir(p[0])}/${p[0]}`, SIZES.scen)}>`;
+    const n = tmp.firstChild;
+    if (n.srcset) { img.srcset = n.srcset; img.sizes = n.sizes; } else { img.removeAttribute('srcset'); img.removeAttribute('sizes'); }
+    img.src = n.getAttribute('src'); img.alt = altOf(s, p);
     card.querySelector('.scen-main figcaption').textContent = p[1];
     card.querySelectorAll('.scen-thumb').forEach(t => t.setAttribute('aria-pressed', String(t === b)));
   });

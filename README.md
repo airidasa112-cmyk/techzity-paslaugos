@@ -39,8 +39,7 @@ santraukų korteles į visas skiltis).
 |---|---|
 | `index.html` | Hero su video, faktų juosta ir kiekvienos skilties santrauka: 3 erdvės (iš abiejų lokacijų), 4 scenarijai, 2 lokacijos, kainodara (sąlygos pagal lokaciją) + apžiūros, atsiliepimai, 3 DUK klausimai — visa kita atsiveria dedikuotame puslapyje |
 | `erdves.html` | Filtrai, 8 erdvės + 3 deriniai (11 kortelių), salės pop-upas |
-| `scenarijai.html` | Renginių formatai ir nuotraukų tinklelis |
-| `kainos.html` | Kas įskaičiuota + kainoraščio forma (lead magnet) |
+| `scenarijai.html` | Visi 8 renginių formatai iš karto: didelė nuotrauka + miniatiūros |
 | `lokacijos.html` | Interaktyvus žemėlapis, atstumai, parkavimas |
 | `atsiliepimai.html` | Atsiliepimų nuorodos ir klientų sąrašai |
 | `turas.html` | Virtualus 360° turas (Tech Park) |
@@ -144,6 +143,27 @@ o erdvių skaitiklis juos skaičiuoja atskirai („8 erdvės ir 3 deriniai"). Sv
 su nuoroda, iš kurio šaltinio paimtas kiekvienas skaičius. **Perskaityk prieš keisdamas turinį** —
 talpos, įranga ir kainos ateina iš kliento 2026 m. pristatymų, nieko neišgalvota.
 
+## Nuotraukos (2026-10-15)
+
+Kiekviena nuotrauka turi variantus: `<vardas>.jpg` (≤ 1600 px), `<vardas>-800.jpg` ir, jei originalas
+pakankamai didelis, `<vardas>-2048/2400.jpg`. `site.js` `pic()` iš jų sudaro `srcset` pagal `IMGW`
+manifestą (`data.js`), o `SIZES` nurodo, kokio pločio vieta kiekvienam blokui. Kliento kriterijus —
+originalas bent 2× didesnis už rodomą plotį.
+
+```bash
+uv run --with pillow python tools/nuotraukos.py add <originalas.jpg> spaces/tp-kc-9   # variantai + IMGW
+uv run --with pillow python tools/nuotraukos.py manifest                             # tik IMGW
+```
+
+**Pakeitus failą tuo pačiu vardu — pakelk `IMG_V` faile `data.js`** (ir hero poster'io `?v=` `index.html`),
+nes `/assets/*` atiduodami su `immutable` — be to lankytojai metus matytų seną nuotrauką.
+
+Šaltiniai: Tech Park — techzity.com media biblioteka (E_* fotosesija, `techpark_*` renginių kadrai,
+TP_header); SKC — samsungkc.lt masteriai ir techzity.com 2024-07 renderiai. Be didesnio originalo liko
+pristatymo PDF išdėstymų kadrai (žr. `PASTABOS-2026-10-15.md`, 3 etapas).
+
+`.vercelignore` neleidžia į deploy'ų `*.md` ir `tools/` — vidiniai dokumentai nėra viešai pasiekiami.
+
 ## SVARBU: cache versijos
 
 `vercel.json` uždeda `/assets/*` failams `Cache-Control: immutable, max-age=31536000` — naršyklė
@@ -152,7 +172,7 @@ parametrą: `site.css?v=2`, `data.js?v=2`, `site.js?v=2`.
 
 **Pakeitus `assets/css/site.css` arba `assets/js/*.js` — pakelk `v` numerį visuose HTML failuose**,
 kitaip anksčiau svetainėje buvę lankytojai matys seną CSS/JS su nauju HTML: puslapis atrodys
-sulūžęs, o konsolėje klaidų nebus. Nuotraukoms ir šriftams to nereikia — jie nesikeičia.
+sulūžęs, o konsolėje klaidų nebus. Nuotraukoms — `IMG_V` (žr. „Nuotraukos"), šriftams versijos nereikia.
 
 Puslapiai kol kas turi `noindex, nofollow` (demo). Prieš viešinant — išimti `<meta name="robots">`
 iš visų HTML failų `<head>` ir `X-Robots-Tag` iš `vercel.json`.
