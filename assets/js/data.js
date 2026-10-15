@@ -141,7 +141,16 @@ const MAPDATA = {
   }
 };
 
-/* Pradinio puslapio klientų juosta. Kol nėra logotipų failų, rodomi vardų ženkleliai —
-   gavus logotipus, `site.js` juostoje `<span>` keičiamas į `<img>`. Pilni sąrašai — atsiliepimai.html. */
+/* Klientų juostos (karuselės): pradiniame — CLIENTS_FEATURED, atsiliepimų puslapyje — CLIENTS grupės.
+   Kol logotipo failo nėra, rodomas vardo ženklelis; logotipai — LOGOS (vardas → failas assets/img/logos/). */
 const CLIENTS_FEATURED = ['Google','Meta','LTG','Vinted','Wix','Swedbank','Surfshark','Nord Security',
   'Hostinger','Luminor','Ignitis','EY','Go Vilnius','Delfi','Turing College','Havas','Plug&Play','Ermitažas'];
+
+const CLIENTS = {
+  verslas:['Google','Meta','LTG','Vinted','Wix','Citus','Reefo','Deeper','Swedbank','JUDU','Civita','Surfshark','Nord Security','Verslo Žinios','Delfi','Naresta','Hostinger','Luminor','Capitalica','Gym+','Ermitažas','Turing College','SIRIN','Ignitis','EY'],
+  agenturos:['361 Forma','Pirmoji Kava','MVP Sprendimai','Jump Agency','Correctus','Propeller','Rekūrai','Creativa','Neimai','Estravel','Fabula','Havas','One More','Partizanas','Time2','Seven Live','Agency UP','Eventum'],
+  organizacijos:['EPP','APVA','Architektūros Fondas','Plug&Play','Agata','Go Vilnius','Inovacijų Agentūra','Lithuania AI','SCCL','Idialogue','Antakalnio Poliklinika','Lietuvos Junior Achievement','VVK','Šauliai']
+};
+
+/* vardas → logotipo failas (assets/img/logos/); pildoma, kai turime oficialų failą */
+const LOGOS = {};

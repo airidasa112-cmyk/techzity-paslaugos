@@ -109,10 +109,9 @@ skydelyje; erdvių kortelėse jo nėra (konkrečios erdvės pasiūlymas — pop-
   kliento patvirtintu skaičiumi (`.bigstat` stiliai palikti `site.css`).
 - **Google įvertinimas ir citatos**: kortelės veda į profilius, bet konkretaus balo nėra
   (senos „4,8 / 5" ir dvi citatos buvo pavyzdinės — pašalintos).
-- **Klientų logotipai**: kol nėra failų, rodomi vardų ženkleliai. Pradiniame puslapyje jie sudėti į
-  slenkančią juostą (`#clientsMarquee`, sąrašas — `CLIENTS_FEATURED` faile `assets/js/data.js`);
-  gavus logotipus, `site.js` juostos `item()` funkcijoje `<span>` keičiamas į `<img>`.
-  Atsiliepimų puslapyje sąmoningai palikti pilni statiniai sąrašai (`.cnames`) — ten svarbu perskaityti.
+- **Klientų logotipai**: juostos (`[data-clients]`) piešiamos iš `data.js` — pradiniame
+  `CLIENTS_FEATURED`, atsiliepimų puslapyje `CLIENTS` grupės (2026-10-15 kliento prašymu — karuselės).
+  Logotipas rodomas, kai `LOGOS` turi įrašą „vardas → failas" (`assets/img/logos/`), kitaip — vardo ženklelis.
 - **Formos**: demo režimu niekur nesiunčia. Produkcijai reikės backend'o (pvz. Resend) —
   `#inq` ir `#dlForm` submit handleriai `assets/js/site.js`.
 - **Terasų talpos** (Tech Park 750 / 500) paimtos iš senesnio demo — pristatymuose

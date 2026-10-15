@@ -120,15 +120,27 @@ if (scenTeaser){
     }).join('');
 }
 
-/* Klientų juosta slenka iš kairės į dešinę. Sąrašas dubliuojamas, kad ciklas būtų be tarpo;
-   dublikatas paslėptas nuo skaitytuvų ir nerodomas išjungus animacijas. */
-const clientsEl = $('#clientsMarquee');
-if (clientsEl){
-  const item = (n, clone) => `<span class="cname${clone ? ' is-clone' : ''}"${clone ? ' aria-hidden="true"' : ''}>${n}</span>`;
-  clientsEl.innerHTML = `<div class="marquee-track">${
-    CLIENTS_FEATURED.map(n => item(n, false)).join('') + CLIENTS_FEATURED.map(n => item(n, true)).join('')
-  }</div>`;
-}
+/* ═══════════════ KLIENTŲ JUOSTOS (karuselės) ═══════════════
+   Pradiniame — viena juosta (CLIENTS_FEATURED), atsiliepimų puslapyje — po juostą kiekvienai grupei
+   (kliento pastaba 2026-10-15). Sąrašas dubliuojamas, kad ciklas būtų be tarpo; dublikatas paslėptas
+   nuo skaitytuvų ir nerodomas išjungus animacijas. Jei LOGOS turi failą — rodomas logotipas. */
+const clientItem = (n, clone) => {
+  const logo = LOGOS[n];
+  return `<span class="cname${logo ? ' cname--logo' : ''}${clone ? ' is-clone' : ''}"${clone ? ' aria-hidden="true"' : ''}>${
+    logo ? `<img src="assets/img/logos/${logo}" alt="${clone ? '' : n}" loading="lazy">` : n}</span>`;
+};
+$$('[data-clients]').forEach(el => {
+  const names = el.dataset.clients === 'featured' ? CLIENTS_FEATURED : (CLIENTS[el.dataset.clients] || []);
+  /* greitis pagal sąrašo ilgį — kad ilgesnė juosta neslinktų greičiau */
+  el.innerHTML = `<div class="marquee-track" style="--dur:${Math.round(names.length * 2.9)}s">${
+    names.map(n => clientItem(n, false)).join('') + names.map(n => clientItem(n, true)).join('')}</div>`;
+});
+/* judantį turinį galima sustabdyti (WCAG 2.2.2) */
+$$('.marquee-toggle').forEach(b => b.addEventListener('click', () => {
+  const paused = b.getAttribute('aria-pressed') !== 'true';
+  document.documentElement.toggleAttribute('data-marquee-paused', paused);
+  $$('.marquee-toggle').forEach(x => { x.setAttribute('aria-pressed', String(paused)); x.textContent = paused ? 'Paleisti judėjimą' : 'Sustabdyti judėjimą'; });
+}));
 
 const locTeaser = $('#locTeaser');
 if (locTeaser){
@@ -171,27 +183,33 @@ if (modal){
         <button class="mgal-btn mgal-next" aria-label="Kita nuotrauka"><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="m9 5 7 7-7 7"/></svg></button>
         <div class="mgal-dots">${sp.photos.map((_, i) => `<button aria-label="Nuotrauka ${i + 1}" aria-current="${i === 0}"></button>`).join('')}</div>` : ''}`;
 
+    /* skliaustai („po 6–8") nelaužomi per eilutę — anksčiau „8)" nukrisdavo į kitą eilutę */
+    const keepParen = (t) => t.replace(/\(([^)]+)\)/g, '<span class="nw">($1)</span>');
     minfo.innerHTML = `
-      <span class="card-loc" style="color:${L.ink}"><i class="loc-dot" style="background:${L.color}"></i>${L.name} · ${L.addr}</span>
-      <h3 id="modalTitle">${sp.name}</h3>
-      ${sp.combo ? `<span class="card-combo">Derinys · ${sp.combo}</span>` : ''}
-      <p class="lead">${sp.lead}</p>
-      <div>
-        <h4>Plotas ir talpos</h4>
-        <div class="layouts" style="margin-top:.5rem">
-          <div class="layout"><b>${sp.area}</b><span>Plotas</span></div>
-          ${sp.layouts.map(([n, v]) => `<div class="layout"><b>${v.toLocaleString('lt-LT')}</b><span>${n}</span></div>`).join('')}
+      <div class="mi-col">
+        <span class="card-loc" style="color:${L.ink}"><i class="loc-dot" style="background:${L.color}"></i>${L.name} · ${L.addr}</span>
+        <h3 id="modalTitle">${sp.name}</h3>
+        ${sp.combo ? `<span class="card-combo">Derinys · ${sp.combo}</span>` : ''}
+        <p class="lead">${sp.lead}</p>
+        <div>
+          <h4>Plotas ir talpos</h4>
+          <div class="layouts">
+            <div class="layout"><b>${sp.area}</b><span>Plotas</span></div>
+            ${sp.layouts.map(([n, v]) => `<div class="layout"><b>${v.toLocaleString('lt-LT')}</b><span>${keepParen(n)}</span></div>`).join('')}
+          </div>
         </div>
       </div>
-      <div>
-        <h4>Įranga ir sąlygos</h4>
-        <ul class="equip" style="margin-top:.5rem">${sp.equip.map(e => `<li><span>${e}</span></li>`).join('')}</ul>
-      </div>
-      ${sp.note ? `<p class="card-note">${sp.note}</p>` : ''}
-      <p class="fineprint">${TERMS[sp.loc].included} ${TERMS[sp.loc].min}</p>
-      <div class="card-actions" style="margin-top:.4rem">
-        <a class="chip chip--primary chip--sm" href="${askHref(sp.name)}">Gauti šios erdvės pasiūlymą</a>
-        <a class="chip chip--sm" href="apziura.html">Rezervuoti apžiūrą</a>
+      <div class="mi-col">
+        <div>
+          <h4>Įranga ir sąlygos</h4>
+          <ul class="equip">${sp.equip.map(e => `<li><span>${e}</span></li>`).join('')}</ul>
+        </div>
+        ${sp.note ? `<p class="card-note">${sp.note}</p>` : ''}
+        <p class="fineprint">${TERMS[sp.loc].included} ${TERMS[sp.loc].min}</p>
+        <div class="card-actions">
+          <a class="chip chip--primary chip--sm" href="${askHref(sp.name)}">Gauti šios erdvės pasiūlymą</a>
+          <a class="chip chip--sm" href="apziura.html">Rezervuoti apžiūrą</a>
+        </div>
       </div>`;
 
     lastFocus = document.activeElement;
@@ -243,32 +261,39 @@ if (modal){
   if (auto && SPACES.some(s => s.id === auto)) openSpace(auto);
 }
 
-/* ═══════════════ SCENARIJAI (scenarijai.html) ═══════════════ */
-const chipsEl = $('#scenChips');
-if (chipsEl){
-  const gridEl = $('#scenGrid');
-  const ctaEl = $('#scenCta');
-  let scenActive = SCEN[0].k;
-
-  chipsEl.innerHTML = SCEN.map(s => `<button class="fbtn" data-scen="${s.k}" aria-pressed="${s.k === scenActive}">${s.label}</button>`).join('');
-
-  /* Antraštėje kartojasi pasirinkto formato pavadinimas (jis jau matomas aktyviame filtre),
-     todėl rodoma tik nuotraukos antraštė; pilnas pavadinimas lieka alt tekste. */
-  const renderScen = () => {
-    const s = SCEN.find(x => x.k === scenActive);
-    const dir = (f) => f.startsWith('scen-') ? 'scen' : 'spaces';
-    gridEl.innerHTML = s.photos.map(([f, cap, full]) => `
-      <figure class="scen"><img loading="lazy" src="assets/img/${dir(f)}/${f}.jpg" alt="${full || `${s.label} · ${cap}`}" width="1100" height="825">
-        <figcaption>${cap}</figcaption></figure>`).join('');
-    ctaEl.innerHTML = `<p>Ieškote erdvės tokiam renginiui — <b>${s.label.toLowerCase()}</b>?</p>
-      <a class="chip chip--primary chip--sm" href="erdves.html?size=${s.size}">Rodyti tinkamas erdves</a>`;
-    $$('[data-scen]', chipsEl).forEach(b => b.setAttribute('aria-pressed', String(b.dataset.scen === scenActive)));
-  };
-  chipsEl.addEventListener('click', (e) => {
-    const b = e.target.closest('[data-scen]'); if (!b) return;
-    scenActive = b.dataset.scen; renderScen();
+/* ═══════════════ SCENARIJAI (scenarijai.html) ═══════════════
+   Visi 8 formatai rodomi iš karto (kliento pastaba 2026-10-15: anksčiau matėsi tik vieno formato
+   4 nuotraukos). Kiekvienas — su didele nuotrauka ir miniatiūromis; miniatiūra ją pakeičia. */
+const scenList = $('#scenList');
+if (scenList){
+  const dir = (f) => f.startsWith('scen-') ? 'scen' : 'spaces';
+  const src = (f) => `assets/img/${dir(f)}/${f}.jpg`;
+  const altOf = (s, [, cap, full]) => full || `${s.label} · ${cap}`;
+  scenList.innerHTML = SCEN.map((s, n) => {
+    const [first] = s.photos;
+    return `<article class="scen-card" id="scen-${s.k}">
+      <figure class="scen-main">
+        <img src="${src(first[0])}" alt="${altOf(s, first)}" width="1200" height="800"${n > 1 ? ' loading="lazy"' : ''}>
+        <figcaption>${first[1]}</figcaption>
+      </figure>
+      <div class="scen-thumbs" role="group" aria-label="${s.label} — nuotraukos">
+        ${s.photos.map((p, i) => `<button class="scen-thumb" data-i="${i}" aria-pressed="${i === 0}" aria-label="Nuotrauka ${i + 1} iš ${s.photos.length}: ${p[1]}"><img src="${src(p[0])}" alt="" width="300" height="225" loading="lazy"></button>`).join('')}
+      </div>
+      <div class="scen-body">
+        <h2>${s.label}</h2>
+        <a class="linkish" href="erdves.html?size=${s.size}">Tinkamos erdvės →</a>
+      </div>
+    </article>`;
+  }).join('');
+  scenList.addEventListener('click', (e) => {
+    const b = e.target.closest('.scen-thumb'); if (!b) return;
+    const card = b.closest('.scen-card');
+    const s = SCEN.find(x => 'scen-' + x.k === card.id), p = s.photos[+b.dataset.i];
+    const img = card.querySelector('.scen-main img');
+    img.src = src(p[0]); img.alt = altOf(s, p);
+    card.querySelector('.scen-main figcaption').textContent = p[1];
+    card.querySelectorAll('.scen-thumb').forEach(t => t.setAttribute('aria-pressed', String(t === b)));
   });
-  renderScen();
 }
 
 /* ═══════════════ LOKACIJOS IR ŽEMĖLAPIAI (lokacijos.html) ═══════════════
