@@ -18,15 +18,25 @@
   --font-d:'Deacon','NHaas',system-ui,sans-serif;
   --font-b:'NHaas',system-ui,-apple-system,'Segoe UI',sans-serif;
   --font-m:ui-monospace,'Cascadia Mono','SF Mono',Consolas,monospace;
+  /* tipografijos skalė — 6 dydžiai (kliento pastaba 2026-10-15: buvo ~29, daug 10–12 px).
+     Mažiausias tekstas 14 px. Naujam elementui — imti vieną iš šių, ne naują dydį. */
+  --fs-s:.875rem;   /* 14 px — etiketės, parašai, smulkus tekstas */
+  --fs-b:1rem;      /* 16 px — pagrindinis tekstas */
+  --fs-l:1.125rem;  /* 18 px — įvadai, skaičiai kortelėse */
+  --fs-h3:1.5rem;   /* 24 px — kortelių ir blokų antraštės */
+  --fs-h2:clamp(1.75rem,3.4vw,2.5rem); /* 28–40 px — skilčių antraštės, faktų skaičiai */
+  --fs-h1:clamp(2.25rem,5vw,3.75rem);  /* 36–60 px — puslapio antraštė */
   color-scheme:only light;
 }
 *,*::before,*::after{margin:0;padding:0;box-sizing:border-box}
 html{scroll-behavior:smooth;background:var(--wine);-webkit-text-size-adjust:100%;scroll-padding-top:120px}
-body{font-family:var(--font-b);background:var(--bg);color:var(--ink);font-size:16px;line-height:1.55;-webkit-font-smoothing:antialiased;overflow-x:hidden}
+body{font-family:var(--font-b);background:var(--bg);color:var(--ink);font-size:var(--fs-b);line-height:1.55;-webkit-font-smoothing:antialiased;overflow-x:hidden}
 /* line-height 1.15, ne 1.03: Deacon sriftu lietuviskos didziosios su diakritikais
    kyla 42px prie 48px dydzio (be ju - 35px), todel per zema eilute leidzia jiems
    uzlipti ant virs esancio teksto */
-h1,h2,h3,h4{font-family:var(--font-d);text-transform:uppercase;letter-spacing:.005em;line-height:1.15;font-weight:700}
+h1,h2,h3,h4{font-family:var(--font-d);letter-spacing:.005em;line-height:1.15;font-weight:700}
+/* didžiosios raidės — tik H1/H2 ir mygtukai (kliento pastaba 2026-10-15: per daug didžiųjų) */
+h1,h2{text-transform:uppercase}
 img,video,svg,iframe{max-width:100%;display:block}
 a{color:inherit}
 button{font:inherit;color:inherit;background:none;border:0;cursor:pointer}
@@ -46,7 +56,7 @@ input,select,textarea,button{font-family:inherit}
   --k:1;
   position:relative;display:inline-flex;align-items:center;justify-content:center;gap:.5rem;
   min-height:calc(54px * var(--k));padding:0 calc(34px * var(--k));
-  font-family:var(--font-d);font-size:calc(.86rem * var(--k));letter-spacing:.045em;
+  font-family:var(--font-d);font-size:var(--fs-b);letter-spacing:.045em;
   text-transform:uppercase;text-decoration:none;text-align:center;color:var(--ink);
   background:var(--clam-shell);transition:background-color .18s ease;
   clip-path:polygon(
@@ -89,7 +99,7 @@ input,select,textarea,button{font-family:inherit}
   )}
 .chip:hover{text-decoration:underline}
 .chip--primary,.chip--dark,.chip--ghost{color:var(--ink);background:var(--clam-shell)}
-.chip--sm{--k:.815}
+.chip--sm{--k:.815;font-size:var(--fs-s)}
 .chip[aria-disabled="true"]{opacity:.5;pointer-events:none}
 
 /* ══ HEADER — elgsena perimta iš techzity.com: permatomas ant hero,
@@ -104,7 +114,7 @@ header[data-scrolled]{background:var(--white)}
 header[data-scrolled] .nav-logo--light{display:none}
 header[data-scrolled] .nav-logo--dark{display:block}
 .nav-links{display:flex;gap:1.35rem;align-items:center}
-.nav-links a{text-decoration:none;font-size:.76rem;text-transform:uppercase;letter-spacing:.07em;color:#fff;white-space:nowrap}
+.nav-links a{text-decoration:none;font-size:var(--fs-s);text-transform:uppercase;letter-spacing:.07em;color:#fff;white-space:nowrap}
 .nav-links a:not(.chip):hover{text-decoration:underline}
 header[data-scrolled] .nav-links a{color:var(--ink)}
 .nav-lang{font-family:var(--font-m);border:1px solid rgba(255,255,255,.5);border-radius:999px;padding:.3rem .65rem}
@@ -113,7 +123,7 @@ header[data-scrolled] .nav-lang{border-color:var(--line)}
 header[data-scrolled] .burger{color:var(--ink)}
 .mobile-menu{display:none;flex-direction:column;gap:.15rem;padding:0 clamp(1.15rem,4vw,2rem) 1.25rem;background:var(--white)}
 .mobile-menu[data-open]{display:flex}
-.mobile-menu a{text-decoration:none;padding:.85rem .25rem;font-size:.95rem;border-bottom:1px solid var(--line);min-height:44px;display:flex;align-items:center;color:var(--ink)}
+.mobile-menu a{text-decoration:none;padding:.85rem .25rem;font-size:var(--fs-b);border-bottom:1px solid var(--line);min-height:44px;display:flex;align-items:center;color:var(--ink)}
 .mobile-menu .chip{margin-top:.9rem;border-bottom:0}
 
 /* ══ HERO (korekcijos 2, 5) ══ */
@@ -127,14 +137,14 @@ header[data-scrolled] .burger{color:var(--ink)}
 .hero-media video,.hero-media img{filter:brightness(.66) saturate(.94)}
 .hero-scrim{position:absolute;inset:0;z-index:3;background:rgba(0,0,0,.5)}
 .hero-inner{position:relative;z-index:5;width:100%;max-width:var(--wrap);margin:0 auto;padding:clamp(5rem,11vh,7rem) clamp(1.15rem,4vw,2rem) clamp(2.5rem,5vh,3.5rem)}
-.crumbs{font-family:var(--font-m);font-size:.7rem;letter-spacing:.1em;text-transform:uppercase;color:rgba(255,255,255,.72);margin-bottom:var(--s3)}
+.crumbs{font-family:var(--font-m);font-size:var(--fs-s);letter-spacing:.01em;color:rgba(255,255,255,.72);margin-bottom:var(--s3)}
 .crumbs a{text-decoration:none}
 .crumbs a:hover{text-decoration:underline}
-.hero h1{font-size:clamp(2.4rem,6.4vw,4.6rem);max-width:16ch;text-shadow:0 2px 24px rgba(0,0,0,.45)}
+.hero h1{font-size:var(--fs-h1);max-width:16ch;text-shadow:0 2px 24px rgba(0,0,0,.45)}
 /* po H1 iš karto mygtukai — aprašomojo teksto hero nebėra (kliento pastaba 2026-10-15: kartojo faktų juostą) */
 .hero-ctas{display:flex;gap:.8rem;flex-wrap:wrap;margin-top:var(--s4)}
 .hero-locs{display:flex;gap:.5rem;flex-wrap:wrap;margin-bottom:var(--s3)}
-.loc-tag{display:inline-flex;align-items:center;gap:.45rem;font-family:var(--font-m);font-size:.66rem;letter-spacing:.12em;text-transform:uppercase;
+.loc-tag{display:inline-flex;align-items:center;gap:.45rem;font-family:var(--font-m);font-size:var(--fs-s);letter-spacing:.01em;
   border:1px solid rgba(255,255,255,.3);border-radius:999px;padding:.32rem .7rem;color:#fff}
 .loc-dot{width:9px;height:9px;border-radius:50%;flex:0 0 auto}
 .video-toggle{position:absolute;right:1rem;bottom:4.5rem;z-index:6;width:44px;height:44px;display:grid;place-items:center;border-radius:999px;border:1px solid rgba(255,255,255,.4);color:#fff;background:rgba(0,0,0,.5)}
@@ -142,7 +152,7 @@ header[data-scrolled] .burger{color:var(--ink)}
 /* ══ KONTAKTAI — tel: ir mailto: nuorodos (kopijavimo mygtukų nebėra, 2026-10-15) ══ */
 .contact-row{display:flex;gap:.6rem;flex-wrap:wrap;margin-top:var(--s4)}
 .cbtn{display:inline-flex;align-items:center;gap:.55rem;min-height:48px;padding:.6rem 1.15rem;border-radius:999px;
-  border:1px solid rgba(255,255,255,.34);background:rgba(255,255,255,.1);color:#fff;text-decoration:none;font-size:.95rem;
+  border:1px solid rgba(255,255,255,.34);background:rgba(255,255,255,.1);color:#fff;text-decoration:none;font-size:var(--fs-b);
   font-family:var(--font-m);letter-spacing:.01em;transition:background-color .2s ease,border-color .2s ease}
 .cbtn:hover{background:rgba(255,255,255,.2);border-color:rgba(255,255,255,.6)}
 .cbtn svg{flex:0 0 auto}
@@ -155,31 +165,31 @@ header[data-scrolled] .burger{color:var(--ink)}
   margin-top:calc(var(--s4) * -1);position:relative;z-index:5;box-shadow:0 10px 40px rgba(0,0,0,.09)}
 .trust div{padding:1.35rem 1rem;text-align:center;border-right:1px solid var(--line)}
 .trust div:last-child{border-right:0}
-.trust b{display:block;font-family:var(--font-d);font-size:clamp(1.35rem,2.6vw,1.9rem);line-height:1.1;color:var(--wine)}
-.trust span{font-size:.78rem;color:var(--steel);display:block;margin-top:.25rem}
+.trust b{display:block;font-family:var(--font-d);font-size:var(--fs-h2);line-height:1.1;color:var(--wine)}
+.trust span{font-size:var(--fs-s);color:var(--steel);display:block;margin-top:.25rem}
 
 /* ══ SEKCIJŲ RITMAS (korekcija 5) ══ */
 section{padding-block:var(--sec)}
 section.tight{padding-block:calc(var(--sec) * .62)}
 .sec-head{display:grid;gap:var(--s2);margin-bottom:var(--s4);max-width:66ch}
 .sec-head.split{max-width:none;grid-template-columns:minmax(0,1fr) minmax(0,26rem);align-items:end;gap:var(--s4)}
-.eyebrow{font-family:var(--font-m);font-size:.68rem;letter-spacing:.18em;text-transform:uppercase;color:var(--rust);
+.eyebrow{font-family:var(--font-m);font-size:var(--fs-s);letter-spacing:.01em;color:var(--rust);
   display:block;margin-bottom:.5rem}
-h2{font-size:clamp(1.85rem,3.9vw,3rem)}
-h3{font-size:clamp(1.15rem,2vw,1.4rem)}
-.lead{color:var(--steel);font-size:clamp(.98rem,1.4vw,1.06rem)}
+h2{font-size:var(--fs-h2)}
+h3{font-size:var(--fs-h3)}
+.lead{color:var(--steel);font-size:var(--fs-l)}
 
 /* ══ FILTRAI (korekcija 8) ══ */
 .filterbar{display:grid;gap:var(--s2);margin-bottom:var(--s4);padding:1.1rem 1.2rem;background:var(--white);border:1px solid var(--line)}
 .filterrow{display:flex;gap:.55rem;flex-wrap:wrap;align-items:center}
-.filterrow > .flabel{font-family:var(--font-m);font-size:.66rem;letter-spacing:.14em;text-transform:uppercase;color:var(--steel);flex:0 0 auto;width:7.5rem}
-.fbtn{border:1.5px solid var(--line);background:transparent;padding:.55rem 1.05rem;border-radius:999px;font-size:.8rem;
-  min-height:40px;text-transform:uppercase;letter-spacing:.05em;transition:all .18s ease;display:inline-flex;align-items:center;gap:.45rem}
+.filterrow > .flabel{font-family:var(--font-m);font-size:var(--fs-s);letter-spacing:.01em;color:var(--steel);flex:0 0 auto;width:7.5rem}
+.fbtn{border:1.5px solid var(--line);background:transparent;padding:.55rem 1.05rem;border-radius:999px;font-size:var(--fs-s);
+  min-height:40px;letter-spacing:.01em;transition:all .18s ease;display:inline-flex;align-items:center;gap:.45rem}
 .fbtn:hover{border-color:var(--ink)}
 .fbtn[aria-pressed="true"]{background:var(--wine);color:#fff;border-color:var(--wine)}
 .fbtn[data-loc="park"][aria-pressed="true"]{background:var(--park);color:var(--park-ink);border-color:var(--park)}
 .fbtn[data-loc="zity"][aria-pressed="true"]{background:var(--zity);color:#2A0F00;border-color:var(--zity)}
-.fcount{font-family:var(--font-m);font-size:.74rem;color:var(--steel);margin-left:auto}
+.fcount{font-family:var(--font-m);font-size:var(--fs-s);color:var(--steel);margin-left:auto}
 
 /* ══ ERDVIŲ KORTELĖS (korekcijos 6, 9, 16) ══ */
 .cards{display:grid;grid-template-columns:repeat(3,1fr);gap:1.25rem}
@@ -189,19 +199,19 @@ h3{font-size:clamp(1.15rem,2vw,1.4rem)}
 .card-media{position:relative;aspect-ratio:16/10;overflow:hidden;background:var(--sage)}
 .card-media img{width:100%;height:100%;object-fit:cover;transition:transform .5s ease}
 .card:hover .card-media img{transform:scale(1.035)}
-.card-count{position:absolute;right:.7rem;bottom:.7rem;font-family:var(--font-m);font-size:.64rem;letter-spacing:.1em;
+.card-count{position:absolute;right:.7rem;bottom:.7rem;font-family:var(--font-m);font-size:var(--fs-s);letter-spacing:.1em;
   background:rgba(0,0,0,.72);color:#fff;padding:.3rem .6rem;border-radius:999px;backdrop-filter:blur(4px)}
 .card-strip{height:4px;width:100%}
 .card-body{padding:1.15rem 1.25rem 1.35rem;display:flex;flex-direction:column;gap:.7rem;flex:1}
-.card-loc{display:inline-flex;align-items:center;gap:.45rem;font-family:var(--font-m);font-size:.64rem;letter-spacing:.11em;text-transform:uppercase;font-weight:700}
-.card h3{font-size:1.28rem}
+.card-loc{display:inline-flex;align-items:center;gap:.45rem;font-family:var(--font-m);font-size:var(--fs-s);letter-spacing:.01em;font-weight:700}
+.card h3{font-size:var(--fs-h3)}
 /* derinys (Didžioji + Mažoji, B + C, visas centras) — į erdvių skaičių neįeina, todėl pažymimas */
-.card-combo{align-self:flex-start;font-size:.875rem;color:var(--steel);border:1px solid var(--line);border-radius:999px;padding:.15rem .7rem}
-.metas{display:flex;gap:1.2rem;flex-wrap:wrap;font-size:.85rem;color:var(--steel);border-top:1px solid var(--line);padding-top:.7rem}
-.metas b{color:var(--ink);font-family:var(--font-d);font-size:1.05rem;display:block;line-height:1.1}
-.card-note{font-size:.78rem;color:var(--rust-deep);background:#FBF0E6;padding:.5rem .75rem;border-left:3px solid var(--rust)}
+.card-combo{align-self:flex-start;font-size:var(--fs-s);color:var(--steel);border:1px solid var(--line);border-radius:999px;padding:.15rem .7rem}
+.metas{display:flex;gap:1.2rem;flex-wrap:wrap;font-size:var(--fs-s);color:var(--steel);border-top:1px solid var(--line);padding-top:.7rem}
+.metas b{color:var(--ink);font-family:var(--font-d);font-size:var(--fs-l);display:block;line-height:1.1}
+.card-note{font-size:var(--fs-s);color:var(--rust-deep);background:#FBF0E6;padding:.5rem .75rem;border-left:3px solid var(--rust)}
 .card-actions{margin-top:auto;display:flex;gap:.5rem;flex-wrap:wrap;padding-top:.3rem}
-.linkish{font-size:.8rem;font-weight:700;text-decoration:none;border-bottom:1.5px solid var(--rust);padding-bottom:1px;color:var(--rust-deep);align-self:flex-start;min-height:44px;display:inline-flex;align-items:center}
+.linkish{font-size:var(--fs-s);font-weight:700;text-decoration:none;border-bottom:1.5px solid var(--rust);padding-bottom:1px;color:var(--rust-deep);align-self:flex-start;min-height:44px;display:inline-flex;align-items:center}
 .empty-note{grid-column:1/-1;padding:2.5rem;text-align:center;color:var(--steel);border:1px dashed var(--line)}
 
 /* ══ MODALAS (korekcija 6) ══ */
@@ -218,7 +228,7 @@ h3{font-size:clamp(1.15rem,2vw,1.4rem)}
 .mgal-track::-webkit-scrollbar{display:none}
 .mgal-slide{flex:0 0 100%;min-width:0;scroll-snap-align:center;position:relative;height:100%}
 .mgal-slide img{width:100%;height:100%;object-fit:cover}
-.mgal-cap{position:absolute;inset:auto 0 0 0;padding:2.5rem .9rem .8rem;font-size:.82rem;color:#fff;
+.mgal-cap{position:absolute;inset:auto 0 0 0;padding:2.5rem .9rem .8rem;font-size:var(--fs-s);color:#fff;
   background:linear-gradient(transparent,rgba(20,9,11,.85))}
 .mgal-btn{position:absolute;top:50%;transform:translateY(-50%);width:46px;height:46px;display:grid;place-items:center;
   border-radius:999px;background:rgba(255,255,255,.16);color:#fff;backdrop-filter:blur(4px);z-index:4}
@@ -230,16 +240,16 @@ h3{font-size:clamp(1.15rem,2vw,1.4rem)}
 .modal-info{padding:clamp(1.25rem,3vw,2rem);display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:1.25rem 2.25rem;align-items:start}
 .mi-col{display:flex;flex-direction:column;gap:1rem;min-width:0}
 .mi-col h4 + *{margin-top:.5rem}
-.modal-info h3{font-size:clamp(1.4rem,2.6vw,1.9rem)}
+.modal-info h3{font-size:var(--fs-h3)}
 .layouts{display:grid;grid-template-columns:repeat(auto-fill,minmax(8.5rem,1fr));gap:.5rem}
 .layout{border:1px solid var(--line);background:var(--white);padding:.65rem .75rem}
-.layout b{display:block;font-family:var(--font-d);font-size:1.25rem;line-height:1.1;color:var(--wine)}
-.layout span{display:block;margin-top:.2rem;font-size:.875rem;line-height:1.3;color:var(--steel)}
+.layout b{display:block;font-family:var(--font-d);font-size:var(--fs-l);line-height:1.1;color:var(--wine)}
+.layout span{display:block;margin-top:.2rem;font-size:var(--fs-s);line-height:1.3;color:var(--steel)}
 .nw{white-space:nowrap}
 .equip{display:grid;gap:.4rem}
-.equip li{display:flex;gap:.6rem;font-size:.88rem;color:#333333;line-height:1.45}
+.equip li{display:flex;gap:.6rem;font-size:var(--fs-b);color:#333333;line-height:1.45}
 .equip li::before{content:"";flex:0 0 auto;width:7px;height:7px;margin-top:.5rem;background:var(--rust)}
-.modal h4{font-family:var(--font-m);font-size:.68rem;letter-spacing:.16em;text-transform:uppercase;color:var(--steel);font-weight:400}
+.modal h4{font-family:var(--font-m);font-size:var(--fs-s);letter-spacing:.01em;color:var(--steel);font-weight:400}
 
 /* ══ SCENARIJAI (korekcija 14) ══ */
 .scen-grid{display:grid;grid-template-columns:repeat(4,1fr);gap:.9rem}
@@ -248,7 +258,7 @@ h3{font-size:clamp(1.15rem,2vw,1.4rem)}
 .scen-card{background:var(--white);border:1px solid var(--line);display:flex;flex-direction:column;min-width:0}
 .scen-main{position:relative;aspect-ratio:3/2;overflow:hidden;background:var(--wine)}
 .scen-main img{width:100%;height:100%;object-fit:cover}
-.scen-main figcaption{position:absolute;inset:auto 0 0 0;padding:2.5rem 1rem .85rem;color:#fff;font-size:.875rem;
+.scen-main figcaption{position:absolute;inset:auto 0 0 0;padding:2.5rem 1rem .85rem;color:#fff;font-size:var(--fs-s);
   background:linear-gradient(transparent,rgba(20,9,11,.82))}
 .scen-thumbs{display:grid;grid-template-columns:repeat(4,1fr);gap:.4rem;padding:.4rem .4rem 0}
 .scen-thumb{position:relative;aspect-ratio:4/3;overflow:hidden;opacity:.62;transition:opacity .2s ease}
@@ -256,18 +266,18 @@ h3{font-size:clamp(1.15rem,2vw,1.4rem)}
 .scen-thumb[aria-pressed="true"]::after{content:"";position:absolute;inset:0;box-shadow:inset 0 0 0 3px var(--rust)}
 .scen-thumb img{width:100%;height:100%;object-fit:cover}
 .scen-body{display:flex;align-items:center;justify-content:space-between;gap:.75rem 1rem;flex-wrap:wrap;padding:1rem 1.25rem 1.2rem}
-.scen-body h2{font-size:clamp(1.25rem,2.2vw,1.6rem)}
+.scen-body h2{font-size:var(--fs-h3)}
 @media(max-width:860px){.scen-list{grid-template-columns:1fr;gap:1.1rem}}
 .scen{position:relative;overflow:hidden;aspect-ratio:4/3;background:var(--wine);border:0;padding:0;text-align:left;display:block;width:100%;
   text-decoration:none;color:#fff}
 .scen img{width:100%;height:100%;object-fit:cover;transition:transform .5s ease,opacity .3s ease}
 .scen:hover img{transform:scale(1.05)}
 .scen figcaption{position:absolute;inset:auto 0 0 0;padding:2.2rem .8rem .7rem;color:#fff;font-family:var(--font-d);
-  font-size:.85rem;text-transform:uppercase;letter-spacing:.04em;background:linear-gradient(transparent,rgba(20,9,11,.88))}
-.scen small{display:block;font-family:var(--font-b);text-transform:none;letter-spacing:0;font-size:.72rem;opacity:.82;margin-top:.15rem;font-weight:400}
+  font-size:var(--fs-s);letter-spacing:.01em;background:linear-gradient(transparent,rgba(20,9,11,.88))}
+.scen small{display:block;font-family:var(--font-b);text-transform:none;letter-spacing:0;font-size:var(--fs-s);opacity:.82;margin-top:.15rem;font-weight:400}
 .scen-cta{display:flex;align-items:center;justify-content:space-between;gap:1rem;flex-wrap:wrap;margin-top:.9rem;
   background:var(--white);border:1px solid var(--line);padding:1rem 1.25rem}
-.scen-cta p{font-size:.95rem;color:var(--steel)}
+.scen-cta p{font-size:var(--fs-b);color:var(--steel)}
 .scen-cta b{color:var(--ink)}
 
 /* ══ KAINOS / LEAD MAGNET (korekcija 12) ══ */
@@ -278,10 +288,10 @@ h3{font-size:clamp(1.15rem,2vw,1.4rem)}
 .panel h3 + .lead{margin-top:.7rem}
 .panel--dark .lead{color:rgba(255,255,255,.82)}
 .ticks{display:grid;gap:.55rem;margin-top:var(--s2)}
-.ticks li{display:flex;gap:.65rem;font-size:.94rem;line-height:1.5}
+.ticks li{display:flex;gap:.65rem;font-size:var(--fs-b);line-height:1.5}
 .ticks li svg{flex:0 0 auto;margin-top:.28rem;color:var(--rust)}
 .panel--dark .ticks li svg{color:var(--park)}
-.fineprint{font-size:.8rem;color:var(--steel);margin-top:var(--s2);line-height:1.55}
+.fineprint{font-size:var(--fs-s);color:var(--steel);margin-top:var(--s2);line-height:1.55}
 .panel--dark .fineprint{color:rgba(255,255,255,.66)}
 /* sąlygos pagal lokaciją (Tech Park / SKC) */
 .terms{display:grid;gap:1rem;margin-top:var(--s2)}
@@ -289,12 +299,12 @@ h3{font-size:clamp(1.15rem,2vw,1.4rem)}
 .terms-loc{display:flex;align-items:center;gap:.5rem;font-weight:700}
 .terms .ticks,.terms .fineprint{margin-top:.5rem}
 .dl-row{display:grid;gap:.6rem;margin-top:var(--s4);max-width:660px}
-.dl-title{font-family:var(--font-m);font-size:.7rem;letter-spacing:.14em;text-transform:uppercase;color:var(--steel);margin-bottom:.15rem}
+.dl-title{font-family:var(--font-m);font-size:var(--fs-s);letter-spacing:.01em;color:var(--steel);margin-bottom:.15rem}
 .dl-link{display:flex;align-items:center;gap:.7rem;min-height:52px;padding:.8rem 1.1rem;background:var(--sage);
-  border-radius:12px;color:var(--ink);text-decoration:none;font-size:.9rem}
+  border-radius:12px;color:var(--ink);text-decoration:none;font-size:var(--fs-b)}
 .dl-link:hover{text-decoration:underline}
-.dl-link b{font-family:var(--font-d);font-size:.85rem;letter-spacing:.03em;text-transform:uppercase}
-.dl-link span{margin-left:auto;font-family:var(--font-m);font-size:.68rem;color:var(--steel)}
+.dl-link b{font-family:var(--font-d);font-size:var(--fs-b);letter-spacing:.01em;}
+.dl-link span{margin-left:auto;font-family:var(--font-m);font-size:var(--fs-s);color:var(--steel)}
 
 /* ══ LOKACIJOS IR ŽEMĖLAPIAI (korekcija 13) ══ */
 .loc-block{display:grid;grid-template-columns:1.25fr 1fr;gap:1.25rem;align-items:stretch}
@@ -302,28 +312,29 @@ h3{font-size:clamp(1.15rem,2vw,1.4rem)}
 .map-card{border:1px solid var(--line);border-radius:12px;overflow:hidden;background:var(--snow);min-height:340px}
 .map-frame{width:100%;height:100%;min-height:340px;border:0;display:block}
 .map-panel{background:var(--white);border:1px solid var(--line);padding:clamp(1.3rem,3vw,1.9rem);display:flex;flex-direction:column;gap:.9rem}
-.map-panel .badge{display:inline-flex;align-items:center;gap:.45rem;font-family:var(--font-m);font-size:.64rem;
-  letter-spacing:.12em;text-transform:uppercase;font-weight:700}
-.panel-label{font-family:var(--font-m);font-size:.66rem;letter-spacing:.14em;text-transform:uppercase;color:var(--steel);font-weight:400}
+.map-panel .badge{display:inline-flex;align-items:center;gap:.45rem;font-family:var(--font-m);font-size:var(--fs-s);
+  letter-spacing:.01em;font-weight:700}
+.panel-label{font-family:var(--font-m);font-size:var(--fs-s);letter-spacing:.01em;color:var(--steel);font-weight:400}
 .dist{display:grid;gap:.45rem;margin-top:.2rem}
-.dist li{display:grid;grid-template-columns:5.6rem 1fr;gap:.7rem;font-size:.88rem;align-items:baseline}
-.dist b{font-family:var(--font-d);font-size:1.02rem;color:var(--wine)}
-.park-info{background:var(--snow);border:1px solid var(--line);padding:.75rem .9rem;font-size:.85rem;line-height:1.5;color:#333333}
+.dist li{display:grid;grid-template-columns:5.6rem 1fr;gap:.7rem;font-size:var(--fs-b);align-items:baseline}
+.dist b{font-family:var(--font-d);font-size:var(--fs-l);color:var(--wine)}
+.park-info{background:var(--snow);border:1px solid var(--line);padding:.75rem .9rem;font-size:var(--fs-b);line-height:1.5;color:#333333}
 
 /* ══ SOCIAL PROOF (korekcija 10) ══ */
 .rev-grid{display:grid;grid-template-columns:repeat(4,1fr);gap:.9rem}
 .rev{background:var(--white);border:1px solid var(--line);padding:1.15rem 1.25rem;display:flex;flex-direction:column;gap:.55rem;text-decoration:none}
 .rev:hover{border-color:var(--rust)}
-.rev-src{font-family:var(--font-m);font-size:.66rem;letter-spacing:.14em;text-transform:uppercase;color:var(--steel)}
-.rev-name{font-family:var(--font-d);font-size:1rem;text-transform:uppercase}
-.rev-go{margin-top:auto;font-size:.8rem;font-weight:700;color:var(--rust-deep)}
+.rev-src{font-family:var(--font-m);font-size:var(--fs-s);letter-spacing:.01em;color:var(--steel)}
+.rev-name{font-family:var(--font-d);font-size:var(--fs-l);}
+.rev-desc{font-size:var(--fs-s);color:var(--steel)}
+.rev-go{margin-top:auto;font-size:var(--fs-s);font-weight:700;color:var(--rust-deep)}
 /* minmax(0,…) — kitaip stulpelis išsiplėstų iki juostos (max-content) pločio ir puslapis slinktų į šoną */
 .clients{display:grid;grid-template-columns:minmax(0,1fr);gap:1.35rem;margin-top:var(--s4)}
 .cgroup{min-width:0}
-.cgroup h4{font-family:var(--font-m);font-size:.68rem;letter-spacing:.16em;text-transform:uppercase;color:var(--rust);margin-bottom:.6rem;font-weight:400}
+.cgroup h4{font-family:var(--font-m);font-size:var(--fs-s);letter-spacing:.01em;color:var(--rust);margin-bottom:.6rem;font-weight:400}
 .bigstat{display:flex;align-items:baseline;gap:.9rem;flex-wrap:wrap;padding:1.2rem 1.4rem;background:var(--wine);color:#fff;margin-bottom:var(--s4)}
-.bigstat b{font-family:var(--font-d);font-size:clamp(2rem,5vw,3.2rem);line-height:1;color:var(--park)}
-.bigstat span{font-size:.98rem;color:rgba(255,255,255,.86);max-width:34ch}
+.bigstat b{font-family:var(--font-d);font-size:var(--fs-h2);line-height:1;color:var(--park)}
+.bigstat span{font-size:var(--fs-b);color:rgba(255,255,255,.86);max-width:34ch}
 
 /* ══ VIRTUALUS TURAS (korekcija 15) ══ */
 .tour-tabs{display:flex;gap:.5rem;margin-bottom:var(--s3);flex-wrap:wrap}
@@ -335,18 +346,18 @@ h3{font-size:clamp(1.15rem,2vw,1.4rem)}
 .book-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:.9rem}
 .book{background:var(--white);border:1px solid var(--line);padding:1.15rem 1.2rem;display:flex;flex-direction:column;gap:.6rem;text-decoration:none;transition:border-color .2s ease,transform .2s ease}
 .book:hover{border-color:var(--rust);transform:translateY(-2px)}
-.book h3{font-size:1.06rem}
-.book p{font-size:.84rem;color:var(--steel);flex:1}
+.book h3{font-size:var(--fs-l)}
+.book p{font-size:var(--fs-b);color:var(--steel);flex:1}
 .book .rev-go{margin-top:0}
 
 /* ══ DUK ══ */
 .faq{max-width:60rem}
 .faq details{background:var(--white);border:1px solid var(--line);margin-bottom:.5rem}
-.faq summary{cursor:pointer;font-weight:700;font-size:1rem;padding:1.05rem 3rem 1.05rem 1.25rem;list-style:none;position:relative;min-height:44px}
+.faq summary{cursor:pointer;font-weight:700;font-size:var(--fs-b);padding:1.05rem 3rem 1.05rem 1.25rem;list-style:none;position:relative;min-height:44px}
 .faq summary::-webkit-details-marker{display:none}
-.faq summary::after{content:"+";position:absolute;right:1.25rem;top:.85rem;font-size:1.5rem;color:var(--rust);font-weight:400}
+.faq summary::after{content:"+";position:absolute;right:1.25rem;top:.85rem;font-size:var(--fs-h3);color:var(--rust);font-weight:400}
 .faq details[open] summary::after{content:"–"}
-.faq .a{padding:0 1.25rem 1.25rem;font-size:.93rem;color:#333333;line-height:1.65}
+.faq .a{padding:0 1.25rem 1.25rem;font-size:var(--fs-b);color:#333333;line-height:1.65}
 .faq .a a{font-weight:700;color:var(--rust-deep)}
 .faq .a p + p{margin-top:.7rem}
 
@@ -354,43 +365,43 @@ h3{font-size:clamp(1.15rem,2vw,1.4rem)}
 .ask{background:var(--wine);color:#fff}
 .ask-grid{display:grid;grid-template-columns:1fr 1.12fr;gap:clamp(1.5rem,4vw,3rem);align-items:start}
 .ask h2{color:#fff}
-.ask-side p{color:rgba(255,255,255,.85);margin-top:var(--s2);font-size:1rem;line-height:1.6}
-.sla{display:flex;gap:.8rem;background:rgba(255,255,255,.09);border:1px solid rgba(255,255,255,.16);padding:.95rem 1.1rem;margin:var(--s3) 0;font-size:.92rem;align-items:flex-start}
+.ask-side p{color:rgba(255,255,255,.85);margin-top:var(--s2);font-size:var(--fs-b);line-height:1.6}
+.sla{display:flex;gap:.8rem;background:rgba(255,255,255,.09);border:1px solid rgba(255,255,255,.16);padding:.95rem 1.1rem;margin:var(--s3) 0;font-size:var(--fs-b);align-items:flex-start}
 .sla svg{flex:0 0 auto;margin-top:.15rem;color:var(--park)}
 form.inq{background:var(--white);color:var(--ink);padding:clamp(1.3rem,3vw,2rem);display:grid;gap:.85rem;grid-template-columns:1fr 1fr}
-form.inq h3{grid-column:1/-1;font-size:1.2rem}
+form.inq h3{grid-column:1/-1;font-size:var(--fs-h3)}
 .field{display:grid;gap:.35rem}
 .field.full{grid-column:1/-1}
-label{font-family:var(--font-m);font-size:.66rem;font-weight:400;text-transform:uppercase;letter-spacing:.12em;color:var(--steel)}
-input,select,textarea{font-size:.98rem;padding:.75rem .85rem;border:1.5px solid var(--line);background:var(--snow);width:100%;min-height:48px;border-radius:0;color:var(--ink)}
+label{font-family:var(--font-m);font-size:var(--fs-s);font-weight:400;letter-spacing:.01em;color:var(--steel)}
+input,select,textarea{font-size:var(--fs-b);padding:.75rem .85rem;border:1.5px solid var(--line);background:var(--snow);width:100%;min-height:48px;border-radius:0;color:var(--ink)}
 textarea{min-height:96px;resize:vertical}
 input:focus,select:focus,textarea:focus{outline:2px solid var(--rust);outline-offset:1px;border-color:transparent}
 input:user-invalid,select:user-invalid{border-color:#B3261E}
-.consent{grid-column:1/-1;display:flex;gap:.65rem;font-size:.8rem;color:var(--steel);align-items:flex-start;line-height:1.5}
+.consent{grid-column:1/-1;display:flex;gap:.65rem;font-size:var(--fs-s);color:var(--steel);align-items:flex-start;line-height:1.5}
 .consent input{width:22px;height:22px;min-height:22px;flex:0 0 auto;margin-top:.05rem;accent-color:var(--rust)}
 .consent a{font-weight:700;color:var(--rust-deep)}
 form .chip{grid-column:1/-1;justify-self:start}
-.form-ok{grid-column:1/-1;background:#E9F5EC;border-left:3px solid #1C6B34;color:#155029;padding:.9rem 1rem;font-size:.9rem;display:none}
+.form-ok{grid-column:1/-1;background:#E9F5EC;border-left:3px solid #1C6B34;color:#155029;padding:.9rem 1rem;font-size:var(--fs-b);display:none}
 .form-ok[data-open]{display:block}
 
 /* ══ FOOTER — sandara perimta iš techzity.com: nuorodos didžiosiomis,
    apačioje per visą plotį didelis logotipas, po juo autorystės eilutė ══ */
-footer{background:var(--wine);color:rgba(255,255,255,.72);padding-block:var(--s5) var(--s3);font-size:.88rem}
+footer{background:var(--wine);color:rgba(255,255,255,.72);padding-block:var(--s5) var(--s3);font-size:var(--fs-s)}
 .foot{display:grid;grid-template-columns:1.5fr 1fr 1fr 1fr;gap:2rem;padding-bottom:var(--s4)}
-.foot h4{color:#fff;font-family:var(--font-m);font-size:.66rem;text-transform:uppercase;letter-spacing:.16em;margin-bottom:.9rem;font-weight:400}
+.foot h4{color:#fff;font-family:var(--font-m);font-size:var(--fs-s);letter-spacing:.01em;margin-bottom:.9rem;font-weight:400}
 .foot ul{display:grid;gap:.5rem}
 .foot a{text-decoration:none}
-.foot ul a{text-transform:uppercase;letter-spacing:.04em;font-size:.8rem}
+.foot ul a{letter-spacing:.01em;font-size:var(--fs-s)}
 .foot a:hover{color:#fff;text-decoration:underline}
 .foot-logo{width:100%;max-width:46rem;height:auto;margin:var(--s3) 0 var(--s2)}
-.copy{border-top:1px solid rgba(255,255,255,.12);padding-top:1.1rem;display:flex;justify-content:space-between;gap:1rem;flex-wrap:wrap;font-size:.76rem;color:rgba(255,255,255,.45)}
+.copy{border-top:1px solid rgba(255,255,255,.12);padding-top:1.1rem;display:flex;justify-content:space-between;gap:1rem;flex-wrap:wrap;font-size:var(--fs-s);color:rgba(255,255,255,.45)}
 
 /* ══ SUBPUSLAPIŲ ANTRAŠTĖ (kai sekcija turi savo puslapį) ══ */
 .phero{background:var(--wine);color:#fff;
   /* header guli ant antraštės, todėl viršuje paliekame jo aukštį */
   padding-block:calc(68px + clamp(2.25rem,5.5vw,3.75rem)) clamp(2.25rem,5.5vw,3.75rem)}
 .phero .crumbs{margin-bottom:var(--s2)}
-.phero h1{font-family:var(--font-d);text-transform:uppercase;line-height:1.15;font-size:clamp(1.9rem,4.6vw,3.2rem);max-width:20ch}
+.phero h1{font-family:var(--font-d);text-transform:uppercase;line-height:1.15;font-size:var(--fs-h1);max-width:20ch}
 .phero .eyebrow{color:var(--park);margin-bottom:.55rem}
 .phero .lead{color:rgba(255,255,255,.84);max-width:62ch;margin-top:var(--s2)}
 .phero .hero-locs{margin:var(--s3) 0 0}
@@ -408,10 +419,10 @@ footer{background:var(--wine);color:rgba(255,255,255,.72);padding-block:var(--s5
 .marquee:hover .marquee-track,.marquee:focus-within .marquee-track{animation-play-state:paused}
 /* tarpas per margin (ne gap), kad abi sąrašo kopijos būtų identiško pločio ir ciklas nešokinėtų */
 .marquee .cname{flex:0 0 auto;margin-right:.55rem;border:1px solid var(--line);background:var(--white);
-  padding:.55rem .95rem;font-size:.88rem;color:#333333;white-space:nowrap;display:inline-flex;align-items:center;min-height:44px}
+  padding:.55rem .95rem;font-size:var(--fs-b);color:#333333;white-space:nowrap;display:inline-flex;align-items:center;min-height:44px}
 .marquee .cname--logo{padding:.5rem 1.1rem}
 .marquee .cname img{height:26px;width:auto;max-width:150px;object-fit:contain;filter:grayscale(1);opacity:.85}
-.marquee-toggle{justify-self:start;min-height:44px;display:inline-flex;align-items:center;font-size:.875rem;color:var(--steel);text-decoration:underline;text-underline-offset:3px}
+.marquee-toggle{justify-self:start;min-height:44px;display:inline-flex;align-items:center;font-size:var(--fs-s);color:var(--steel);text-decoration:underline;text-underline-offset:3px}
 .marquee-toggle:hover{color:var(--ink)}
 .clients .marquee{margin-inline:calc(clamp(1.15rem,4vw,2rem) * -1)}
 @keyframes marquee-ltr{from{transform:translateX(-50%)}to{transform:translateX(0)}}
@@ -450,7 +461,7 @@ footer{background:var(--wine);color:rgba(255,255,255,.72);padding-block:var(--s5
   .hero-ctas{margin-top:var(--s3)}
   .hero-locs{gap:.35rem;margin-bottom:var(--s2)}
   .hero .contact-row{gap:.45rem;margin-top:var(--s3)}
-  .hero .cbtn{padding:.5rem .95rem;font-size:.9rem}
+  .hero .cbtn{padding:.5rem .95rem;font-size:var(--fs-b)}
   .video-toggle{top:.7rem;right:.7rem;bottom:auto}
   .metas{gap:.9rem}
   .trust div{padding:1rem .6rem}
@@ -484,7 +495,7 @@ footer{background:var(--wine);color:rgba(255,255,255,.72);padding-block:var(--s5
 .loc-card{position:relative;display:block;aspect-ratio:4/3;border-radius:20px;overflow:hidden;text-decoration:none;color:var(--ink)}
 .loc-card-img{position:absolute;inset:0;width:100%;height:100%;object-fit:cover}
 .loc-card-tag{position:absolute;left:1rem;top:1rem;z-index:2;background:var(--park);color:var(--ink);
-  padding:.5rem 1rem;border-radius:999px;text-transform:uppercase;font-size:.8rem;line-height:1.2;
+  padding:.5rem 1rem;border-radius:999px;font-size:var(--fs-s);line-height:1.2;
   transition:opacity .3s ease}
 .loc-card-tag::before{content:attr(data-label)}
 .loc-card-panel{position:absolute;inset:0;z-index:3;background:var(--park);padding:clamp(1.1rem,2.2vw,1.5rem);
@@ -495,16 +506,16 @@ footer{background:var(--wine);color:rgba(255,255,255,.72);padding-block:var(--s5
 /* kortele nebe nuoroda: panele atsiveria ir tada, kai klaviatura fokusuojamas mygtukas jos viduje */
 .loc-card:hover .loc-card-tag,.loc-card:focus-within .loc-card-tag{opacity:0}
 .loc-card-head{display:flex;flex-direction:column;gap:.35rem}
-.loc-card-name{font-family:var(--font-d);font-size:clamp(1.1rem,2.2vw,1.45rem);text-transform:uppercase;line-height:1.1}
-.loc-card-addr{font-family:var(--font-d);font-size:.78rem;text-transform:uppercase;letter-spacing:.04em;margin-bottom:.35rem}
-.loc-card-desc{font-size:.84rem;line-height:1.45;color:rgba(0,0,0,.7);margin-bottom:.5rem}
-.loc-card-sub{font-size:.82rem;font-weight:700}
+.loc-card-name{font-family:var(--font-d);font-size:var(--fs-h3);line-height:1.1}
+.loc-card-addr{font-family:var(--font-d);font-size:var(--fs-s);letter-spacing:.01em;margin-bottom:.35rem}
+.loc-card-desc{font-size:var(--fs-s);line-height:1.45;color:rgba(0,0,0,.7);margin-bottom:.5rem}
+.loc-card-sub{font-size:var(--fs-s);font-weight:700}
 .loc-card-services{display:flex;flex-direction:column}
-.loc-card-services span{font-size:.82rem;color:rgba(0,0,0,.7);border-bottom:1px solid rgba(0,0,0,.5);padding:.12rem 0}
+.loc-card-services span{font-size:var(--fs-s);color:rgba(0,0,0,.7);border-bottom:1px solid rgba(0,0,0,.5);padding:.12rem 0}
 
 
 .loc-card-more{align-self:flex-start;background:var(--white);color:var(--ink);border-radius:999px;text-decoration:none;
-  padding:.5rem 1rem;font-size:.8rem;font-weight:600;text-transform:uppercase}
+  padding:.5rem 1rem;font-size:var(--fs-s);font-weight:600;}
 .loc-card-more:hover{text-decoration:underline}
 @media(max-width:900px){
   .loc-cards{grid-template-columns:1fr}

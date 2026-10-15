@@ -84,6 +84,10 @@ Turinys kraunamas iš JS masyvų, todėl naują salę pridėti = įrašyti dar v
 
 ### Brand taisyklės
 
+- **Tipografija — 6 dydžiai** (`site.css` `:root`): `--fs-s` 14 px · `--fs-b` 16 · `--fs-l` 18 · `--fs-h3` 24 ·
+  `--fs-h2` 28–40 · `--fs-h1` 36–60. Mažiausias tekstas 14 px (kliento pastaba 2026-10-15). Naujam elementui —
+  vienas iš šių, ne naujas dydis. Didžiosios raidės — tik H1/H2 ir mygtukai.
+
 - Šriftai: **Deacon** (antraštės) + **Neue Haas Grotesk Display** (tekstas), self-hosted `assets/fonts/`.
 - Mygtukai — firminio **„dobiliuko"** formos (`--clover` CSS kaukė, dedama ant `::before`,
   kad `:focus-visible` žiedas liktų matomas). Nekeisti į paprastus stačiakampius.

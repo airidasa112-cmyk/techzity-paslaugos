@@ -309,7 +309,7 @@ if (locList){
       <div class="map-panel">
         <span class="badge" style="color:${d.ink}"><i class="loc-dot" style="background:${d.color}"></i>${d.name}</span>
         <h3>${d.addr}</h3>
-        <p class="lead" style="font-size:.92rem">${d.desc}</p>
+        <p class="lead" style="font-size:var(--fs-b)">${d.desc}</p>
         <div>
           <h4 class="panel-label">Atvykimas</h4>
           <ul class="dist">${d.dist.map(([v, t]) => `<li><b>${v}</b><span>${t}</span></li>`).join('')}</ul>
