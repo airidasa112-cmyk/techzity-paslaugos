@@ -139,24 +139,16 @@ header[data-scrolled] .burger{color:var(--ink)}
 .loc-dot{width:9px;height:9px;border-radius:50%;flex:0 0 auto}
 .video-toggle{position:absolute;right:1rem;bottom:4.5rem;z-index:6;width:44px;height:44px;display:grid;place-items:center;border-radius:999px;border:1px solid rgba(255,255,255,.4);color:#fff;background:rgba(0,0,0,.5)}
 
-/* ══ KONTAKTŲ MYGTUKAI (korekcija 4) ══ */
+/* ══ KONTAKTAI — tel: ir mailto: nuorodos (kopijavimo mygtukų nebėra, 2026-10-15) ══ */
 .contact-row{display:flex;gap:.6rem;flex-wrap:wrap;margin-top:var(--s4)}
 .cbtn{display:inline-flex;align-items:center;gap:.55rem;min-height:48px;padding:.6rem 1.15rem;border-radius:999px;
   border:1px solid rgba(255,255,255,.34);background:rgba(255,255,255,.1);color:#fff;text-decoration:none;font-size:.95rem;
   font-family:var(--font-m);letter-spacing:.01em;transition:background-color .2s ease,border-color .2s ease}
 .cbtn:hover{background:rgba(255,255,255,.2);border-color:rgba(255,255,255,.6)}
 .cbtn svg{flex:0 0 auto}
-.cbtn-group{display:inline-flex;align-items:stretch;border-radius:999px;overflow:hidden;border:1px solid rgba(255,255,255,.34);background:rgba(255,255,255,.1)}
-.cbtn-group .cbtn{border:0;border-radius:0;background:none}
-.cbtn-copy{display:inline-flex;align-items:center;gap:.4rem;padding:0 1rem;min-height:48px;min-width:48px;justify-content:center;
-  border-left:1px solid rgba(255,255,255,.28);color:#fff;font-family:var(--font-m);font-size:.72rem;letter-spacing:.08em;text-transform:uppercase}
-.cbtn-copy:hover{background:rgba(255,255,255,.16)}
-.cbtn-copy[data-done]{color:var(--park)}
 /* šviesus variantas */
-.contact-row.on-light .cbtn,.contact-row.on-light .cbtn-group{border-color:var(--line);background:var(--white);color:var(--ink)}
-.contact-row.on-light .cbtn-copy{color:var(--ink);border-left-color:var(--line)}
+.contact-row.on-light .cbtn{border-color:var(--line);background:var(--white);color:var(--ink)}
 .contact-row.on-light .cbtn:hover{background:var(--snow)}
-.contact-row.on-light .cbtn-copy[data-done]{color:var(--rust)}
 
 /* ══ FAKTŲ JUOSTA ══ */
 .trust{background:var(--white);border:1px solid var(--line);display:grid;grid-template-columns:repeat(4,1fr);
@@ -468,6 +460,7 @@ footer{background:var(--wine);color:rgba(255,255,255,.72);padding-block:var(--s5
 .loc-card-tag{position:absolute;left:1rem;top:1rem;z-index:2;background:var(--park);color:var(--ink);
   padding:.5rem 1rem;border-radius:999px;text-transform:uppercase;font-size:.8rem;line-height:1.2;
   transition:opacity .3s ease}
+.loc-card-tag::before{content:attr(data-label)}
 .loc-card-panel{position:absolute;inset:0;z-index:3;background:var(--park);padding:clamp(1.1rem,2.2vw,1.5rem);
   display:flex;flex-direction:column;justify-content:space-between;gap:.8rem;
   opacity:0;transition:opacity .3s ease;overflow-y:auto;
@@ -492,7 +485,8 @@ footer{background:var(--wine);color:rgba(255,255,255,.72);padding-block:var(--s5
   /* pelės mobiliajame nėra — kortelė išskleidžiama: nuotrauka viršuje, panelė po ja */
   .loc-card{aspect-ratio:auto;display:grid;grid-template-rows:auto auto}
   .loc-card-img{position:relative;inset:auto;aspect-ratio:16/9}
-  .loc-card-tag{position:absolute}
+  /* telefone panelė su pavadinimu matoma po nuotrauka, todėl žyma ant nuotraukos kartotų tą patį */
+  .loc-card-tag{display:none}
   .loc-card-panel{position:relative;inset:auto;opacity:1;overflow:visible}
 }
 

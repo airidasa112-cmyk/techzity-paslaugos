@@ -24,7 +24,8 @@ function matches(sp){
 }
 
 /* Kortelė naudojama ir erdvių puslapyje, ir pradinio puslapio santraukoje.
-   Skiriasi tik pirmas veiksmas: puslapyje jis atveria pop-upą, pradiniame — veda į erdvių puslapį. */
+   Veiksmas vienas: puslapyje jis atveria pop-upą, pradiniame — veda į erdvių puslapį.
+   „Gauti pasiūlymą" kortelėse nebėra (kartojosi 7 kartus) — jis yra pop-upe, hero ir meniu. */
 function cardHTML(sp, {teaser = false} = {}){
   const L = LOC[sp.loc];
   return `<article class="card">
@@ -46,7 +47,6 @@ function cardHTML(sp, {teaser = false} = {}){
           ${teaser
             ? `<a class="chip chip--sm" href="erdves.html?atidaryti=${sp.id}">Žiūrėti erdvę</a>`
             : `<button class="chip chip--sm" data-open="${sp.id}">Žiūrėti erdvę</button>`}
-          <a class="chip chip--primary chip--sm" href="${askHref(sp.name)}">Gauti pasiūlymą</a>
         </div>
       </div>
     </article>`;
@@ -135,7 +135,9 @@ if (locTeaser){
   /* Kortelė kaip techzity.com: nuotrauka su žyma, užvedus — geltona informacijos panelė. */
   locTeaser.innerHTML = Object.entries(MAPDATA).map(([k, d]) => `<article class="loc-card">
       <img class="loc-card-img" src="assets/img/loc/${d.img}.jpg" alt="${d.name} iš viršaus" loading="lazy" width="1024" height="768">
-      <span class="loc-card-tag">${d.name}</span>
+      <!-- žyma tik vizualinė: tas pats pavadinimas yra panelėje, todėl jos tekstas piešiamas per CSS
+           (attr), kad puslapio tekste ir skaitytuvuose neliktų „Tech Park Tech Park" -->
+      <span class="loc-card-tag" data-label="${d.name}" aria-hidden="true"></span>
       <span class="loc-card-panel">
         <span class="loc-card-head">
           <b class="loc-card-name">${d.name}</b>
@@ -327,16 +329,6 @@ if (inq){
     $('#formOk').setAttribute('data-open', '');
   });
 }
-
-/* ═══════════════ KOPIJUOTI KONTAKTĄ (4) ═══════════════ */
-$$('.cbtn-copy').forEach(b => b.addEventListener('click', async () => {
-  const v = b.dataset.copy;
-  try { await navigator.clipboard.writeText(v); }
-  catch { const t = document.createElement('textarea'); t.value = v; document.body.appendChild(t); t.select(); document.execCommand('copy'); t.remove(); }
-  const s = b.querySelector('span'); const old = s.textContent;
-  s.textContent = 'Nukopijuota'; b.setAttribute('data-done', '');
-  setTimeout(() => { s.textContent = old; b.removeAttribute('data-done'); }, 1800);
-}));
 
 /* ═══════════════ VIRTUALUS TURAS (turas.html) ═══════════════ */
 $$('[data-tour]').forEach(b => b.addEventListener('click', () => {

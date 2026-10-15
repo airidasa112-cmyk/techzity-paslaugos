@@ -95,6 +95,12 @@ Turinys kraunamas iš JS masyvų, todėl naują salę pridėti = įrašyti dar v
 
 ---
 
+## Kontaktai ir mygtukai (2026-10-15)
+
+Telefonas ir el. paštas — paprastos `tel:` / `mailto:` nuorodos (`.cbtn`); kopijavimo mygtukų
+klientas nepageidauja. „Gauti pasiūlymą" pradiniame puslapyje — tik meniu, hero ir kainodaros
+skydelyje; erdvių kortelėse jo nėra (konkrečios erdvės pasiūlymas — pop-upe).
+
 ## Kas dar nepadaryta
 
 - **Apžiūrų kalendorius**: visos 3 kortelės veda į tą patį Google appointments booker.
