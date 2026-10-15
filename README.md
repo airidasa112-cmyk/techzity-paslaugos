@@ -74,7 +74,7 @@ keičiant meniu reikia pataisyti visus HTML failus — greičiausia `sed`'u arba
 | Privatumo politika | `privatumo-politika.html` |
 | Salių nuotraukos | `assets/img/spaces/` (Tech Park), `assets/img/skc/` (Samsung KC) |
 | Scenarijų nuotraukos | `assets/img/scen/` |
-| Atsisiunčiami kainoraščiai | `assets/docs/*.pdf` |
+| Kliento pristatymai (tik šaltinis, viešai nerodomi) | `assets/docs/*.pdf` |
 | Logotipas, šriftai | `assets/brand/`, `assets/fonts/` |
 
 Turinys kraunamas iš JS masyvų, todėl naują salę pridėti = įrašyti dar vieną objektą į `SPACES`
@@ -114,7 +114,8 @@ skydelyje; erdvių kortelėse jo nėra (konkrečios erdvės pasiūlymas — pop-
   (senos „4,8 / 5" ir dvi citatos buvo pavyzdinės — pašalintos).
 - **Klientų logotipai**: juostos (`[data-clients]`) piešiamos iš `data.js` — pradiniame
   `CLIENTS_FEATURED`, atsiliepimų puslapyje `CLIENTS` grupės (2026-10-15 kliento prašymu — karuselės).
-  Logotipas rodomas, kai `LOGOS` turi įrašą „vardas → failas" (`assets/img/logos/`), kitaip — vardo ženklelis.
+  Logotipas rodomas, kai `LOGOS` turi įrašą „vardas → failas" (`assets/img/logos/`). **Be oficialaus
+  logotipo vardas į sąrašus nededamas** (2026-10-15 sprendimas; išimti Civita, Creativa, Eventum, EPP, VVK).
 - **Formos**: demo režimu niekur nesiunčia. Produkcijai reikės backend'o (pvz. Resend) —
   `#inq` ir `#dlForm` submit handleriai `assets/js/site.js`.
 - **Terasų talpos** (Tech Park 750 / 500) paimtos iš senesnio demo — pristatymuose
@@ -135,6 +136,11 @@ o erdvių skaitiklis juos skaičiuoja atskirai („8 erdvės ir 3 deriniai"). Sv
 **Sąlygos skiriasi pagal lokaciją** — `TERMS` faile `data.js` (pop-upas), kainodaros skydelis
 `index.html` ir DUK. Tech Park — 2026 pristatymo „Sąlygos" skaidrė; SKC — SKC pristatymas
 (tas pats sąrašas samsungkc.lt); SKC minimali trukmė (pusė dienos) — kliento pastaba 2026-10-15.
+
+**Kainų ir sutarties sąlygų svetainėje nerodome** (2026-10-15 sprendimas — mažina pardavimus): jokių
+sumų (€, PVM), mokesčių, avanso ar mokėjimo tvarkos, kainoraščių PDF. Rodoma tik minimali trukmė ir
+kas įskaičiuota; kaina — pasiūlyme. Kliento pristatymai su kainoraščiais `assets/docs/` — tik šaltinis
+(`.vercelignore`).
 
 ## Kontekstas
 
@@ -159,8 +165,10 @@ uv run --with pillow python tools/nuotraukos.py manifest                        
 nes `/assets/*` atiduodami su `immutable` — be to lankytojai metus matytų seną nuotrauką.
 
 Šaltiniai: Tech Park — techzity.com media biblioteka (E_* fotosesija, `techpark_*` renginių kadrai,
-TP_header); SKC — samsungkc.lt masteriai ir techzity.com 2024-07 renderiai. Be didesnio originalo liko
-pristatymo PDF išdėstymų kadrai (žr. `PASTABOS-2026-10-15.md`, 3 etapas).
+TP_header); SKC — samsungkc.lt masteriai ir techzity.com 2024-07 renderiai. Pristatymo PDF kadrai
+be originalų (25) 2026-10-15 **padidinti Higgsfield** (bytedance upscale, 2–4K) ir apkarpyti PDF
+juostų kraštai — AI atkuria smulkias detales (veidus, tekstą), todėl kadrus su įskaitomu tikro asmens
+vardu ar tekstu palikti originalius (`scen-tp-1`). Žr. `PASTABOS-2026-10-15.md`, 10 etapą.
 
 `.vercelignore` neleidžia į deploy'ų `*.md` ir `tools/` — vidiniai dokumentai nėra viešai pasiekiami.
 
@@ -168,7 +176,7 @@ pristatymo PDF išdėstymų kadrai (žr. `PASTABOS-2026-10-15.md`, 3 etapas).
 
 `vercel.json` uždeda `/assets/*` failams `Cache-Control: immutable, max-age=31536000` — naršyklė
 tokio failo neperklaus metus, net su Ctrl+Shift+R. Todėl CSS ir JS nuorodos HTML'e turi versijos
-parametrą: `site.css?v=N`, `data.js?v=N`, `site.js?v=N` (2026-10-15 — `v=14`).
+parametrą: `site.css?v=N`, `data.js?v=N`, `site.js?v=N` (2026-10-15 — `v=16`, `IMG_V = 3`).
 
 **Pakeitus `assets/css/site.css` arba `assets/js/*.js` — pakelk `v` numerį visuose HTML failuose**,
 kitaip anksčiau svetainėje buvę lankytojai matys seną CSS/JS su nauju HTML: puslapis atrodys
