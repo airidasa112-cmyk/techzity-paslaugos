@@ -321,7 +321,7 @@ h3{font-size:var(--fs-h3)}
 .park-info{background:var(--snow);border:1px solid var(--line);padding:.75rem .9rem;font-size:var(--fs-b);line-height:1.5;color:#333333}
 
 /* ══ SOCIAL PROOF (korekcija 10) ══ */
-.rev-grid{display:grid;grid-template-columns:repeat(4,1fr);gap:.9rem}
+.rev-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:.9rem}
 .rev{background:var(--white);border:1px solid var(--line);padding:1.15rem 1.25rem;display:flex;flex-direction:column;gap:.55rem;text-decoration:none}
 .rev:hover{border-color:var(--rust)}
 .rev-src{font-family:var(--font-m);font-size:var(--fs-s);letter-spacing:.01em;color:var(--steel)}

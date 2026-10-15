@@ -2,6 +2,8 @@
    Šaltiniai: „2026 Tech PARK Renginių erdvės LT",
    „Samsung Konferencijų centras LT 2026" (bendra salių lentelė),
    kliento pastabos 2026-10-15 (PASTABOS-2026-10-15.md).
+   Kainų, mokesčių ir sutarties sąlygų svetainėje nerodome (2026-10-15 sprendimas — mažina pardavimus):
+   tik minimali trukmė ir kas įskaičiuota; kaina — pasiūlyme.
    Tech Arts išimta visiškai (renginiai nebevyksta nuo 2026-10-06, prierašo klientas nepageidauja).
    Erdvių yra 8; `combo` pažymi 3 jų derinius (Didžioji + Mažoji, B + C, visas centras) —
    jie rodomi kaip atskiros kortelės, bet į erdvių skaičių neįeina. */
@@ -16,15 +18,15 @@ const TP_EQUIP = [
   '3 bevieliai „hand-held" ir 2 „headset" mikrofonai',
   '2 skaidrių prezenteriai, 3 mikrofonų laikikliai',
   'Wi-Fi, LAN, trifazės jungtys',
-  '250 kėdžių, 20 rašomųjų stalų, 5 baro ir 5 kavos staliukai, 2 tribūnos, 2 baltos lentos',
-  'Papildomai: 2 stumdomi TV — 75 € / vnt. + PVM'
+  '250 kėdžių, 5 kavos staliukai, 2 baltos lentos',
+  '2 stumdomi TV ekranai — pagal užklausą'
 ];
 /* Sąlygos skiriasi pagal lokaciją. Tech Park — 2026 pristatymo „Sąlygos" skaidrė (p. 11),
    SKC — SKC pristatymas (samsungkc.lt „Į kainą įskaičiuota"); minimali SKC trukmė — kliento pastaba 2026-10-15. */
 const TERMS = {
   park: {
     min: 'Minimali rezervacija — 3 renginio valandos.',
-    included: 'Į kainą įskaičiuota: erdvės nuoma, turima įranga, turimi baldai ir jų išdėstymas prieš atvykstant, erdvių valymas prieš atvykstant ir kontaktinis žmogus nuomos metu. Valymas, apsauga ar kitos paslaugos renginio metu — papildomai.'
+    included: 'Į kainą įskaičiuota: erdvės nuoma, turima įranga, turimi baldai ir jų išdėstymas prieš atvykstant, erdvių valymas prieš atvykstant ir kontaktinis žmogus nuomos metu.'
   },
   zity: {
     min: 'Minimali nuoma — pusė dienos.',
@@ -94,8 +96,9 @@ const SPACES = [
   {id:'skc-d', loc:'zity', name:'Oranžerija + Kiemas', area:'390 + 300 m²', theatre:400, outdoor:true, dir:'skc',
    lead:'Skaidraus tento paviljonas ir žalias kiemas — lauko renginiams iki 550 svečių.',
    layouts:[['Teatro',400],['Vakarienės',220],['Klasės',260],['Kabareto',170],['Prie stalelių',300],['Be baldų',550]],
-   equip:['Skaidraus tento paviljonas (apie 10 m pločio)','Lauko elektros įvadai ir kabinimo taškai','Mobilios garso kolonėlės laukui','Paviljono nuoma ne vasaros sezonu — 400 € / renginio dienai'],
-   photos:[['orangery-1','Oranžerija — skaidraus tento paviljonas su svečiais'],['orangery-decor','Dekoravimo pavyzdys su apvaliais stalais'],['orangery-2','Paviljono vidus']]},
+   equip:['Skaidraus tento paviljonas (apie 10 m pločio)','Lauko elektros įvadai ir kabinimo taškai','Mobilios garso kolonėlės laukui','Paviljoną galima nuomoti ir ne vasaros sezonu'],
+   /* orangery-2 („Paviljono vidus") išimta 2026-10-15: svetima nuotrauka su skelbiu.lt vandenženkliu */
+   photos:[['orangery-1','Oranžerija — skaidraus tento paviljonas su svečiais'],['orangery-decor','Dekoravimo pavyzdys su apvaliais stalais']]},
 
   {id:'skc-abcd', loc:'zity', name:'Visas centras (buy-out)', combo:'visos salės, holai ir kiemas', area:'2 650 m²', theatre:1000, outdoor:false, dir:'skc',
    lead:'Privatus viso pastato naudojimas: visos salės, holai, restoranas „Gastrolės" ir kiemas — iki 1 000 dalyvių viename renginyje.',
@@ -149,10 +152,12 @@ const CLIENTS_FEATURED = ['Google','Meta','LTG','Vinted','Wix','Swedbank','Surfs
   'Hostinger','Luminor','Ignitis','EY','Go Vilnius','Delfi','Turing College','Havas','Plug&Play','Ermitažas'];
 
 const CLIENTS = {
-  verslas:['Google','Meta','LTG','Vinted','Wix','Citus','Reefo','Deeper','Swedbank','JUDU','Civita','Surfshark','Nord Security','Verslo Žinios','Delfi','Naresta','Hostinger','Luminor','Capitalica','Gym+','Ermitažas','Turing College','SIRIN','Ignitis','EY'],
-  agenturos:['361 Forma','Pirmoji Kava','MVP Sprendimai','Jump Agency','Correctus','Propeller','Rekūrai','Creativa','Neimai','Estravel','Fabula','Havas','One More','Partizanas','Time2','Seven Live','Agency UP','Eventum'],
-  organizacijos:['EPP','APVA','Architektūros Fondas','Plug&Play','Agata','Go Vilnius','Inovacijų Agentūra','Lithuania AI','SCCL','Idialogue','Antakalnio Poliklinika','Lietuvos Junior Achievement','VVK','Šauliai']
+  verslas:['Google','Meta','LTG','Vinted','Wix','Citus','Reefo','Deeper','Swedbank','JUDU','Surfshark','Nord Security','Verslo Žinios','Delfi','Naresta','Hostinger','Luminor','Capitalica','Gym+','Ermitažas','Turing College','SIRIN','Ignitis','EY'],
+  agenturos:['361 Forma','Pirmoji Kava','MVP Sprendimai','Jump Agency','Correctus','Propeller','Rekūrai','Neimai','Estravel','Fabula','Havas','One More','Partizanas','Time2','Seven Live','Agency UP'],
+  organizacijos:['APVA','Architektūros Fondas','Plug&Play','Agata','Go Vilnius','Inovacijų Agentūra','Lithuania AI','SCCL','Idialogue','Antakalnio Poliklinika','Lietuvos Junior Achievement','Šauliai']
 };
+/* 2026-10-15: be logotipo vardai nerodomi visai. Išimti — Civita, Creativa, Eventum, EPP, VVK
+   (organizacija neatpažinta arba oficialaus logotipo failo nėra); žr. PASTABOS-2026-10-15.md. */
 
 /* vardas → [logotipo failas assets/img/logos/, pločio ir aukščio santykis, 1 = tik baltas (rodomas siluetu)]. Tik oficialūs failai
    (organizacijų svetainės — šaltiniai PASTABOS-2026-10-15.md). Santykis — optiniam
@@ -187,6 +192,7 @@ const LOGOS = {
   'SIRIN':['sirin.svg',4.40],
   '361 Forma':['361-forma.svg',2.58],
   'MVP Sprendimai':['mvp-sprendimai.png',2.66],
+  'Pirmoji Kava':['pirmoji-kava.png',2.07],
   'Jump Agency':['jump-agency.svg',1.97],
   'Correctus':['correctus.svg',4.18],
   'Propeller':['propeller.svg',5.02,1],
@@ -197,6 +203,7 @@ const LOGOS = {
   'One More':['one-more-wordmark.png',1.53],
   'Partizanas':['partizanas.png',1.00],
   'Time2':['time2.svg',5.23],
+  'Seven Live':['seven-live.svg',1.18],
   'Agency UP':['agency-up.svg',4.48],
   'APVA':['apva.png',5.13],
   'Architektūros Fondas':['architekturos-fondas.svg',3.90],
