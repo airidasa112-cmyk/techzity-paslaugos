@@ -9,6 +9,11 @@ const PARAMS = new URLSearchParams(location.search);
 const band = (n) => n <= 100 ? 's' : (n <= 250 ? 'm' : 'l');
 const imgSrc = (sp, file) => `assets/img/${sp.dir === 'skc' ? 'skc' : 'spaces'}/${file}.jpg`;
 const askHref = (name) => `uzklausa.html?erdve=${encodeURIComponent(name)}`;
+/* lietuviškos daugiskaitos formos: 1 erdvė, 2–9 erdvės, 10–20 erdvių, 21 erdvė… */
+const lt = (n, one, few, many) => {
+  const d = n % 10, h = n % 100;
+  return n + ' ' + (d === 1 && h !== 11 ? one : (d >= 2 && (h < 10 || h > 20) ? few : many));
+};
 const cardsEl = $('#cards');
 const state = {loc:'all', size:'all'};
 
@@ -31,6 +36,7 @@ function cardHTML(sp, {teaser = false} = {}){
       <div class="card-body">
         <span class="card-loc" style="color:${L.ink}"><i class="loc-dot" style="background:${L.color}"></i>${L.name} · ${L.addr}</span>
         <h3>${sp.name}</h3>
+        ${sp.combo ? `<span class="card-combo">Derinys · ${sp.combo}</span>` : ''}
         <div class="metas">
           <span>Plotas<b>${sp.area}</b></span>
           <span>${sp.outdoor ? 'Lauko renginys' : 'Teatro stiliumi'}<b>iki ${sp.theatre.toLocaleString('lt-LT')}</b></span>
@@ -51,7 +57,10 @@ function renderCards(){
   cardsEl.innerHTML = list.length ? list.map(sp => cardHTML(sp)).join('')
     : `<p class="empty-note">Pagal šiuos filtrus erdvių nėra. <button class="linkish" id="resetF" style="border:0;border-bottom:1.5px solid var(--rust)">Rodyti visas erdves</button></p>`;
 
-  $('#fcount').textContent = list.length === 1 ? '1 erdvė' : (list.length >= 11 && list.length <= 19 ? list.length + ' erdvių' : (list.length % 10 === 0 || list.length === 0 ? list.length + ' erdvių' : list.length + ' erdvės'));
+  /* skaičiuojamos tik erdvės; deriniai (Didžioji + Mažoji, B + C, visas centras) — atskirai */
+  const nCombo = list.filter(sp => sp.combo).length, nSpace = list.length - nCombo;
+  $('#fcount').textContent = [nSpace && lt(nSpace, 'erdvė', 'erdvės', 'erdvių'), nCombo && lt(nCombo, 'derinys', 'deriniai', 'derinių')]
+    .filter(Boolean).join(' ir ') || '0 erdvių';
   const rf = $('#resetF');
   if (rf) rf.addEventListener('click', () => { state.loc = 'all'; state.size = 'all'; syncFilters(); renderCards(); });
 }
@@ -163,6 +172,7 @@ if (modal){
     minfo.innerHTML = `
       <span class="card-loc" style="color:${L.ink}"><i class="loc-dot" style="background:${L.color}"></i>${L.name} · ${L.addr}</span>
       <h3 id="modalTitle">${sp.name}</h3>
+      ${sp.combo ? `<span class="card-combo">Derinys · ${sp.combo}</span>` : ''}
       <p class="lead">${sp.lead}</p>
       <div>
         <h4>Plotas ir talpos</h4>
@@ -176,7 +186,7 @@ if (modal){
         <ul class="equip" style="margin-top:.5rem">${sp.equip.map(e => `<li><span>${e}</span></li>`).join('')}</ul>
       </div>
       ${sp.note ? `<p class="card-note">${sp.note}</p>` : ''}
-      <p class="fineprint">${INCLUDED}</p>
+      <p class="fineprint">${TERMS[sp.loc].included} ${TERMS[sp.loc].min}</p>
       <div class="card-actions" style="margin-top:.4rem">
         <a class="chip chip--primary chip--sm" href="${askHref(sp.name)}">Gauti šios erdvės pasiūlymą</a>
         <a class="chip chip--sm" href="apziura.html">Rezervuoti apžiūrą</a>
@@ -285,8 +295,7 @@ if (locList){
       </div>
     </article>`).join('');
 
-  /* nuoroda su ?loc=zity atveria tą lokaciją; senos ?loc=arts nuorodos veda
-     į Tech Arts atsisveikinimo prierašą (#loc-arts — statinis blokas lokacijos.html) */
+  /* nuoroda su ?loc=zity atveria tą lokaciją; senos ?loc=arts nuorodos tiesiog rodo puslapį */
   const pLoc = PARAMS.get('loc');
   const locTarget = pLoc && document.getElementById('loc-' + pLoc);
   if (locTarget){

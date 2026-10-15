@@ -1,8 +1,10 @@
 /* ═══════════════ DUOMENYS ═══════════════
    Šaltiniai: „2026 Tech PARK Renginių erdvės LT",
-   „Samsung Konferencijų centras LT 2026" (bendra salių lentelė).
-   Tech Arts renginius priėmė iki 2026-10-06 — jos salės, nuotraukos ir žemėlapis išimti;
-   liko tik atsisveikinimo prierašas lokacijos.html (#loc-arts). */
+   „Samsung Konferencijų centras LT 2026" (bendra salių lentelė),
+   kliento pastabos 2026-10-15 (PASTABOS-2026-10-15.md).
+   Tech Arts išimta visiškai (renginiai nebevyksta nuo 2026-10-06, prierašo klientas nepageidauja).
+   Erdvių yra 8; `combo` pažymi 3 jų derinius (Didžioji + Mažoji, B + C, visas centras) —
+   jie rodomi kaip atskiros kortelės, bet į erdvių skaičių neįeina. */
 const LOC = {
   park: {name:'Tech Park', addr:'Antakalnio g. 17', color:'var(--park)', ink:'var(--park-ink)'},
   zity: {name:'Tech Zity Vilnius', addr:'Panerių g. 43', color:'var(--zity)', ink:'var(--zity-ink)'}
@@ -14,18 +16,30 @@ const TP_EQUIP = [
   '3 bevieliai „hand-held" ir 2 „headset" mikrofonai',
   '2 skaidrių prezenteriai, 3 mikrofonų laikikliai',
   'Wi-Fi, LAN, trifazės jungtys',
-  '255 kėdės, 20 rašomųjų stalų, 5 baro ir 9 kavos staliukai, 2 tribūnos, 3 baltos lentos',
+  '250 kėdžių, 20 rašomųjų stalų, 5 baro ir 5 kavos staliukai, 2 tribūnos, 2 baltos lentos',
   'Papildomai: 2 stumdomi TV — 75 € / vnt. + PVM'
 ];
-const INCLUDED = 'Į kainą įskaičiuota: erdvės nuoma, turima įranga, baldai ir jų išdėstymas, valymas prieš renginį ir kontaktinis žmogus nuomos metu.';
+/* Sąlygos skiriasi pagal lokaciją. Tech Park — 2026 pristatymo „Sąlygos" skaidrė (p. 11),
+   SKC — SKC pristatymas (samsungkc.lt „Į kainą įskaičiuota"); minimali SKC trukmė — kliento pastaba 2026-10-15. */
+const TERMS = {
+  park: {
+    min: 'Minimali rezervacija — 3 renginio valandos.',
+    included: 'Į kainą įskaičiuota: erdvės nuoma, turima įranga, turimi baldai ir jų išdėstymas prieš atvykstant, erdvių valymas prieš atvykstant ir kontaktinis žmogus nuomos metu. Valymas, apsauga ar kitos paslaugos renginio metu — papildomai.'
+  },
+  zity: {
+    min: 'Minimali nuoma — pusė dienos.',
+    included: 'Į kainą įskaičiuota: renginio erdvė, integruota garso, vaizdo ir apšvietimo įranga, 3 belaidžiai mikrofonai, renginio koordinatorius, turimų baldų išdėstymas teatro stiliumi, valymas prieš renginį ir bendrosios erdvės.'
+  }
+};
 
 const SPACES = [
   /* ── TECH PARK ── */
-  {id:'tp-kc', loc:'park', name:'Konferencijų centras', area:'300 m²', theatre:300, outdoor:false,
+  /* Teatro talpa 250 (kliento pastaba 2026-10-15: „Teatru sodiname 250 žmonių"; pristatyme buvo 300) */
+  {id:'tp-kc', loc:'park', name:'Konferencijų centras', combo:'Didžioji + Mažoji salės', area:'300 m²', theatre:250, outdoor:false,
    lead:'Didžioji ir Mažoji salės kartu — universaliausia Tech Park erdvė konferencijoms su maitinimu ir kūrybine laisve.',
-   layouts:[['Teatro',300],['Teatro (šonu)',225],['Klasės (po 2)',200],['Dirbtuvių (po 4)',175],['Vakarienės (po 6–8)',180],['Stovimas',325]],
+   layouts:[['Teatro',250],['Teatro (šonu)',225],['Klasės (po 2)',200],['Dirbtuvių (po 4)',175],['Vakarienės (po 6–8)',180],['Stovimas',325]],
    equip:TP_EQUIP,
-   hero:'tz-kc', photos:[['tp-kc-1','Teatro stiliumi | iki 300'],['tp-kc-2','Klasės stiliumi (grupės po 2) | iki 200'],['tp-kc-3','Dirbtuvių stiliumi (grupės po 4) | iki 175'],['tp-kc-4','Grupės po 6–8 | Vakarienės | iki 180'],['tp-kc-5','Teatro stiliumi (šonu) | iki 225'],['tp-kc-6','Stovimas renginys | Kūrybinė laisvė | iki 325']]},
+   hero:'tz-kc', photos:[['tp-kc-1','Teatro stiliumi | iki 250'],['tp-kc-2','Klasės stiliumi (grupės po 2) | iki 200'],['tp-kc-3','Dirbtuvių stiliumi (grupės po 4) | iki 175'],['tp-kc-4','Grupės po 6–8 | Vakarienės | iki 180'],['tp-kc-5','Teatro stiliumi (šonu) | iki 225'],['tp-kc-6','Stovimas renginys | Kūrybinė laisvė | iki 325']]},
 
   {id:'tp-didz', loc:'park', name:'Didžioji salė', area:'210 m²', theatre:190, outdoor:false,
    lead:'Šviesi salė su didžiuliais langais į Sapiegų parką — konferencijoms, pristatymams ir vakarienėms.',
@@ -59,7 +73,7 @@ const SPACES = [
    equip:['SAMSUNG 2,5 mm LED ekranas 6 720 × 3 780 mm, valdymas AVoIP sistema','Iki 6 × 65" dubliavimo ekranų','8 kolonėlių garso sistema','5 × Shure MXW2/BETA58 ir 2 × TH53/O-MTQG mikrofonai','12 × „wash" prožektorių, DMX valdiklis','Valdomas RGB stogo skliauto apšvietimas','Scena 3 × 10 m (Hexa danga, 60–80 cm aukštis)'],
    photos:[['hall-a-1','Didžioji salė A — medinių santvarų skliautas ir scena'],['hall-a-2','Vaizdas nuo scenos į salę']]},
 
-  {id:'skc-bc', loc:'zity', name:'Vidutinė salė B+C', area:'250 m²', theatre:220, outdoor:false, dir:'skc',
+  {id:'skc-bc', loc:'zity', name:'Vidutinė salė B+C', combo:'B + C salės', area:'250 m²', theatre:220, outdoor:false, dir:'skc',
    lead:'Sujungtos B ir C salės su LED siena ir scena — konferencijoms iki 220 dalyvių arba vakarienei iki 140 svečių.',
    layouts:[['Teatro',220],['Vakarienės',140],['Klasės',110],['Kabareto',95],['Prie stalelių',190],['Be baldų',300]],
    equip:['SAMSUNG 2,5 mm LED ekranas 5 760 × 3 240 mm, valdymas AVoIP sistema','Iki 4 × 65" dubliavimo ekranų','6 kolonėlių garso sistema','4 × MXW2/BETA58 ir 2 × TH53/O-MTQG mikrofonai','4 × „wash" prožektoriai, DMX valdiklis','Valdomas RGB skliauto apšvietimas','Scena 3 × 10 m (Hexa danga, 60–80 cm aukštis)'],
@@ -83,7 +97,7 @@ const SPACES = [
    equip:['Skaidraus tento paviljonas (apie 10 m pločio)','Lauko elektros įvadai ir kabinimo taškai','Mobilios garso kolonėlės laukui','Paviljono nuoma ne vasaros sezonu — 400 € / renginio dienai'],
    photos:[['orangery-1','Oranžerija — skaidraus tento paviljonas su svečiais'],['orangery-decor','Dekoravimo pavyzdys su apvaliais stalais'],['orangery-2','Paviljono vidus']]},
 
-  {id:'skc-abcd', loc:'zity', name:'Visas centras (buy-out)', area:'2 650 m²', theatre:1000, outdoor:false, dir:'skc',
+  {id:'skc-abcd', loc:'zity', name:'Visas centras (buy-out)', combo:'visos salės, holai ir kiemas', area:'2 650 m²', theatre:1000, outdoor:false, dir:'skc',
    lead:'Privatus viso pastato naudojimas: visos salės, holai, restoranas „Gastrolės" ir kiemas — iki 1 000 dalyvių viename renginyje.',
    note:'Holas 1A ir Holas 2A (stovimi priėmimai iki 360 ir 270 svečių) bei restoranas „Gastrolės" (vakarienės iki 190) nuomojami tik kartu su salėmis.',
    layouts:[['Teatro',1000],['Vakarienės',775],['Klasės',725],['Kabareto',585],['Prie stalelių',1000],['Be baldų',1000]],
@@ -96,7 +110,7 @@ const SPACES = [
    failai yra renderiai / dekoravimo pavyzdžiai, o čia žadamos „tikros akimirkos". Kur kadras
    nėra to scenarijaus renginys (tuščia salė), alt aprašo tai, kas matyti, o ne scenarijų. */
 const SCEN = [
-  {k:'konferencija', label:'Konferencijos', photos:[['scen-tp-1','Tech Park','Konferencija · Tech Park'],['tp-kc-1','Konferencijų centras · Tech Park','Konferencijų centras teatro stiliumi iki 300 dalyvių · Tech Park'],['scen-tp-3','Seminaras · Tech Park'],['scen-tp-2','Networking · Tech Park','Dalyviai bendrauja koridoriuje prie stendų · Tech Park']], size:'m'},
+  {k:'konferencija', label:'Konferencijos', photos:[['scen-tp-1','Tech Park','Konferencija · Tech Park'],['tp-kc-1','Konferencijų centras · Tech Park','Konferencijų centras teatro stiliumi iki 250 dalyvių · Tech Park'],['scen-tp-3','Seminaras · Tech Park'],['scen-tp-2','Networking · Tech Park','Dalyviai bendrauja koridoriuje prie stendų · Tech Park']], size:'m'},
   {k:'hakatonas', label:'Hakatonai ir mokymai', photos:[['scen-tp-3','Tech Park','Hakatonas · Tech Park'],['tp-kc-3','Darbas grupėse · Tech Park','Konferencijų centras dirbtuvių stiliumi, grupės po 4 · Tech Park'],['scen-tp-2','Off-site · Tech Park'],['tp-maz-2','Mokymams · Tech Park','Mažoji salė klasės stiliumi · Tech Park']], size:'m'},
   {k:'vakarelis', label:'Įmonių vakarėliai', photos:[['scen-tp-4','Tech Park','Įmonės vakarėlis · Tech Park'],['tp-mterasa-5','Priėmimas · Tech Park','Priėmimas prie įėjimo · Tech Park'],['scen-tp-6','Vakaro šventė · Tech Park'],['tp-mterasa-4','Vasaros šventė · Tech Park','Vasaros šventė su paviljonais kieme · Tech Park']], size:'l'},
   {k:'koncertas', label:'Koncertai', photos:[['scen-tp-4','Tech Park','Koncertas · Tech Park'],['tp-terasa-5','Kieme · Tech Park','Koncertas kieme · Tech Park'],['scen-tp-6','Scena ir apšvietimas'],['tp-terasa-6','Po tentu · Tech Park','Publika po tentu kieme · Tech Park']], size:'l'},

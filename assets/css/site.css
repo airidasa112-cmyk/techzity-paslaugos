@@ -131,8 +131,8 @@ header[data-scrolled] .burger{color:var(--ink)}
 .crumbs a{text-decoration:none}
 .crumbs a:hover{text-decoration:underline}
 .hero h1{font-size:clamp(2.4rem,6.4vw,4.6rem);max-width:16ch;text-shadow:0 2px 24px rgba(0,0,0,.45)}
-.hero-sub{font-size:clamp(1rem,1.9vw,1.2rem);max-width:44ch;margin:var(--s3) 0 var(--s4);color:rgba(255,255,255,.94);text-shadow:0 1px 12px rgba(0,0,0,.5)}
-.hero-ctas{display:flex;gap:.8rem;flex-wrap:wrap}
+/* po H1 iš karto mygtukai — aprašomojo teksto hero nebėra (kliento pastaba 2026-10-15: kartojo faktų juostą) */
+.hero-ctas{display:flex;gap:.8rem;flex-wrap:wrap;margin-top:var(--s4)}
 .hero-locs{display:flex;gap:.5rem;flex-wrap:wrap;margin-bottom:var(--s3)}
 .loc-tag{display:inline-flex;align-items:center;gap:.45rem;font-family:var(--font-m);font-size:.66rem;letter-spacing:.12em;text-transform:uppercase;
   border:1px solid rgba(255,255,255,.3);border-radius:999px;padding:.32rem .7rem;color:#fff}
@@ -203,6 +203,8 @@ h3{font-size:clamp(1.15rem,2vw,1.4rem)}
 .card-body{padding:1.15rem 1.25rem 1.35rem;display:flex;flex-direction:column;gap:.7rem;flex:1}
 .card-loc{display:inline-flex;align-items:center;gap:.45rem;font-family:var(--font-m);font-size:.64rem;letter-spacing:.11em;text-transform:uppercase;font-weight:700}
 .card h3{font-size:1.28rem}
+/* derinys (Didžioji + Mažoji, B + C, visas centras) — į erdvių skaičių neįeina, todėl pažymimas */
+.card-combo{align-self:flex-start;font-size:.875rem;color:var(--steel);border:1px solid var(--line);border-radius:999px;padding:.15rem .7rem}
 .metas{display:flex;gap:1.2rem;flex-wrap:wrap;font-size:.85rem;color:var(--steel);border-top:1px solid var(--line);padding-top:.7rem}
 .metas b{color:var(--ink);font-family:var(--font-d);font-size:1.05rem;display:block;line-height:1.1}
 .card-note{font-size:.78rem;color:var(--rust-deep);background:#FBF0E6;padding:.5rem .75rem;border-left:3px solid var(--rust)}
@@ -270,6 +272,11 @@ h3{font-size:clamp(1.15rem,2vw,1.4rem)}
 .panel--dark .ticks li svg{color:var(--park)}
 .fineprint{font-size:.8rem;color:var(--steel);margin-top:var(--s2);line-height:1.55}
 .panel--dark .fineprint{color:rgba(255,255,255,.66)}
+/* sąlygos pagal lokaciją (Tech Park / SKC) */
+.terms{display:grid;gap:1rem;margin-top:var(--s2)}
+.terms > div{border-top:1px solid var(--line);padding-top:.9rem}
+.terms-loc{display:flex;align-items:center;gap:.5rem;font-weight:700}
+.terms .ticks,.terms .fineprint{margin-top:.5rem}
 .dl-row{display:grid;gap:.6rem;margin-top:var(--s4);max-width:660px}
 .dl-title{font-family:var(--font-m);font-size:.7rem;letter-spacing:.14em;text-transform:uppercase;color:var(--steel);margin-bottom:.15rem}
 .dl-link{display:flex;align-items:center;gap:.7rem;min-height:52px;padding:.8rem 1.1rem;background:var(--sage);
@@ -291,13 +298,6 @@ h3{font-size:clamp(1.15rem,2vw,1.4rem)}
 .dist li{display:grid;grid-template-columns:5.6rem 1fr;gap:.7rem;font-size:.88rem;align-items:baseline}
 .dist b{font-family:var(--font-d);font-size:1.02rem;color:var(--wine)}
 .park-info{background:var(--snow);border:1px solid var(--line);padding:.75rem .9rem;font-size:.85rem;line-height:1.5;color:#333333}
-/* Tech Arts atsisveikinimo prierašas (lokacijos.html#loc-arts) — be nuotraukos ir lokacijos spalvos,
-   kad neatrodytų kaip dar viena veikianti lokacija */
-.farewell{max-width:46rem;background:var(--white);border:1px solid var(--line);border-left:4px solid var(--steel);
-  padding:clamp(1.3rem,3vw,1.9rem);display:grid;gap:.8rem}
-.farewell h2{font-size:clamp(1.35rem,2.6vw,1.9rem)}
-.farewell-addr{font-family:var(--font-m);font-size:.68rem;letter-spacing:.14em;text-transform:uppercase;color:var(--steel)}
-.farewell p:not(.eyebrow):not(.farewell-addr){line-height:1.6;max-width:62ch}
 
 /* ══ SOCIAL PROOF (korekcija 10) ══ */
 .rev-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:.9rem}
@@ -429,7 +429,7 @@ footer{background:var(--wine);color:rgba(255,255,255,.72);padding-block:var(--s5
   .cards,.scen-grid,.rev-grid,.book-grid,.foot{grid-template-columns:1fr}
   .hero{min-height:auto}
   .hero-inner{padding-top:clamp(2.75rem,6vh,3.75rem);padding-bottom:clamp(1.5rem,3vh,2.25rem)}
-  .hero-sub{margin:var(--s2) 0 var(--s3)}
+  .hero-ctas{margin-top:var(--s3)}
   .hero-locs{gap:.35rem;margin-bottom:var(--s2)}
   .hero .contact-row{gap:.45rem;margin-top:var(--s3)}
   .hero .cbtn{padding:.5rem .95rem;font-size:.9rem}

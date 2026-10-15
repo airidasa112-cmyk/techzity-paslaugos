@@ -37,11 +37,11 @@ santraukų korteles į visas skiltis).
 
 | Puslapis | Kas jame |
 |---|---|
-| `index.html` | Hero su video, faktų juosta ir kiekvienos skilties santrauka: 3 erdvės (iš abiejų lokacijų), 4 scenarijai, 2 lokacijos (+ eilutė apie Tech Arts), kainodara + apžiūros, atsiliepimai, 3 DUK klausimai — visa kita atsiveria dedikuotame puslapyje |
-| `erdves.html` | Filtrai, 11 erdvių kortelių, salės pop-upas |
+| `index.html` | Hero su video, faktų juosta ir kiekvienos skilties santrauka: 3 erdvės (iš abiejų lokacijų), 4 scenarijai, 2 lokacijos, kainodara (sąlygos pagal lokaciją) + apžiūros, atsiliepimai, 3 DUK klausimai — visa kita atsiveria dedikuotame puslapyje |
+| `erdves.html` | Filtrai, 8 erdvės + 3 deriniai (11 kortelių), salės pop-upas |
 | `scenarijai.html` | Renginių formatai ir nuotraukų tinklelis |
 | `kainos.html` | Kas įskaičiuota + kainoraščio forma (lead magnet) |
-| `lokacijos.html` | Interaktyvus žemėlapis, atstumai, parkavimas + Tech Arts atsisveikinimo prierašas (`#loc-arts`) |
+| `lokacijos.html` | Interaktyvus žemėlapis, atstumai, parkavimas |
 | `atsiliepimai.html` | Atsiliepimų nuorodos ir klientų sąrašai |
 | `turas.html` | Virtualus 360° turas (Tech Park) |
 | `apziura.html` | 3 apžiūrų kalendoriaus nuorodos (2 lokacijos + konsultacija) |
@@ -52,8 +52,7 @@ santraukų korteles į visas skiltis).
 Puslapiai susikalba per URL parametrus: `erdves.html?loc=zity&size=l` (iš anksto uždeda filtrus),
 `erdves.html?atidaryti=tp-kc` (iš karto atveria salės pop-upą), `lokacijos.html?loc=zity`
 (atidaro lokaciją žemėlapyje), `uzklausa.html?erdve=Didžioji salė` (parenka erdvę formos sąraše).
-Senos `?loc=arts` nuorodos nelūžta: erdvių puslapis rodo visas erdves, o `lokacijos.html?loc=arts`
-nuslenka į Tech Arts prierašą.
+Senos `?loc=arts` nuorodos nelūžta: abu puslapiai tiesiog atsidaro be filtro.
 
 Pradinio puslapio santraukos generuojamos iš tų pačių duomenų — kurios rodomos, nurodo `data-`
 atributai HTML'e: `#cardsTeaser[data-ids]` (erdvių `id`), `#scenTeaser[data-keys]` (scenarijų `k`).
@@ -100,8 +99,8 @@ Turinys kraunamas iš JS masyvų, todėl naują salę pridėti = įrašyti dar v
 
 - **Apžiūrų kalendorius**: visos 3 kortelės veda į tą patį Google appointments booker.
   Kai bus atskiros nuorodos abiem lokacijoms — pakeisti `href` faile `apziura.html`.
-- **„300+ klientų renginių per metus"** skaičiuota dar su Tech Arts — laukiama kliento patikslinimo
-  (`index.html` faktų juosta ir `.bigstat`, `atsiliepimai.html` `.bigstat`).
+- **„300+ klientų renginių per metus"** pašalinta 2026-10-15 (klientas: nesutampa). Grąžinti tik su
+  kliento patvirtintu skaičiumi (`.bigstat` stiliai palikti `site.css`).
 - **Google įvertinimas ir citatos**: kortelės veda į profilius, bet konkretaus balo nėra
   (senos „4,8 / 5" ir dvi citatos buvo pavyzdinės — pašalintos).
 - **Klientų logotipai**: kol nėra failų, rodomi vardų ženkleliai. Pradiniame puslapyje jie sudėti į
@@ -113,19 +112,25 @@ Turinys kraunamas iš JS masyvų, todėl naują salę pridėti = įrašyti dar v
 - **Terasų talpos** (Tech Park 750 / 500) paimtos iš senesnio demo — pristatymuose
   jų nėra, verta patvirtinti su klientu.
 
-## Tech Arts (2026-10-06)
+## Tech Arts (2026-10-06) ir erdvių skaičius (2026-10-15)
 
 Kliento pranešimu Tech Arts parduota — renginių ten nebėra nuo 2026 m. spalio 6 d. Iš svetainės
 išimtos visos 5 salės, žemėlapis, filtras, turas, apžiūros kortelė, atsiliepimų nuorodos, PDF ir
-nuotraukos (`ta-*`, `scen-ta-*`, `loc/arts.jpg`, `tz-galerija.jpg`). Scenarijuose Tech Arts kadrai
-pakeisti tik tikromis Tech Park nuotraukomis (SKC `scn-*` ir oranžerijos failai — renderiai /
-dekoravimo pavyzdžiai). Paliktas tik istorinis prierašas `lokacijos.html#loc-arts` ir viena eilutė
-pradiniame puslapyje — tai kliento noras (profesionali komunikacija), jų netrinti.
-Skaičiai po pakeitimo: 11 erdvių, 2 lokacijos, 20–1 000 svečių (mažiausia — Tech Park Mažoji salė
-posėdžiui, 20).
+nuotraukos. 2026-10-15 kliento prašymu (Eimantas) **pašalintas ir atsisveikinimo prierašas** —
+Tech Arts svetainėje nebeminima visai.
+
+**Erdvių yra 8** (Tech Park: Didžioji ir Mažoji salės, dvi terasos su kiemais; SKC: A, B, C ir
+Oranžerija + Kiemas). Kortelių 11, nes 3 yra deriniai — Konferencijų centras (Didžioji + Mažoji),
+B+C ir visas centras; `data.js` juos žymi lauku `combo`, kortelėje ir pop-upe rodoma „Derinys · …",
+o erdvių skaitiklis juos skaičiuoja atskirai („8 erdvės ir 3 deriniai"). Svečių intervalas 20–1 000.
+
+**Sąlygos skiriasi pagal lokaciją** — `TERMS` faile `data.js` (pop-upas), kainodaros skydelis
+`index.html` ir DUK. Tech Park — 2026 pristatymo „Sąlygos" skaidrė; SKC — SKC pristatymas
+(tas pats sąrašas samsungkc.lt); SKC minimali trukmė (pusė dienos) — kliento pastaba 2026-10-15.
 
 ## Kontekstas
 
+`PASTABOS-2026-10-15.md` — naujausios kliento pastabos, etapai ir atviri klausimai.
 `KOREKCIJOS-1-19.md` — kliento pastabų sąrašas (2026-07, dar su Tech Arts) ir kas pagal kiekvieną punktą padaryta,
 su nuoroda, iš kurio šaltinio paimtas kiekvienas skaičius. **Perskaityk prieš keisdamas turinį** —
 talpos, įranga ir kainos ateina iš kliento 2026 m. pristatymų, nieko neišgalvota.
