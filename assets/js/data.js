@@ -154,13 +154,61 @@ const CLIENTS = {
   organizacijos:['EPP','APVA','Architektūros Fondas','Plug&Play','Agata','Go Vilnius','Inovacijų Agentūra','Lithuania AI','SCCL','Idialogue','Antakalnio Poliklinika','Lietuvos Junior Achievement','VVK','Šauliai']
 };
 
-/* vardas → [logotipo failas assets/img/logos/, pločio ir aukščio santykis]. Tik oficialūs failai
-   (organizacijos svetainė arba Wikimedia Commons — šaltiniai PASTABOS-2026-10-15.md). Santykis — optiniam
+/* vardas → [logotipo failas assets/img/logos/, pločio ir aukščio santykis, 1 = tik baltas (rodomas siluetu)]. Tik oficialūs failai
+   (organizacijų svetainės — šaltiniai PASTABOS-2026-10-15.md). Santykis — optiniam
    dydžiui: kvadratiškas logotipas rodomas aukštesnis, ilgas — žemesnis (site.js clientItem). */
-const LOGOS = {'Google':['google.svg',3.30],'Meta':['meta.svg',4.96],'LTG':['ltg.png',2.11],'Vinted':['vinted.svg',3.09],'Wix':['wix.svg',2.58],
-  'Swedbank':['swedbank.svg',4.66],'Surfshark':['surfshark.svg',4.28],'Nord Security':['nord-security.svg',3.57],'Hostinger':['hostinger.svg',5.00],
-  'Luminor':['luminor.svg',4.46],'Ignitis':['ignitis.svg',3.56],'EY':['ey.svg',0.92],'Go Vilnius':['go-vilnius.png',7.90],'Delfi':['delfi.svg',2.83],
-  'Turing College':['turing-college.svg',4.08],'Havas':['havas.svg',4.73],'Plug&Play':['plug-and-play.svg',5.32],'Ermitažas':['ermitazas.svg',5.00]};
+const LOGOS = {
+  'Google':['google.svg',3.30],
+  'Meta':['meta.svg',4.96],
+  'LTG':['ltg.png',2.11],
+  'Vinted':['vinted.svg',3.09],
+  'Wix':['wix.svg',2.58],
+  'Swedbank':['swedbank.svg',4.66],
+  'Surfshark':['surfshark.svg',4.28],
+  'Nord Security':['nord-security.svg',3.57],
+  'Hostinger':['hostinger.svg',5.00],
+  'Luminor':['luminor.svg',4.46],
+  'Ignitis':['ignitis.svg',3.56],
+  'EY':['ey-horizontal-white.svg',2.49,1],
+  'Go Vilnius':['go-vilnius.png',7.90],
+  'Delfi':['delfi.svg',2.83],
+  'Turing College':['turing-college.svg',4.08],
+  'Havas':['havas.svg',4.73],
+  'Plug&Play':['plug-and-play.svg',5.32],
+  'Ermitažas':['ermitazas-no-slogan.png',6.90],
+  'Citus':['citus.svg',3.87],
+  'Reefo':['reefo.svg',7.25],
+  'Deeper':['deeper.svg',4.01],
+  'JUDU':['judu.svg',4.40],
+  'Verslo Žinios':['verslo-zinios.svg',7.88,1],
+  'Naresta':['naresta.svg',5.89],
+  'Capitalica':['capitalica.svg',8.18],
+  'Gym+':['gym-plius.svg',4.30],
+  'SIRIN':['sirin.svg',4.40],
+  '361 Forma':['361-forma.svg',2.58],
+  'MVP Sprendimai':['mvp-sprendimai.png',2.66],
+  'Jump Agency':['jump-agency.svg',1.97],
+  'Correctus':['correctus.svg',4.18],
+  'Propeller':['propeller.svg',5.02,1],
+  'Rekūrai':['rekurai.svg',1.69,1],
+  'Neimai':['neimai.png',0.96],
+  'Estravel':['estravel.png',3.39],
+  'Fabula':['fabula.svg',4.26],
+  'One More':['one-more-wordmark.png',1.53],
+  'Partizanas':['partizanas.png',1.00],
+  'Time2':['time2.svg',5.23],
+  'Agency UP':['agency-up.svg',4.48],
+  'APVA':['apva.png',5.13],
+  'Architektūros Fondas':['architekturos-fondas.svg',3.90],
+  'Agata':['agata.png',6.42,1],
+  'Inovacijų Agentūra':['inovaciju-agentura.svg',2.40],
+  'Lithuania AI':['lithuania-ai.png',4.24],
+  'SCCL':['sccl.png',1.72],
+  'Idialogue':['idialogue.png',4.57],
+  'Antakalnio Poliklinika':['antakalnio-poliklinika.png',1.50],
+  'Lietuvos Junior Achievement':['lietuvos-junior-achievement.png',4.29],
+  'Šauliai':['sauliu-sajunga.svg',2.01]
+};
 
 /* nuotraukų versija URL'e (?v=) — pakelti, kai failas pakeičiamas tuo pačiu vardu (žr. README „Nuotraukos") */
 const IMG_V = 2;

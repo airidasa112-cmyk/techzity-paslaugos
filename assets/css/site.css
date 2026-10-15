@@ -424,6 +424,8 @@ footer{background:var(--wine);color:rgba(255,255,255,.72);padding-block:var(--s5
 /* logotipai pilki, užvedus — spalvoti; aukštį nustato site.js pagal proporcijas */
 .marquee .cname img{width:auto;max-width:170px;object-fit:contain;filter:grayscale(1);opacity:.8;transition:filter .2s ease,opacity .2s ease}
 .marquee .cname--logo:hover img{filter:none;opacity:1}
+/* tik balti logotipai (Verslo Žinios, Propeller, Rekūrai, Agata, EY) — juodu siluetu, kitaip baltame fone nesimatytų */
+.marquee .cname--sil img,.marquee .cname--sil:hover img{filter:brightness(0);opacity:.78}
 .marquee-toggle{justify-self:start;min-height:44px;display:inline-flex;align-items:center;font-size:var(--fs-s);color:var(--steel);text-decoration:underline;text-underline-offset:3px}
 .marquee-toggle:hover{color:var(--ink)}
 .clients .marquee{margin-inline:calc(clamp(1.15rem,4vw,2rem) * -1)}
