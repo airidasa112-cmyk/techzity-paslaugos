@@ -168,7 +168,7 @@ pristatymo PDF išdėstymų kadrai (žr. `PASTABOS-2026-10-15.md`, 3 etapas).
 
 `vercel.json` uždeda `/assets/*` failams `Cache-Control: immutable, max-age=31536000` — naršyklė
 tokio failo neperklaus metus, net su Ctrl+Shift+R. Todėl CSS ir JS nuorodos HTML'e turi versijos
-parametrą: `site.css?v=2`, `data.js?v=2`, `site.js?v=2`.
+parametrą: `site.css?v=N`, `data.js?v=N`, `site.js?v=N` (2026-10-15 — `v=14`).
 
 **Pakeitus `assets/css/site.css` arba `assets/js/*.js` — pakelk `v` numerį visuose HTML failuose**,
 kitaip anksčiau svetainėje buvę lankytojai matys seną CSS/JS su nauju HTML: puslapis atrodys
