@@ -143,10 +143,13 @@ if (scenTeaser){
    Pradiniame — viena juosta (CLIENTS_FEATURED), atsiliepimų puslapyje — po juostą kiekvienai grupei
    (kliento pastaba 2026-10-15). Sąrašas dubliuojamas, kad ciklas būtų be tarpo; dublikatas paslėptas
    nuo skaitytuvų ir nerodomas išjungus animacijas. Jei LOGOS turi failą — rodomas logotipas. */
+/* optinis dydis: aukštis ~ 1/√santykio (28 px, kai santykis 3,2), ribos 20–44 px */
+const logoH = (ar) => Math.round(Math.min(44, Math.max(20, 28 * Math.sqrt(3.2 / ar))));
 const clientItem = (n, clone) => {
-  const logo = LOGOS[n];
-  return `<span class="cname${logo ? ' cname--logo' : ''}${clone ? ' is-clone' : ''}"${clone ? ' aria-hidden="true"' : ''}>${
-    logo ? `<img src="assets/img/logos/${logo}" alt="${clone ? '' : n}" loading="lazy">` : n}</span>`;
+  const [file, ar] = LOGOS[n] || [];
+  const h = file && logoH(ar);
+  return `<span class="cname${file ? ' cname--logo' : ''}${clone ? ' is-clone' : ''}"${clone ? ' aria-hidden="true"' : ''}>${
+    file ? `<img src="assets/img/logos/${file}" alt="${clone ? '' : n}" height="${h}" width="${Math.round(h * ar)}" style="height:${h}px" loading="lazy">` : n}</span>`;
 };
 $$('[data-clients]').forEach(el => {
   const names = el.dataset.clients === 'featured' ? CLIENTS_FEATURED : (CLIENTS[el.dataset.clients] || []);

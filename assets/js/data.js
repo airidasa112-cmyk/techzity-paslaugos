@@ -154,8 +154,13 @@ const CLIENTS = {
   organizacijos:['EPP','APVA','Architektūros Fondas','Plug&Play','Agata','Go Vilnius','Inovacijų Agentūra','Lithuania AI','SCCL','Idialogue','Antakalnio Poliklinika','Lietuvos Junior Achievement','VVK','Šauliai']
 };
 
-/* vardas → logotipo failas (assets/img/logos/); pildoma, kai turime oficialų failą */
-const LOGOS = {};
+/* vardas → [logotipo failas assets/img/logos/, pločio ir aukščio santykis]. Tik oficialūs failai
+   (organizacijos svetainė arba Wikimedia Commons — šaltiniai PASTABOS-2026-10-15.md). Santykis — optiniam
+   dydžiui: kvadratiškas logotipas rodomas aukštesnis, ilgas — žemesnis (site.js clientItem). */
+const LOGOS = {'Google':['google.svg',3.30],'Meta':['meta.svg',4.96],'LTG':['ltg.png',2.11],'Vinted':['vinted.svg',3.09],'Wix':['wix.svg',2.58],
+  'Swedbank':['swedbank.svg',4.66],'Surfshark':['surfshark.svg',4.28],'Nord Security':['nord-security.svg',3.57],'Hostinger':['hostinger.svg',5.00],
+  'Luminor':['luminor.svg',4.46],'Ignitis':['ignitis.svg',3.56],'EY':['ey.svg',0.92],'Go Vilnius':['go-vilnius.png',7.90],'Delfi':['delfi.svg',2.83],
+  'Turing College':['turing-college.svg',4.08],'Havas':['havas.svg',4.73],'Plug&Play':['plug-and-play.svg',5.32],'Ermitažas':['ermitazas.svg',5.00]};
 
 /* nuotraukų versija URL'e (?v=) — pakelti, kai failas pakeičiamas tuo pačiu vardu (žr. README „Nuotraukos") */
 const IMG_V = 2;

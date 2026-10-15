@@ -421,7 +421,9 @@ footer{background:var(--wine);color:rgba(255,255,255,.72);padding-block:var(--s5
 .marquee .cname{flex:0 0 auto;margin-right:.55rem;border:1px solid var(--line);background:var(--white);
   padding:.55rem .95rem;font-size:var(--fs-b);color:#333333;white-space:nowrap;display:inline-flex;align-items:center;min-height:44px}
 .marquee .cname--logo{padding:.5rem 1.1rem}
-.marquee .cname img{height:26px;width:auto;max-width:150px;object-fit:contain;filter:grayscale(1);opacity:.85}
+/* logotipai pilki, užvedus — spalvoti; aukštį nustato site.js pagal proporcijas */
+.marquee .cname img{width:auto;max-width:170px;object-fit:contain;filter:grayscale(1);opacity:.8;transition:filter .2s ease,opacity .2s ease}
+.marquee .cname--logo:hover img{filter:none;opacity:1}
 .marquee-toggle{justify-self:start;min-height:44px;display:inline-flex;align-items:center;font-size:var(--fs-s);color:var(--steel);text-decoration:underline;text-underline-offset:3px}
 .marquee-toggle:hover{color:var(--ink)}
 .clients .marquee{margin-inline:calc(clamp(1.15rem,4vw,2rem) * -1)}
