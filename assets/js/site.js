@@ -157,12 +157,6 @@ $$('[data-clients]').forEach(el => {
   el.innerHTML = `<div class="marquee-track" style="--dur:${Math.round(names.length * 2.9)}s">${
     names.map(n => clientItem(n, false)).join('') + names.map(n => clientItem(n, true)).join('')}</div>`;
 });
-/* judantį turinį galima sustabdyti (WCAG 2.2.2) */
-$$('.marquee-toggle').forEach(b => b.addEventListener('click', () => {
-  const paused = b.getAttribute('aria-pressed') !== 'true';
-  document.documentElement.toggleAttribute('data-marquee-paused', paused);
-  $$('.marquee-toggle').forEach(x => { x.setAttribute('aria-pressed', String(paused)); x.textContent = paused ? 'Paleisti judėjimą' : 'Sustabdyti judėjimą'; });
-}));
 
 const locTeaser = $('#locTeaser');
 if (locTeaser){

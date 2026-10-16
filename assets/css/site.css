@@ -415,7 +415,7 @@ footer{background:var(--wine);color:rgba(255,255,255,.72);padding-block:var(--s5
   mask-image:linear-gradient(90deg,transparent,#000 5%,#000 95%,transparent)}
 .marquee-track{display:flex;width:max-content;animation:marquee-ltr var(--dur,52s) linear infinite}
 .marquee[data-dir="rtl"] .marquee-track{animation-name:marquee-rtl}
-[data-marquee-paused] .marquee-track{animation-play-state:paused}
+/* stabdymo mygtuko nebėra (2026-10-16) — juosta sustoja užvedus pelę ar fokusą; be animacijų — paprastas sąrašas */
 .marquee:hover .marquee-track,.marquee:focus-within .marquee-track{animation-play-state:paused}
 /* tarpas per margin (ne gap), kad abi sąrašo kopijos būtų identiško pločio ir ciklas nešokinėtų */
 .marquee .cname{flex:0 0 auto;margin-right:.55rem;border:1px solid var(--line);background:var(--white);
@@ -426,8 +426,6 @@ footer{background:var(--wine);color:rgba(255,255,255,.72);padding-block:var(--s5
 .marquee .cname--logo:hover img{filter:none;opacity:1}
 /* tik balti logotipai (Verslo Žinios, Propeller, Rekūrai, Agata, EY) — juodu siluetu, kitaip baltame fone nesimatytų */
 .marquee .cname--sil img,.marquee .cname--sil:hover img{filter:brightness(0);opacity:.78}
-.marquee-toggle{justify-self:start;min-height:44px;display:inline-flex;align-items:center;font-size:var(--fs-s);color:var(--steel);text-decoration:underline;text-underline-offset:3px}
-.marquee-toggle:hover{color:var(--ink)}
 .clients .marquee{margin-inline:calc(clamp(1.15rem,4vw,2rem) * -1)}
 @keyframes marquee-ltr{from{transform:translateX(-50%)}to{transform:translateX(0)}}
 @keyframes marquee-rtl{from{transform:translateX(0)}to{transform:translateX(-50%)}}
@@ -537,7 +535,6 @@ footer{background:var(--wine);color:rgba(255,255,255,.72);padding-block:var(--s5
   .marquee{-webkit-mask-image:none;mask-image:none}
   .marquee-track{animation:none;flex-wrap:wrap;width:auto;row-gap:.55rem}
   .marquee .cname.is-clone{display:none}
-  .marquee-toggle{display:none}
 }
 
 /* ══ TELEFONAS — trumpesnis puslapis (kliento pastaba 2026-10-15: telefone ~10 000 px) ══
@@ -559,9 +556,11 @@ footer{background:var(--wine);color:rgba(255,255,255,.72);padding-block:var(--s5
 }
 @media(max-width:560px){
   :root{--sec:2.5rem}
-  /* poraštė: kontaktai per visą plotį, nuorodų grupės dviem stulpeliais */
+  /* poraštė: kontaktai ir lokacijos per visą plotį (adresai telpa vienoje eilutėje),
+     „Renginių erdvės" ir „Sužinok" — greta, antraštės ir eilutės sulygiuotos (2026-10-16) */
   .foot{grid-template-columns:1fr 1fr;gap:1.25rem 1rem}
   .foot > :first-child{grid-column:1 / -1}
-  /* ilgiausia grupė („Renginių erdvės") kairėje per dvi eilutes, kitos dvi — dešinėje viena po kitos */
-  .foot > :nth-child(2){grid-row:span 2}
+  .foot > :nth-child(3){grid-column:1 / -1;grid-row:2}
+  .foot > :nth-child(2){grid-column:1;grid-row:3}
+  .foot > :nth-child(4){grid-column:2;grid-row:3}
 }
