@@ -50,13 +50,17 @@ function cardHTML(sp, {teaser = false} = {}){
   return `<article class="card">
       <div class="card-media">
         <img loading="lazy" ${pic(imgPath(sp, (teaser && sp.hero) || sp.photos[0][0]), SIZES.card)} alt="${sp.name} — ${L.name}, ${L.addr}" width="1200" height="750">
+        ${sp.combo ? `<span class="card-combo">Derinys · ${sp.combo}</span>` : ''}
         <span class="card-count">${sp.photos.length} nuotr.</span>
       </div>
       <div class="card-strip" style="background:${L.color}"></div>
-      <div class="card-body">
+      <!-- galva ir kūnas — atskiros eilės (CSS subgrid): vienos eilės kortelėse talpos ir mygtukai stovi vienoje linijoje,
+           net jei kurioje nors lūžta adresas ar pavadinimas; „Derinys" — ant nuotraukos (kliento pastaba 2026-10-16) -->
+      <div class="card-head">
         <span class="card-loc" style="color:${L.ink}"><i class="loc-dot" style="background:${L.color}"></i>${L.name} · ${L.addr}</span>
         <h3>${sp.name}</h3>
-        ${sp.combo ? `<span class="card-combo">Derinys · ${sp.combo}</span>` : ''}
+      </div>
+      <div class="card-body">
         <div class="metas">
           <span>Plotas<b>${sp.area}</b></span>
           <span>${sp.outdoor ? 'Lauko renginys' : 'Teatro stiliumi'}<b>iki ${sp.theatre.toLocaleString('lt-LT')}</b></span>
@@ -174,7 +178,11 @@ if (locTeaser){
           <b class="loc-card-sub">Paslaugos</b>
           <span class="loc-card-services">${d.services.map(x => `<span>${x}</span>`).join('')}</span>
         </span>
-        <a class="loc-card-more" href="${d.url}" target="_blank" rel="noopener">Skaityti daugiau</a>
+        <!-- „Atidaryti žemėlapį" — antras mygtukas šalia „Skaityti daugiau" (kliento pastaba 2026-10-16) -->
+        <span class="loc-card-actions">
+          <a class="loc-card-more" href="${d.url}" target="_blank" rel="noopener">Skaityti daugiau</a>
+          <a class="loc-card-more loc-card-more--map" href="lokacijos.html?loc=${k}">Atidaryti žemėlapį</a>
+        </span>
       </span>
     </article>`).join('');
 }

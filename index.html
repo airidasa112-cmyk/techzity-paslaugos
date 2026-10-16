@@ -13,7 +13,7 @@
 <link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 32 32'%3E%3Crect width='32' height='32' fill='%23000000'/%3E%3Cpath d='M6 8h20v4h-8v12h-4V12H6z' fill='%23FFCF60'/%3E%3C/svg%3E">
 <link rel="preload" href="assets/fonts/Deacon-Bold.woff2" as="font" type="font/woff2" crossorigin>
 <link rel="preload" href="assets/fonts/NHaasGroteskDSPro-55Rg.woff2" as="font" type="font/woff2" crossorigin>
-<link rel="stylesheet" href="assets/css/site.css?v=17">
+<link rel="stylesheet" href="assets/css/site.css?v=18">
 </head>
 <body>
 <a class="skip" href="#main">Pereiti prie turinio</a>
@@ -113,11 +113,8 @@
       </div>
       <p class="lead">Antakalnis ir Naujamiestis. Interaktyviame žemėlapyje rasite atstumus nuo miesto kertinių taškų, parkavimo sąlygas ir maršrutus.</p>
     </div>
+    <!-- „Atidaryti žemėlapį" — kiekvienos lokacijos kortelėje šalia „Skaityti daugiau" (kliento pastaba 2026-10-16) -->
     <div class="loc-cards" id="locTeaser"></div>
-    <div class="scen-cta" style="margin-top:1.15rem">
-      <p>Kaip patogu atvykti — <b>interaktyviame žemėlapyje</b></p>
-      <a class="chip chip--primary chip--sm" href="lokacijos.html">Atidaryti žemėlapį</a>
-    </div>
   </div>
 </section>
 
@@ -167,47 +164,61 @@
       </div>
       <p class="lead">Kaina priklauso nuo erdvės, trukmės ir dalyvių skaičiaus — pasiūlymą paruošiame per 1 darbo dieną. Erdves galite apeiti virtualiai arba gyvai.</p>
     </div>
+    <!-- 2026-10-16 kliento pastaba „keistai atrodo lygiavimas": abu skydeliai — tos pačios eilės
+         (antraštė · Tech Park · SKC · apačia, CSS subgrid); apžiūros irgi atskirtos pagal lokaciją -->
     <div class="price-grid">
       <div class="panel">
-        <h3>Kas įskaičiuota į nuomos kainą</h3>
+        <div class="pp-head"><h3>Kas įskaičiuota į nuomos kainą</h3></div>
         <!-- sąlygos skiriasi pagal lokaciją: Tech Park — 2026 pristatymas (p. 11), SKC — SKC pristatymas;
              SKC minimali trukmė — kliento pastaba 2026-10-15 -->
-        <div class="terms">
-          <div>
-            <p class="terms-loc"><i class="loc-dot" style="background:var(--park)"></i>Tech Park</p>
-            <ul class="ticks">
+        <div class="pp-loc">
+          <p class="terms-loc"><i class="loc-dot" style="background:var(--park)"></i>Tech Park</p>
+          <ul class="ticks">
               <li><svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" aria-hidden="true"><path d="m4 12 5.5 5.5L20 6.5"/></svg><span>Erdvė ir turima garso bei vaizdo įranga</span></li>
               <li><svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" aria-hidden="true"><path d="m4 12 5.5 5.5L20 6.5"/></svg><span>Turimi baldai ir jų išdėstymas prieš atvykstant</span></li>
               <li><svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" aria-hidden="true"><path d="m4 12 5.5 5.5L20 6.5"/></svg><span>Erdvių valymas prieš atvykstant ir kontaktinis žmogus nuomos metu</span></li>
-            </ul>
-            <p class="fineprint">Minimali rezervacija — 3 val.</p>
-          </div>
-          <div>
-            <p class="terms-loc"><i class="loc-dot" style="background:var(--zity)"></i>Samsung konferencijų centras</p>
-            <ul class="ticks">
+          </ul>
+          <p class="fineprint">Minimali rezervacija — 3 val.</p>
+        </div>
+        <div class="pp-loc">
+          <p class="terms-loc"><i class="loc-dot" style="background:var(--zity)"></i>Samsung konferencijų centras</p>
+          <ul class="ticks">
               <li><svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" aria-hidden="true"><path d="m4 12 5.5 5.5L20 6.5"/></svg><span>Erdvė, integruota garso, vaizdo ir apšvietimo įranga, 3 belaidžiai mikrofonai</span></li>
               <li><svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" aria-hidden="true"><path d="m4 12 5.5 5.5L20 6.5"/></svg><span>Turimų baldų išdėstymas teatro stiliumi</span></li>
               <li><svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" aria-hidden="true"><path d="m4 12 5.5 5.5L20 6.5"/></svg><span>Valymas prieš renginį ir renginio koordinatorius</span></li>
-            </ul>
-            <p class="fineprint">Minimali nuoma — pusė dienos.</p>
-          </div>
+          </ul>
+          <p class="fineprint">Minimali nuoma — pusė dienos.</p>
         </div>
-        <div class="card-actions" style="margin-top:1rem">
+        <div class="pp-foot card-actions">
           <a class="chip chip--primary chip--sm" href="uzklausa.html">Gauti pasiūlymą</a>
         </div>
       </div>
 
       <div class="panel panel--dark">
-        <h3>Pamatykite erdves prieš rezervuodami</h3>
-        <p class="lead">Apeikite Tech Park 360° ture iš namų arba rinkitės apžiūros laiką kalendoriuje — abiejose lokacijose ir konsultacijai, jei dar renkatės.</p>
-        <ul class="ticks">
-          <li><svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" aria-hidden="true"><path d="m4 12 5.5 5.5L20 6.5"/></svg><span><b>Virtualus turas</b> — Tech Park</span></li>
-          <li><svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" aria-hidden="true"><path d="m4 12 5.5 5.5L20 6.5"/></svg><span><b>3 kalendoriai</b> — 2 lokacijos ir renginio konsultacija</span></li>
-          <li><svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" aria-hidden="true"><path d="m4 12 5.5 5.5L20 6.5"/></svg><span>Po užklausos patys pasiūlysime apžiūros laiką</span></li>
-        </ul>
-        <div class="card-actions" style="margin-top:1.15rem">
-          <a class="chip chip--primary chip--sm" href="turas.html">Virtualus turas</a>
-          <a class="chip chip--ghost chip--sm" href="apziura.html">Rezervuoti apžiūrą</a>
+        <div class="pp-head"><h3>Pamatykite erdves prieš rezervuodami</h3></div>
+        <!-- kalendoriai — kliento nuorodos 2026-10-16 (Tech Park, SKC, konsultacija) -->
+        <div class="pp-loc">
+          <p class="terms-loc"><i class="loc-dot" style="background:var(--park)"></i>Tech Park</p>
+          <ul class="ticks">
+              <li><svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" aria-hidden="true"><path d="m4 12 5.5 5.5L20 6.5"/></svg><span>Virtualus 360° turas iš namų</span></li>
+              <li><svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" aria-hidden="true"><path d="m4 12 5.5 5.5L20 6.5"/></svg><span>Gyva apžiūra Antakalnyje — laiką pasirinkite kalendoriuje</span></li>
+          </ul>
+          <div class="card-actions">
+            <a class="chip chip--primary chip--sm" href="turas.html">Virtualus turas</a>
+            <a class="chip chip--ghost chip--sm" href="https://calendar.google.com/calendar/u/0/appointments/AcZssZ0af2m7wR-OU74N-Aym53NgzTyo78suRU-3-kA=" target="_blank" rel="noopener">Rezervuoti apžiūrą</a>
+          </div>
+        </div>
+        <div class="pp-loc">
+          <p class="terms-loc"><i class="loc-dot" style="background:var(--zity)"></i>Samsung konferencijų centras</p>
+          <ul class="ticks">
+              <li><svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" aria-hidden="true"><path d="m4 12 5.5 5.5L20 6.5"/></svg><span>Gyva apžiūra Naujamiestyje — laiką pasirinkite kalendoriuje</span></li>
+          </ul>
+          <div class="card-actions">
+            <a class="chip chip--ghost chip--sm" href="https://calendar.google.com/calendar/u/0/appointments/AcZssZ0Q5R4LJKa1RLakT2lddNHzhlU_QANLVyQGiz8=" target="_blank" rel="noopener">Rezervuoti apžiūrą</a>
+          </div>
+        </div>
+        <div class="pp-foot">
+          <p class="fineprint">Dar renkatės? <a href="https://calendar.google.com/calendar/u/0/appointments/schedules/AcZssZ0EG8vuIKP2dEWfDf8z77kqu9uR8mT-b2umOcLus3I-Ipqr4cmTYCMF53TEbX3df7oikS6TYFGH" target="_blank" rel="noopener">Užsisakykite konsultaciją</a> — aptarsime renginį ir parinksime erdvę.</p>
         </div>
       </div>
     </div>
@@ -222,7 +233,7 @@
         <p class="eyebrow">Klientai ir atsiliepimai</p>
         <h2>Mumis pasitiki</h2>
       </div>
-      <p class="lead">Atsiliepimai apie Tech Park — Google žemėlapiuose, Placer.lt ir Breezit.lt.</p>
+      <p class="lead">Atsiliepimai apie Tech Park ir Samsung konferencijų centrą — Google žemėlapiuose, Placer.lt ir Breezit.lt.</p>
     </div>
     <div class="marquee" id="clientsMarquee" data-clients="featured" translate="no" role="group" aria-label="Renginių klientai"></div>
     <div class="scen-cta" style="margin-top:1.15rem">
@@ -240,8 +251,9 @@
         <p class="eyebrow">Prieš rezervuojant</p>
         <h2>Dažniausi klausimai</h2>
       </div>
-      <p class="lead">Trys populiariausi — likusieji apie parkavimą, apžiūras ir paketus S–XL laukia DUK puslapyje.</p>
+      <p class="lead">Atsakymai apie erdves, kainą, tiekėjus, parkavimą ir apžiūras.</p>
     </div>
+    <!-- visi DUK klausimai pradiniame puslapyje (kliento pastaba 2026-10-16); tas pats tekstas — duk.html -->
     <div class="faq">
       <details>
         <summary>Kuri erdvė tinka mano renginiui?</summary>
@@ -249,16 +261,20 @@
       </details>
       <details>
         <summary>Kaip skaičiuojama nuomos kaina?</summary>
-        <div class="a"><p>Kaina priklauso nuo erdvės, trukmės ir dalyvių skaičiaus — tikslią kainą pateiksime pasiūlyme per 1 darbo dieną. Minimali rezervacija Tech Park — 3 renginio valandos, Samsung konferencijų centre — pusė dienos. Kas įskaičiuota, skiriasi pagal lokaciją — <a href="duk.html">plačiau DUK puslapyje →</a></p></div>
+        <div class="a"><p>Kaina priklauso nuo erdvės, trukmės ir dalyvių skaičiaus — tikslią kainą pateiksime pasiūlyme per 1 darbo dieną. Minimali trukmė ir tai, kas įskaičiuota, skiriasi pagal lokaciją.</p><p><b>Tech Park:</b> minimali rezervacija — 3 renginio valandos. Į kainą įskaičiuota erdvės nuoma, turima įranga, turimi baldai ir jų išdėstymas prieš atvykstant, erdvių valymas prieš atvykstant ir kontaktinis žmogus nuomos metu.</p><p><b>Samsung konferencijų centras:</b> minimali nuoma — pusė dienos. Į kainą įskaičiuota renginio erdvė, integruota garso, vaizdo ir apšvietimo įranga, 3 belaidžiai mikrofonai, renginio koordinatorius, turimų baldų išdėstymas teatro stiliumi, valymas prieš renginį ir bendrosios erdvės.</p></div>
       </details>
       <details>
         <summary>Ar galiu atsivesti savo maitinimo ar technikos tiekėją?</summary>
-        <div class="a"><p><b>Taip.</b> Išorės tiekėjų sąlygas aptarsime pasiūlyme. Turime ir patikrintų partnerių — <a href="duk.html">partnerių sąrašas DUK puslapyje →</a></p></div>
+        <div class="a"><p><b>Taip.</b> Išorės maitinimo ir technikos tiekėjų sąlygas aptarsime pasiūlyme.</p><p>Turime patikrintus partnerius: <b>Gastrolės</b> (maitinimas), <b>Baltas Dažnis</b> (įgarsinimas, LED ekranai, apšvietimas, scenos, filmavimas), <b>Konferenta</b> (sinchroninis vertimas, transliavimas), <b>Renginio partneris</b> (baldų ir lauko paviljonų nuoma).</p></div>
       </details>
-    </div>
-    <div class="scen-cta" style="margin-top:1.15rem">
-      <p>Dar <b>3 klausimai</b>: parkavimas, apžiūros ir renginių paketai.</p>
-      <a class="chip chip--primary chip--sm" href="duk.html">Visi klausimai</a>
+      <details>
+        <summary>Ar yra parkavimo vietų?</summary>
+        <div class="a"><p><b>Tech Park:</b> iš anksto sutarus suteikiame iki 3 vietų vidiniame parkinge, priklausomai nuo renginio dydžio. Dalyviams — vieša miesto aikštelė kelios minutės pėsčiomis, žalioje zonoje. Artimiausia stotelė — L. Sapiegos.</p><p><b>Samsung konferencijų centras:</b> centrui priklauso 5 parkavimo vietos Tech Zity Vilnius miestelio teritorijoje, iki pietinio aplinkkelio — 2 min. Visos detalės — <a href="lokacijos.html">lokacijų puslapyje →</a></p></div>
+      </details>
+      <details>
+        <summary>Ar galima erdves apžiūrėti gyvai?</summary>
+        <div class="a"><p>Taip — rekomenduojame. Laiką pasirinkite <a href="https://calendar.google.com/calendar/u/0/appointments/AcZssZ0af2m7wR-OU74N-Aym53NgzTyo78suRU-3-kA=" target="_blank" rel="noopener">Tech Park</a> arba <a href="https://calendar.google.com/calendar/u/0/appointments/AcZssZ0Q5R4LJKa1RLakT2lddNHzhlU_QANLVyQGiz8=" target="_blank" rel="noopener">Samsung konferencijų centro</a> apžiūrų kalendoriuje, arba parašykite <a href="mailto:events@techzity.com">events@techzity.com</a>. Tech Park erdves iš anksto galite apeiti ir <a href="turas.html">virtualiame ture →</a></p></div>
+      </details>
     </div>
   </div>
 </section>
@@ -317,7 +333,7 @@
 </footer>
 
 
-<script src="assets/js/data.js?v=17"></script>
-<script src="assets/js/site.js?v=17"></script>
+<script src="assets/js/data.js?v=18"></script>
+<script src="assets/js/site.js?v=18"></script>
 </body>
 </html>

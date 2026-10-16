@@ -68,44 +68,47 @@ const SPACES = [
    equip:['Garso ir vaizdo įranga pagal užsakymą','Lauko elektros įvadai ir vandens tiekimas','Lauko paletiniai baldai','Maisto furgonėlių ir BBQ sprendimai per partnerius'],
    photos:[['tp-mterasa-1','Terasa palei stiklinį korpusą'],['tp-mterasa-2','Terasa ir kiemas'],['tp-mterasa-3','Vaizdas į kiemą nuo terasos'],['tp-mterasa-5','Priėmimas prie įėjimo'],['tp-mterasa-6','Svečiai kieme'],['tp-mterasa-4','Vasaros šventė su paviljonais']]},
 
-  /* ── TECH ZITY VILNIUS · SAMSUNG KONFERENCIJŲ CENTRAS ── */
+  /* ── TECH ZITY VILNIUS · SAMSUNG KONFERENCIJŲ CENTRAS ──
+     2026-10-16 kliento pastaba „visos SKC nuotraukos — tokios pačios kaip SKC web": nuotraukos, jų parašai ir
+     įranga — kaip samsungkc.lt (halls.json, gyva versija 95b3d92). Ten B ir C salių įranga sukeista pagal kliento
+     sąrašą (2026-09-10): B — LED siena ir scena, C — 130" mobilus LED; todėl B rodo hall-c-1, C — hall-b-1.
+     Parašuose kabutės tipografinės (nepatenka į alt atributą kaip ").  */
   {id:'skc-a', loc:'zity', name:'Didžioji salė A', area:'470 m²', theatre:500, outdoor:false, dir:'skc',
-   lead:'Didžiausia salė po 1947 m. medinių santvarų skliautu — 7 m aukščio, be kolonų. Samsung 2,5 mm LED siena, scena ir koncertams suderinta akustika.',
+   lead:'Didžiausia salė po 1947 m. medinių santvarų skliautu — 7 m aukščio, be kolonų. „Samsung" 2,5 mm LED siena, scena ir koncertams suderinta akustika.',
    layouts:[['Teatro',500],['Vakarienės',270],['Klasės',230],['Kabareto',210],['Prie stalelių',355],['Be baldų',570]],
-   equip:['SAMSUNG 2,5 mm LED ekranas 6 720 × 3 780 mm, valdymas AVoIP sistema','Iki 6 × 65" dubliavimo ekranų','8 kolonėlių garso sistema','5 × Shure MXW2/BETA58 ir 2 × TH53/O-MTQG mikrofonai','12 × „wash" prožektorių, DMX valdiklis','Valdomas RGB stogo skliauto apšvietimas','Scena 3 × 10 m (Hexa danga, 60–80 cm aukštis)'],
-   photos:[['hall-a-1','Didžioji salė A — medinių santvarų skliautas ir scena'],['hall-a-2','Vaizdas nuo scenos į salę']]},
+   equip:['„Samsung" 2,5 mm LED ekranas 6 720 × 3 780 mm, valdymas AVoIP sistema','Iki 6 × 65" dubliavimo ekranų','8 kolonėlių garso sistema','5 × „Shure" MXW2/BETA58 ir 2 × TH53/O-MTQG mikrofonai','12 × „wash" prožektorių, DMX valdiklis','Valdomas RGB stogo skliauto apšvietimas','Scena 3 × 10 m (2 × 1 m segmentai, Hexa danga, 60–80 cm aukštis)'],
+   photos:[['hall-a-1','Didžioji salė A — medinių santvarų skliautas ir scena'],['hall-a-2','Vaizdas nuo scenos į salę'],['lobby-2a-2','Įėjimas į A salę iš antro aukšto holo']]},
 
   {id:'skc-bc', loc:'zity', name:'Vidutinė salė B+C', combo:'B + C salės', area:'250 m²', theatre:220, outdoor:false, dir:'skc',
    lead:'Sujungtos B ir C salės su LED siena ir scena — konferencijoms iki 220 dalyvių arba vakarienei iki 140 svečių.',
    layouts:[['Teatro',220],['Vakarienės',140],['Klasės',110],['Kabareto',95],['Prie stalelių',190],['Be baldų',300]],
-   equip:['SAMSUNG 2,5 mm LED ekranas 5 760 × 3 240 mm, valdymas AVoIP sistema','Iki 4 × 65" dubliavimo ekranų','6 kolonėlių garso sistema','4 × MXW2/BETA58 ir 2 × TH53/O-MTQG mikrofonai','4 × „wash" prožektoriai, DMX valdiklis','Valdomas RGB skliauto apšvietimas','Scena 3 × 10 m (Hexa danga, 60–80 cm aukštis)'],
+   equip:['„Samsung" 2,5 mm LED ekranas 5 760 × 3 240 mm, valdymas AVoIP sistema','Iki 4 × 65" dubliavimo ekranų','6 kolonėlių garso sistema','4 × MXW2/BETA58 ir 2 × TH53/O-MTQG mikrofonai','4 × „wash" prožektoriai, DMX valdiklis','Valdomas RGB skliauto apšvietimas','Scena 3 × 10 m (2 × 1 m segmentai, Hexa danga, 60–80 cm aukštis)'],
    photos:[['hall-bc-1','Vidutinė salė B+C — sujungtos salės su scena'],['hall-bc-2','Vaizdas link durų']]},
 
   {id:'skc-c', loc:'zity', name:'Mažoji salė C', area:'140 m²', theatre:130, outdoor:false, dir:'skc',
-   lead:'Juodos sienos scenografija posėdžiams, pristatymams ir kamerinėms diskusijoms.',
+   lead:'Juodos sienos scenografija posėdžiams, pristatymams ir kamerinėms diskusijoms — 130" mobilus „Samsung" LED ekranas ir AVoIP valdymas.',
    layouts:[['Teatro',130],['Vakarienės',80],['Klasės',75],['Kabareto',65],['Prie stalelių',105],['Be baldų',170]],
-   equip:['Valdomas RGB stogo skliauto apšvietimas','Įranga komplektuojama pagal renginį — mobilūs LED ekranai, garso sistema'],
-   photos:[['hall-c-1','Mažoji salė C — juodos sienos scenografija']]},
+   equip:['130" „Samsung" mobilus LED ekranas, valdymas AVoIP sistema','2 kolonėlių garso sistema','2 × „Shure" MXW2/BETA58 mikrofonai','Valdomas RGB stogo skliauto apšvietimas'],
+   photos:[['hall-b-1','Mažoji salė C — 130″ mobilus „Samsung“ LED ekranas'],['hall-bc-1','Sujungta B+C konfigūracija — salė atsidaro su scena'],['hall-bc-2','Sujungta B+C konfigūracija — vaizdas link durų']]},
 
   {id:'skc-b', loc:'zity', name:'Mažoji salė B', area:'110 m²', theatre:90, outdoor:false, dir:'skc',
-   lead:'Kompaktiška salė seminarams, mokymams ir pristatymams — 130" mobilus Samsung LED ekranas ir AVoIP valdymas.',
+   lead:'Kompaktiška salė seminarams, mokymams ir pristatymams — „Samsung" 2,5 mm LED siena 5,8 × 3,2 m, scena ir AVoIP valdymas.',
    layouts:[['Teatro',90],['Vakarienės',65],['Klasės',60],['Kabareto',45],['Prie stalelių',85],['Be baldų',130]],
-   equip:['130" SAMSUNG mobilus LED ekranas, valdymas AVoIP sistema','Iki 2 × 65" dubliavimo ekranų','2 kolonėlių garso sistema','2 × Shure MXW2/BETA58 mikrofonai','Valdomas RGB stogo skliauto apšvietimas'],
-   photos:[['hall-b-1','Mažoji salė B — mobilus Samsung LED ekranas']]},
+   equip:['„Samsung" 2,5 mm LED ekranas 5 760 × 3 240 mm, valdymas AVoIP sistema','2 × 65" dubliavimo ekranai','4 kolonėlių garso sistema','2 × „Shure" MXW2/BETA58 mikrofonai','4 × „wash" prožektoriai, DMX valdiklis','Valdomas RGB stogo skliauto apšvietimas','Scena 3 × 10 m (2 × 1 m segmentai, Hexa danga, 60–80 cm aukštis)'],
+   photos:[['hall-c-1','Mažoji salė B — juodos sienos ir uždaryta mobili pertvara'],['hall-bc-1','Sujungta B+C konfigūracija — salė atsidaro su scena'],['hall-bc-2','Sujungta B+C konfigūracija — vaizdas link durų']]},
 
   {id:'skc-d', loc:'zity', name:'Oranžerija + Kiemas', area:'390 + 300 m²', theatre:400, outdoor:true, dir:'skc',
    lead:'Skaidraus tento paviljonas ir žalias kiemas — lauko renginiams iki 550 svečių.',
    layouts:[['Teatro',400],['Vakarienės',220],['Klasės',260],['Kabareto',170],['Prie stalelių',300],['Be baldų',550]],
-   equip:['Skaidraus tento paviljonas (apie 10 m pločio)','Lauko elektros įvadai ir kabinimo taškai','Mobilios garso kolonėlės laukui','Paviljoną galima nuomoti ir ne vasaros sezonu'],
-   /* orangery-2 („Paviljono vidus") išimta 2026-10-15: svetima nuotrauka su skelbiu.lt vandenženkliu */
-   photos:[['orangery-1','Oranžerija — skaidraus tento paviljonas su svečiais'],['orangery-decor','Dekoravimo pavyzdys su apvaliais stalais']]},
+   equip:['Skaidraus tento paviljonas (apie 10 m pločio)','Lauko elektros įvadai ir kabinimo taškai','Mobilios garso kolonėlės laukui — derinama pagal renginį','Paviljono nuoma ne vasaros sezonu — derinama pagal renginį'],
+   photos:[['f-oranz-diena','Paviljonas kieme — 35 m stiklinė pastato dalis prie fabriko korpuso'],['f-oranz-isore','Paviljonas vakare — stiklinė pastato dalis šviečia iš vidaus'],['f-oranz-vidus','Vakarienė paviljone — 385 m² po stikliniu stogu']]},
 
   {id:'skc-abcd', loc:'zity', name:'Visas centras (buy-out)', combo:'visos salės, holai ir kiemas', area:'2 650 m²', theatre:1000, outdoor:false, dir:'skc',
    lead:'Privatus viso pastato naudojimas: visos salės, holai, restoranas „Gastrolės" ir kiemas — iki 1 000 dalyvių viename renginyje.',
    note:'Holas 1A ir Holas 2A (stovimi priėmimai iki 360 ir 270 svečių) bei restoranas „Gastrolės" (vakarienės iki 190) nuomojami tik kartu su salėmis.',
    layouts:[['Teatro',1000],['Vakarienės',775],['Klasės',725],['Kabareto',585],['Prie stalelių',1000],['Be baldų',1000]],
-   equip:['Visa A, BC ir B salių integruota Samsung įranga','Bendrosios erdvės, restoranas ir kiemas','Integruoti reklaminiai ekranai rėmėjų aktyvacijoms','Užkulisių kambariai ir grimerinė'],
-   photos:[['entrance-1','Pagrindinis įėjimas į konferencijų centrą'],['lobby-2a-1','Antro aukšto holas — registratūra'],['lobby-1a-1','Pirmo aukšto holas — laiptai ir lounge zona'],['courtyard-1','Restoranų kiemas Tech Zity miestelyje']]}
+   equip:['Visa A, BC ir D salių integruota „Samsung" įranga','Bendrosios erdvės, restoranas ir kiemas','Integruoti reklaminiai ekranai rėmėjų aktyvacijoms','Užkulisių kambariai ir grimerinė'],
+   photos:[['entrance-1','Pagrindinis įėjimas į konferencijų centrą'],['lobby-2a-1','Antro aukšto holas — registratūra ir TECH:ZITY ekranas'],['lobby-1a-1','Pirmo aukšto holas — laiptai ir poilsio zona'],['courtyard-1','Restoranų kiemas Tech Zity miestelyje']]}
 ];
 
 /* photos: [failas, matoma antraštė (be pasikartojančio scenarijaus pavadinimo), pilnas alt tekstas]
@@ -131,7 +134,7 @@ const MAPDATA = {
     url:'https://techzity.com/lokacijos/tech-park/', img:'park', services:['Biurų nuoma','Co-working erdvės','Renginių erdvės','Restoranai'],
     desc:'Startuolių miestelis Sapiegų parke — XIX a. pastatų konversija, menanti Sapiegų rūmų didybę. Konferencijų centras, dvi salės ir didžiosios terasos su kiemais.',
     dist:[['3 min','automobiliu iki Senamiesčio'],['20 min','pėsčiomis iki Katedros'],['Stotelė','L. Sapiegos — artimiausia viešojo transporto stotelė']],
-    park:'Iš anksto sutarus suteikiame iki 5 parkavimo vietų vidinėje aikštelėje. Dalyviams — vieša miesto aikštelė kelios minutės pėsčiomis, žalioje zonoje.',
+    park:'Iš anksto sutarus suteikiame iki 3 parkavimo vietų vidiniame parkinge. Dalyviams — vieša miesto aikštelė kelios minutės pėsčiomis, žalioje zonoje.',
     maps:'https://www.google.com/maps/dir/?api=1&destination=Antakalnio+g.+17,+Vilnius',
     embed:'https://maps.google.com/maps?q=Antakalnio+g.+17,+Vilnius&hl=lt&z=15&output=embed'
   },
@@ -140,7 +143,7 @@ const MAPDATA = {
     url:'https://techzity.com/lokacijos/tech-zity-vilnius/', img:'zity', services:['Biurų nuoma','SAMSUNG konferencijų centras','Renginių erdvės','Restoranai'],
     desc:'Mūsų flagmanas Naujamiestyje — 55 000 m² technologijų miestelis su Samsung konferencijų centru buvusiame 1947 m. „Lelijos" siuvyklos pastate. 8 restoranai, 4 žali kiemai.',
     dist:[['15 min','pėsčiomis iki senamiesčio ir stoties'],['10 min','automobiliu iki oro uosto'],['2 min','iki pietinio aplinkkelio']],
-    park:'Parkavimas miestelio teritorijoje. Patogus privažiavimas iš pietinio aplinkkelio — logistika renginio technikai ir dekoracijoms.',
+    park:'Samsung konferencijų centrui priklauso 5 parkavimo vietos miestelio teritorijoje. Patogus privažiavimas iš pietinio aplinkkelio — logistika renginio technikai ir dekoracijoms.',
     maps:'https://www.google.com/maps/dir/?api=1&destination=Paneri%C5%B3+g.+43,+Vilnius',
     embed:'https://maps.google.com/maps?q=Paneri%C5%B3+g.+43,+Vilnius&hl=lt&z=15&output=embed'
   }
@@ -218,7 +221,7 @@ const LOGOS = {
 };
 
 /* nuotraukų versija URL'e (?v=) — pakelti, kai failas pakeičiamas tuo pačiu vardu (žr. README „Nuotraukos") */
-const IMG_V = 3;
+const IMG_V = 4;
 
 /* nuotraukų pločiai atsakingiems variantams (site.js pic()); generuojama — žr. README „Nuotraukos" */
 const IMGW = {
@@ -276,16 +279,18 @@ const IMGW = {
   'skc/campus-3d':[800,1600,2048],
   'skc/courtyard-1':[800,1600,2048],
   'skc/entrance-1':[800,1600,2400],
+  'skc/f-oranz-diena':[800,1600,2400],
+  'skc/f-oranz-isore':[800,1600,2400],
+  'skc/f-oranz-vidus':[800,1600,2400],
   'skc/hall-a-1':[800,1600,2400],
-  'skc/hall-a-2':[800,1600,2400],
+  'skc/hall-a-2':[800,1600],
   'skc/hall-b-1':[800,1600,2400],
-  'skc/hall-bc-1':[800,1600,2400],
+  'skc/hall-bc-1':[800,1600],
   'skc/hall-bc-2':[800,1600,2400],
-  'skc/hall-c-1':[800,1600,2048],
-  'skc/lobby-1a-1':[800,1600,2048],
+  'skc/hall-c-1':[800,1600,2400],
+  'skc/lobby-1a-1':[800,1600,2400],
   'skc/lobby-2a-1':[800,1600,2400],
-  'skc/orangery-1':[800,1600,1920],
-  'skc/orangery-decor':[800,1600,2400],
+  'skc/lobby-2a-2':[800,1600,2048],
   'skc/scn-gala':[800,1392],
   'skc/scn-konferencija':[800,1392],
   'skc/scn-paroda':[800,1392],

@@ -106,8 +106,8 @@ skydelyje; erdvių kortelėse jo nėra (konkrečios erdvės pasiūlymas — pop-
 
 ## Kas dar nepadaryta
 
-- **Apžiūrų kalendorius**: visos 3 kortelės veda į tą patį Google appointments booker.
-  Kai bus atskiros nuorodos abiem lokacijoms — pakeisti `href` faile `apziura.html`.
+- **Apžiūrų kalendoriai** (2026-10-16 kliento nuorodos): Tech Park, SKC ir konsultacija — `apziura.html`,
+  pradinio „Pamatykite erdves" skydelis ir DUK apžiūrų atsakymas.
 - **„300+ klientų renginių per metus"** pašalinta 2026-10-15 (klientas: nesutampa). Grąžinti tik su
   kliento patvirtintu skaičiumi (`.bigstat` stiliai palikti `site.css`).
 - **Google įvertinimas ir citatos**: kortelės veda į profilius, bet konkretaus balo nėra
@@ -164,6 +164,10 @@ uv run --with pillow python tools/nuotraukos.py manifest                        
 **Pakeitus failą tuo pačiu vardu — pakelk `IMG_V` faile `data.js`** (ir hero poster'io `?v=` `index.html`),
 nes `/assets/*` atiduodami su `immutable` — be to lankytojai metus matytų seną nuotrauką.
 
+**SKC nuotraukos = samsungkc.lt** (2026-10-16 kliento nurodymas): kadrai iš SKC repo `brand_assets_masters/venue/`
+(gyva versija), parašai ir įranga — iš jo `halls.json`. B ir C ten sukeistos (2026-09-10): B rodo `hall-c-1`, C — `hall-b-1`.
+Pasikeitus SKC svetainės kadrui — atnaujinti ir čia (`tools/nuotraukos.py add`, pakelti `IMG_V`).
+
 Šaltiniai: Tech Park — techzity.com media biblioteka (E_* fotosesija, `techpark_*` renginių kadrai,
 TP_header); SKC — samsungkc.lt masteriai ir techzity.com 2024-07 renderiai. Pristatymo PDF kadrai
 be originalų (25) 2026-10-15 **padidinti Higgsfield** (bytedance upscale, 2–4K) ir apkarpyti PDF
@@ -176,7 +180,7 @@ vardu ar tekstu palikti originalius (`scen-tp-1`). Žr. `PASTABOS-2026-10-15.md`
 
 `vercel.json` uždeda `/assets/*` failams `Cache-Control: immutable, max-age=31536000` — naršyklė
 tokio failo neperklaus metus, net su Ctrl+Shift+R. Todėl CSS ir JS nuorodos HTML'e turi versijos
-parametrą: `site.css?v=N`, `data.js?v=N`, `site.js?v=N` (2026-10-16 — `v=17`, `IMG_V = 3`).
+parametrą: `site.css?v=N`, `data.js?v=N`, `site.js?v=N` (2026-10-16 — `v=18`, `IMG_V = 4`).
 
 **Pakeitus `assets/css/site.css` arba `assets/js/*.js` — pakelk `v` numerį visuose HTML failuose**,
 kitaip anksčiau svetainėje buvę lankytojai matys seną CSS/JS su nauju HTML: puslapis atrodys
