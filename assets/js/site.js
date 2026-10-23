@@ -433,18 +433,25 @@ if (vid && vt && heroPoster){
   const ICON_PAUSE = '<svg width="16" height="16" viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><rect x="6" y="5" width="4" height="14" rx="1"/><rect x="14" y="5" width="4" height="14" rx="1"/></svg>';
   const ICON_PLAY = '<svg width="16" height="16" viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M8 5l11 7-11 7z"/></svg>';
 
+  // poster slepiamas tik kai video tikrai groja – kitaip lieka sustingęs pirmas kadras
   vid.addEventListener('playing', () => { heroPoster.style.opacity = '0'; }, {once: true});
-  vid.addEventListener('loadeddata', () => { if (vid.readyState >= 2) heroPoster.style.opacity = '0'; }, {once: true});
+  let userPaused = false;
+  const tryPlay = () => { if (!userPaused && vid.paused && !document.hidden) vid.play().catch(() => {}); };
 
   if (window.matchMedia('(prefers-reduced-motion:reduce)').matches) {
     vid.pause();
     vt.setAttribute('aria-label', 'Paleisti vaizdo įrašą');
     vt.innerHTML = ICON_PLAY;
   } else {
-    vid.play().catch(() => {});
+    tryPlay();
+    // naršyklė kartais atideda autoplay (lėtas tinklas, iOS taupymo režimas) – bandom vėl, kai video pasiruošia, grįžus į kortelę ar po pirmo lietimo / slinkimo
+    vid.addEventListener('canplay', tryPlay);
+    document.addEventListener('visibilitychange', tryPlay);
+    ['pointerdown', 'touchstart', 'scroll', 'keydown'].forEach(ev => window.addEventListener(ev, tryPlay, {once: true, passive: true}));
   }
 
   vt.addEventListener('click', () => {
+    userPaused = !vid.paused;
     if (vid.paused) { vid.play().catch(() => {}); vt.setAttribute('aria-label', 'Sustabdyti vaizdo įrašą'); vt.innerHTML = ICON_PAUSE; }
     else { vid.pause(); vt.setAttribute('aria-label', 'Paleisti vaizdo įrašą'); vt.innerHTML = ICON_PLAY; }
   });
