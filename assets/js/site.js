@@ -162,29 +162,13 @@ $$('[data-clients]').forEach(el => {
     names.map(n => clientItem(n, false)).join('') + names.map(n => clientItem(n, true)).join('')}</div>`;
 });
 
-const locTeaser = $('#locTeaser');
-if (locTeaser){
-  /* Kortelė kaip techzity.com: nuotrauka su žyma, užvedus — geltona informacijos panelė. */
-  locTeaser.innerHTML = Object.entries(MAPDATA).map(([k, d]) => `<article class="loc-card">
-      <img class="loc-card-img" ${pic(`loc/${d.img}`, SIZES.loc)} alt="${d.name} iš viršaus" loading="lazy" width="1024" height="768">
-      <!-- žyma tik vizualinė: tas pats pavadinimas yra panelėje, todėl jos tekstas piešiamas per CSS
-           (attr), kad puslapio tekste ir skaitytuvuose neliktų „Tech Park Tech Park" -->
-      <span class="loc-card-tag" data-label="${d.name}" aria-hidden="true"></span>
-      <span class="loc-card-panel">
-        <span class="loc-card-head">
-          <b class="loc-card-name">${d.name}</b>
-          <b class="loc-card-addr">${d.addr}</b>
-          <span class="loc-card-desc">${d.desc}</span>
-          <b class="loc-card-sub">Paslaugos</b>
-          <span class="loc-card-services">${d.services.map(x => `<span>${x}</span>`).join('')}</span>
-        </span>
-        <!-- „Atidaryti žemėlapį" — antras mygtukas šalia „Skaityti daugiau" (kliento pastaba 2026-10-16) -->
-        <span class="loc-card-actions">
-          <a class="loc-card-more" href="${d.url}" target="_blank" rel="noopener">Skaityti daugiau</a>
-          <a class="loc-card-more loc-card-more--map" href="lokacijos.html?loc=${k}">Atidaryti žemėlapį</a>
-        </span>
-      </span>
-    </article>`).join('');
+/* Pradinio apačioje — tik lokacijos pavadinimas ir Google žemėlapis (kliento pastaba 2026-10-23) */
+const mapPair = $('#mapPair');
+if (mapPair){
+  mapPair.innerHTML = Object.values(MAPDATA).map(d => `<div class="map-item">
+      <h3 class="loc-name loc-name--big"><i class="loc-dot" style="background:${d.color}"></i>${d.name}</h3>
+      <div class="map-card"><iframe class="map-frame" src="${d.embed}" title="${d.name} — žemėlapis" loading="lazy" referrerpolicy="no-referrer-when-downgrade"></iframe></div>
+    </div>`).join('');
 }
 
 /* ═══════════════ MODALAS SU GALERIJOS SKROLERIU (erdves.html) ═══════════════ */
@@ -375,10 +359,32 @@ if (inq){
     const hit = [...sel.options].find(o => o.textContent.endsWith('– ' + want));
     if (hit) sel.value = hit.value || hit.textContent;
   }
-  inq.addEventListener('submit', (e) => {
+  /* siuntimas — api/inquiry.js (Resend → events@techzity.com, kliento pastaba 2026-10-23) */
+  const t0 = Date.now();
+  const ok = $('#formOk'), err = $('#formErr'), btn = inq.querySelector('button[type=submit]');
+  inq.addEventListener('submit', async (e) => {
     e.preventDefault();
     if (!inq.checkValidity()) { inq.reportValidity(); return; }
-    $('#formOk').setAttribute('data-open', '');
+    ok.removeAttribute('data-open'); err.removeAttribute('data-open');
+    btn.disabled = true;
+    const v = id => $('#' + id).value.trim();
+    try {
+      const r = await fetch('/api/inquiry', {
+        method: 'POST',
+        headers: {'Content-Type': 'application/json'},
+        body: JSON.stringify({
+          name: v('f-name'), org: v('f-org'), email: v('f-mail'), phone: v('f-tel'),
+          date: v('f-date'), guests: v('f-n'), space: v('f-space'), message: v('f-msg'),
+          consent: $('#f-gdpr').checked, hp: v('f-hp'), elapsed: Date.now() - t0
+        })
+      });
+      const j = await r.json().catch(() => ({}));
+      if (r.ok && j.ok){ ok.setAttribute('data-open', ''); inq.reset(); }
+      else { err.textContent = j.error || 'Nepavyko išsiųsti. Parašykite events@techzity.com arba paskambinkite +370 671 86 572.'; err.setAttribute('data-open', ''); }
+    } catch (_) {
+      err.textContent = 'Nepavyko išsiųsti. Parašykite events@techzity.com arba paskambinkite +370 671 86 572.';
+      err.setAttribute('data-open', '');
+    } finally { btn.disabled = false; }
   });
 }
 

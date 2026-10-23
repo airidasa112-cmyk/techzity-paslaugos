@@ -50,7 +50,7 @@ const SPACES = [
    photos:[['tp-didz-0','Didžioji salė su stalais'],['tp-didz-1','Teatro stiliumi | iki 190'],['tp-didz-2','Klasės stiliumi (grupės po 2) | iki 120'],['tp-didz-3','Dirbtuvių stiliumi (grupės po 4) | iki 120'],['tp-didz-4','Grupės po 6–8 | Apvalūs stalai | iki 140'],['tp-didz-5','Teatro stiliumi (šonu) | iki 175'],['tp-didz-6','Stovimas renginys | Kūrybinė laisvė | iki 225']]},
 
   {id:'tp-maz', loc:'park', name:'Mažoji salė', area:'90 m²', theatre:70, outdoor:false,
-   lead:'Kompaktiška salė mokymams, posėdžiams ir pristatymams mažesnėms grupėms.',
+   lead:'Kompaktiška salė mokymams, posėdžiams, workation ir pristatymams mažesnėms grupėms.',
    layouts:[['Teatro',70],['Klasės (po 2)',40],['Dirbtuvių (po 4)',30],['U-forma',25],['Posėdžių',20],['Stovimas',70]],
    equip:TP_EQUIP,
    photos:[['tp-maz-1','Teatro stiliumi | iki 70'],['tp-maz-7','Stalai posėdžiui'],['tp-maz-8','Ilgi stalai darbui'],['tp-maz-2','Klasės stiliumi (grupės po 2) | iki 40'],['tp-maz-3','Dirbtuvių stiliumi (grupės po 4) | iki 30'],['tp-maz-4','U-forma | iki 25'],['tp-maz-5','Posėdžių | iki 20'],['tp-maz-6','Stovimas renginys | iki 70']]},
@@ -112,20 +112,22 @@ const SPACES = [
 ];
 
 /* photos: [failas, matoma antraštė (be pasikartojančio scenarijaus pavadinimo), pilnas alt tekstas]
+   2026-10-23 (pastabos-3): scen-gd-* — kliento Google Drive kadrai pagal scenarijus; scen-tp-danske
+   perkelta į Koncertus, scen-tp-8 apkirpta simetriškai. Kur vieta nenustatyta — parašas be lokacijos.
    Pirma nuotrauka — didelės raiškos (2026-10-15: techzity.com originalai; scen-tp-danske/koncertas/
    diplomai/grupes — tikri Tech Park renginių kadrai iš techzity.com galerijos).
    Tech Arts kadrai pakeisti tik tikromis Tech Park nuotraukomis: SKC scn-* ir oranžerijos
    failai yra renderiai / dekoravimo pavyzdžiai, o čia žadamos „tikros akimirkos". Kur kadras
    nėra to scenarijaus renginys (tuščia salė), alt aprašo tai, kas matyti, o ne scenarijų. */
 const SCEN = [
-  {k:'konferencija', label:'Konferencijos', photos:[['scen-tp-3','Seminaras · Tech Park','Seminaras prie apvalių stalų · Tech Park'],['tp-kc-1','Konferencijų centras · Tech Park','Konferencijų centras teatro stiliumi iki 250 dalyvių · Tech Park'],['scen-tp-1','Pranešimas scenoje · Tech Park','Pranešėja scenoje konferencijoje · Tech Park'],['scen-tp-2','Networking · Tech Park','Dalyviai bendrauja koridoriuje prie stendų · Tech Park']], size:'m'},
-  {k:'hakatonas', label:'Hakatonai ir mokymai', photos:[['scen-tp-grupes','Darbas grupėse · Tech Park','Dalyviai dirba grupėmis prie apvalių stalų Konferencijų centre · Tech Park'],['tp-kc-3','Dirbtuvių stiliumi · Tech Park','Konferencijų centras dirbtuvių stiliumi, grupės po 4 · Tech Park'],['scen-tp-3','Seminaras · Tech Park','Seminaras prie apvalių stalų · Tech Park'],['tp-maz-2','Mokymams · Tech Park','Mažoji salė klasės stiliumi · Tech Park']], size:'m'},
-  {k:'vakarelis', label:'Įmonių vakarėliai', photos:[['scen-tp-danske','Tech Park','Įmonės vakarėlis salėje · Tech Park'],['tp-mterasa-5','Priėmimas · Tech Park','Priėmimas prie įėjimo · Tech Park'],['scen-tp-4','Vakaro šventė · Tech Park','Įmonės vakarėlis · Tech Park'],['tp-mterasa-4','Vasaros šventė · Tech Park','Vasaros šventė su paviljonais kieme · Tech Park']], size:'l'},
-  {k:'koncertas', label:'Koncertai', photos:[['scen-tp-koncertas','Tech Park','Koncertas scenoje · Tech Park'],['tp-terasa-5','Kieme · Tech Park','Koncertas kieme · Tech Park'],['scen-tp-6','Scena ir apšvietimas · Tech Park','Scena ir apšvietimas · Tech Park'],['tp-terasa-6','Po tentu · Tech Park','Publika po tentu kieme · Tech Park']], size:'l'},
-  {k:'lauko', label:'Lauko renginiai', photos:[['tp-terasa-6','Kieme · Tech Park','Lauko renginys kieme prie paviljonų · Tech Park'],['scen-tp-9','Vasara kieme · Tech Park','Vasaros renginys kieme · Tech Park'],['tp-terasa-4','Šventė kieme · Tech Park','Šventė kieme · Tech Park'],['tp-mterasa-6','Svečiai kieme · Tech Park','Svečiai Mažosios terasos kieme · Tech Park']], size:'l'},
-  {k:'isleistuves', label:'Išleistuvės', photos:[['scen-tp-diplomai','Diplomų įteikimas · Tech Park','Diplomų įteikimas kieme · Tech Park'],['scen-tp-5','Kepurių metimas · Tech Park','Išleistuvės kieme · Tech Park'],['tp-kc-4','Vakarienei · Tech Park','Konferencijų centras vakarienei, grupės po 6–8 · Tech Park'],['scen-tp-6','Šventinis vakaras · Tech Park','Šventinis vakaras · Tech Park']], size:'l'},
-  {k:'vestuves', label:'Vestuvės', photos:[['tp-kc-4','Vakarienė iki 180 svečių · Tech Park','Konferencijų centras vakarienei, grupės po 6–8 · Tech Park'],['scen-tp-6','Šventinė vakarienė · Tech Park','Šventinė vakarienė prie apvalių stalų · Tech Park'],['tp-didz-4','Apvalūs stalai · Tech Park','Didžioji salė su apvaliais stalais iki 140 svečių · Tech Park'],['tp-terasa-1','Medinė terasa · Tech Park','Medinė terasa ir kiemas · Tech Park']], size:'m'},
-  {k:'paroda', label:'Parodos ir pristatymai', photos:[['scen-tp-2','Paroda · Tech Park','Paroda koridoriuje prie stendų · Tech Park'],['scen-tp-7','Produkto pristatymas · Tech Park','Produkto pristatymas · Tech Park'],['tp-kc-6','Laisva erdvė · Tech Park','Konferencijų centras be baldų, iki 325 stovinčių svečių · Tech Park'],['scen-tp-8','Unikalus renginys · Tech Park','Unikalus renginys · Tech Park']], size:'m'}
+  {k:'konferencija', label:'Konferencijos', photos:[['scen-gd-konf-1','Pranešimas scenoje · Tech Park','Pranešėja scenoje konferencijoje · Tech Park'],['scen-gd-konf-2','Konferencija · Tech Park','Dalyviai konferencijų salėje · Tech Park'],['scen-gd-konf-3','Pranešimas dideliame ekrane','Pilna salė klausosi pranešimo, vaizdas dideliame ekrane'],['scen-gd-konf-4','Pilna salė','Pilna salė dalyvių renginio metu']], size:'m'},
+  {k:'hakatonas', label:'Hakatonai ir workation', photos:[['scen-gd-hak-1','Hakatonas · Tech Park','Hakatono komandos dirba prie kompiuterių, ekrane laikmatis · Tech Park'],['scen-gd-hak-2','Darbas grupėse · Tech Park','Darbas grupėmis Didžiojoje konferencijų salėje · Tech Park'],['scen-gd-hak-3','Susitikimai prie stalų · Tech Park','Dalyviai dirba poromis prie stalų · Tech Park'],['scen-gd-hak-4','Workation erdvė · Tech Park','Salė su stalais darbui ir vaizdu į kiemą · Tech Park']], size:'m'},
+  {k:'vakarelis', label:'Įmonių vakarėliai', photos:[['scen-gd-vak-1','Vakaro šventė · Tech Park','Įmonės vakarėlis salėje su spalvotu apšvietimu · Tech Park'],['scen-gd-vak-2','Vakarėlis · Samsung KC','Įmonės vakarėlis salėje su LED ekranais · Samsung konferencijų centras'],['scen-gd-vak-3','Svečiai prie dekoracijų · Samsung KC','Svečiai prie šviečiančių stalo dekoracijų · Samsung konferencijų centras'],['scen-gd-vak-4','Terasoje · Tech Park','Svečiai terasoje ir kieme · Tech Park']], size:'l'},
+  {k:'koncertas', label:'Koncertai', photos:[['scen-tp-danske','Tech Park','Koncertas salėje, publika prie scenos · Tech Park'],['scen-gd-konc-2','Gyvas pasirodymas · Tech Park','Grupė groja scenoje · Tech Park'],['scen-gd-konc-3','Šokiai prie scenos · Tech Park','Publika šoka prie scenos · Tech Park'],['scen-gd-konc-4','Scena ir apšvietimas · Samsung KC','Scena su šviesų efektais · Samsung konferencijų centras']], size:'l'},
+  {k:'lauko', label:'Lauko renginiai', photos:[['scen-gd-lau-1','Po tentu · Tech Park','Vaišės po tentu terasoje · Tech Park'],['scen-gd-lau-2','Maisto furgonai kieme · Tech Park','Renginys kieme su maisto furgonais · Tech Park'],['scen-gd-lau-3','Tentas kieme · Tech Park','Renginys tente kieme · Tech Park'],['scen-gd-lau-4','Kiemas prie paviljono · Tech Park','Dalyviai kieme prie stiklinio paviljono · Tech Park']], size:'l'},
+  {k:'isleistuves', label:'Išleistuvės', photos:[['scen-gd-isl-1','Kepurių metimas · Tech Park','Absolventai meta kepures terasoje · Tech Park'],['scen-gd-isl-2','Diplomų įteikimas · Tech Park','Diplomų įteikimo ceremonija kieme · Tech Park'],['scen-gd-isl-3','Po ceremonijos · Tech Park','Absolventai ir svečiai kieme · Tech Park'],['scen-gd-isl-4','Medinė terasa · Tech Park','Medinė terasa prie pastato · Tech Park']], size:'l'},
+  {k:'vestuves', label:'Vestuvės', photos:[['scen-gd-ves-1','Šventinė vakarienė · Tech Park','Šventinė vakarienė prie apvalių stalų · Tech Park'],['scen-gd-ves-2','Vakarienė tente · Tech Park','Serviruoti apvalūs stalai tente · Tech Park'],['scen-gd-ves-3','Terasa prie paviljono · Tech Park','Medinė terasa prie stiklinio paviljono · Tech Park'],['tp-didz-4','Apvalūs stalai · Tech Park','Didžioji salė su apvaliais stalais iki 140 svečių · Tech Park']], size:'m'},
+  {k:'paroda', label:'Parodos ir pristatymai', photos:[['scen-tp-2','Paroda · Tech Park','Paroda koridoriuje prie stendų · Tech Park'],['scen-tp-7','Produkto pristatymas · Tech Park','Produkto pristatymas · Tech Park'],['scen-gd-par-3','Stendai koridoriuje · Tech Park','Partnerių stendai ir vaišių stalas koridoriuje · Tech Park'],['scen-tp-8','Unikalus renginys · Tech Park','Unikalus renginys · Tech Park']], size:'m'}
 ];
 
 const MAPDATA = {
@@ -221,19 +223,46 @@ const LOGOS = {
 };
 
 /* nuotraukų versija URL'e (?v=) — pakelti, kai failas pakeičiamas tuo pačiu vardu (žr. README „Nuotraukos") */
-const IMG_V = 4;
+const IMG_V = 5;
 
 /* nuotraukų pločiai atsakingiems variantams (site.js pic()); generuojama — žr. README „Nuotraukos" */
 const IMGW = {
   'loc/park':[800,1600,2400],
   'loc/zity':[800,1600,2000],
+  'scen/scen-gd-hak-1':[800,1600,2400],
+  'scen/scen-gd-hak-2':[800,1600,2048],
+  'scen/scen-gd-hak-3':[800,1600,2048],
+  'scen/scen-gd-hak-4':[800,1600,2048],
+  'scen/scen-gd-isl-1':[800,1600,2400],
+  'scen/scen-gd-isl-2':[800,1600,2400],
+  'scen/scen-gd-isl-3':[800,1600,2400],
+  'scen/scen-gd-isl-4':[800,1600,2400],
+  'scen/scen-gd-konc-2':[800,1600,2400],
+  'scen/scen-gd-konc-3':[800,1600,2400],
+  'scen/scen-gd-konc-4':[800,1600,2048],
+  'scen/scen-gd-konf-1':[800,1600,2048],
+  'scen/scen-gd-konf-2':[800,1600,2048],
+  'scen/scen-gd-konf-3':[800,1600,2048],
+  'scen/scen-gd-konf-4':[800,1600,2048],
+  'scen/scen-gd-lau-1':[800,1600,2400],
+  'scen/scen-gd-lau-2':[800,1200],
+  'scen/scen-gd-lau-3':[800,1600,2048],
+  'scen/scen-gd-lau-4':[800,1600,2048],
+  'scen/scen-gd-par-3':[800,1600,2048],
+  'scen/scen-gd-vak-1':[800,1600,2400],
+  'scen/scen-gd-vak-2':[800,1600,2048],
+  'scen/scen-gd-vak-3':[800,1600,2048],
+  'scen/scen-gd-vak-4':[800,1600,2048],
+  'scen/scen-gd-ves-1':[800,1600,2400],
+  'scen/scen-gd-ves-2':[800,1124],
+  'scen/scen-gd-ves-3':[800,1600,2400],
   'scen/scen-tp-2':[800,1600,2048],
   'scen/scen-tp-3':[800,1600],
   'scen/scen-tp-4':[800,1600,2400],
   'scen/scen-tp-5':[800,1600,2400],
   'scen/scen-tp-6':[800,1600,2355],
   'scen/scen-tp-7':[800,1600,2400],
-  'scen/scen-tp-8':[800,1600,2400],
+  'scen/scen-tp-8':[800,1600,2221],
   'scen/scen-tp-9':[800,1600,2347],
   'scen/scen-tp-danske':[800,1600,2048],
   'scen/scen-tp-diplomai':[800,1600,2400],

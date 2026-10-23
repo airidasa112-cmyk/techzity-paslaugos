@@ -45,7 +45,7 @@ santraukų korteles į visas skiltis).
 | `turas.html` | Virtualus 360° turas (Tech Park) |
 | `apziura.html` | 3 apžiūrų kalendoriaus nuorodos (2 lokacijos + konsultacija) |
 | `duk.html` | DUK |
-| `uzklausa.html` | Renginio užklausos forma |
+| `uzklausa.html` | Renginio užklausos forma → `api/inquiry.js` (Resend → events@techzity.com; env `RESEND_API_KEY`, `CONTACT_FROM`, nebūtinas `CONTACT_TO`) |
 | `privatumo-politika.html` | Privatumo politika |
 
 Puslapiai susikalba per URL parametrus: `erdves.html?loc=zity&size=l` (iš anksto uždeda filtrus),
@@ -180,7 +180,7 @@ vardu ar tekstu palikti originalius (`scen-tp-1`). Žr. `PASTABOS-2026-10-15.md`
 
 `vercel.json` uždeda `/assets/*` failams `Cache-Control: immutable, max-age=31536000` — naršyklė
 tokio failo neperklaus metus, net su Ctrl+Shift+R. Todėl CSS ir JS nuorodos HTML'e turi versijos
-parametrą: `site.css?v=N`, `data.js?v=N`, `site.js?v=N` (2026-10-16 — `v=18`, `IMG_V = 4`).
+parametrą: `site.css?v=N`, `data.js?v=N`, `site.js?v=N` (2026-10-23 — `v=19`, `IMG_V = 5`).
 
 **Pakeitus `assets/css/site.css` arba `assets/js/*.js` — pakelk `v` numerį visuose HTML failuose**,
 kitaip anksčiau svetainėje buvę lankytojai matys seną CSS/JS su nauju HTML: puslapis atrodys
