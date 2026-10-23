@@ -426,6 +426,17 @@ if (burger && mm){
   document.addEventListener('keydown', (e) => { if (e.key === 'Escape' && mm.hasAttribute('data-open')) { mm.removeAttribute('data-open'); burger.setAttribute('aria-expanded', 'false'); burger.focus(); } });
 }
 
+/* ═══════════════ PRADINIO DUK — 3 klausimai + „Rodyti visus" ═══════════════ */
+const faqHome = $('#faqHome'), faqMore = $('#faqMore');
+if (faqHome && faqMore){
+  faqMore.addEventListener('click', () => {
+    const open = faqMore.getAttribute('aria-expanded') !== 'true';
+    faqHome.classList.toggle('faq--short', !open);
+    faqMore.setAttribute('aria-expanded', String(open));
+    faqMore.firstChild.textContent = open ? 'Rodyti mažiau ' : 'Rodyti visus klausimus ';
+  });
+}
+
 /* ═══════════════ HERO VIDEO — tik pradiniame puslapyje ═══════════════
    Poster kadras rodomas iš karto, video švelniai užsideda ant jo, kai gali groti (2). */
 const vid = $('#heroVideo'), vt = $('#videoToggle'), heroPoster = $('#heroPoster');
