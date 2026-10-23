@@ -126,7 +126,7 @@ const SCEN = [
   {k:'koncertas', label:'Koncertai', photos:[['scen-tp-danske','Tech Park','Koncertas salėje, publika prie scenos · Tech Park'],['scen-gd-konc-2','Gyvas pasirodymas · Tech Park','Grupė groja scenoje · Tech Park'],['scen-gd-konc-3','Šokiai prie scenos · Tech Park','Publika šoka prie scenos · Tech Park'],['scen-gd-konc-4','Scena ir apšvietimas · Samsung KC','Scena su šviesų efektais · Samsung konferencijų centras']], size:'l'},
   {k:'lauko', label:'Lauko renginiai', photos:[['scen-gd-lau-1','Po tentu · Tech Park','Vaišės po tentu terasoje · Tech Park'],['scen-gd-lau-2','Maisto furgonai kieme · Tech Park','Renginys kieme su maisto furgonais · Tech Park'],['scen-gd-lau-3','Tentas kieme · Tech Park','Renginys tente kieme · Tech Park'],['scen-gd-lau-4','Kiemas prie paviljono · Tech Park','Dalyviai kieme prie stiklinio paviljono · Tech Park']], size:'l'},
   {k:'isleistuves', label:'Išleistuvės', photos:[['scen-gd-isl-1','Kepurių metimas · Tech Park','Absolventai meta kepures terasoje · Tech Park'],['scen-gd-isl-2','Diplomų įteikimas · Tech Park','Diplomų įteikimo ceremonija kieme · Tech Park'],['scen-gd-isl-3','Po ceremonijos · Tech Park','Absolventai ir svečiai kieme · Tech Park'],['scen-gd-isl-4','Medinė terasa · Tech Park','Medinė terasa prie pastato · Tech Park']], size:'l'},
-  {k:'vestuves', label:'Vestuvės', photos:[['scen-gd-ves-1','Šventinė vakarienė · Tech Park','Šventinė vakarienė prie apvalių stalų · Tech Park'],['scen-gd-ves-2','Vakarienė tente · Tech Park','Serviruoti apvalūs stalai tente · Tech Park'],['scen-gd-ves-3','Terasa prie paviljono · Tech Park','Medinė terasa prie stiklinio paviljono · Tech Park'],['tp-didz-4','Apvalūs stalai · Tech Park','Didžioji salė su apvaliais stalais iki 140 svečių · Tech Park']], size:'m'},
+  {k:'vestuves', label:'Vestuvės', photos:[['scen-gd-ves-1','Šventinė vakarienė · Tech Park','Šventinė vakarienė prie apvalių stalų · Tech Park'],['scen-gd-ves-2','Vakarienė tente · Tech Park','Serviruoti apvalūs stalai tente · Tech Park'],['scen-gd-ves-3','Terasa prie paviljono · Tech Park','Medinė terasa prie stiklinio paviljono · Tech Park'],['scen-gd-ves-4','Šventinis vakaras','Apvalūs stalai su skaidriomis kėdėmis ir šviečiančiais vainikais'],['tp-didz-4','Apvalūs stalai · Tech Park','Didžioji salė su apvaliais stalais iki 140 svečių · Tech Park']], size:'m'},
   {k:'paroda', label:'Parodos ir pristatymai', photos:[['scen-tp-2','Paroda · Tech Park','Paroda koridoriuje prie stendų · Tech Park'],['scen-tp-7','Produkto pristatymas · Tech Park','Produkto pristatymas · Tech Park'],['scen-gd-par-3','Stendai koridoriuje · Tech Park','Partnerių stendai ir vaišių stalas koridoriuje · Tech Park'],['scen-tp-8','Unikalus renginys · Tech Park','Unikalus renginys · Tech Park']], size:'m'}
 ];
 
@@ -256,6 +256,7 @@ const IMGW = {
   'scen/scen-gd-ves-1':[800,1600,2400],
   'scen/scen-gd-ves-2':[800,1124],
   'scen/scen-gd-ves-3':[800,1600,2400],
+  'scen/scen-gd-ves-4':[800,1600,2390],
   'scen/scen-tp-2':[800,1600,2048],
   'scen/scen-tp-3':[800,1600],
   'scen/scen-tp-4':[800,1600,2400],
