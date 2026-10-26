@@ -303,7 +303,7 @@ h3{font-size:var(--fs-h3)}
 .pp-foot{margin-top:1.15rem}
 .pp-foot.card-actions{padding-top:0}
 .pp-foot .fineprint{margin-top:0}
-.panel--dark .fineprint a{color:#fff;text-decoration:underline;text-underline-offset:3px}
+.panel--dark .fineprint a,.panel--dark .ticks a{color:#fff;text-decoration:underline;text-underline-offset:3px}
 /* dviem stulpeliais — abu skydeliai dalijasi tomis pačiomis eilėmis, tad Tech Park ir SKC blokai stovi vienodame aukštyje */
 @media(min-width:861px){
   @supports (grid-template-rows:subgrid){
