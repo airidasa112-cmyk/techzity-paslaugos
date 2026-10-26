@@ -45,7 +45,7 @@ santraukų korteles į visas skiltis).
 | `turas.html` | Virtualus 360° turas (Tech Park) |
 | `apziura.html` | 3 apžiūrų kalendoriaus nuorodos (2 lokacijos + konsultacija) |
 | `duk.html` | DUK |
-| `uzklausa.html` | Renginio užklausos forma → `api/inquiry.js` (Resend → events@techzity.com; env `RESEND_API_KEY`, `CONTACT_FROM`, nebūtinas `CONTACT_TO`) |
+| `uzklausa.html` | Renginio užklausos forma → `api/inquiry.js` (į seną WP HubSpot formą „Domina mūsų renginių erdvės?“, portalas 20121518; raktų nereikia) |
 | `privatumo-politika.html` | Privatumo politika |
 
 Puslapiai susikalba per URL parametrus: `erdves.html?loc=zity&size=l` (iš anksto uždeda filtrus),

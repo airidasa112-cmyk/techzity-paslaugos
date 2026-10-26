@@ -359,7 +359,7 @@ if (inq){
     const hit = [...sel.options].find(o => o.textContent.endsWith('– ' + want));
     if (hit) sel.value = hit.value || hit.textContent;
   }
-  /* siuntimas — api/inquiry.js (Resend → events@techzity.com, kliento pastaba 2026-10-23) */
+  /* siuntimas — api/inquiry.js (į seną HubSpot renginių formą) */
   const t0 = Date.now();
   const ok = $('#formOk'), err = $('#formErr'), btn = inq.querySelector('button[type=submit]');
   inq.addEventListener('submit', async (e) => {
