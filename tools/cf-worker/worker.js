@@ -22,12 +22,18 @@ export default {
     }
     if (!url.pathname.startsWith(PREFIX + "/")) return fetch(request);
 
+    // Švarūs adresai kaip visame techzity.com: /erdves/ ← erdves.html; seni .html ir be brūkšnio – 301
+    const page = /^\/paslaugos\/renginiu-erdves\/([a-z-]+)(\.html|)$/.exec(url.pathname);
+    if (page) return Response.redirect(url.origin + PREFIX + "/" + (page[1] === "index" ? "" : page[1] + "/") + url.search, 301);
+
     const m = request.method;
     if (m !== "GET" && m !== "HEAD") {
       return new Response("Method Not Allowed", { status: 405, headers: { Allow: "GET, HEAD" } });
     }
 
-    const path = url.pathname.endsWith("/") ? url.pathname + "index.html" : url.pathname;
+    const sub = /^\/paslaugos\/renginiu-erdves\/([a-z-]+)\/$/.exec(url.pathname);
+    if (sub && sub[1] === "index") return Response.redirect(url.origin + PREFIX + "/" + url.search, 301);
+    const path = sub ? PREFIX + "/" + sub[1] + ".html" : url.pathname.endsWith("/") ? url.pathname + "index.html" : url.pathname;
     const asset = await env.ASSETS.fetch(new Request(url.origin + path, { method: m, headers: request.headers }));
 
     const out = new Headers(asset.headers);

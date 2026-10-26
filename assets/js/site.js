@@ -5,7 +5,7 @@ const $ = (s, r = document) => r.querySelector(s);
 const $$ = (s, r = document) => [...r.querySelectorAll(s)];
 const PARAMS = new URLSearchParams(location.search);
 
-/* ═══════════════ ERDVIŲ TINKLELIS + FILTRAI (erdves.html) ═══════════════ */
+/* ═══════════════ ERDVIŲ TINKLELIS + FILTRAI (erdves/) ═══════════════ */
 const band = (n) => n <= 100 ? 's' : (n <= 250 ? 'm' : 'l');
 const imgPath = (sp, file) => `${sp.dir === 'skc' ? 'skc' : 'spaces'}/${file}`;
 /* Atsakingos nuotraukos. IMGW (data.js): 'katalogas/failas' → turimi pločiai, pvz. [800, 1600, 2400].
@@ -27,7 +27,7 @@ const SIZES = {
   scen: '(max-width:860px) 100vw, 620px',
   thumb: '150px'
 };
-const askHref = (name) => `uzklausa.html?erdve=${encodeURIComponent(name)}`;
+const askHref = (name) => `uzklausa/?erdve=${encodeURIComponent(name)}`;
 /* lietuviškos daugiskaitos formos: 1 erdvė, 2–9 erdvės, 10–20 erdvių, 21 erdvė… */
 const lt = (n, one, few, many) => {
   const d = n % 10, h = n % 100;
@@ -68,7 +68,7 @@ function cardHTML(sp, {teaser = false} = {}){
         ${sp.note ? `<p class="card-note">${sp.note}</p>` : ''}
         <div class="card-actions">
           ${teaser
-            ? `<a class="chip chip--sm" href="erdves.html?atidaryti=${sp.id}">Žiūrėti erdvę</a>`
+            ? `<a class="chip chip--sm" href="erdves/?atidaryti=${sp.id}">Žiūrėti erdvę</a>`
             : `<button class="chip chip--sm" data-open="${sp.id}">Žiūrėti erdvę</button>`}
         </div>
       </div>
@@ -93,7 +93,7 @@ function syncFilters(){
 }
 
 if (cardsEl){
-  /* filtrai gali ateiti iš kito puslapio: erdves.html?size=l&loc=zity
+  /* filtrai gali ateiti iš kito puslapio: erdves/?size=l&loc=zity
      (senos ?loc=arts nuorodos tiesiog rodo visas erdves) */
   const pLoc = PARAMS.get('loc'), pSize = PARAMS.get('size');
   if (pLoc && ['park','zity','lauko'].includes(pLoc)) state.loc = pLoc;
@@ -137,7 +137,7 @@ if (scenTeaser){
     .filter(Boolean)
     .map(s => {
       const [f, cap, full] = s.photos[0];
-      return `<a class="scen" href="scenarijai.html">
+      return `<a class="scen" href="scenarijai/">
       <img loading="lazy" ${pic(`${dir(f)}/${f}`, SIZES.teaser)} alt="${full || `${s.label} · ${cap}`}" width="1100" height="825">
       <figcaption>${s.label}<small>${cap}</small></figcaption></a>`;
     }).join('');
@@ -171,7 +171,7 @@ if (mapPair){
     </div>`).join('');
 }
 
-/* ═══════════════ MODALAS SU GALERIJOS SKROLERIU (erdves.html) ═══════════════ */
+/* ═══════════════ MODALAS SU GALERIJOS SKROLERIU (erdves/) ═══════════════ */
 const modal = $('#modal');
 if (modal){
   const mgal = $('#mgal');
@@ -216,7 +216,7 @@ if (modal){
         <p class="fineprint">${TERMS[sp.loc].included} ${TERMS[sp.loc].min}</p>
         <div class="card-actions">
           <a class="chip chip--primary chip--sm" href="${askHref(sp.name)}">Gauti šios erdvės pasiūlymą</a>
-          <a class="chip chip--sm" href="apziura.html">Rezervuoti apžiūrą</a>
+          <a class="chip chip--sm" href="apziura/">Rezervuoti apžiūrą</a>
         </div>
       </div>`;
 
@@ -264,12 +264,12 @@ if (modal){
     if (o && o.dataset.open) openSpace(o.dataset.open);
   });
 
-  /* iš pradinio puslapio kortelės: erdves.html?atidaryti=tp-kc */
+  /* iš pradinio puslapio kortelės: erdves/?atidaryti=tp-kc */
   const auto = PARAMS.get('atidaryti');
   if (auto && SPACES.some(s => s.id === auto)) openSpace(auto);
 }
 
-/* ═══════════════ SCENARIJAI (scenarijai.html) ═══════════════
+/* ═══════════════ SCENARIJAI (scenarijai/) ═══════════════
    Visi 8 formatai rodomi iš karto (kliento pastaba 2026-10-15: anksčiau matėsi tik vieno formato
    4 nuotraukos). Kiekvienas — su didele nuotrauka ir miniatiūromis; miniatiūra ją pakeičia. */
 const scenList = $('#scenList');
@@ -288,7 +288,7 @@ if (scenList){
       </div>
       <div class="scen-body">
         <h2>${s.label}</h2>
-        <a class="linkish" href="erdves.html?size=${s.size}">Tinkamos erdvės →</a>
+        <a class="linkish" href="erdves/?size=${s.size}">Tinkamos erdvės →</a>
       </div>
     </article>`;
   }).join('');
@@ -307,7 +307,7 @@ if (scenList){
   });
 }
 
-/* ═══════════════ LOKACIJOS IR ŽEMĖLAPIAI (lokacijos.html) ═══════════════
+/* ═══════════════ LOKACIJOS IR ŽEMĖLAPIAI (lokacijos/) ═══════════════
    Kiekvienai lokacijai — atskiras Google žemėlapis su žymekliu ir ta pati aprašymo lentelė. */
 const locList = $('#locList');
 if (locList){
@@ -328,7 +328,7 @@ if (locList){
         <div class="park-info"><b>Parkavimas.</b> ${d.park}</div>
         <div class="card-actions" style="margin-top:.2rem">
           <a class="chip chip--sm" href="${d.maps}" target="_blank" rel="noopener">Kaip atvykti ↗</a>
-          <a class="chip chip--primary chip--sm" href="erdves.html?loc=${key}">Erdvės šioje lokacijoje</a>
+          <a class="chip chip--primary chip--sm" href="erdves/?loc=${key}">Erdvės šioje lokacijoje</a>
         </div>
       </div>
     </article>`).join('');
@@ -344,7 +344,7 @@ if (locList){
   }
 }
 
-/* ═══════════════ UŽKLAUSOS FORMA (uzklausa.html) ═══════════════ */
+/* ═══════════════ UŽKLAUSOS FORMA (uzklausa/) ═══════════════ */
 const inq = $('#inq');
 if (inq){
   const sel = $('#f-space');
@@ -353,7 +353,7 @@ if (inq){
     o.textContent = `${LOC[sp.loc].name} – ${sp.name}`;
     sel.appendChild(o);
   });
-  /* erdvė gali būti pasirinkta kitame puslapyje: uzklausa.html?erdve=Didžioji%20salė */
+  /* erdvė gali būti pasirinkta kitame puslapyje: uzklausa/?erdve=Didžioji%20salė */
   const want = PARAMS.get('erdve');
   if (want){
     const hit = [...sel.options].find(o => o.textContent.endsWith('– ' + want));
@@ -409,7 +409,7 @@ if (inq){
   });
 }
 
-/* ═══════════════ VIRTUALUS TURAS (turas.html) ═══════════════ */
+/* ═══════════════ VIRTUALUS TURAS (turas/) ═══════════════ */
 $$('[data-tour]').forEach(b => b.addEventListener('click', () => {
   const k = b.dataset.tour;
   $$('[data-tour]').forEach(x => {
