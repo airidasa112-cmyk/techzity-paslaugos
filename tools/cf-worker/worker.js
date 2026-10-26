@@ -1,10 +1,16 @@
 // Cloudflare Worker – techzity.com/paslaugos/renginiu-erdves/* rodo statinį renginių puslapį
 // iš šio Worker'io failų (kliento Cloudflare paskyra; Vercel nebenaudojamas).
-// Maršrutas (Workers Routes): techzity.com/paslaugos/renginiu-erdves*
+// Maršrutai (Workers Routes): techzity.com/paslaugos/renginiu-erdves*, techzity.com/renginiu-erdves-ad*, techzity.com/en/renginiu-erdves-ad*
 // WP puslapis tuo adresu neištrinamas – pašalinus maršrutą vėl rodomas WP.
 // Failai: public/paslaugos/renginiu-erdves/ (surenka ./build.sh). Forma siunčia tiesiai į HubSpot.
 
 const PREFIX = "/paslaugos/renginiu-erdves";
+
+// WP kopija /renginiu-erdves-ad/ (97 % to paties teksto) naikinama – 301 į pagrindinį puslapį, parametrai (gclid, utm) lieka
+const RETIRED = [
+  [/^\/renginiu-erdves-ad\/?$/, PREFIX + "/"],
+  [/^\/en\/renginiu-erdves-ad\/?$/, "/en/services-2/renginiu-erdves/"]
+];
 
 const SECURITY = {
   "X-Content-Type-Options": "nosniff",
@@ -17,6 +23,9 @@ const SECURITY = {
 export default {
   async fetch(request, env) {
     const url = new URL(request.url);
+    for (const [re, to] of RETIRED) {
+      if (re.test(url.pathname)) return Response.redirect(url.origin + to + url.search, 301);
+    }
     if (url.pathname === PREFIX || url.pathname === PREFIX + "/index.html") {
       return Response.redirect(url.origin + PREFIX + "/" + url.search, 301);
     }

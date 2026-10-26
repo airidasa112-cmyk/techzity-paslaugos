@@ -4,7 +4,9 @@ compatibility_date = "2026-10-01"
 account_id = "f179e92f0c600cfcbecff1d4ed447dd9"
 workers_dev = false
 routes = [
-  { pattern = "techzity.com/paslaugos/renginiu-erdves*", zone_name = "techzity.com" }
+  { pattern = "techzity.com/paslaugos/renginiu-erdves*", zone_name = "techzity.com" },
+  { pattern = "techzity.com/renginiu-erdves-ad*", zone_name = "techzity.com" },
+  { pattern = "techzity.com/en/renginiu-erdves-ad*", zone_name = "techzity.com" }
 ]
 
 # Puslapio failai — kliento Cloudflare paskyroje (be Vercel). Surenka ./build.sh į public/
