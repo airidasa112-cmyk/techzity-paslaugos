@@ -143,7 +143,7 @@ const MAPDATA = {
   zity:{
     name:'Tech Zity Vilnius', addr:'Panerių g. 43, 03202 Vilnius', color:'var(--zity)', ink:'var(--zity-ink)',
     url:'https://techzity.com/lokacijos/tech-zity-vilnius/', img:'zity', services:['Biurų nuoma','SAMSUNG konferencijų centras','Renginių erdvės','Restoranai'],
-    desc:'Mūsų flagmanas Naujamiestyje — 55 000 m² technologijų miestelis su Samsung konferencijų centru buvusiame 1947 m. „Lelijos" siuvyklos pastate. 8 restoranai, 4 žali kiemai.',
+    desc:'Mūsų flagmanas Naujamiestyje — 55 000 m² technologijų miestelis su <a href="https://samsungkc.lt/" target="_blank" rel="noopener">Samsung konferencijų centru</a> buvusiame 1947 m. „Lelijos" siuvyklos pastate. 8 restoranai, 4 žali kiemai.',
     dist:[['15 min','pėsčiomis iki senamiesčio ir stoties'],['10 min','automobiliu iki oro uosto'],['2 min','iki pietinio aplinkkelio']],
     park:'Samsung konferencijų centrui priklauso 5 parkavimo vietos miestelio teritorijoje. Patogus privažiavimas iš pietinio aplinkkelio — logistika renginio technikai ir dekoracijoms.',
     maps:'https://www.google.com/maps/dir/?api=1&destination=Paneri%C5%B3+g.+43,+Vilnius',
