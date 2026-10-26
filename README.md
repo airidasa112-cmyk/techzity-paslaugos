@@ -47,7 +47,7 @@ santraukų korteles į visas skiltis).
 | `apziura.html` | 3 apžiūrų kalendoriaus nuorodos (2 lokacijos + konsultacija) |
 | `duk.html` | DUK |
 | `uzklausa.html` | Renginio užklausos forma → iš naršyklės tiesiai į seną WP HubSpot formą „Domina mūsų renginių erdvės?“, portalas 20121518; raktų nereikia) |
-| `privatumo-politika.html` | Privatumo politika |
+| – | Privatumo politika – bendra WP techzity.com/privacy-policy/ (seni adresai 301) |
 
 Puslapiai susikalba per URL parametrus: `erdves.html?loc=zity&size=l` (iš anksto uždeda filtrus),
 `erdves.html?atidaryti=tp-kc` (iš karto atveria salės pop-upą), `lokacijos.html?loc=zity`
@@ -72,7 +72,7 @@ keičiant meniu reikia pataisyti visus HTML failus — greičiausia `sed`'u arba
 | Renginių scenarijai | `assets/js/data.js` → `const SCEN = [...]` |
 | Lokacijos žemėlapiui (atstumai, parkavimas) | `assets/js/data.js` → `const MAPDATA = {...}` |
 | Lokacijų spalvos ir tipografija | `assets/css/site.css` → `:root { ... }` |
-| Privatumo politika | `privatumo-politika.html` |
+| Privatumo politika | https://techzity.com/privacy-policy/ |
 | Salių nuotraukos | `assets/img/spaces/` (Tech Park), `assets/img/skc/` (Samsung KC) |
 | Scenarijų nuotraukos | `assets/img/scen/` |
 | Kliento pristatymai (tik šaltinis, viešai nerodomi) | `assets/docs/*.pdf` |

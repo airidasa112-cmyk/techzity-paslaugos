@@ -22,6 +22,11 @@ export default {
     }
     if (!url.pathname.startsWith(PREFIX + "/")) return fetch(request);
 
+    // Privatumo politika – bendra visam techzity.com (WP), sava nebenaudojama
+    if (/^\/paslaugos\/renginiu-erdves\/privatumo-politika(\.html|\/)?$/.test(url.pathname)) {
+      return Response.redirect("https://techzity.com/privacy-policy/", 301);
+    }
+
     // Švarūs adresai kaip visame techzity.com: /erdves/ ← erdves.html; seni .html ir be brūkšnio – 301
     const page = /^\/paslaugos\/renginiu-erdves\/([a-z-]+)(\.html|)$/.exec(url.pathname);
     if (page) return Response.redirect(url.origin + PREFIX + "/" + (page[1] === "index" ? "" : page[1] + "/") + url.search, 301);
