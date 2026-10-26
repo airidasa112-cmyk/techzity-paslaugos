@@ -369,7 +369,7 @@ if (inq){
     btn.disabled = true;
     const v = id => $('#' + id).value.trim();
     try {
-      const r = await fetch('/api/inquiry', {
+      const r = await fetch('api/inquiry', {
         method: 'POST',
         headers: {'Content-Type': 'application/json'},
         body: JSON.stringify({

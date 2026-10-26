@@ -13,6 +13,7 @@ const T = {
   invalid: "Patikrinkite įvestus duomenis.",
   notReady: "Forma kol kas nesukonfigūruota. Parašykite events@techzity.com arba paskambinkite +370 671 86 572.",
   sendFail: "Nepavyko išsiųsti. Parašykite events@techzity.com arba paskambinkite +370 671 86 572.",
+  limit: "Per daug užklausų. Pabandykite vėliau arba parašykite events@techzity.com.",
   tooFast: "Forma pateikta per greitai. Palaukite kelias sekundes ir bandykite dar kartą."
 };
 
@@ -22,10 +23,36 @@ const MAX = { name: 120, org: 160, email: 200, phone: 40, date: 20, guests: 6, s
 const esc = (s) => String(s).replace(/[<>&"']/g, (c) => ({ "<": "&lt;", ">": "&gt;", "&": "&amp;", '"': "&quot;", "'": "&#39;" }[c]));
 const oneLine = (s) => String(s).replace(/[\r\n\t]+/g, " ");
 
+// Leidžiami puslapiai, iš kurių priimama forma (naršyklė POST užklausoje visada siunčia Origin)
+const ORIGINS = ["https://techzity.com", "https://techzity-demo.vercel.app"];
+
+// Užklausų riba: iki 5 per 10 min. iš vieno IP ir iki 40 per valandą iš viso.
+// Atmintis vienos funkcijos instancijos (best effort); papildomai riboja Cloudflare taisyklė.
+const hits = new Map();
+let total = [];
+const limited = (ip) => {
+  const now = Date.now();
+  total = total.filter((t) => now - t < 3600000);
+  const mine = (hits.get(ip) || []).filter((t) => now - t < 600000);
+  if (mine.length >= 5 || total.length >= 40) return true;
+  mine.push(now); total.push(now); hits.set(ip, mine);
+  if (hits.size > 5000) hits.clear();
+  return false;
+};
+
 module.exports = async (req, res) => {
   if (req.method !== "POST") {
     res.setHeader("Allow", "POST");
     return res.status(405).json({ ok: false, error: T.method });
+  }
+
+  if (!ORIGINS.includes(req.headers.origin)) {
+    return res.status(403).json({ ok: false, error: T.invalid });
+  }
+  const ip = String(req.headers["cf-connecting-ip"] || req.headers["x-real-ip"] || "").slice(0, 64);
+  if (limited(ip)) {
+    console.warn("inquiry: rate limit");
+    return res.status(429).json({ ok: false, error: T.limit });
   }
 
   let body = req.body;
