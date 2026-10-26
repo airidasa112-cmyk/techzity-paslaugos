@@ -1,6 +1,7 @@
-# Tech Zity — renginių erdvių puslapis (demo)
+# Tech Zity — renginių erdvių puslapis
 
-Live: **https://techzity-demo.vercel.app**
+Gyvai: **https://techzity.com/paslaugos/renginiu-erdves/** — failai kliento Cloudflare paskyroje
+(Worker `techzity-renginiu-erdves` su statiniais failais, `tools/cf-worker/`). Vercel nebenaudojamas.
 
 Statinė svetainė be build'o žingsnio: po vieną HTML failą kiekvienai skilčiai, bendri
 `assets/css/site.css` ir `assets/js/`. Jokio npm, jokio framework'o — atsidarai failą ir dirbi.
@@ -17,16 +18,16 @@ npx serve -l 4177 .        # arba: python -m http.server 4177
 
 Tada http://localhost:4177
 
-## Kaip deployinti
-
-Projektas Vercel'yje jau egzistuoja — **`techzity-demo`** (team `airids-projects`).
+## Kaip įkelti gyvai
 
 ```bash
-vercel --prod --yes --scope airids-projects
+tools/cf-worker/build.sh                          # surenka public/ (be assets/docs/, *.md, tools/)
+cd tools/cf-worker && npx wrangler@4 deploy       # prisijungus prie kliento Cloudflare paskyros
 ```
 
-Pirmą kartą: `vercel link` → pasirinkti esamą projektą `techzity-demo`, kitaip atsiras naujas URL.
-Alternatyva: prijungti šį GitHub repą prie to paties Vercel projekto — tada `git push` = auto-deploy.
+Saugumo antraštės (CSP ir kt.) ir talpyklos taisyklės — `tools/cf-worker/worker.js`.
+Pakeitus CSS/JS — padidinti `?v=` visuose HTML. Naujas puslapis — įrašyti į `tools/cf-worker/sitemap.xml`.
+WP puslapis tuo adresu neištrintas: pašalinus Worker'io maršrutą vėl rodomas WP.
 
 ---
 
@@ -45,7 +46,7 @@ santraukų korteles į visas skiltis).
 | `turas.html` | Virtualus 360° turas (Tech Park) |
 | `apziura.html` | 3 apžiūrų kalendoriaus nuorodos (2 lokacijos + konsultacija) |
 | `duk.html` | DUK |
-| `uzklausa.html` | Renginio užklausos forma → `api/inquiry.js` (į seną WP HubSpot formą „Domina mūsų renginių erdvės?“, portalas 20121518; raktų nereikia) |
+| `uzklausa.html` | Renginio užklausos forma → iš naršyklės tiesiai į seną WP HubSpot formą „Domina mūsų renginių erdvės?“, portalas 20121518; raktų nereikia) |
 | `privatumo-politika.html` | Privatumo politika |
 
 Puslapiai susikalba per URL parametrus: `erdves.html?loc=zity&size=l` (iš anksto uždeda filtrus),

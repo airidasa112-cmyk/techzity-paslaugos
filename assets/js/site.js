@@ -359,32 +359,53 @@ if (inq){
     const hit = [...sel.options].find(o => o.textContent.endsWith('– ' + want));
     if (hit) sel.value = hit.value || hit.textContent;
   }
-  /* siuntimas — api/inquiry.js (į seną HubSpot renginių formą) */
+  /* siuntimas — tiesiai į seną HubSpot renginių formą „Domina mūsų renginių erdvės?“
+     (portalas 20121518), kaip siuntė senas WordPress puslapis. Formos ID viešas, raktų nėra;
+     privalomus laukus ir el. pašto formatą HubSpot tikrina pats. */
+  const HS_URL = 'https://api.hsforms.com/submissions/v3/integration/submit/20121518/9aa7a350-eaa9-4381-877c-addc562322bc';
+  const FAIL = 'Nepavyko išsiųsti. Parašykite events@techzity.com arba paskambinkite +370 671 86 572.';
+  /* HubSpot laukas venue_interest priima tik savo reikšmes; Tech Zity Vilnius salės jame nėra — jos lieka žinutėje */
+  const venue = sp => !sp ? 'Domina konsultacija dėl erdvės' : sp.startsWith('Tech Park') ? 'Tech Park' : '';
   const t0 = Date.now();
   const ok = $('#formOk'), err = $('#formErr'), btn = inq.querySelector('button[type=submit]');
+  const showErr = msg => { err.textContent = msg; err.setAttribute('data-open', ''); };
   inq.addEventListener('submit', async (e) => {
     e.preventDefault();
     if (!inq.checkValidity()) { inq.reportValidity(); return; }
     ok.removeAttribute('data-open'); err.removeAttribute('data-open');
-    btn.disabled = true;
     const v = id => $('#' + id).value.trim();
+    /* botams — tyli „sėkmė“ be siuntimo */
+    if (v('f-hp')) { ok.setAttribute('data-open', ''); inq.reset(); return; }
+    if (Date.now() - t0 < 3000) { showErr('Forma pateikta per greitai. Palaukite kelias sekundes ir bandykite dar kartą.'); return; }
+    const space = v('f-space'), msg = v('f-msg');
+    const extra = [
+      v('f-date') && `Renginio data: ${v('f-date')}`,
+      `Dominanti erdvė: ${space || 'Konsultacija / patarimas'}`,
+      'Sutikimas su privatumo politika pažymėtas.'
+    ].filter(Boolean).join('\n');
+    const fields = [
+      ['firstname', v('f-name')], ['company', v('f-org')], ['email', v('f-mail')], ['phone', v('f-tel')],
+      ['venue_interest', venue(space)], ['number_of_participants', v('f-n')],
+      ['message', (msg ? msg + '\n\n' : '') + extra]
+    ].filter(([, x]) => x).map(([name, value]) => ({objectTypeId: '0-1', name, value}));
+    btn.disabled = true;
+    const ctrl = new AbortController();
+    const timer = setTimeout(() => ctrl.abort(), 10000);
     try {
-      const r = await fetch('api/inquiry', {
+      const r = await fetch(HS_URL, {
         method: 'POST',
         headers: {'Content-Type': 'application/json'},
-        body: JSON.stringify({
-          name: v('f-name'), org: v('f-org'), email: v('f-mail'), phone: v('f-tel'),
-          date: v('f-date'), guests: v('f-n'), space: v('f-space'), message: v('f-msg'),
-          consent: $('#f-gdpr').checked, hp: v('f-hp'), elapsed: Date.now() - t0
-        })
+        body: JSON.stringify({fields, context: {pageUri: location.href.split('?')[0], pageName: document.title}}),
+        signal: ctrl.signal
       });
-      const j = await r.json().catch(() => ({}));
-      if (r.ok && j.ok){ ok.setAttribute('data-open', ''); inq.reset(); }
-      else { err.textContent = j.error || 'Nepavyko išsiųsti. Parašykite events@techzity.com arba paskambinkite +370 671 86 572.'; err.setAttribute('data-open', ''); }
-    } catch (_) {
-      err.textContent = 'Nepavyko išsiųsti. Parašykite events@techzity.com arba paskambinkite +370 671 86 572.';
-      err.setAttribute('data-open', '');
-    } finally { btn.disabled = false; }
+      if (r.ok){ ok.setAttribute('data-open', ''); inq.reset(); }
+      else {
+        const j = await r.json().catch(() => ({}));
+        const bad = (j.errors || []).some(x => /INVALID_EMAIL|INVALID_NUMBER|REQUIRED_FIELD/.test(x.errorType || ''));
+        showErr(bad ? 'Patikrinkite įvestus duomenis.' : FAIL);
+      }
+    } catch (_) { showErr(FAIL); }
+    finally { clearTimeout(timer); btn.disabled = false; }
   });
 }
 
