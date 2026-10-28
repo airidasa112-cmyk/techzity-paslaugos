@@ -304,11 +304,11 @@ h3{font-size:var(--fs-h3)}
 .pp-foot.card-actions{padding-top:0}
 .pp-foot .fineprint{margin-top:0}
 .panel--dark .fineprint a{color:#fff;text-decoration:underline;text-underline-offset:3px}
-/* dviem stulpeliais — abu skydeliai dalijasi tomis pačiomis eilėmis, tad Tech Park ir SKC blokai stovi vienodame aukštyje */
+/* dviem stulpeliais — abu skydeliai dalijasi tomis pačiomis eilėmis, tad sąrašai ir mygtukai stovi vienodame aukštyje */
 @media(min-width:861px){
   @supports (grid-template-rows:subgrid){
-    .price-grid{grid-template-rows:repeat(4,auto);row-gap:0;align-items:stretch}
-    .price-grid > .panel{display:grid;grid-row:span 4;grid-template-rows:subgrid;align-content:start}
+    .price-grid{grid-template-rows:repeat(3,auto);row-gap:0;align-items:stretch}
+    .price-grid > .panel{display:grid;grid-row:span 3;grid-template-rows:subgrid;align-content:start}
   }
 }
 .panel{background:var(--white);border:1px solid var(--line);padding:clamp(1.4rem,3vw,2.1rem)}
