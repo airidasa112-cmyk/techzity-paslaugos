@@ -9,7 +9,7 @@
    jie rodomi kaip atskiros kortelės, bet į erdvių skaičių neįeina. */
 const LOC = {
   park: {name:'Tech Park', addr:'Antakalnio g. 17', color:'var(--park)', ink:'var(--park-ink)'},
-  zity: {name:'Tech Zity Vilnius', addr:'Panerių g. 43', color:'var(--zity)', ink:'var(--zity-ink)'}
+  zity: {name:'Samsung KC', addr:'Panerių g. 43', color:'var(--zity)', ink:'var(--zity-ink)'}
 };
 
 const TP_EQUIP = [

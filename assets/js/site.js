@@ -6,7 +6,7 @@ const $$ = (s, r = document) => [...r.querySelectorAll(s)];
 const PARAMS = new URLSearchParams(location.search);
 
 /* ═══════════════ ERDVIŲ TINKLELIS + FILTRAI (erdves/) ═══════════════ */
-const band = (n) => n <= 100 ? 's' : (n <= 250 ? 'm' : 'l');
+const band = (n) => n <= 100 ? 's' : (n <= 200 ? 'm' : 'l');
 const imgPath = (sp, file) => `${sp.dir === 'skc' ? 'skc' : 'spaces'}/${file}`;
 /* Atsakingos nuotraukos. IMGW (data.js): 'katalogas/failas' → turimi pločiai, pvz. [800, 1600, 2400].
    Pagrindinis failas.jpg — didžiausias ≤ 1600 px, kiti — failas-800.jpg / failas-2400.jpg.
